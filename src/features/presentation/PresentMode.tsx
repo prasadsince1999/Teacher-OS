@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChapterContent } from '../types';
+import { ChapterContent } from '../../types';
 import { X, Clock, Users, MoreHorizontal, ChevronLeft, ChevronRight, CheckCircle2, MessageSquare, Play } from 'lucide-react';
 
 interface PresentModeProps {

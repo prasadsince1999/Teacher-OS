@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChapterContent } from '../types';
+import { ChapterContent } from '../../types';
 import { ChevronLeft, Volume2, Presentation, CheckCircle, Lightbulb, CheckCircle2, AlertTriangle, ArrowRight } from 'lucide-react';
 
 interface TopicDetailProps {

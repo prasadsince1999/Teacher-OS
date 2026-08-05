@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu, Search, RefreshCw, Bell, User } from 'lucide-react';
-import { ChapterContent } from '../types';
+import { ChapterContent } from '../../types';
 
 interface TopBarProps {
   sidebarOpen: boolean;

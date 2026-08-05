@@ -1,6 +1,6 @@
 import React from 'react';
 import { PanelsTopLeft, Presentation, UsersRound, MoreHorizontal } from 'lucide-react';
-import { ActiveTab } from '../types';
+import { ActiveTab } from '../../types';
 
 interface BottomNavProps {
   activeTab: ActiveTab;

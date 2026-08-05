@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChapterContent } from '../types';
+import { ChapterContent } from '../../types';
 import { PlayCircle, Edit3, FileText, HelpCircle, MessageCircle, MoreVertical, Presentation, Share } from 'lucide-react';
 
 interface ChapterHomeProps {

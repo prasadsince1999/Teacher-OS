@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { GradeLevel, SubjectName, ChapterContent, ActiveTab } from './types';
 import { INITIAL_CHAPTERS } from './data/initialData';
-import { Sidebar } from './components/Sidebar';
-import { TopBar } from './components/TopBar';
-import { BottomNav } from './components/BottomNav';
-import { ChapterHome } from './components/ChapterHome';
-import { TopicDetail } from './components/TopicDetail';
-import { PresentMode } from './components/PresentMode';
-import { ClassroomSection } from './components/ClassroomSection';
-import { MoreSection } from './components/MoreSection';
+import { Sidebar } from './components/layout/Sidebar';
+import { TopBar } from './components/layout/TopBar';
+import { BottomNav } from './components/layout/BottomNav';
+import { ChapterHome } from './features/chapters/ChapterHome';
+import { TopicDetail } from './features/chapters/TopicDetail';
+import { PresentMode } from './features/presentation/PresentMode';
+import { ClassroomSection } from './features/classroom/ClassroomSection';
+import { MoreSection } from './features/curriculum/MoreSection';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('library');
   const [selectedGrade, setSelectedGrade] = useState<GradeLevel>('Grade 4');
   const [selectedSubject, setSelectedSubject] = useState<SubjectName>('Our Wondrous World');
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(() => typeof window !== 'undefined' && window.innerWidth >= 1024);
   const [chapters] = useState<ChapterContent[]>(
     [...INITIAL_CHAPTERS].sort((a,b) => a.chapterNumber - b.chapterNumber)
   );
@@ -25,15 +25,10 @@ export default function App() {
   
   const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (window.innerWidth >= 1024) {
-      setSidebarOpen(true);
-    }
-  }, []);
 
   const handleLibraryClick = () => {
     if (window.innerWidth < 1024) {
-      setSidebarOpen(true);
+      if (!sidebarOpen) setSidebarOpen(true);
     }
   };
 

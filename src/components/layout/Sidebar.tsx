@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GradeLevel, SubjectName, ChapterContent, InteractiveTopic } from '../types';
+import { GradeLevel, SubjectName, ChapterContent, InteractiveTopic } from '../../types';
 import { ChevronDown, ChevronRight, Search, Book, Circle, CircleCheck, CircleDashed } from 'lucide-react';
 
 interface SidebarProps {
