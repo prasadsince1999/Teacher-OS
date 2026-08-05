@@ -1,140 +1,134 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  GradeLevel, 
-  SubjectName, 
-  ChapterContent, 
-} from './types';
-import { 
-  INITIAL_CHAPTERS, 
-} from './data/initialData';
-
+import { GradeLevel, SubjectName, ChapterContent, ActiveTab } from './types';
+import { INITIAL_CHAPTERS } from './data/initialData';
 import { Sidebar } from './components/Sidebar';
-import { ChapterView } from './components/ChapterView';
-
-import { BookOpenCheck, Presentation, Menu } from 'lucide-react';
-import { ClassroomMode } from './components/ClassroomMode';
+import { TopBar } from './components/TopBar';
+import { BottomNav } from './components/BottomNav';
+import { ChapterHome } from './components/ChapterHome';
+import { TopicDetail } from './components/TopicDetail';
+import { PresentMode } from './components/PresentMode';
+import { ClassroomSection } from './components/ClassroomSection';
+import { MoreSection } from './components/MoreSection';
 
 export default function App() {
-  const [selectedGrade, setSelectedGrade] = useState<GradeLevel>('Grade 6');
+  const [activeTab, setActiveTab] = useState<ActiveTab>('library');
+  const [selectedGrade, setSelectedGrade] = useState<GradeLevel>('Grade 4');
   const [selectedSubject, setSelectedSubject] = useState<SubjectName>('Our Wondrous World');
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [chapters] = useState<ChapterContent[]>(
+    [...INITIAL_CHAPTERS].sort((a,b) => a.chapterNumber - b.chapterNumber)
+  );
+  
+  const [selectedChapter, setSelectedChapter] = useState<ChapterContent | null>(
+    chapters.find(c => c.id === 'ch-g4-sci-1') || chapters[0] || null
+  );
+  
+  const [selectedTopicId, setSelectedTopicId] = useState<string | null>(null);
+
   useEffect(() => {
     if (window.innerWidth >= 1024) {
       setSidebarOpen(true);
     }
   }, []);
 
-  // App Data State
-  const [chapters] = useState<ChapterContent[]>([...INITIAL_CHAPTERS].sort((a,b) => a.chapterNumber - b.chapterNumber));
+  const handleLibraryClick = () => {
+    if (window.innerWidth < 1024) {
+      setSidebarOpen(true);
+    }
+  };
 
-  // Selected Chapter State - default to Grade 6 Science Chapter 1
-  const [selectedChapter, setSelectedChapter] = useState<ChapterContent | null>(
-    [...INITIAL_CHAPTERS].sort((a,b) => a.chapterNumber - b.chapterNumber)[0] || null
-  );
-
-  // Toolbar state
-  const [activeOverlay, setActiveOverlay] = useState<'none' | 'ai' | 'voice' | 'whiteboard' | 'homework' | 'present'>('none');
+  const handleStartPresent = (topicId?: string) => {
+    if (topicId) {
+      setSelectedTopicId(topicId);
+    }
+    setActiveTab('present');
+  };
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans antialiased transition-colors">
+    <div className="min-h-screen bg-[#FAFAF8] text-[#1F2937] font-sans antialiased flex h-screen overflow-hidden">
       
-      {activeOverlay === 'present' && (
-        <ClassroomMode
-          chapters={chapters}
-          selectedGrade={selectedGrade}
-          onExit={() => setActiveOverlay('none')}
-        />
-      )}
-
-      {/* Main Layout Wrapper */}
-      <div className="flex h-screen overflow-hidden">
-        
-        {/* Navigation Sidebar */}
+      {/* Sidebar - only visible when activeTab is library or when explicitly opened on mobile */}
+      {(activeTab === 'library' || sidebarOpen) && (
         <Sidebar
-          activeTab={'chapter_view'}
-          onNavigate={() => {}}
+          sidebarOpen={sidebarOpen}
+          onCloseSidebar={() => setSidebarOpen(false)}
+          chapters={chapters}
           selectedGrade={selectedGrade}
           onSelectGrade={(grade) => {
             setSelectedGrade(grade);
             const firstChapter = chapters.find(c => c.grade === grade && c.subject === selectedSubject) || chapters.find(c => c.grade === grade);
-            if (firstChapter) {
-              setSelectedChapter(firstChapter);
-            } else {
-              setSelectedChapter(null);
-            }
+            if (firstChapter) setSelectedChapter(firstChapter);
+            setSelectedTopicId(null);
           }}
-          selectedSubject={selectedSubject}
-          onSelectSubject={(subject) => {
-            setSelectedSubject(subject);
-            const firstChapter = chapters.find(c => c.grade === selectedGrade && c.subject === subject);
-            if (firstChapter) {
-              setSelectedChapter(firstChapter);
-            } else {
-              setSelectedChapter(null);
-            }
-          }}
-          chapters={chapters}
           selectedChapter={selectedChapter}
           onSelectChapter={(ch) => {
             setSelectedChapter(ch);
             setSelectedGrade(ch.grade);
             setSelectedSubject(ch.subject);
-            setActiveOverlay('none');
+            if (window.innerWidth < 1024) setSidebarOpen(false);
           }}
-          sidebarOpen={sidebarOpen}
-          onCloseSidebar={() => setSidebarOpen(false)}
+          selectedTopic={selectedTopicId}
+          onSelectTopic={(topicId) => {
+            setSelectedTopicId(topicId);
+            if (window.innerWidth < 1024) setSidebarOpen(false);
+          }}
         />
+      )}
 
-        {/* Content Body Area */}
-        <div className="flex-1 flex flex-col min-w-0 overflow-hidden relative bg-[var(--bg-secondary)] md:rounded-tl-2xl md:border-l md:border-[var(--border-color)]">
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col min-w-0 bg-[#FAFAF8] relative h-full">
+        
+        {/* Top Context Bar (hidden in present mode) */}
+        {activeTab !== 'present' && (
+          <TopBar 
+            sidebarOpen={sidebarOpen} 
+            onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} 
+            currentChapter={activeTab === 'library' ? selectedChapter : null}
+          />
+        )}
+
+        {/* Dynamic Main Views */}
+        <main className="flex-1 overflow-y-auto relative no-scrollbar">
+          {activeTab === 'library' && (
+            selectedTopicId ? (
+              <TopicDetail 
+                chapter={selectedChapter!} 
+                topicId={selectedTopicId} 
+                onBack={() => setSelectedTopicId(null)}
+                onPresent={() => handleStartPresent(selectedTopicId)}
+              />
+            ) : (
+              <ChapterHome 
+                chapter={selectedChapter!} 
+                onSelectTopic={setSelectedTopicId}
+                onPresent={() => handleStartPresent(selectedChapter?.interactiveTopics?.[0]?.id)}
+              />
+            )
+          )}
           
-
-
-          {/* Scrollable View Container */}
-          <main className="flex-1 overflow-y-auto relative pb-24">
-            <ChapterView
-              chapters={chapters}
-              selectedChapter={selectedChapter}
-              onSelectChapter={setSelectedChapter}
-              onNavigate={() => {}}
-              onStartLessonPlanForChapter={() => {}}
+          {activeTab === 'present' && (
+            <PresentMode 
+              chapter={selectedChapter!}
+              topicId={selectedTopicId}
+              onExit={() => setActiveTab('library')}
             />
-          </main>
-
-          {/* Overlays */}
-          {activeOverlay === 'homework' && (
-            <div className="absolute inset-0 z-40 bg-[var(--bg-primary)] p-6 overflow-y-auto">
-              <button onClick={() => setActiveOverlay('none')} className="mb-4 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)]">← Back to Chapter</button>
-              <div className="max-w-2xl mx-auto mt-10 text-center">
-                 <h2 className="text-xl font-bold mb-2">Homework Tracking</h2>
-                 <p className="text-[var(--text-secondary)]">The homework module is focused for this chapter view.</p>
-              </div>
-            </div>
           )}
 
-          {/* Floating Bottom Toolbar */}
-          {activeOverlay !== 'present' && (
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 bg-[var(--bg-secondary)] border border-[var(--border-color)] shadow-sm rounded-full px-6 py-3 flex items-center gap-6">
-              
-              <button onClick={() => setSidebarOpen(!sidebarOpen)} className={`flex flex-col items-center gap-1 transition-colors ${sidebarOpen ? 'text-[var(--accent-blue)]' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}>
-                <Menu className="w-5 h-5" />
-                <span className="text-[10px] font-medium">Menu</span>
-              </button>
-
-              <button onClick={() => setActiveOverlay(activeOverlay === 'homework' ? 'none' : 'homework')} className={`flex flex-col items-center gap-1 transition-colors ${activeOverlay === 'homework' ? 'text-[var(--accent-blue)]' : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'}`}>
-                <BookOpenCheck className="w-5 h-5" />
-                <span className="text-[10px] font-medium">Homework</span>
-              </button>
-
-              <button onClick={() => setActiveOverlay('present')} className={`flex flex-col items-center gap-1 transition-colors text-[var(--text-secondary)] hover:text-[var(--text-primary)]`}>
-                <Presentation className="w-5 h-5" />
-                <span className="text-[10px] font-medium">Present</span>
-              </button>
-
-            </div>
+          {activeTab === 'classroom' && (
+            <ClassroomSection />
           )}
 
-        </div>
+          {activeTab === 'more' && (
+            <MoreSection />
+          )}
+        </main>
+
+        {/* Bottom Navigation */}
+        <BottomNav 
+          activeTab={activeTab} 
+          onTabChange={setActiveTab} 
+          onLibraryClick={handleLibraryClick}
+        />
       </div>
     </div>
   );

@@ -174,21 +174,4 @@ export interface Flashcard {
 
 export type VoiceAssistantMode = 'Weak Student' | 'Curious Student' | 'Distracted Student' | 'Fast Learner' | 'Exam Mode';
 
-export type ActiveTab = 
-  | 'dashboard'
-  | 'pdf_import'
-  | 'chapter_suite'
-  | 'lesson_planner'
-  | 'voice_assistant'
-  | 'classroom_mode'
-  | 'whiteboard'
-  | 'flashcards'
-  | 'worksheets'
-  | 'student_hub'
-  | 'math_tools'
-  | 'science_lab'
-  | 'geography_map'
-  | 'analytics'
-  | 'timetable'
-  | 'notes'
-  | 'ai_chat';
+export type ActiveTab = "library" | "present" | "classroom" | "more";
