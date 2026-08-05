@@ -1,0 +1,6 @@
+{
+  "name": "TeacherOS – AI Teaching Companion",
+  "description": "Comprehensive AI-powered teaching operating system for Grades 4-7 with PDF processing, lesson planner, classroom presentation mode, student analytics, voice assistant, and interactive teaching tools.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

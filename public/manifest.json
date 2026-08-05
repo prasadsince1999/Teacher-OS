@@ -1,0 +1,22 @@
+{
+  "short_name": "TeacherOS",
+  "name": "TeacherOS – AI Teaching Companion",
+  "icons": [
+    {
+      "src": "/assets/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/assets/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#f8fafc",
+  "theme_color": "#2563eb",
+  "display": "standalone",
+  "orientation": "any",
+  "description": "Production-ready AI Teaching Operating System for Grades 4-7"
+}

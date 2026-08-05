@@ -1,0 +1,2 @@
+#!/bin/bash
+sed -i 's/<div className="flex items-center gap-2.5">/<button onClick={onCloseSidebar} className="p-1 mr-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] lg:hidden"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"><\/line><line x1="3" y1="6" x2="21" y2="6"><\/line><line x1="3" y1="18" x2="21" y2="18"><\/line><\/svg><\/button><div className="flex items-center gap-2.5">/g' src/components/Sidebar.tsx
