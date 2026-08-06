@@ -1,99 +1,135 @@
 import React from 'react';
-import { BookOpen, HelpCircle, PlayCircle, Edit3, FileText, Settings, Settings2, BarChart, Bot } from 'lucide-react';
+import { 
+  HelpCircle, 
+  Edit3, 
+  BookOpen, 
+  BarChart, 
+  FileText, 
+  CalendarDays, 
+  Bot, 
+  Settings, 
+  Info,
+  ChevronRight
+} from 'lucide-react';
+import { motion } from 'motion/react';
+
+interface ListItemProps {
+  icon: React.ReactNode;
+  iconBg: string;
+  title: string;
+  subtitle: string;
+}
+
+const ListItem: React.FC<ListItemProps> = ({ icon, iconBg, title, subtitle }) => (
+  <button className="flex items-center gap-4 px-4 min-h-[56px] py-3 w-full text-left bg-[var(--bg-card)] hover:bg-[var(--bg-primary)] active:bg-[var(--bg-accent)] transition-colors">
+    <div className={`w-10 h-10 rounded-full flex items-center justify-center shrink-0 ${iconBg}`}>
+      {icon}
+    </div>
+    <div className="flex-1">
+      <div className="font-semibold text-base text-[var(--text-primary)]">{title}</div>
+      <div className="text-sm text-[var(--text-secondary)]">{subtitle}</div>
+    </div>
+    <ChevronRight className="w-5 h-5 text-[var(--text-secondary)] opacity-50 shrink-0" />
+  </button>
+);
 
 export const MoreSection: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <div className="max-w-4xl mx-auto px-4 md:px-8 py-8 space-y-10">
-      <h1 className="text-3xl font-bold font-serif text-[#1F2937] mb-8">More Tools</h1>
-      
-      <section>
-        <h2 className="text-sm font-bold text-[#6B7280] uppercase tracking-wider mb-4">Content Tools</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#2563EB]"><BookOpen className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">Chapter Overview</div>
-              <div className="text-sm text-[#6B7280]">Full syllabus breakdown</div>
-            </div>
-          </button>
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#2563EB]"><HelpCircle className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">Question Bank</div>
-              <div className="text-sm text-[#6B7280]">View all questions</div>
-            </div>
-          </button>
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#2563EB]"><PlayCircle className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">Play Lab</div>
-              <div className="text-sm text-[#6B7280]">Interactive games</div>
-            </div>
-          </button>
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#2563EB]"><Edit3 className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">Exercise Builder</div>
-              <div className="text-sm text-[#6B7280]">Create new worksheets</div>
-            </div>
-          </button>
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#2563EB]"><FileText className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">Homework Builder</div>
-              <div className="text-sm text-[#6B7280]">Assign new tasks</div>
-            </div>
-          </button>
-        </div>
-      </section>
+    <div className="w-full px-5 py-8 bg-[var(--bg-primary)] min-h-screen">
+      <motion.div 
+        variants={containerVariants}
+        initial="hidden"
+        animate="show"
+        className="space-y-8 max-w-3xl mx-auto"
+      >
+        <motion.section variants={itemVariants}>
+          <h2 className="text-xs font-bold tracking-wider text-[var(--text-secondary)] uppercase mb-2 ml-4">
+            Content Tools
+          </h2>
+          <div className="bg-[var(--bg-card)] rounded-xl border border-[var(--border)] flex flex-col divide-y divide-[var(--border)] overflow-hidden shadow-sm">
+            <ListItem 
+              icon={<HelpCircle className="w-5 h-5 text-[var(--accent)]" />}
+              iconBg="bg-[var(--accent-light)]"
+              title="Question Bank"
+              subtitle="Practice questions by difficulty"
+            />
+            <ListItem 
+              icon={<Edit3 className="w-5 h-5 text-[var(--accent)]" />}
+              iconBg="bg-[var(--accent-light)]"
+              title="Exercise Builder"
+              subtitle="Create custom exercises"
+            />
+            <ListItem 
+              icon={<BookOpen className="w-5 h-5 text-[var(--accent)]" />}
+              iconBg="bg-[var(--accent-light)]"
+              title="Flashcards"
+              subtitle="Quick revision cards"
+            />
+          </div>
+        </motion.section>
 
-      <section>
-        <h2 className="text-sm font-bold text-[#6B7280] uppercase tracking-wider mb-4">Teacher Tools</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#D97706]"><FileText className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">Teacher Notes</div>
-              <div className="text-sm text-[#6B7280]">Your private lesson notes</div>
-            </div>
-          </button>
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#D97706]"><Bot className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">AI Teacher Assistant</div>
-              <div className="text-sm text-[#6B7280]">Help with lesson planning</div>
-            </div>
-          </button>
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#D97706]"><BarChart className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">Progress & Analytics</div>
-              <div className="text-sm text-[#6B7280]">Class performance data</div>
-            </div>
-          </button>
-        </div>
-      </section>
+        <motion.section variants={itemVariants}>
+          <h2 className="text-xs font-bold tracking-wider text-[var(--text-secondary)] uppercase mb-2 ml-4">
+            Teacher Tools
+          </h2>
+          <div className="bg-[var(--bg-card)] rounded-xl border border-[var(--border)] flex flex-col divide-y divide-[var(--border)] overflow-hidden shadow-sm">
+            <ListItem 
+              icon={<BarChart className="w-5 h-5 text-[var(--success)]" />}
+              iconBg="bg-green-50"
+              title="Analytics"
+              subtitle="Class performance insights"
+            />
+            <ListItem 
+              icon={<FileText className="w-5 h-5 text-[var(--success)]" />}
+              iconBg="bg-green-50"
+              title="Teacher Notes"
+              subtitle="Personal notes & reminders"
+            />
+            <ListItem 
+              icon={<CalendarDays className="w-5 h-5 text-[var(--success)]" />}
+              iconBg="bg-green-50"
+              title="Lesson Planner"
+              subtitle="Plan your lessons"
+            />
 
-      <section>
-        <h2 className="text-sm font-bold text-[#6B7280] uppercase tracking-wider mb-4">Settings</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#6B7280]"><Settings className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">Chapter Settings</div>
-              <div className="text-sm text-[#6B7280]">Visibility and rules</div>
-            </div>
-          </button>
-          <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl flex items-center gap-4 hover:border-[#2563EB] transition-colors text-left shadow-sm">
-            <div className="w-10 h-10 bg-[#FAFAF8] rounded-full flex items-center justify-center text-[#6B7280]"><Settings2 className="w-5 h-5" /></div>
-            <div>
-              <div className="font-bold text-[#1F2937]">App Settings</div>
-              <div className="text-sm text-[#6B7280]">Account and preferences</div>
-            </div>
-          </button>
-        </div>
-      </section>
+          </div>
+        </motion.section>
 
+        <motion.section variants={itemVariants}>
+          <h2 className="text-xs font-bold tracking-wider text-[var(--text-secondary)] uppercase mb-2 ml-4">
+            Settings
+          </h2>
+          <div className="bg-[var(--bg-card)] rounded-xl border border-[var(--border)] flex flex-col divide-y divide-[var(--border)] overflow-hidden shadow-sm">
+            <ListItem 
+              icon={<Settings className="w-5 h-5 text-[var(--text-primary)]" />}
+              iconBg="bg-[var(--bg-accent)]"
+              title="Preferences"
+              subtitle="App settings & display"
+            />
+            <ListItem 
+              icon={<Info className="w-5 h-5 text-[var(--text-primary)]" />}
+              iconBg="bg-[var(--bg-accent)]"
+              title="About"
+              subtitle="Version & credits"
+            />
+          </div>
+        </motion.section>
+      </motion.div>
     </div>
   );
 };

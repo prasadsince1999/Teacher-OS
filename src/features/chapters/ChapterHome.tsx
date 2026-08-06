@@ -1,166 +1,206 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { motion } from 'motion/react';
 import { ChapterContent } from '../../types';
-import { PlayCircle, Edit3, FileText, HelpCircle, MessageCircle, MoreVertical, Presentation, Share } from 'lucide-react';
+import { Clock, ChevronRight, Target, BookOpen, HelpCircle, CheckCircle } from 'lucide-react';
 
 interface ChapterHomeProps {
   chapter: ChapterContent;
   onSelectTopic: (topicId: string) => void;
-  onPresent: () => void;
 }
 
-export const ChapterHome: React.FC<ChapterHomeProps> = ({ chapter, onSelectTopic, onPresent }) => {
-  if (!chapter) return <div className="p-10 text-center">No chapter available</div>;
+export const ChapterHome: React.FC<ChapterHomeProps> = ({ 
+  chapter,
+  onSelectTopic,
+}) => {
+  const json = chapter.jsonData;
+  const [showReadiness, setShowReadiness] = useState(false);
 
-  return (
-    <div className="max-w-5xl mx-auto px-4 md:px-8 py-8 space-y-12">
-      
-      {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
-          <div className="text-xs font-bold text-[#6B7280] uppercase tracking-wider mb-2">
-            {chapter.grade} • {chapter.subject} • {chapter.unit}
+  if (!chapter) {
+    return <div className="p-10 text-center text-[var(--text-secondary)]">No chapter available</div>;
+  }
+
+  // If no JSON data, show legacy view
+  if (!json) {
+    return (
+      <motion.div 
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="w-full px-5 py-8 pb-12 flex flex-col font-body bg-[var(--bg-primary)] min-h-full"
+      >
+        <div className="flex flex-col mb-8">
+          <div className="inline-flex self-start px-3 py-1 mb-5 rounded-full text-sm font-medium bg-[var(--bg-accent)] text-[var(--text-secondary)]">
+            {chapter.grade} &middot; {chapter.subject}
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold font-serif text-[#1F2937] mb-3">{chapter.title}</h1>
-          <p className="text-lg text-[#6B7280] max-w-3xl leading-relaxed">{chapter.crunchSummary}</p>
-        </div>
-        
-        <div className="flex items-center gap-3">
-          <button onClick={onPresent} className="px-6 py-3 bg-[#2563EB] text-[#FFFFFF] font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-sm flex items-center gap-2">
-            <Presentation className="w-5 h-5" /> Present
-          </button>
-          <button className="px-6 py-3 bg-[#FFFFFF] border border-[#E5E7EB] text-[#1F2937] font-semibold rounded-xl hover:bg-[#F5F5F2] transition-colors shadow-sm">
-            Assign Task
-          </button>
-          <button className="p-3 bg-[#FFFFFF] border border-[#E5E7EB] text-[#6B7280] rounded-xl hover:bg-[#F5F5F2] transition-colors shadow-sm">
-            <MoreVertical className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column - Topics */}
-        <div className="lg:col-span-2 space-y-8">
-          
-          {/* Continue Learning */}
-          {chapter.interactiveTopics && chapter.interactiveTopics.length > 0 && (
-            <section>
-              <h2 className="text-sm font-bold text-[#6B7280] uppercase tracking-wider mb-4">Continue Learning</h2>
-              <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl p-6 shadow-sm flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full border-4 border-[#EFF6FF] flex items-center justify-center">
-                    <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-                      <path
-                        className="text-[#E5E7EB]"
-                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                      <path
-                        className="text-[#2563EB]"
-                        strokeDasharray="25, 100"
-                        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="4"
-                      />
-                    </svg>
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-[#2563EB] mb-1">Topic 2</div>
-                    <div className="text-lg font-bold text-[#1F2937]">{chapter.interactiveTopics[1]?.title || 'Topic'}</div>
-                  </div>
-                </div>
-                <button onClick={() => onSelectTopic(chapter.interactiveTopics![1]?.id)} className="px-5 py-2.5 bg-[#F5F5F2] hover:bg-[#E5E7EB] text-[#1F2937] font-semibold rounded-lg transition-colors">
-                  Continue
-                </button>
-              </div>
-            </section>
+          <h1 className="font-heading text-3xl md:text-4xl leading-tight text-[var(--text-primary)] mb-4">
+            {chapter.chapterNumber ? `Chapter ${chapter.chapterNumber}: ` : ''}{chapter.title}
+          </h1>
+          {chapter.bigQuestion && (
+            <p className="text-xl italic text-[var(--text-secondary)] font-heading mb-6 border-l-4 border-[var(--border)] pl-4 py-1">
+              "{chapter.bigQuestion}"
+            </p>
           )}
-
-          {/* Topic Grid */}
-          <section>
-            <h2 className="text-sm font-bold text-[#6B7280] uppercase tracking-wider mb-4">Topics</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {chapter.interactiveTopics?.map((topic, idx) => (
-                <button 
-                  key={topic.id}
-                  onClick={() => onSelectTopic(topic.id)}
-                  className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl p-5 text-left hover:border-[#2563EB] transition-colors shadow-sm group flex flex-col"
-                >
-                  <div className="flex justify-between items-start mb-2">
-                    <span className="text-xs font-bold text-[#6B7280] bg-[#F5F5F2] px-2 py-1 rounded-md">Topic {idx + 1}</span>
-                    {idx === 0 && <span className="text-xs font-bold text-[#16A34A] bg-[#F0FDF4] px-2 py-1 rounded-md">Mastered</span>}
-                  </div>
-                  <h3 className="font-bold text-[#1F2937] mb-2 group-hover:text-[#2563EB] transition-colors">{topic.title}</h3>
-                  <p className="text-sm text-[#6B7280] line-clamp-2 mt-auto">{topic.explanation}</p>
-                </button>
-              ))}
-            </div>
-          </section>
-
+          <p className="text-lg text-[var(--text-primary)] leading-relaxed">
+            {chapter.crunchSummary}
+          </p>
         </div>
-
-        {/* Right Column - Today's Lesson & Ready to Use */}
-        <div className="space-y-8">
-          
-          <section>
-            <h2 className="text-sm font-bold text-[#6B7280] uppercase tracking-wider mb-4">Today's Lesson</h2>
-            <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl shadow-sm overflow-hidden">
-              {['Hook', 'Explain', 'Ask', 'Activity', 'Exit Ticket'].map((step, idx) => (
-                <div key={step} className="flex items-center gap-4 p-4 border-b border-[#E5E7EB] last:border-0 hover:bg-[#F5F5F2] cursor-pointer transition-colors">
-                  <div className="w-8 h-8 rounded-full bg-[#EFF6FF] text-[#2563EB] flex items-center justify-center font-bold text-sm flex-shrink-0">
-                    {idx + 1}
-                  </div>
-                  <div className="font-semibold text-[#1F2937]">{step}</div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-sm font-bold text-[#6B7280] uppercase tracking-wider mb-4">Ready to Use</h2>
-            <div className="grid grid-cols-2 gap-4">
-              <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl hover:border-[#2563EB] shadow-sm flex flex-col gap-2 items-start text-left transition-colors">
-                <PlayCircle className="w-6 h-6 text-[#2563EB]" />
-                <span className="font-semibold text-sm">Play Lab</span>
-              </button>
-              <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl hover:border-[#2563EB] shadow-sm flex flex-col gap-2 items-start text-left transition-colors">
-                <Edit3 className="w-6 h-6 text-[#D97706]" />
-                <span className="font-semibold text-sm">Quick Exercise</span>
-              </button>
-              <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl hover:border-[#2563EB] shadow-sm flex flex-col gap-2 items-start text-left transition-colors">
-                <FileText className="w-6 h-6 text-[#16A34A]" />
-                <span className="font-semibold text-sm">Homework</span>
-              </button>
-              <button className="bg-[#FFFFFF] border border-[#E5E7EB] p-4 rounded-xl hover:border-[#2563EB] shadow-sm flex flex-col gap-2 items-start text-left transition-colors">
-                <MessageCircle className="w-6 h-6 text-[#DC2626]" />
-                <span className="font-semibold text-sm">Student Doubts</span>
-              </button>
-            </div>
-          </section>
-
-          <section>
-            <h2 className="text-sm font-bold text-[#6B7280] uppercase tracking-wider mb-4">Class Insights</h2>
-            <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl p-5 shadow-sm space-y-4">
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-[#6B7280]">Needing Support</span>
-                <span className="font-bold text-[#DC2626]">3 Students</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-[#6B7280]">Pending Homework</span>
-                <span className="font-bold text-[#D97706]">12/40</span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-[#6B7280]">Completion</span>
-                <span className="font-bold text-[#16A34A]">45%</span>
-              </div>
-            </div>
-          </section>
-
+        <div className="flex-1 flex items-center justify-center">
+          <p className="text-base text-center" style={{ color: 'var(--text-muted)' }}>
+            Select a topic from the bar below to start reading.
+          </p>
         </div>
+      </motion.div>
+    );
+  }
+
+  // Rich chapter map from JSON
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="max-w-[720px] mx-auto w-full px-5 py-8 pb-16 font-body"
+    >
+      {/* Badge */}
+      <div className="inline-flex px-3 py-1 mb-4 rounded-full text-xs font-semibold bg-[var(--bg-accent)] text-[var(--text-secondary)]">
+        {chapter.grade} · {json.book} · {json.estimatedPeriods} periods
       </div>
 
-    </div>
+      {/* Title */}
+      <h1 className="font-heading text-3xl md:text-4xl leading-tight text-[var(--text-primary)] mb-3">
+        Chapter {json.chapterNumber}: {json.title}
+      </h1>
+
+      {/* Hook Question */}
+      <div 
+        className="rounded-xl p-5 mb-6"
+        style={{ background: 'var(--accent-light)', borderLeft: '4px solid var(--accent)' }}
+      >
+        <p className="text-xs font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--accent)' }}>
+          💭 Big Question
+        </p>
+        <p className="text-lg font-heading italic text-[var(--text-primary)] leading-relaxed">
+          "{json.hookQuestion}"
+        </p>
+      </div>
+
+      {/* Chapter Intro */}
+      <p className="text-base text-[var(--text-primary)] leading-relaxed mb-6">
+        {json.chapterIntro}
+      </p>
+
+      {/* Learning Outcomes */}
+      <section className="mb-6">
+        <h2 className="text-sm font-bold uppercase tracking-wider mb-3 flex items-center gap-2" style={{ color: 'var(--text-secondary)' }}>
+          <Target size={16} /> By the end, students can…
+        </h2>
+        <ul className="space-y-2">
+          {json.outcomes.map((outcome, i) => (
+            <li key={i} className="flex items-start gap-3 text-sm text-[var(--text-primary)]">
+              <CheckCircle size={16} className="flex-shrink-0 mt-0.5" style={{ color: 'var(--success)' }} />
+              <span>{outcome.replace(/^By the end, students can /i, '')}</span>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      {/* Readiness Check */}
+      <section className="mb-8">
+        <button
+          onClick={() => setShowReadiness(!showReadiness)}
+          className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-left transition-colors"
+          style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
+        >
+          <span className="flex items-center gap-2 text-sm font-semibold" style={{ color: 'var(--text-primary)' }}>
+            <HelpCircle size={16} style={{ color: 'var(--warning)' }} />
+            Check Readiness · {json.readiness.questions.length} questions
+          </span>
+          <ChevronRight 
+            size={16} 
+            className={`transition-transform ${showReadiness ? 'rotate-90' : ''}`}
+            style={{ color: 'var(--text-muted)' }}
+          />
+        </button>
+        {showReadiness && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            className="mt-2 space-y-3"
+          >
+            <p className="text-xs text-[var(--text-secondary)] px-1">{json.readiness.note}</p>
+            {json.readiness.questions.map((rq, i) => (
+              <div key={i} className="rounded-lg p-4" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+                <p className="text-sm font-semibold text-[var(--text-primary)] mb-1">{rq.q}</p>
+                <p className="text-xs text-[var(--text-secondary)] mb-1">
+                  <span className="font-medium">Expected:</span> {rq.a}
+                </p>
+                <p className="text-xs italic" style={{ color: 'var(--warning)' }}>
+                  If stuck: {rq.ifWrong}
+                </p>
+              </div>
+            ))}
+          </motion.div>
+        )}
+      </section>
+
+      {/* Topic Grid */}
+      <h2 className="text-sm font-bold uppercase tracking-wider mb-3 flex items-center gap-2" style={{ color: 'var(--text-secondary)' }}>
+        <BookOpen size={16} /> Topics · {json.topics.length} total
+      </h2>
+      <div className="space-y-2">
+        {json.topics.map((topic, i) => (
+          <button
+            key={topic.id}
+            onClick={() => onSelectTopic(topic.id)}
+            className="w-full flex items-center gap-3 px-4 py-3.5 rounded-xl text-left transition-all duration-200 hover:scale-[1.01] active:scale-[0.99]"
+            style={{ 
+              background: 'var(--bg-card)',
+              border: '1px solid var(--border)',
+            }}
+          >
+            <span 
+              className="w-7 h-7 flex items-center justify-center rounded-lg text-xs font-bold flex-shrink-0"
+              style={{ background: 'var(--accent-light)', color: 'var(--accent)' }}
+            >
+              {i + 1}
+            </span>
+            <div className="flex-1 min-w-0">
+              <p className="text-sm font-semibold text-[var(--text-primary)] truncate">
+                {topic.title}
+              </p>
+              <div className="flex items-center gap-2 mt-0.5">
+                <span className="flex items-center gap-1 text-[10px] text-[var(--text-muted)]">
+                  <Clock size={10} /> {topic.estimatedMinutes} min
+                </span>
+                <span className="text-[10px] text-[var(--text-muted)]">
+                  · {topic.practice.easy.length + topic.practice.core.length + topic.practice.challenge.length} questions
+                </span>
+                <span className="text-[10px] text-[var(--text-muted)]">
+                  · {topic.vocab.length} words
+                </span>
+              </div>
+            </div>
+            <ChevronRight size={16} className="flex-shrink-0" style={{ color: 'var(--text-muted)' }} />
+          </button>
+        ))}
+      </div>
+
+      {/* Summary */}
+      {json.summary && json.summary.length > 0 && (
+        <section className="mt-8 rounded-xl p-5" style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}>
+          <h2 className="text-sm font-bold uppercase tracking-wider mb-3" style={{ color: 'var(--text-secondary)' }}>
+            📋 Chapter Summary
+          </h2>
+          <ul className="space-y-2">
+            {json.summary.map((s, i) => (
+              <li key={i} className="text-sm text-[var(--text-primary)] leading-relaxed flex items-start gap-2">
+                <span className="text-[var(--text-muted)] mt-0.5">•</span>
+                <span>{s}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </motion.div>
   );
 };

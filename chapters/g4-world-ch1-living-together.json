@@ -1,0 +1,678 @@
+{
+  "id": "g4-world-ch1",
+  "grade": 4,
+  "subject": "world",
+  "book": "Our Wondrous World",
+  "chapterNumber": 1,
+  "title": "Living Together",
+  "estimatedPeriods": 6,
+
+  "hookQuestion": "If one morning every shop, school bus, and neighbour in your area disappeared, what would you miss most by lunchtime?",
+  "chapterIntro": "This chapter is about how people who live near each other - in a village, a city street, or a school - depend on one another and work together. We will meet Chandan's village as it prepares for Van Mahotsav, meet villagers who each bring a different skill, and see how even a big problem, like a flooded river, can be solved when a whole community works as a team.",
+
+  "outcomes": [
+    "By the end, students can explain what makes a group of people a community, using examples from their own area.",
+    "By the end, students can describe at least three different roles people play to help a community, and match each role to a tool or skill.",
+    "By the end, students can explain, with an example, how teamwork helps solve a shared problem faster than one person working alone."
+  ],
+
+  "readiness": {
+    "note": "This chapter assumes basic familiarity with naming nearby places, recognising family and community roles, and describing a simple picture - skills usually built in Grade 3 EVS.",
+    "questions": [
+      {
+        "q": "Can you name three places near your home?",
+        "a": "Answers will vary - e.g., school, market, park.",
+        "skill": "places-around-us",
+        "ifWrong": "Take students on a quick 5-minute mental walk from home to school, naming every place passed."
+      },
+      {
+        "q": "What is one job a family member or neighbour does?",
+        "a": "Answers will vary - e.g., shopkeeper, farmer, teacher.",
+        "skill": "occupations-awareness",
+        "ifWrong": "Show pictures of 5 common occupations and have students match the name to the picture."
+      },
+      {
+        "q": "Can you describe what is happening in a simple picture?",
+        "a": "Answers will vary - a basic who/what/where description.",
+        "skill": "picture-description",
+        "ifWrong": "Practice with one classroom picture, asking 'who, what, where' questions aloud together."
+      },
+      {
+        "q": "Do you know what a festival is?",
+        "a": "Answers will vary - a special day when people celebrate together.",
+        "skill": "festival-awareness",
+        "ifWrong": "List 2-3 festivals students already celebrate and briefly discuss what happens on those days."
+      }
+    ]
+  },
+
+  "topics": [
+    {
+      "id": "t1",
+      "title": "A Tour Around Chandan's Village",
+      "estimatedMinutes": 20,
+      "askFirst": [
+        "What do you think a 'community' means?",
+        "Can you name three places near your house that many people use?"
+      ],
+      "explanation": "Chandan lives in a village and shows us around - the playground, and the big banyan tree where elders gather to talk. A community is a group of people who live near each other and depend on one another. They share places like roads, wells and parks, and different people play different roles that help everyone.",
+      "hinglishAside": "Community matlab sirf gaanv nahi hota - school, mohalla, ya shehar ka ek hissa bhi ek community ho sakta hai.",
+      "explainAgain": [
+        { "type": "concrete", "title": "Human Web", "body": "Ask 5 students to stand in a circle holding a rope, each one representing a 'place' (school, market, well, road, home). Gently pull the rope at one point and show how it tugs the others. Explain: a community works the same way - people and places are all connected." },
+        { "type": "picture", "title": "My Community Map", "body": "Draw a big circle labelled 'My Community' on the board. Around it draw small boxes: School, Market, Well, Park, Hospital. Draw arrows connecting each box back to the big circle, showing how each place serves everyone." },
+        { "type": "story", "title": "Meera's New Town", "body": "Meera moved to a new town. On her first day she found the school, the market, and the park all near her house. She realised these places were not just buildings - they were where she would meet the people she'd grow up with." },
+        { "type": "steps", "title": "Spotting Your Community", "body": "1) Look around your area. 2) List the places you see (school, shop, well...). 3) Note who uses each place. 4) Notice how people depend on each other through these places." },
+        { "type": "nonexample", "title": "Not Just Villages", "body": "Students often think a community is only a village with fields and huts. Actually, a crowded city street, an apartment building, or even a school is also a community - because community is about people depending on each other, not about the type of place." }
+      ],
+      "realLife": [
+        "The local kirana shop where your family buys groceries every week.",
+        "A neighbourhood WhatsApp group that shares news about a water problem in the mohalla.",
+        "A housing society where neighbours share a common garden and a guard."
+      ],
+      "workedExample": {
+        "problem": "In Chandan's village, the 'Road' is one shared place. Two connections are already given: it connects people in different areas, and it allows easy movement of goods and services. What is one more connection a road provides?",
+        "steps": [
+          "Think about who uses the road and why.",
+          "Consider what would be missing without it - for example, reaching a hospital quickly.",
+          "Write the connection as a short sentence."
+        ],
+        "answer": "A road also allows people to reach places like hospitals or schools quickly, especially in an emergency."
+      },
+      "fadedExample": {
+        "problem": "The 'Health Centre' in your area already provides one connection: it provides treatment for illness. Add two more connections it has with people in the community.",
+        "given": ["Provides treatment for illness."],
+        "answer": "It also gives health advice and check-ups to keep people well, and it helps during emergencies like accidents or sudden illness."
+      },
+      "quickCheck": {
+        "q": "Which of these best describes a community?",
+        "type": "mcq",
+        "options": [
+          { "text": "A group of people who live near each other and depend on one another", "correct": true, "misconception": null },
+          { "text": "Only a village with farms and huts", "correct": false, "misconception": "community-means-only-village" },
+          { "text": "A place where people live but never interact with each other", "correct": false, "misconception": "community-means-isolated-living" }
+        ],
+        "answerNote": "A community can be a village, a city street, or even a school - what matters is that people depend on each other, not the type of place."
+      },
+      "commonConfusion": {
+        "wrong": "A community is only a small village in the countryside.",
+        "right": "A community can be a village, a town, a city neighbourhood, or even a school - any group of people who share space and depend on each other.",
+        "why": "Students often see the word 'community' used for villages in books and shows, so they don't apply it to their own street or school."
+      },
+      "activity": {
+        "title": "Exploring My Locality",
+        "instructions": "Observe the people and places around you. Fill a table showing how each place (shopkeeper, road, health centre, police, school) connects to the people who use it.",
+        "materials": ["notebook", "pencil", "printed connections table"],
+        "timeMinutes": 15,
+        "fromTextbook": true
+      },
+      "practice": {
+        "easy": [
+          { "q": "Name one place in your area that many people use every day.", "a": "Answers will vary - e.g., the local market, park, or school." },
+          { "q": "Who works at the shop where your family buys groceries?", "a": "A shopkeeper, who sells daily-need items to everyone in the area." }
+        ],
+        "core": [
+          { "q": "Write two ways a road helps the people in a community.", "a": "A road connects people living in different areas, and it allows easy movement of goods and services." },
+          { "q": "Why do people need a health centre in their locality?", "a": "A health centre provides treatment for illness, so people don't have to travel far when they are sick." },
+          { "q": "List two people who help keep a community safe.", "a": "Answers will vary - e.g., police officers and, in some areas, night watchmen." }
+        ],
+        "challenge": [
+          { "q": "If your locality had no playground, name two things that would change for children.", "a": "Children would lose a shared space to play and make friends nearby, and might need to travel far for outdoor activity." },
+          { "q": "Design one new place your community could use, and explain how it would help.", "a": "Open-ended - a good answer names a real, useful place (like a community library) and explains the need it meets." }
+        ]
+      },
+      "vocab": [
+        { "term": "community", "hindi": "samudaay", "tier": 3, "definition": "A group of people who live near each other and help one another.", "example": "your neighbourhood or village", "nonExample": "one person living alone far from everyone" },
+        { "term": "locality", "hindi": "ilaka", "tier": 3, "definition": "The area around where you live.", "example": "your street and nearby shops", "nonExample": "a city on the other side of the country" }
+      ],
+      "reviewItems": [
+        { "id": "t1-r1", "prompt": "What is a community?", "answer": "A group of people who live near each other and depend on one another.", "type": "recall" },
+        { "id": "t1-r2", "prompt": "Name three types of places found in most communities.", "answer": "Any three of: school, market, park, road, hospital, post office.", "type": "recall" },
+        { "id": "t1-r3", "prompt": "Is a school also a kind of community? Why or why not?", "answer": "Yes - it is a group of people (teachers, students, staff) who share a space and depend on each other.", "type": "recall" }
+      ]
+    },
+
+    {
+      "id": "t2",
+      "title": "Getting Ready for Van Mahotsav",
+      "estimatedMinutes": 20,
+      "askFirst": [
+        "What do you think Van Mahotsav means, just from its name?",
+        "Why might planting trees make elders' morning walks nicer?"
+      ],
+      "explanation": "Van Mahotsav is India's tree-planting festival, held every year from 1 to 7 July during the rainy season. Chandan and his friends John and Mallika planned to clean their park and plant trees before the festival, so elders would have fresh air and a nicer place to walk. Planning together, and inviting family, made the celebration bigger and better.",
+      "hinglishAside": "Van Mahotsav ka matlab hai 'ped lagaane ka tyohaar' - baarish ke mausam mein manaya jaata hai taaki paudhe achhe se badh sakein.",
+      "explainAgain": [
+        { "type": "concrete", "title": "Plant and Plan", "body": "Give each student a small paper cut-out 'sapling'. Have them 'plant' it into a drawn plot on chart paper and write one job needed to grow it (watering, weeding, guarding). Show how many small jobs add up to one successful park." },
+        { "type": "picture", "title": "Park Job List", "body": "Draw a simple park outline on the board. Add labels with arrows: 'Clean the paths', 'Plant saplings', 'Repair benches', 'Fix the light'. Show how each job is a separate piece of the same plan." },
+        { "type": "story", "title": "Arjun's Broken Swing", "body": "Arjun's class wanted to fix their broken playground swing before a holiday. One student brought rope, another brought tools, and a third asked the watchman for help. Together, the swing was fixed in one afternoon." },
+        { "type": "steps", "title": "Planning a Festival Task", "body": "1) Pick a shared space that needs help (like a park). 2) List the jobs needed (cleaning, planting, repairing). 3) Ask family and friends to take one job each. 4) Do the work together on a set day." },
+        { "type": "nonexample", "title": "It's Not Just One Day", "body": "Students often think festivals like Van Mahotsav are only about one big event on one day. Actually, most of the real work - planning, gathering material, inviting people - happens in the days before." }
+      ],
+      "realLife": [
+        "Housing societies in cities holding a tree-plantation drive every monsoon.",
+        "School Eco Clubs planting saplings along the boundary wall.",
+        "Panchayats organising villagers to clean a pond before a local fair."
+      ],
+      "workedExample": {
+        "problem": "John will clean the park, Mallika will bring her family, and Chandan will invite more people. What is still missing from their Van Mahotsav plan?",
+        "steps": [
+          "List everything a tree-planting festival actually needs.",
+          "Compare that list to what John, Mallika and Chandan have already planned.",
+          "Spot the gap."
+        ],
+        "answer": "They still need someone to bring saplings and tools for watering - which Noor and Babita provide later in the chapter."
+      },
+      "fadedExample": {
+        "problem": "Your class is planning a cleanliness drive. One job is already given: one group brings brooms and dustbins. Add two more jobs needed to finish the drive.",
+        "given": ["One group brings brooms and dustbins."],
+        "answer": "A second group sweeps and collects the waste, while a third group disposes of it properly in a bin."
+      },
+      "quickCheck": {
+        "q": "Van Mahotsav is celebrated mainly to...",
+        "type": "mcq",
+        "options": [
+          { "text": "protect the environment by planting trees", "correct": true, "misconception": null },
+          { "text": "give students a holiday from school", "correct": false, "misconception": "festival-means-only-holiday" },
+          { "text": "clean parks, but it never involves planting anything", "correct": false, "misconception": "van-mahotsav-no-planting" }
+        ],
+        "answerNote": "Van Mahotsav is specifically about planting trees to protect the environment, held every year from 1 to 7 July."
+      },
+      "commonConfusion": {
+        "wrong": "Festivals are only about fun, food and rest.",
+        "right": "Many Indian festivals, like Van Mahotsav, combine celebration with real community work, such as planting trees or cleaning shared spaces.",
+        "why": "Students mostly experience festivals as holidays at home, so they may not connect festivals to community labour."
+      },
+      "activity": {
+        "title": "Van Mahotsav Invitation Poster",
+        "instructions": "Create a colourful poster inviting people from your neighbourhood to join a Van Mahotsav celebration.",
+        "materials": ["chart paper", "colours", "sketch pens"],
+        "timeMinutes": 15,
+        "fromTextbook": true
+      },
+      "practice": {
+        "easy": [
+          { "q": "In which month is Van Mahotsav celebrated?", "a": "During the rainy season, from 1 to 7 July." },
+          { "q": "Name one job the friends did to prepare for Van Mahotsav.", "a": "Answers will vary - e.g., cleaning the park, or inviting family members." }
+        ],
+        "core": [
+          { "q": "Why did Mallika want to plant trees around the park?", "a": "So her grandmother and her friends could enjoy their morning walks more and breathe better air." },
+          { "q": "What does Van Mahotsav aim to protect or improve?", "a": "It aims to protect the environment and make the earth greener by planting trees." },
+          { "q": "Why is inviting family members important for a festival like Van Mahotsav?", "a": "It brings more people together to share the work and makes the celebration bigger and more meaningful." }
+        ],
+        "challenge": [
+          { "q": "Plan one thing your class could do for next year's Van Mahotsav, and list two jobs needed.", "a": "Open-ended - a good answer names a specific action (like planting saplings near school) and splits it into at least two clear jobs." }
+        ]
+      },
+      "vocab": [
+        { "term": "Van Mahotsav", "hindi": "van mahotsav", "tier": 4, "definition": "India's yearly tree-planting festival, held from 1 to 7 July.", "example": "planting saplings in a park in July", "nonExample": "planting one pot on your balcony alone in December" },
+        { "term": "sapling", "hindi": "paudha", "tier": 3, "definition": "A young, newly planted tree.", "example": "a two-month-old mango plant", "nonExample": "a hundred-year-old banyan tree" }
+      ],
+      "reviewItems": [
+        { "id": "t2-r1", "prompt": "When is Van Mahotsav celebrated?", "answer": "From 1 to 7 July, during the rainy season.", "type": "recall" },
+        { "id": "t2-r2", "prompt": "Why do people plant trees during Van Mahotsav?", "answer": "To protect the environment and make the earth greener.", "type": "recall" },
+        { "id": "t2-r3", "prompt": "Name one job people did to prepare for the festival in the chapter.", "answer": "Answers vary - cleaning the park, repairing benches, bringing saplings, etc.", "type": "recall" }
+      ]
+    },
+
+    {
+      "id": "t3",
+      "title": "Helping Hands: Everyone Has a Job",
+      "estimatedMinutes": 22,
+      "askFirst": [
+        "If a park needs new benches, a repaired light, and new trees, can one person do all three jobs alone?",
+        "What is one skill your parent or neighbour has that helps others?"
+      ],
+      "explanation": "The villagers met under the banyan tree to plan the park repairs. Sameer offered wood and nails to fix benches. Babita offered to repair the street light. Noor brought saplings from her nursery. Each person used a different skill and tool for a different job, and together their separate jobs finished the whole park.",
+      "hinglishAside": "",
+      "explainAgain": [
+        { "type": "concrete", "title": "Match the Tool", "body": "Give small groups four objects: a toy hammer, a small watering can, a broom, and pliers. Ask each group to match the tool to the job (fixing, watering, sweeping, repairing wires) and explain why that tool fits that job." },
+        { "type": "picture", "title": "Job and Tool Table", "body": "Draw a two-column table on the board: 'Job' and 'Tool'. Fill one row together (Mason - Trowel), then let students suggest two more rows on their own." },
+        { "type": "story", "title": "Ritika's Tea Stall", "body": "Ritika's family runs a small tea stall. Her father makes tea, her mother manages the money, and Ritika helps wash cups. Even inside one family, each person's different job keeps the stall running." },
+        { "type": "steps", "title": "Splitting a Big Job", "body": "1) Find out what needs to be done. 2) List the different jobs inside that task. 3) Match each job to a person's skill or tool. 4) Let each person do their part." },
+        { "type": "nonexample", "title": "Not One Leader Doing Everything", "body": "Students often think one 'leader' should do most of the work while others just watch. Actually, Sameer, Babita and Noor each did an equal, different share - no single person did everything." }
+      ],
+      "realLife": [
+        "An electrician, a plumber, and a painter each doing a different job to finish building one house.",
+        "A cricket team where the bowler, batsman, and fielder each play a different role for one team win.",
+        "A wedding where the caterer, decorator, and priest each handle a separate part of the same event."
+      ],
+      "workedExample": {
+        "problem": "A carpenter's tool is a saw (given). What does a carpenter do with it, and why is that job needed for the park?",
+        "steps": [
+          "Think about what a saw is used for.",
+          "Connect that action to a park's needs, like fixing benches."
+        ],
+        "answer": "A carpenter uses a saw to cut and shape wood, which is needed to repair or build benches in the park."
+      },
+      "fadedExample": {
+        "problem": "A gardener's tool is a watering can (given). What does a gardener do, and why is a watering can needed for that job?",
+        "given": ["A gardener's tool is a watering can."],
+        "answer": "A gardener waters plants and flowers regularly, and a watering can lets them do this evenly without wasting water."
+      },
+      "quickCheck": {
+        "q": "Why did fixing the park need more than one person?",
+        "type": "mcq",
+        "options": [
+          { "text": "Because different jobs, like fixing benches, the light, and planting, needed different skills and tools", "correct": true, "misconception": null },
+          { "text": "Because one person cannot lift anything heavy", "correct": false, "misconception": "help-means-only-strength" },
+          { "text": "Because villagers had nothing else to do that day", "correct": false, "misconception": "cooperation-is-random-not-purposeful" }
+        ],
+        "answerNote": "Repairing benches, fixing the light, and planting saplings are three very different jobs, each needing a different skill and tool."
+      },
+      "commonConfusion": {
+        "wrong": "Only 'big' jobs, like a mason's or a doctor's work, really count as helping the community.",
+        "right": "Every needed job - sweeping, watering plants, or fixing a light - is a real contribution when it is done well.",
+        "why": "Students often rank jobs by how impressive they sound, rather than by whether the community actually needs that job done."
+      },
+      "activity": {
+        "title": "People at Work in the Park",
+        "instructions": "List different kinds of work needed to develop and maintain a park, along with the material, tool, and skill required for each. Then think of interview questions to ask a family member about their work.",
+        "materials": ["notebook", "pencil", "printed table"],
+        "timeMinutes": 15,
+        "fromTextbook": true
+      },
+      "practice": {
+        "easy": [
+          { "q": "What did Sameer offer to fix in the park?", "a": "The benches, using wood and nails he had at home." },
+          { "q": "Name one tool a gardener uses.", "a": "A watering can (or a similar tool such as a trowel)." }
+        ],
+        "core": [
+          { "q": "Why couldn't just one villager fix the whole park alone?", "a": "Because different jobs, like fixing benches, repairing a light, and planting trees, need different skills and tools." },
+          { "q": "What did Noor bring to help with Van Mahotsav, and from where?", "a": "Noor brought saplings from her plant nursery to plant along the park's boundary." },
+          { "q": "Write one question you could ask a family member about their work.", "a": "Answers will vary - e.g., 'What tools do you use in your work?'" }
+        ],
+        "challenge": [
+          { "q": "Pick any two occupations from your area and explain how they depend on each other.", "a": "Open-ended - a good answer shows a real link, e.g., a farmer growing vegetables that a shopkeeper then sells." }
+        ]
+      },
+      "vocab": [
+        { "term": "occupation", "hindi": "peshaa", "tier": 3, "definition": "The regular work a person does to earn a living or help others.", "example": "gardener, mason, teacher", "nonExample": "playing a game for fun on a holiday" },
+        { "term": "trowel", "hindi": "khurpi jaisa auzaar", "tier": 4, "definition": "A small hand tool used by masons to spread cement.", "example": "a mason using it to mend a wall", "nonExample": "a big shovel used for digging deep pits" }
+      ],
+      "reviewItems": [
+        { "id": "t3-r1", "prompt": "Name two tools mentioned in the chapter and who uses them.", "answer": "A trowel used by a mason; a watering can used by a gardener.", "type": "recall" },
+        { "id": "t3-r2", "prompt": "Why did different villagers do different jobs for the park?", "answer": "Because each job needed a different skill and tool.", "type": "recall" },
+        { "id": "t3-r3", "prompt": "What did Noor contribute to the Van Mahotsav preparations?", "answer": "Saplings from her plant nursery.", "type": "recall" }
+      ]
+    },
+
+    {
+      "id": "t4",
+      "title": "Celebrating Van Mahotsav Together",
+      "estimatedMinutes": 20,
+      "askFirst": [
+        "Do you think a festival feels different when many people work together for it, compared to when only a few people prepare it?",
+        "Can you think of a time your community solved a problem together, like fixing a road or a broken pump?"
+      ],
+      "explanation": "On the day of Van Mahotsav, families gathered in the park. Mallika made announcements, and groups formed for cleaning, planting, watering, and cooking. In Kanker, Chhattisgarh, villagers once built a whole bamboo bridge across a flooded river in just two days, working as one team. Both stories show that big problems become easy when a community shares the work.",
+      "hinglishAside": "Jab pura gaanv milkar kaam karta hai, bade se bada kaam bhi jaldi ho jaata hai - jaise Kanker mein sirf do din mein pul ban gaya!",
+      "explainAgain": [
+        { "type": "concrete", "title": "Pulling Together", "body": "Give the class one long rope. Ask one student to try to pull a heavy bag alone, then let five students pull together. Compare the effort, and connect this to how many villagers together built the Kanker bridge quickly." },
+        { "type": "picture", "title": "Bridge Across the River", "body": "Draw a river with a broken path on one bank. Add stick-figures on both sides holding bamboo poles, building a bridge across. Label 'bamboo', 'stones', '2 days', 'whole community'." },
+        { "type": "story", "title": "Diksha's Flooded Village", "body": "When the Chinar river flooded near Kanker, Diksha's village needed to get children to school safely. Farmers, students and elders carried bamboo and stones to the riverbank, and by evening two days later, a strong bridge stood ready." },
+        { "type": "steps", "title": "Solving a Shared Problem Fast", "body": "1) Notice a shared problem (a park needs cleaning, a river blocks the path). 2) Split into groups for different tasks. 3) Assign a coordinator to guide, like Mallika with the microphone. 4) Work at the same time so the job finishes fast." },
+        { "type": "nonexample", "title": "You Don't Always Need Experts", "body": "Students often think only professionals, like engineers or contractors, can build things like bridges. Actually, the Kanker villagers built a working bridge themselves using bamboo, stones and teamwork, without waiting for outside help." }
+      ],
+      "realLife": [
+        "Flood-relief teams in Assam or Bihar villages building temporary embankments with sandbags.",
+        "Residents of a housing colony organising a shared clean-up after heavy rain flooding.",
+        "A school's Sports Day, where teachers, students and parents each set up a different part of the ground."
+      ],
+      "workedExample": {
+        "problem": "The Kanker bridge was built in just 2 days using bamboo and stones, with no machines. Why was this possible?",
+        "steps": [
+          "Think about how many people were involved.",
+          "Consider whether they worked on the same task or different tasks at once.",
+          "Connect this to how fast the job finished."
+        ],
+        "answer": "Many hands worked on different parts at the same time - cutting bamboo, tying joints, placing stones - instead of one person doing it all in sequence."
+      },
+      "fadedExample": {
+        "problem": "One job for building the bridge is already given: villagers cut bamboo poles. What two more jobs would be needed to finish tying and placing the bridge?",
+        "given": ["Villagers cut bamboo poles."],
+        "answer": "One group ties the bamboo poles firmly together, while another group places stones to weigh down and steady the base."
+      },
+      "quickCheck": {
+        "q": "What helped the Kanker villagers finish the bridge in just two days?",
+        "type": "mcq",
+        "options": [
+          { "text": "The whole community worked together on different parts at the same time", "correct": true, "misconception": null },
+          { "text": "A big company sent machines to build it", "correct": false, "misconception": "big-problems-need-outside-experts" },
+          { "text": "Only the men in the village did all the work", "correct": false, "misconception": "community-work-is-gender-limited" }
+        ],
+        "answerNote": "The chapter says the entire community came together and built the bridge using bamboo, stones and other material."
+      },
+      "commonConfusion": {
+        "wrong": "Serious problems, like a flooded river blocking a village, can only be solved by the government or big companies.",
+        "right": "Communities can solve many big, urgent problems themselves through fast teamwork, as the villagers near Kanker did.",
+        "why": "Children often hear about government projects in the news, so they may not realise ordinary villagers can also build real solutions."
+      },
+      "activity": {
+        "title": "Discuss: Coming Together in Times of Need",
+        "instructions": "Discuss why it is important for communities to come together in times of need, and share an occasion when people in your own locality supported each other.",
+        "materials": ["chalkboard or chart to note ideas"],
+        "timeMinutes": 10,
+        "fromTextbook": true
+      },
+      "practice": {
+        "easy": [
+          { "q": "Where is the community bridge in the chapter located?", "a": "In Kanker, Chhattisgarh, across the Chinar river." },
+          { "q": "How many days did it take villagers to build the bridge?", "a": "Just two days." }
+        ],
+        "core": [
+          { "q": "What materials did the villagers use to build the bridge?", "a": "Bamboo, stones, and other local material." },
+          { "q": "Why did the village need this bridge urgently?", "a": "Because the flooded river made it difficult for students to reach school and for people to reach hospitals." },
+          { "q": "What job did Mallika do during the Van Mahotsav celebration?", "a": "She used a microphone to make announcements and help organise the groups." }
+        ],
+        "challenge": [
+          { "q": "Compare the Van Mahotsav teamwork with the Kanker bridge teamwork - what is one thing both stories have in common?", "a": "Open-ended - a good answer notices that in both, many people did different jobs at the same time to finish something big quickly." }
+        ]
+      },
+      "vocab": [
+        { "term": "teamwork", "hindi": "milkar kaam karna", "tier": 3, "definition": "People working together on different parts of one job.", "example": "villagers building a bridge together", "nonExample": "one person doing an entire big job alone" },
+        { "term": "flood", "hindi": "baadh", "tier": 2, "definition": "When a river fills with too much water and spreads onto land.", "example": "the Chinar river overflowing in the rainy season", "nonExample": "a dry riverbed in summer" }
+      ],
+      "reviewItems": [
+        { "id": "t4-r1", "prompt": "Where and when was the community bridge built?", "answer": "In Kanker, Chhattisgarh, during the rainy season of 2024.", "type": "recall" },
+        { "id": "t4-r2", "prompt": "What materials were used to build the bridge?", "answer": "Bamboo, stones, and other local material.", "type": "recall" },
+        { "id": "t4-r3", "prompt": "How long did it take to build the bridge?", "answer": "Two days.", "type": "recall" }
+      ]
+    },
+
+    {
+      "id": "t5",
+      "title": "Sharing a Meal, Sharing Traditions",
+      "estimatedMinutes": 20,
+      "askFirst": [
+        "Why might a meal taste better when the whole village cooked and shared it together?",
+        "Can you name one festival where your family eats together with neighbours or relatives?"
+      ],
+      "explanation": "After planting the trees, everyone shared a community feast - vegetables and grain brought by different families, served on banana leaves. Leftover leaves were buried in a pit, where they turn into manure that improves the soil. India has similar community traditions everywhere: Assam's Uruka feast at Magh Bihu, and Sikkim's Khetala farmers who help each other harvest crops.",
+      "hinglishAside": "Jab poore gaanv ka khaana ek saath milkar banta aur baantaa jaata hai, tab woh sirf khaana nahi, ek tyohaar ban jaata hai.",
+      "explainAgain": [
+        { "type": "concrete", "title": "One Shared Leaf", "body": "Bring paper 'banana leaf' cut-outs. Have students place small paper 'food' cut-outs (rice, sabzi, roti), each donated by a different 'family' row, onto one shared leaf, showing how one meal comes from many contributions." },
+        { "type": "picture", "title": "Feast From Many Hands", "body": "Draw a big circle labelled 'Community Feast' with arrows coming in from boxes labelled 'Family A - vegetables', 'Family B - grain', 'Family C - banana leaves', showing how small contributions build one shared meal." },
+        { "type": "story", "title": "Meera's Uruka Evening", "body": "In Meera's Assamese village, every Uruka evening, families bring bamboo and hay to build a small hut called Bhela Ghar, then cook and eat together around it, laughing late into the night." },
+        { "type": "steps", "title": "How a Community Feast Happens", "body": "1) Different families bring different food items. 2) Volunteers cook the shared meal together. 3) Everyone sits and eats together, often on leaf-plates. 4) Waste like leaves is buried in a pit to become manure." },
+        { "type": "nonexample", "title": "Not One Family's Burden", "body": "Students often think a community feast means one family cooks for everyone else. Actually, in Chandan's village and in Assam's Uruka, every family contributes something - food, labour, or material - so no single family carries the whole load." }
+      ],
+      "realLife": [
+        "A langar (community kitchen) at a Gurdwara, where volunteers cook and serve free meals to everyone.",
+        "A wedding feast in a village where neighbours help cook, serve, and clean up together.",
+        "Onam Sadya in Kerala, where community members prepare a shared vegetarian feast on banana leaves."
+      ],
+      "workedExample": {
+        "problem": "Why does the chapter say leaves buried in a pit become manure?",
+        "steps": [
+          "Think about what happens to leaves left in soil over time.",
+          "Connect that slow breakdown to what plants need to grow."
+        ],
+        "answer": "Buried leaves slowly break down and mix into the soil, adding nutrients that help plants grow better - this is manure."
+      },
+      "fadedExample": {
+        "problem": "Uruka is celebrated on 14 January in Assam (given). What do people build for the celebration, and how does the day end?",
+        "given": ["Uruka is celebrated on 14 January in Assam."],
+        "answer": "People build a hut called Bhela Ghar using bamboo and hay, and the day ends with a big feast where they cook, eat, and dance together."
+      },
+      "quickCheck": {
+        "q": "What happens to the banana leaves after the community feast in the chapter?",
+        "type": "mcq",
+        "options": [
+          { "text": "They are buried in a pit and turn into manure that improves the soil", "correct": true, "misconception": null },
+          { "text": "They are thrown into the nearby river", "correct": false, "misconception": "waste-disposal-into-water-is-fine" },
+          { "text": "They are burned right after the meal", "correct": false, "misconception": "waste-always-burned" }
+        ],
+        "answerNote": "The chapter's 'Do you know?' box explains that leaves buried in a pit become manure and improve soil quality."
+      },
+      "commonConfusion": {
+        "wrong": "Leftover food waste, like leaves, should just be thrown away anywhere.",
+        "right": "Natural waste like leaves can be buried to become manure, which is actually useful for the soil.",
+        "why": "Many students haven't seen composting happen, so they assume all waste is simply 'thrown away' rather than reused."
+      },
+      "activity": {
+        "title": "Write: How My Family Works Together for a Festival",
+        "instructions": "Think about your family or community. Write how you work together to help each other while preparing for a festival or other occasion.",
+        "materials": ["notebook", "pencil"],
+        "timeMinutes": 10,
+        "fromTextbook": true
+      },
+      "practice": {
+        "easy": [
+          { "q": "What did families bring for the community feast?", "a": "Vegetables and cereals (grain)." },
+          { "q": "What were the meals served on?", "a": "Banana leaves." }
+        ],
+        "core": [
+          { "q": "What happens to the banana leaves after the feast, and why is that useful?", "a": "They are buried in a pit, where they turn into manure, which improves the soil quality." },
+          { "q": "What is Uruka, and where is it celebrated?", "a": "Uruka is the first day of Magh Bihu, celebrated on 14 January in Assam, with a feast around a hut called Bhela Ghar." },
+          { "q": "Who are Khetala, and what do they do?", "a": "Khetala are farming specialists in Sikkim who come together with the community to help harvest crops." }
+        ],
+        "challenge": [
+          { "q": "Explain why a community feast, where every family brings something, might feel different from a feast cooked by just one family.", "a": "Open-ended - a good answer connects shared effort to a stronger sense of belonging or a lighter workload for each family." }
+        ]
+      },
+      "vocab": [
+        { "term": "manure", "hindi": "khaad", "tier": 3, "definition": "Natural material, like rotted leaves, that makes soil richer for plants.", "example": "leaves buried in a pit for weeks", "nonExample": "plastic waste thrown in a field" },
+        { "term": "Khetala", "hindi": "khetala", "tier": 4, "definition": "Farming specialists in Sikkim who help each other during harvest.", "example": "a group harvesting a neighbour's crop together", "nonExample": "one farmer harvesting his field completely alone" }
+      ],
+      "reviewItems": [
+        { "id": "t5-r1", "prompt": "What happens to banana leaves buried in a pit?", "answer": "They turn into manure, which improves soil quality.", "type": "recall" },
+        { "id": "t5-r2", "prompt": "What is Bhela Ghar, and where is it built?", "answer": "A hut made of bamboo and hay, built in Assam during Uruka.", "type": "recall" },
+        { "id": "t5-r3", "prompt": "Who are Khetala?", "answer": "Farming specialists in Sikkim who help the community harvest crops together.", "type": "recall" }
+      ]
+    },
+
+    {
+      "id": "t6",
+      "title": "Our School Is a Community Too",
+      "estimatedMinutes": 22,
+      "askFirst": [
+        "Besides teachers and students, who else works to keep your school running?",
+        "What is one job you already do to help your class or school?"
+      ],
+      "explanation": "A school is also a community, just like Chandan's village. Teachers, students, bus drivers, caretakers, and the principal all play different roles that keep the school working well. When everyone does their part - attending class, keeping things clean, following rules - the whole school runs smoothly, just like the villagers' teamwork for Van Mahotsav.",
+      "hinglishAside": "",
+      "explainAgain": [
+        { "type": "concrete", "title": "Role Cards Circle", "body": "Give students role cards (Teacher, Bus Driver, Caretaker, Student, Principal, Librarian). Ask them to physically arrange themselves in a circle around a paper labelled 'School' and explain their job in one sentence." },
+        { "type": "picture", "title": "School at the Centre", "body": "Draw 'School' in a box at the centre of the board. Draw six smaller boxes around it (Teacher, Driver, Caretaker, Principal, Librarian, Student) with double-headed arrows connecting each to the centre, showing give-and-take." },
+        { "type": "story", "title": "The Day the Bus Broke Down", "body": "On the day the school bus broke down, the driver, the caretaker, and two teachers worked together to arrange a van so no student missed their exam - showing how many roles support just one school day." },
+        { "type": "steps", "title": "Mapping School Roles", "body": "1) List every adult and student role you see at school. 2) Write one job each role does. 3) Notice which roles depend on each other. 4) Identify your own role as a student." },
+        { "type": "nonexample", "title": "Not Just Teachers", "body": "Students often think only teachers 'really' run the school. Actually, without the bus driver, caretaker, or librarian, the school could not function smoothly even if teaching still happened." }
+      ],
+      "realLife": [
+        "The school peon who rings the bell so every class knows when periods change.",
+        "The mid-day meal cook who prepares food that keeps hundreds of students fed and focused.",
+        "Senior students who mentor or help younger ones during library time."
+      ],
+      "workedExample": {
+        "problem": "A teacher's role is already given: a teacher helps students learn new things. What does a school bus driver do?",
+        "steps": [
+          "Think about the driver's daily task.",
+          "Write it as one clear sentence, like the teacher's example."
+        ],
+        "answer": "A school bus driver safely transports students to and from school every day, keeping to a fixed route and time."
+      },
+      "fadedExample": {
+        "problem": "One role is already filled in: school bus driver - safely transports students to and from school. Fill in the role of a caretaker and one more role, following the same one-sentence pattern.",
+        "given": ["School bus driver: safely transports students to and from school."],
+        "answer": "Caretaker: keeps the school building clean and secure; Principal: manages the school and makes important decisions."
+      },
+      "quickCheck": {
+        "q": "Why does a school need more than just teachers and students to run well?",
+        "type": "mcq",
+        "options": [
+          { "text": "Because roles like the bus driver, caretaker, and librarian each do a different job the school depends on", "correct": true, "misconception": null },
+          { "text": "It doesn't - teachers and students can manage everything alone", "correct": false, "misconception": "only-teachers-and-students-matter-in-school" },
+          { "text": "Because more people just means less work for everyone", "correct": false, "misconception": "more-people-automatically-means-less-effort" }
+        ],
+        "answerNote": "Just like Chandan's village needed the mason, the gardener and the electrician, a school needs many different roles working together."
+      },
+      "commonConfusion": {
+        "wrong": "Being 'part of the school team' only applies to teachers and staff, not students.",
+        "right": "Students are also members of the school community, with their own role - following rules, helping classmates, and keeping shared spaces clean.",
+        "why": "Students often see themselves only as receivers of teaching, not as active contributors to how well the school runs."
+      },
+      "activity": {
+        "title": "Our School, Our Team!",
+        "instructions": "List roles people play in your school, then form small groups to plan and carry out one fun activity - tree plantation, cleanliness drive, or making artefacts from nature - and record what you learned.",
+        "materials": ["notebook", "chart paper", "leaves or natural material for artefacts (optional)"],
+        "timeMinutes": 20,
+        "fromTextbook": true
+      },
+      "practice": {
+        "easy": [
+          { "q": "Name two people, other than teachers and students, who help run a school.", "a": "Answers will vary - e.g., bus driver and caretaker." },
+          { "q": "What is a teacher's role in the school community, in one sentence?", "a": "A teacher helps students learn new things." }
+        ],
+        "core": [
+          { "q": "Why is it important for everyone to work as a team in a school?", "a": "Because each role - teaching, driving, cleaning, managing - supports a different part of school life, and the school runs smoothly only when all parts work together." },
+          { "q": "What is your role as a member of your school community?", "a": "Answers will vary - e.g., following rules, helping classmates, and keeping shared spaces clean." },
+          { "q": "Write one job the school caretaker likely does.", "a": "Answers will vary - e.g., keeping the school building clean and secure." }
+        ],
+        "challenge": [
+          { "q": "If your class chose 'cleanliness drive' as its group activity, list two materials and one thing you might learn.", "a": "Open-ended - a good answer names real materials (broom, dustbin, gloves) and a genuine learning point, like how much litter builds up in a week." }
+        ]
+      },
+      "vocab": [
+        { "term": "caretaker", "hindi": "dekhbhaal karne wala", "tier": 3, "definition": "A person who looks after and maintains a building or place.", "example": "the person who keeps the school clean and secure", "nonExample": "a visitor who comes to the school just once" },
+        { "term": "role", "hindi": "bhoomika", "tier": 2, "definition": "The particular job or part a person plays in a group.", "example": "a librarian's role is to manage books", "nonExample": "a random, one-time action with no regular job" }
+      ],
+      "reviewItems": [
+        { "id": "t6-r1", "prompt": "Name three different roles found in a school community.", "answer": "Answers vary - e.g., teacher, bus driver, caretaker, principal, librarian.", "type": "recall" },
+        { "id": "t6-r2", "prompt": "Why does a school need more roles than just teachers and students?", "answer": "Because different roles handle different needs - transport, cleanliness, management, and so on.", "type": "recall" },
+        { "id": "t6-r3", "prompt": "What is your own role in your school community?", "answer": "Answers vary - e.g., following rules and helping classmates.", "type": "recall" }
+      ]
+    },
+
+    {
+      "id": "t7",
+      "title": "Solving Riddles, Solving Community Problems",
+      "estimatedMinutes": 18,
+      "askFirst": [
+        "Can you guess a place just from clues about what happens there?",
+        "If your locality had one big problem right now, what would it be?"
+      ],
+      "explanation": "The chapter ends with riddles about community places - a bus stand, a post office, a market, a park - and a group task where students identify a local problem and plan an activity to fix it. This connects everything: recognising community places, and then taking real action, just like Chandan's village did for Van Mahotsav.",
+      "hinglishAside": "",
+      "explainAgain": [
+        { "type": "concrete", "title": "Act It Out", "body": "Write four community places on separate chits (bus stand, post office, market, park). Have pairs pick a chit and mime what happens there while classmates guess the place, just like the textbook riddles." },
+        { "type": "picture", "title": "Match the Icon", "body": "Draw four small boxes on the board, each with one clue-icon (a bus, an envelope, vegetables, a swing). Ask students to match each icon to the correct place name." },
+        { "type": "story", "title": "Babita's Riddle for Her Cousin", "body": "Chandan's friend Babita wrote a riddle about the post office for her cousin in another village, using clues about letters and stamps - and her cousin guessed it in one try." },
+        { "type": "steps", "title": "Writing a Good Riddle", "body": "1) Pick a community place. 2) List 3-4 clues about what you see, hear, or do there - without naming it. 3) Turn the clues into short descriptive lines. 4) Ask a friend to guess the place." },
+        { "type": "nonexample", "title": "Don't Give the Answer Away", "body": "Students often make riddles too easy by naming the place directly in a clue, like saying 'buses' and 'bus stand' in the same riddle. A good riddle describes the place without using its name." }
+      ],
+      "realLife": [
+        "Local radio quizzes where listeners guess a nearby landmark from clues.",
+        "Scavenger hunts during school picnics where teams find locations using riddle clues.",
+        "Tourist guides using riddle-like hints to help visitors find famous spots in a city."
+      ],
+      "workedExample": {
+        "problem": "Riddle: 'I keep letters far and near, with stamps and parcels waiting here.' What am I?",
+        "steps": [
+          "Notice the key clue words: letters, stamps, parcels.",
+          "Think of the community place most connected to these words."
+        ],
+        "answer": "A post office."
+      },
+      "fadedExample": {
+        "problem": "Riddle clue given: 'I am full of colours, lights, sounds of feet, a place where people shop and meet.' What am I?",
+        "given": ["Clue mentions shopping and meeting people."],
+        "answer": "A market (or bazaar)."
+      },
+      "quickCheck": {
+        "q": "What makes community riddles like the ones in this chapter easier to solve fairly?",
+        "type": "mcq",
+        "options": [
+          { "text": "Clues that describe what happens at a place without naming it directly", "correct": true, "misconception": null },
+          { "text": "Naming the place directly inside the riddle", "correct": false, "misconception": "riddle-clues-can-include-the-answer" },
+          { "text": "Making the riddle about something no one in the community has ever seen", "correct": false, "misconception": "riddles-should-be-about-unfamiliar-things" }
+        ],
+        "answerNote": "Good riddles give hints about sounds, sights or actions at a place, letting the listener guess the name themselves."
+      },
+      "commonConfusion": {
+        "wrong": "Fixing a local problem like a dirty park is 'grown-up work' and students can't really help.",
+        "right": "As the chapter's group activity shows, students themselves can identify a local problem and plan a real activity - like a cleanliness drive - to help fix it.",
+        "why": "Children often see adults as the only ones responsible for public spaces, so they underestimate their own possible contribution."
+      },
+      "activity": {
+        "title": "Community Riddles and Local Problem-Solving",
+        "instructions": "Match riddles to community places, write one riddle of your own about a public place, then in groups identify a local situation that needs improving and plan an activity to help.",
+        "materials": ["notebook", "pencil"],
+        "timeMinutes": 15,
+        "fromTextbook": true
+      },
+      "practice": {
+        "easy": [
+          { "q": "Solve this riddle: 'I keep letters far and near, with stamps and parcels waiting here.' What am I?", "a": "A post office." },
+          { "q": "Solve this riddle: 'Buses come and buses go, to places high and low.' What am I?", "a": "A bus stand." }
+        ],
+        "core": [
+          { "q": "Write one clue (without naming it) that describes a park.", "a": "Answers will vary - e.g., 'I have swings and slides, and children laugh and play all day.'" },
+          { "q": "Why is naming the place directly inside a riddle considered a weak riddle?", "a": "Because it gives the answer away immediately instead of letting the listener guess from clues." },
+          { "q": "Name one local situation your group might choose to improve, and one activity to fix it.", "a": "Answers will vary - e.g., situation: littered park; activity: organise a cleanliness drive." }
+        ],
+        "challenge": [
+          { "q": "Write a full 4-line riddle about a market, without using the word 'market' anywhere in it.", "a": "Open-ended - a good riddle uses sensory clues like colours, sounds, and goods sold, without naming the place directly." }
+        ]
+      },
+      "vocab": [
+        { "term": "riddle", "hindi": "paheli", "tier": 2, "definition": "A question or description given as a puzzle, with clues to guess the answer.", "example": "clues about buses and routes describing a bus stand", "nonExample": "a direct question like 'What is a bus stand?'" },
+        { "term": "landmark", "hindi": "pehchaan sthal", "tier": 3, "definition": "A place that helps you recognise or find your way around an area.", "example": "a big banyan tree at the corner of the playground", "nonExample": "an ordinary patch of empty grass with nothing special" }
+      ],
+      "reviewItems": [
+        { "id": "t7-r1", "prompt": "What makes a riddle about a place effective?", "answer": "Giving clues about what happens there, without naming the place directly.", "type": "recall" },
+        { "id": "t7-r2", "prompt": "Name one community place used in the chapter's riddles.", "answer": "Answers vary - e.g., post office, bus stand, market, or park.", "type": "recall" },
+        { "id": "t7-r3", "prompt": "What was the last group task of the chapter about?", "answer": "Identifying a problem in the locality and planning an activity, like cleaning or organising an event, to improve it.", "type": "recall" }
+      ]
+    }
+  ],
+
+  "interleavedPractice": [
+    { "q": "In Grade 3 you learned about roles within a family. List two ways a family's teamwork is similar to a village's teamwork for Van Mahotsav.", "a": "In both, different people take different jobs (like cooking, cleaning, or organising), and the group achieves more together than any one person could alone.", "mixesWith": "Grade 3 EVS - roles within a family" },
+    { "q": "Use tally marks to record how many classmates chose 'tree plantation', 'cleanliness drive', or 'artefact making' for the group activity in this chapter.", "a": "Answers will vary based on the class survey - the key skill is drawing one tally mark per vote and grouping in fives.", "mixesWith": "Grade 3 Maths - tally marks and counting" },
+    { "q": "Earlier you practised describing a picture in your own words. Describe the picture of the Kanker bridge in 2-3 sentences, then say what community skill it shows.", "a": "A good answer describes villagers carrying bamboo and stones to build a bridge over water, and names teamwork or cooperation as the skill shown." , "mixesWith": "Grade 3 EVS/English - picture description skill" },
+    { "q": "In Grade 3 you named some places around your home. Now sort those places into 'community helper spots' (like a bank or post office) and 'nature spots' (like a park or pond).", "a": "Answers will vary - the key skill is correctly grouping the same familiar places under two different headings.", "mixesWith": "Grade 3 EVS - places around us" },
+    { "q": "You already knew some Indian festivals before this chapter. Compare Van Mahotsav with one festival you knew earlier - how are they similar or different in bringing people together?", "a": "Open-ended - a good answer names a real festival and compares at least one similarity (people gathering, working together) and one difference (the specific activity, like planting trees versus another custom).", "mixesWith": "prior general knowledge of Indian festivals" }
+  ],
+
+  "chapterActivities": [
+    {
+      "title": "Community Helpers Interview Project",
+      "instructions": "In pairs, interview one family member or neighbour about their work. Ask what they like most about their work, what tools they use, and what challenges they face. Present your findings to the class as a short spoken report.",
+      "materials": ["notebook", "pencil", "prepared interview questions"],
+      "timeMinutes": 30
+    },
+    {
+      "title": "Class Cleanliness or Plantation Drive",
+      "instructions": "As a class, choose one shared space (school corner, local park) to improve. Form groups for different jobs - cleaning, planting, watering, poster-making - and carry out the drive together, then discuss what changed.",
+      "materials": ["gloves", "brooms or dustbins", "saplings (if planting)", "chart paper for posters"],
+      "timeMinutes": 40
+    }
+  ],
+
+  "reflect": [
+    "Brain dump: write everything you remember about how Chandan's village prepared for Van Mahotsav - no looking back at the book.",
+    "Explain to your partner how the villagers built the bridge in Kanker so quickly.",
+    "One thing that is still confusing me about how communities work together is..."
+  ],
+
+  "exitTicket": [
+    { "q": "Name one place in your community and one thing it provides to people.", "a": "Answers will vary - e.g., a health centre provides treatment for illness." },
+    { "q": "Why is teamwork important when fixing a shared problem, like a broken bridge or a messy park?", "a": "Because splitting different jobs among many people lets a big task finish faster and more completely than one person working alone." },
+    { "q": "What happens to banana leaves after a community feast, and why is that good for the soil?", "a": "They are buried in a pit, where they slowly turn into manure that improves soil quality." }
+  ],
+
+  "summary": [
+    "A community is any group of people - in a village, city, or school - who live near each other and depend on one another.",
+    "Different people bring different skills and tools to help their community, and every job, big or small, matters.",
+    "Communities can solve big shared problems, like a flooded river or a messy park, quickly when everyone works together.",
+    "Sharing traditions, like community feasts and festivals, strengthens the bonds between people in a community.",
+    "A school is also a community, where teachers, students, and staff each play a role in keeping it running well."
+  ],
+
+  "teacherNotes": [
+    "Arrange low-cost materials in advance, such as maps, charts, photographs and simple observation sheets, so activities run smoothly without last-minute scrambling.",
+    "Where possible, organise short local visits or invite a postal worker, gardener, or shopkeeper for a brief classroom interaction - it makes the 'occupations' topics far more concrete for students.",
+    "For a mixed-ability class, pair students who are behind with a partner during the table-filling and riddle-writing tasks, so writing load is shared while everyone still contributes ideas verbally.",
+    "If short on time, combine Topics 6 and 7 into a single period by choosing only one small-group activity (cleanliness drive or riddle writing) instead of both."
+  ]
+}

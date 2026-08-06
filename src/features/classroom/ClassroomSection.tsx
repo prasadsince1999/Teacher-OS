@@ -1,83 +1,147 @@
-import React, { useState } from 'react';
-import { UsersRound, ListTodo, MessageCircleQuestion, Users } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Play, Pause, RotateCcw, Shuffle, FileText, MessageCircleQuestion } from 'lucide-react';
+import { motion } from 'motion/react';
+
+const STUDENTS = [
+  { id: 1, name: 'Alice Johnson', initials: 'AJ', status: 'Present' },
+  { id: 2, name: 'Bob Smith', initials: 'BS', status: 'Present' },
+  { id: 3, name: 'Charlie Davis', initials: 'CD', status: 'Absent' },
+  { id: 4, name: 'Diana Evans', initials: 'DE', status: 'Late' },
+  { id: 5, name: 'Evan Foster', initials: 'EF', status: 'Present' },
+];
+
+const formatTime = (totalSeconds: number) => {
+  const m = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
+  const s = (totalSeconds % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+};
 
 export const ClassroomSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'live'|'tasks'|'doubts'|'students'>('live');
+  const [seconds, setSeconds] = useState(0);
+  const [status, setStatus] = useState<'stopped' | 'running' | 'paused'>('stopped');
+
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+    if (status === 'running') {
+      interval = setInterval(() => {
+        setSeconds((s) => s + 1);
+      }, 1000);
+    }
+    return () => clearInterval(interval);
+  }, [status]);
+
+  const handleStart = () => setStatus('running');
+  const handlePause = () => setStatus('paused');
+  const handleReset = () => {
+    setStatus('stopped');
+    setSeconds(0);
+  };
 
   return (
-    <div className="max-w-6xl mx-auto px-4 md:px-8 py-8 h-full flex flex-col">
-      <h1 className="text-3xl font-bold font-serif text-[#1F2937] mb-8">Classroom</h1>
-      
-      {/* Segmented Tabs */}
-      <div className="flex bg-[#E5E7EB] p-1 rounded-xl w-full max-w-2xl mb-8">
-        {[
-          { id: 'live', label: 'Live Class', icon: UsersRound },
-          { id: 'tasks', label: 'Tasks', icon: ListTodo },
-          { id: 'doubts', label: 'Doubts', icon: MessageCircleQuestion },
-          { id: 'students', label: 'Students', icon: Users }
-        ].map(tab => (
+    <motion.div 
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="w-full px-5 py-8 overflow-y-auto"
+      style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}
+    >
+      <h1 className="text-3xl font-bold font-heading mb-8">Classroom</h1>
+
+      {/* Class Timer */}
+      <section className="flex flex-col items-center justify-center py-6 mb-10 card rounded-2xl" style={{ backgroundColor: 'var(--bg-card)' }}>
+        <h2 className="text-lg font-medium mb-4" style={{ color: 'var(--text-secondary)' }}>Class Timer</h2>
+        <div className="text-6xl font-mono font-bold tracking-tight mb-8">
+          {formatTime(seconds)}
+        </div>
+        
+        <div className="flex items-center gap-6">
           <button
-            key={tab.id}
-            onClick={() => setActiveTab(tab.id as any)}
-            className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-bold transition-colors ${
-              activeTab === tab.id ? 'bg-[#FFFFFF] text-[#1F2937] shadow-sm' : 'text-[#6B7280] hover:text-[#1F2937]'
-            }`}
+            onClick={handleStart}
+            disabled={status === 'running'}
+            className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-sm active:scale-95 transition-transform disabled:opacity-50"
+            style={{ backgroundColor: 'var(--success)' }}
+            aria-label="Start Timer"
           >
-            <tab.icon className="w-4 h-4 hidden sm:block" />
-            {tab.label}
+            <Play className="w-6 h-6 fill-current" />
           </button>
-        ))}
-      </div>
+          <button
+            onClick={handlePause}
+            disabled={status !== 'running'}
+            className="w-14 h-14 rounded-full flex items-center justify-center text-white shadow-sm active:scale-95 transition-transform disabled:opacity-50"
+            style={{ backgroundColor: 'var(--warning)' }}
+            aria-label="Pause Timer"
+          >
+            <Pause className="w-6 h-6 fill-current" />
+          </button>
+          <button
+            onClick={handleReset}
+            disabled={status === 'stopped' && seconds === 0}
+            className="w-14 h-14 rounded-full flex items-center justify-center shadow-sm active:scale-95 transition-transform disabled:opacity-50"
+            style={{ backgroundColor: 'var(--border)', color: 'var(--text-secondary)' }}
+            aria-label="Reset Timer"
+          >
+            <RotateCcw className="w-6 h-6" />
+          </button>
+        </div>
+      </section>
 
-      <div className="flex-1 overflow-y-auto">
-        {activeTab === 'live' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-[#FFFFFF] border border-[#E5E7EB] p-6 rounded-xl shadow-sm h-64 flex flex-col items-center justify-center text-center">
-              <span className="text-[#6B7280] font-medium mb-2">Class Timer</span>
-              <span className="text-5xl font-bold text-[#1F2937] font-mono">00:00</span>
-            </div>
-            <div className="bg-[#FFFFFF] border border-[#E5E7EB] p-6 rounded-xl shadow-sm h-64 flex flex-col items-center justify-center text-center">
-               <span className="text-[#6B7280] font-medium mb-4">Random Student Picker</span>
-               <button className="px-6 py-3 bg-[#EFF6FF] text-[#2563EB] font-bold rounded-xl hover:bg-[#DBEAFE] transition-colors">
-                 Pick a Student
-               </button>
-            </div>
-            <div className="bg-[#FFFFFF] border border-[#E5E7EB] p-6 rounded-xl shadow-sm md:col-span-2">
-               <h3 className="font-bold text-[#1F2937] mb-4">Current Launched Activity</h3>
-               <div className="p-8 bg-[#FAFAF8] rounded-xl border border-[#E5E7EB] text-center text-[#6B7280]">
-                 No active poll or game. Launch one from Present Mode.
-               </div>
-            </div>
-          </div>
-        )}
+      {/* Quick Actions */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold font-heading mb-4">Quick Actions</h2>
+        <div className="grid grid-cols-2 gap-4">
+          <button className="aspect-square flex flex-col items-center justify-center rounded-xl p-4 active:scale-95 transition-transform" style={{ backgroundColor: 'var(--bg-accent)' }}>
+            <Shuffle className="w-8 h-8 mb-3" style={{ color: 'var(--accent)' }} />
+            <span className="font-bold text-lg leading-tight">Random<br/>Student</span>
+          </button>
+          
+          <button className="aspect-square flex flex-col items-center justify-center rounded-xl p-4 active:scale-95 transition-transform bg-blue-50 text-blue-900">
+            <Play className="w-8 h-8 mb-3 text-blue-600" />
+            <span className="font-bold text-lg leading-tight">Launch<br/>Activity</span>
+          </button>
+          
+          <button className="aspect-square flex flex-col items-center justify-center rounded-xl p-4 active:scale-95 transition-transform bg-emerald-50 text-emerald-900">
+            <FileText className="w-8 h-8 mb-3 text-emerald-600" />
+            <span className="font-bold text-lg leading-tight">Assign<br/>Homework</span>
+          </button>
+          
+          <button className="aspect-square flex flex-col items-center justify-center rounded-xl p-4 active:scale-95 transition-transform bg-purple-50 text-purple-900">
+            <MessageCircleQuestion className="w-8 h-8 mb-3 text-purple-600" />
+            <span className="font-bold text-lg leading-tight">AI<br/>Doubts</span>
+          </button>
+        </div>
+      </section>
 
-        {activeTab === 'tasks' && (
-          <div className="space-y-6">
-            <h2 className="text-xl font-bold text-[#1F2937]">Pending Reviews</h2>
-            <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl p-8 text-center text-[#6B7280]">
-              Homework submission list will appear here.
+      {/* Students */}
+      <section>
+        <h2 className="text-2xl font-bold font-heading mb-4">Students</h2>
+        <div className="flex flex-col">
+          {STUDENTS.map((student, index) => (
+            <div 
+              key={student.id} 
+              className="h-16 flex items-center gap-4 border-b last:border-b-0"
+              style={{ borderColor: 'var(--border)' }}
+            >
+              <div 
+                className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm"
+                style={{ backgroundColor: 'var(--bg-accent)', color: 'var(--text-primary)' }}
+              >
+                {student.initials}
+              </div>
+              <div className="flex-1 font-medium text-lg">
+                {student.name}
+              </div>
+              <div 
+                className="px-3 py-1 rounded-full text-sm font-medium"
+                style={{
+                  backgroundColor: student.status === 'Present' ? 'var(--success)' : (student.status === 'Late' ? 'var(--warning)' : 'var(--border)'),
+                  color: student.status === 'Present' || student.status === 'Late' ? '#FFF' : 'var(--text-secondary)'
+                }}
+              >
+                {student.status}
+              </div>
             </div>
-          </div>
-        )}
-
-        {activeTab === 'doubts' && (
-          <div className="space-y-6">
-            <h2 className="text-xl font-bold text-[#1F2937]">Unanswered Doubts</h2>
-            <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl p-8 text-center text-[#6B7280]">
-              Student AI doubts queue will appear here.
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'students' && (
-          <div className="space-y-6">
-            <h2 className="text-xl font-bold text-[#1F2937]">Student Roster</h2>
-            <div className="bg-[#FFFFFF] border border-[#E5E7EB] rounded-xl p-8 text-center text-[#6B7280]">
-              Classroom roster and attendance placeholder.
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
+          ))}
+        </div>
+      </section>
+    </motion.div>
   );
 };

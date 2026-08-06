@@ -1,25 +1,65 @@
 @import "tailwindcss";
 
+/* ─── Design Tokens ─── */
 :root {
-  --bg-primary: #FAFAF7;
-  --bg-secondary: #FFFFFF;
-  --bg-sidebar: #F6F5F2;
-  --border-color: #E8E8E8;
-  --text-primary: #222222;
-  --text-secondary: #666666;
-  --accent-blue: #3B82F6;
+  --bg-primary:     #FEFDFB;
+  --bg-card:        #FFFFFF;
+  --bg-accent:      #F5F0E8;
+  --text-primary:   #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --text-muted:     #9CA3AF;
+  --accent:         #4F46E5;
+  --accent-light:   #EEF2FF;
+  --accent-hover:   #4338CA;
+  --success:        #059669;
+  --success-light:  #ECFDF5;
+  --warning:        #D97706;
+  --warning-light:  #FFFBEB;
+  --info-light:     #EFF6FF;
+  --border:         #E8E4DD;
+  --border-light:   #F0EDE6;
+
+  /* Typography */
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-heading: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+
+  /* Sizing */
+  --nav-height:   72px;
+  --header-height: 56px;
+  --radius-sm:    8px;
+  --radius-md:    12px;
+  --radius-lg:    16px;
+  --radius-xl:    20px;
+  --radius-full:  9999px;
+}
+
+/* ─── Base Styles ─── */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.65;
+  overscroll-behavior: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Smooth custom scrollbars */
+/* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -27,17 +67,105 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E8E8E8;
-  border-radius: 9999px;
+  background: var(--border);
+  border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #D1D5DB;
 }
 
+/* Hide scrollbar but keep functionality */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ─── Safe Area Utilities ─── */
 @utility pb-safe {
   padding-bottom: env(safe-area-inset-bottom);
 }
 @utility pt-safe {
   padding-top: env(safe-area-inset-top);
+}
+@utility pl-safe {
+  padding-left: env(safe-area-inset-left);
+}
+@utility pr-safe {
+  padding-right: env(safe-area-inset-right);
+}
+
+/* ─── Typography Helpers ─── */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* ─── Card Base ─── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+.card-interactive {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-interactive:hover {
+  border-color: var(--accent);
+  box-shadow: 0 2px 12px rgba(79, 70, 229, 0.08);
+}
+
+.card-interactive:active {
+  transform: scale(0.985);
+  transition: transform 0.1s ease;
+}
+
+/* ─── Button Base ─── */
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  padding: 14px 24px;
+  font-size: 16px;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+/* ─── Backdrop / Overlay ─── */
+.backdrop-blur-overlay {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(26, 26, 26, 0.3);
+}
+
+/* ─── Status Colors ─── */
+.status-mastered {
+  color: var(--success);
+}
+
+.status-learning {
+  color: var(--accent);
+}
+
+.status-new {
+  color: var(--text-muted);
 }

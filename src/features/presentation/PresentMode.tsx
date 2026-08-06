@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ChapterContent } from '../../types';
-import { X, Clock, Users, MoreHorizontal, ChevronLeft, ChevronRight, CheckCircle2, MessageSquare, Play } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, FileText } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 interface PresentModeProps {
   chapter: ChapterContent;
@@ -9,137 +10,197 @@ interface PresentModeProps {
 }
 
 export const PresentMode: React.FC<PresentModeProps> = ({ chapter, topicId, onExit }) => {
-  const [slideIdx, setSlideIdx] = useState(0);
-  const [studentView, setStudentView] = useState(false);
-  const cards = chapter.lessonCards || [];
+  const topics = chapter.interactiveTopics || [];
+  const initialIdx = topicId ? topics.findIndex((t) => t.id === topicId) : 0;
+  
+  const [currentTopicIndex, setCurrentTopicIndex] = useState(initialIdx >= 0 ? initialIdx : 0);
+  const [showNotes, setShowNotes] = useState(false);
+  const [direction, setDirection] = useState(1);
 
-  if (!cards.length) return <div className="p-10 text-center">No Present Mode cards available.</div>;
+  if (!topics.length) {
+    return (
+      <div className="fixed inset-0 z-50 flex flex-col bg-[var(--bg-primary)] items-center justify-center">
+        <button 
+          onClick={onExit} 
+          className="absolute top-6 left-6 w-10 h-10 bg-black/5 rounded-full flex items-center justify-center text-[var(--text-primary)] hover:bg-black/10 transition-colors"
+        >
+          <X className="w-6 h-6" />
+        </button>
+        <p className="text-xl text-[var(--text-secondary)] font-body">No topics available for presentation.</p>
+      </div>
+    );
+  }
 
-  const currentCard = cards[slideIdx];
+  const currentTopic = topics[currentTopicIndex];
+
+  const handleNext = () => {
+    if (currentTopicIndex < topics.length - 1) {
+      setDirection(1);
+      setCurrentTopicIndex(prev => prev + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentTopicIndex > 0) {
+      setDirection(-1);
+      setCurrentTopicIndex(prev => prev - 1);
+    }
+  };
+
+  const variants = {
+    enter: (dir: number) => ({
+      x: dir > 0 ? 300 : -300,
+      opacity: 0,
+    }),
+    center: {
+      z: 1,
+      x: 0,
+      opacity: 1,
+    },
+    exit: (dir: number) => ({
+      z: 0,
+      x: dir < 0 ? 300 : -300,
+      opacity: 0,
+    }),
+  };
 
   return (
-    <div className="absolute inset-0 bg-[#FAFAF8] z-50 flex flex-col h-screen overflow-hidden">
-      
-      {/* Top Bar */}
-      <div className="h-16 bg-[#FFFFFF] border-b border-[#E5E7EB] flex justify-between items-center px-4 flex-shrink-0">
-        <button onClick={onExit} className="p-2 rounded-lg text-[#1F2937] hover:bg-[#F5F5F2] flex items-center gap-2 font-semibold text-sm transition-colors">
-          <X className="w-5 h-5" /> Exit
-        </button>
-        
-        <div className="font-bold text-[#1F2937]">
-          {chapter.title} <span className="text-[#6B7280] font-normal px-2">·</span> Topic {slideIdx + 1} of {cards.length}
-        </div>
-        
-        <div className="flex items-center gap-3">
-          <div className="hidden md:flex items-center gap-2 px-3 py-1.5 bg-[#F5F5F2] rounded-lg text-sm font-semibold text-[#1F2937]">
-            <Clock className="w-4 h-4 text-[#6B7280]" /> 12:45
-          </div>
-          <button 
-            onClick={() => setStudentView(!studentView)}
-            className={`flex items-center gap-2 px-4 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
-              studentView ? 'bg-[#2563EB] text-[#FFFFFF]' : 'bg-[#FFFFFF] border border-[#E5E7EB] text-[#1F2937] hover:bg-[#F5F5F2]'
-            }`}
+    <div className="fixed inset-0 z-50 flex flex-col bg-[var(--bg-primary)] text-[var(--text-primary)] font-body overflow-hidden">
+      {/* Exit Button */}
+      <button 
+        onClick={onExit} 
+        className="absolute top-6 left-6 z-50 w-10 h-10 bg-black/5 backdrop-blur-sm rounded-full flex items-center justify-center text-[var(--text-primary)] hover:bg-black/10 transition-colors"
+      >
+        <X className="w-5 h-5" />
+      </button>
+
+      {/* Main Content Area */}
+      <div className="flex-1 flex items-center justify-center relative w-full h-full px-24">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={currentTopicIndex}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="flex flex-col items-center justify-center w-full max-w-4xl absolute"
           >
-            <Users className="w-4 h-4" /> Student View
-          </button>
-          <button className="p-2 rounded-lg text-[#6B7280] hover:bg-[#F5F5F2]">
-            <MoreHorizontal className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
-
-      {/* Main Area */}
-      <div className="flex-1 flex overflow-hidden">
-        
-        {/* Canvas */}
-        <div className={`flex-1 p-6 md:p-12 flex flex-col justify-center items-center text-center transition-all ${
-          !studentView ? 'border-r border-[#E5E7EB]' : ''
-        }`}>
-          <span className="text-sm font-bold text-[#2563EB] uppercase tracking-wider mb-6">{currentCard.title}</span>
-          <h1 className="text-[32px] md:text-[48px] lg:text-[56px] font-bold text-[#1F2937] leading-tight max-w-4xl tracking-tight">
-            {currentCard.studentFacingText}
-          </h1>
-          
-          {currentCard.interactivePoll && (
-            <div className="mt-12 p-8 bg-[#FFFFFF] rounded-xl border border-[#E5E7EB] w-full max-w-2xl shadow-sm">
-              <p className="font-bold text-xl mb-6 text-[#1F2937]">{currentCard.interactivePoll.question}</p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                {currentCard.interactivePoll.options.map(opt => (
-                  <button key={opt} className="px-8 py-4 rounded-xl border border-[#E5E7EB] bg-[#FAFAF8] hover:border-[#2563EB] font-bold text-lg text-[#1F2937] transition-colors">
-                    {opt}
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-          
-          <div className="mt-auto pt-10 text-[#6B7280] text-sm font-medium">
-            [ Illustration / Diagram Area ]
-          </div>
-        </div>
-
-        {/* Teacher Panel (hidden in student view) */}
-        {!studentView && (
-          <div className="w-80 lg:w-96 bg-[#FFFFFF] flex flex-col flex-shrink-0">
-            <div className="p-4 border-b border-[#E5E7EB]">
-              <h3 className="font-bold text-[#1F2937] uppercase tracking-wider text-xs">Teacher Notes</h3>
-            </div>
+            <h1 className="text-4xl md:text-5xl font-heading font-bold text-center mb-8">
+              {currentTopic.title}
+            </h1>
             
-            <div className="flex-1 overflow-y-auto p-6 space-y-6 bg-[#FAFAF8]">
-              {currentCard.teacherNotes && (
-                <div className="bg-[#FFFBEB] p-5 rounded-xl border border-[#D97706]/20 shadow-sm">
-                  <span className="text-xs font-bold text-[#D97706] uppercase tracking-wider mb-2 block">Speaker Notes</span>
-                  <p className="text-[#1F2937] font-medium leading-relaxed">{currentCard.teacherNotes}</p>
-                </div>
-              )}
-              
-              {currentCard.askPrompt && (
-                <div className="bg-[#EFF6FF] p-5 rounded-xl border border-[#2563EB]/20 shadow-sm">
-                  <span className="text-xs font-bold text-[#2563EB] uppercase tracking-wider mb-2 block">Ask Students</span>
-                  <p className="text-[#1F2937] font-bold text-lg">{currentCard.askPrompt}</p>
-                </div>
-              )}
+            <p className="text-xl text-[var(--text-secondary)] text-center max-w-2xl leading-relaxed mb-12">
+              {currentTopic.explanation}
+            </p>
 
-              <div className="bg-[#FFFFFF] p-5 rounded-xl border border-[#E5E7EB] shadow-sm">
-                 <span className="text-xs font-bold text-[#6B7280] uppercase tracking-wider mb-2 block">Quick Note</span>
-                 <textarea className="w-full h-24 bg-[#F5F5F2] rounded-xl p-3 text-sm focus:outline-none focus:ring-1 focus:ring-[#2563EB] resize-none" placeholder="Add a private note for this class..."></textarea>
+            {currentTopic.quickCheck && (
+              <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-2xl p-8 shadow-sm w-full max-w-3xl">
+                <p className="text-2xl font-bold mb-8 text-center">{currentTopic.quickCheck.question}</p>
+                {currentTopic.quickCheck.options && (
+                  <div className="flex flex-wrap justify-center gap-4">
+                    {currentTopic.quickCheck.options.map((opt, i) => (
+                      <div key={i} className="px-6 py-4 rounded-xl border border-[var(--border)] bg-[var(--bg-primary)] text-xl font-medium">
+                        {opt}
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
-            </div>
-          </div>
-        )}
+            )}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* Bottom Controls */}
-      <div className="h-20 bg-[#FFFFFF] border-t border-[#E5E7EB] flex justify-between items-center px-6 flex-shrink-0 pb-safe">
-        <button 
-          onClick={() => setSlideIdx(i => Math.max(0, i - 1))}
-          disabled={slideIdx === 0}
-          className="px-6 py-3 rounded-xl bg-[#FAFAF8] border border-[#E5E7EB] disabled:opacity-50 flex items-center gap-2 font-bold text-[#1F2937] hover:bg-[#F5F5F2] transition-colors"
-        >
-          <ChevronLeft className="w-5 h-5" /> Previous
-        </button>
-        
-        <div className="hidden md:flex items-center gap-3">
-          <button className="px-5 py-2.5 rounded-xl border border-[#E5E7EB] bg-[#FFFFFF] text-[#1F2937] font-semibold text-sm hover:bg-[#F5F5F2] transition-colors flex items-center gap-2">
-             <CheckCircle2 className="w-4 h-4 text-[#16A34A]" /> Show Answer
+      {/* Side Navigation Arrows */}
+      {topics.length > 1 && (
+        <>
+          <button 
+            onClick={handlePrev}
+            disabled={currentTopicIndex === 0}
+            className="absolute left-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 bg-black/5 backdrop-blur-sm rounded-full flex items-center justify-center disabled:opacity-30 hover:bg-black/10 transition-colors"
+          >
+            <ChevronLeft className="w-6 h-6" />
           </button>
-          <button className="px-5 py-2.5 rounded-xl border border-[#E5E7EB] bg-[#FFFFFF] text-[#1F2937] font-semibold text-sm hover:bg-[#F5F5F2] transition-colors flex items-center gap-2">
-             <MessageSquare className="w-4 h-4 text-[#D97706]" /> Ask Question
+          <button 
+            onClick={handleNext}
+            disabled={currentTopicIndex === topics.length - 1}
+            className="absolute right-6 top-1/2 -translate-y-1/2 z-40 w-12 h-12 bg-black/5 backdrop-blur-sm rounded-full flex items-center justify-center disabled:opacity-30 hover:bg-black/10 transition-colors"
+          >
+            <ChevronRight className="w-6 h-6" />
           </button>
-          <button className="px-5 py-2.5 rounded-xl border border-[#2563EB] bg-[#EFF6FF] text-[#2563EB] font-bold text-sm hover:bg-[#DBEAFE] transition-colors flex items-center gap-2">
-             <Play className="w-4 h-4" /> Launch Activity
-          </button>
+        </>
+      )}
+
+      {/* Bottom Navigation / Pagination */}
+      {topics.length > 1 && (
+        <div className="absolute bottom-8 left-0 right-0 flex justify-center items-center gap-3 z-40">
+          {topics.map((_, i) => (
+            <div 
+              key={i} 
+              className={`w-3 h-3 rounded-full transition-colors ${i === currentTopicIndex ? 'bg-[var(--accent)]' : 'bg-[var(--border)]'}`} 
+            />
+          ))}
         </div>
+      )}
 
-        <button 
-          onClick={() => setSlideIdx(i => Math.min(cards.length - 1, i + 1))}
-          disabled={slideIdx === cards.length - 1}
-          className="px-8 py-3 rounded-xl bg-[#2563EB] text-[#FFFFFF] disabled:opacity-50 flex items-center gap-2 font-bold hover:bg-blue-700 transition-colors shadow-sm"
-        >
-          Next <ChevronRight className="w-5 h-5" />
-        </button>
-      </div>
+      {/* Teacher Notes Floating Button */}
+      <button 
+        onClick={() => setShowNotes(true)}
+        className="absolute bottom-8 right-8 z-40 px-6 py-3 bg-[var(--accent)] text-white rounded-full flex items-center gap-2 shadow-lg font-medium text-lg hover:opacity-90 transition-opacity"
+      >
+        <FileText className="w-5 h-5" /> Notes
+      </button>
 
+      {/* Teacher Notes Overlay */}
+      <AnimatePresence>
+        {showNotes && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowNotes(false)}
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6"
+          >
+            <motion.div 
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 50, opacity: 0 }}
+              onClick={e => e.stopPropagation()}
+              className="bg-[var(--bg-card)] rounded-3xl p-10 max-w-2xl w-full shadow-2xl relative"
+            >
+              <button 
+                onClick={() => setShowNotes(false)}
+                className="absolute top-6 right-6 p-2 bg-black/5 rounded-full hover:bg-black/10 transition-colors"
+              >
+                <X className="w-6 h-6" />
+              </button>
+              
+              <h2 className="text-3xl font-bold mb-8 font-heading text-[var(--accent)]">Teacher Notes</h2>
+              
+              {currentTopic.misconception && (
+                <div className="mb-8">
+                  <h3 className="text-lg font-bold text-[var(--warning)] mb-3 uppercase tracking-wider">Misconception</h3>
+                  <div className="bg-[var(--bg-accent)] p-6 rounded-2xl text-lg">
+                    <p className="font-semibold mb-3">Wrong: <span className="font-normal text-[var(--text-secondary)]">{currentTopic.misconception.wrong}</span></p>
+                    <p className="font-semibold text-[var(--success)]">Correction: <span className="font-normal text-[var(--text-primary)]">{currentTopic.misconception.correction}</span></p>
+                  </div>
+                </div>
+              )}
+
+              {currentTopic.quickCheck && (
+                <div>
+                  <h3 className="text-lg font-bold text-[var(--accent)] mb-3 uppercase tracking-wider">Quick Check Answer</h3>
+                  <div className="bg-[var(--accent-light)] p-6 rounded-2xl text-lg">
+                    <p className="font-semibold text-[var(--text-primary)]">{currentTopic.quickCheck.answer}</p>
+                  </div>
+                </div>
+              )}
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
