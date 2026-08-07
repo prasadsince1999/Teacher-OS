@@ -52,12 +52,13 @@
       "title": "A Tour Around Chandan's Village",
       "estimatedMinutes": 20,
       "askFirst": [
-        "What do you think a 'community' means?",
-        "Can you name three places near your house that many people use?"
+        "Can one person build a whole city alone?",
+        "Can one ant carry a big leaf alone?"
       ],
-      "explanation": "Chandan lives in a village and shows us around - the playground, and the big banyan tree where elders gather to talk. A community is a group of people who live near each other and depend on one another. They share places like roads, wells and parks, and different people play different roles that help everyone.",
+      "explanation": "Just like ants work together - some collect food, some protect the nest, some care for the babies - people also work together. This is called a community. A community is a group of people who live or work together, help each other, and share the same place. Your family is a small community. Your classroom is a community. Your school is a community. Your village or colony is a community. The book introduces a boy named Chandan, who lives in a village. Near his house there is a playground where children play and a big banyan tree where elders sit and talk. Schools, hospitals, markets, roads and playgrounds are all parts of our community.",
       "hinglishAside": "Community matlab sirf gaanv nahi hota - school, mohalla, ya shehar ka ek hissa bhi ek community ho sakta hai.",
       "explainAgain": [
+        { "type": "story", "title": "The Ant Colony", "body": "Have you seen ants? One ant cannot build a big home. But hundreds of ants work together. Some collect food, some protect the nest, and some care for the babies. Humans also work together in the same way. That is called a community. Interestingly, the chapter itself later uses ants and bees as an example of a community where everyone has a different role." },
         { "type": "concrete", "title": "Human Web", "body": "Ask 5 students to stand in a circle holding a rope, each one representing a 'place' (school, market, well, road, home). Gently pull the rope at one point and show how it tugs the others. Explain: a community works the same way - people and places are all connected." },
         { "type": "picture", "title": "My Community Map", "body": "Draw a big circle labelled 'My Community' on the board. Around it draw small boxes: School, Market, Well, Park, Hospital. Draw arrows connecting each box back to the big circle, showing how each place serves everyone." },
         { "type": "story", "title": "Meera's New Town", "body": "Meera moved to a new town. On her first day she found the school, the market, and the park all near her house. She realised these places were not just buildings - they were where she would meet the people she'd grow up with." },
@@ -65,9 +66,9 @@
         { "type": "nonexample", "title": "Not Just Villages", "body": "Students often think a community is only a village with fields and huts. Actually, a crowded city street, an apartment building, or even a school is also a community - because community is about people depending on each other, not about the type of place." }
       ],
       "realLife": [
-        "The local kirana shop where your family buys groceries every week.",
-        "A neighbourhood WhatsApp group that shares news about a water problem in the mohalla.",
-        "A housing society where neighbours share a common garden and a guard."
+        "Your family is a small community - you live together, help each other, and share the same home.",
+        "Your classroom is a community - you share the same room, the same teacher, and learn together.",
+        "Your village or colony is a community - neighbours share roads, markets, and water, and help each other in times of need."
       ],
       "workedExample": {
         "problem": "In Chandan's village, the 'Road' is one shared place. Two connections are already given: it connects people in different areas, and it allows easy movement of goods and services. What is one more connection a road provides?",
@@ -158,7 +159,7 @@
           "Don't say 'everyone in a community is friends' — people in a community may not even know each other, but they still depend on each other.",
           "Don't say 'community is just a word for neighbourhood' — neighbourhood is a place, community is people."
         ],
-        "boardPlan": "COMMUNITY = people + shared place + depend on each other\n\nExamples: village, mohalla, school, housing society\nNOT a community: one person alone, a random crowd at a station"
+        "boardPlan": "ASK: Can one person build a city alone? NO\nASK: Can one ant carry a big leaf alone? NO\n\nAnts work together → People work together → COMMUNITY\n\nCOMMUNITY = a group of people who live or work together, help each other, and share the same place\n\nExamples (small → big):\n1. Family\n2. Classroom\n3. School\n4. Village / Colony"
       }
     },
 
