@@ -128,7 +128,38 @@
         { "id": "t1-r1", "prompt": "What is a community?", "answer": "A group of people who live near each other and depend on one another.", "type": "recall" },
         { "id": "t1-r2", "prompt": "Name three types of places found in most communities.", "answer": "Any three of: school, market, park, road, hospital, post office.", "type": "recall" },
         { "id": "t1-r3", "prompt": "Is a school also a kind of community? Why or why not?", "answer": "Yes - it is a group of people (teachers, students, staff) who share a space and depend on each other.", "type": "recall" }
-      ]
+      ],
+      "teacherBrief": {
+        "inOneLine": "A community is any group of people who share a place and depend on each other — a village, a street, or a school.",
+        "whyItMatters": "This is the foundation concept for the entire chapter. If the child gets 'community' right here, every later topic — festivals, teamwork, roles — clicks into place.",
+        "backgroundForMe": [
+          "The word 'community' comes from Latin communitas, meaning shared or common — the core idea is mutual dependence, not geography.",
+          "India's Census defines urban and rural communities differently, but the textbook deliberately avoids that distinction to keep it simple for Class 4.",
+          "A child's first community is their family, then their neighbourhood, then their school — the textbook moves outward from the familiar.",
+          "Gated communities, online groups, and religious congregations are all communities too — but the textbook limits itself to physical, place-based ones."
+        ],
+        "likelyQuestions": [
+          { "q": "Sir, is my family a community?", "a": "Yes, your family is actually the smallest community you belong to — people who live together and depend on each other.", "depth": "quick" },
+          { "q": "Sir, if one person doesn't help, is it still a community?", "a": "Yes, it's still a community. But it works better when everyone helps. Think of it like a cricket team — even if one player doesn't field well, the team still exists.", "depth": "quick" },
+          { "q": "Is our class a community?", "a": "Absolutely. You share the same room, the same teacher, and you depend on each other to keep it clean and learn well.", "depth": "quick" },
+          { "q": "Sir, what if someone lives alone far from everyone?", "a": "That person isn't part of a community in the textbook's meaning. A community needs people near each other who depend on each other.", "depth": "quick" },
+          { "q": "Can animals have communities?", "a": "Great thinking! Yes, ants, bees, and elephants live in groups that depend on each other. But this chapter focuses on human communities.", "depth": "deeper" },
+          { "q": "Sir, what's the difference between a community and a city?", "a": "A city is a big place. Inside one city there are many communities — your street, your school, your housing society. A community is smaller and more personal.", "depth": "deeper" },
+          { "q": "Can someone belong to two communities?", "a": "Yes! You belong to your neighbourhood community and your school community at the same time. Most people belong to several.", "depth": "deeper" }
+        ],
+        "ifStuckSay": [
+          "Good question. Let's find that out together.",
+          "I'm not fully sure. Let me check properly and bring you the answer next class.",
+          "What do you think the answer might be?",
+          "Let's look at what the book says here."
+        ],
+        "doNotSay": [
+          "Don't say 'community means village' — it excludes city kids and confuses them when Topic 6 calls school a community.",
+          "Don't say 'everyone in a community is friends' — people in a community may not even know each other, but they still depend on each other.",
+          "Don't say 'community is just a word for neighbourhood' — neighbourhood is a place, community is people."
+        ],
+        "boardPlan": "COMMUNITY = people + shared place + depend on each other\n\nExamples: village, mohalla, school, housing society\nNOT a community: one person alone, a random crowd at a station"
+      }
     },
 
     {
@@ -211,7 +242,36 @@
         { "id": "t2-r1", "prompt": "When is Van Mahotsav celebrated?", "answer": "From 1 to 7 July, during the rainy season.", "type": "recall" },
         { "id": "t2-r2", "prompt": "Why do people plant trees during Van Mahotsav?", "answer": "To protect the environment and make the earth greener.", "type": "recall" },
         { "id": "t2-r3", "prompt": "Name one job people did to prepare for the festival in the chapter.", "answer": "Answers vary - cleaning the park, repairing benches, bringing saplings, etc.", "type": "recall" }
-      ]
+      ],
+      "teacherBrief": {
+        "inOneLine": "Van Mahotsav is India's tree-planting festival (1–7 July) — the chapter uses it to show that festivals involve real community planning and work, not just celebration.",
+        "whyItMatters": "This topic shifts the child's idea of 'festival' from eating-and-holiday to planning-and-working-together. It also introduces environmental awareness through something tangible they can do.",
+        "backgroundForMe": [
+          "Van Mahotsav was started in 1950 by K.M. Munshi, India's first Food and Agriculture Minister — it's one of the world's oldest tree-planting campaigns.",
+          "It falls in July because the monsoon gives saplings the best chance of survival without needing manual watering.",
+          "India plants roughly 2 billion saplings per year during Van Mahotsav drives — though survival rates vary widely by state.",
+          "The textbook characters (Chandan, John, Mallika) are deliberately diverse names to show community crosses religion and background."
+        ],
+        "likelyQuestions": [
+          { "q": "Sir, why do we plant trees only in July? Can't we plant any time?", "a": "We can plant any time, but July is best because the rains water the saplings naturally. In summer, most new plants would dry out and die.", "depth": "quick" },
+          { "q": "Who started Van Mahotsav?", "a": "A man named K.M. Munshi started it in 1950. He wanted every Indian to plant at least one tree every year.", "depth": "quick" },
+          { "q": "Sir, is Van Mahotsav a holiday from school?", "a": "Not usually a holiday. Many schools celebrate it by planting trees on campus. The festival is about doing something, not resting.", "depth": "quick" },
+          { "q": "Why did they clean the park before planting?", "a": "Because planting in a messy park doesn't make sense — you need to prepare the ground first. It's like tidying your room before rearranging furniture.", "depth": "quick" },
+          { "q": "Sir, do trees really help with air?", "a": "Yes. Trees take in carbon dioxide and give out oxygen, which is what we breathe. One big tree can give oxygen for about four people for a year.", "depth": "deeper" },
+          { "q": "Can one person do the whole Van Mahotsav alone?", "a": "They could plant one or two trees alone, but the whole point is doing it together — many people planting many trees across the village.", "depth": "deeper" }
+        ],
+        "ifStuckSay": [
+          "Good question. Let's find that out together.",
+          "I'm not fully sure. Let me check properly and bring you the answer next class.",
+          "What do you think the answer might be?",
+          "Let's look at what the book says here."
+        ],
+        "doNotSay": [
+          "Don't say 'Van Mahotsav is like Diwali or Holi' — it's a civic/environmental event, not a religious festival. The comparison will confuse the meaning of 'festival'.",
+          "Don't say 'planting one tree doesn't matter' — the whole lesson is about small contributions adding up."
+        ],
+        "boardPlan": "VAN MAHOTSAV — 1 to 7 July\nStarted: 1950 by K.M. Munshi\nWhy July? → Monsoon rains water the saplings\n\nChandan's Plan:\n1. Clean the park\n2. Fix benches\n3. Plant saplings\n4. Invite families"
+      }
     },
 
     {
@@ -293,7 +353,37 @@
         { "id": "t3-r1", "prompt": "Name two tools mentioned in the chapter and who uses them.", "answer": "A trowel used by a mason; a watering can used by a gardener.", "type": "recall" },
         { "id": "t3-r2", "prompt": "Why did different villagers do different jobs for the park?", "answer": "Because each job needed a different skill and tool.", "type": "recall" },
         { "id": "t3-r3", "prompt": "What did Noor contribute to the Van Mahotsav preparations?", "answer": "Saplings from her plant nursery.", "type": "recall" }
-      ]
+      ],
+      "teacherBrief": {
+        "inOneLine": "Different people bring different skills and tools — no single person can do every job, and every job matters equally.",
+        "whyItMatters": "This is where the concept of division of labour meets the child's world. It directly fights the idea that some jobs are 'small' or don't count.",
+        "backgroundForMe": [
+          "Division of labour is an economics concept (Adam Smith, 1776) — the textbook presents it simply without the jargon, through the village story.",
+          "India's traditional caste-based occupations are a sensitive area here. The textbook deliberately avoids caste and frames occupations as skills anyone can learn, not birth-based roles.",
+          "A trowel (khurpi) is specifically a flat-bladed hand tool for spreading mortar — different from a spade or shovel, which students often confuse.",
+          "The chapter mentions Sameer, Babita, Noor — each with a different skill. The names cross religious lines to reinforce the community-is-diverse message."
+        ],
+        "likelyQuestions": [
+          { "q": "Sir, is a shopkeeper's job as important as a doctor's?", "a": "In a community, yes. Without the shopkeeper, there's no food or supplies. Without the doctor, there's no health care. Both are needed — that's why we say every job matters.", "depth": "quick" },
+          { "q": "Sir, what if someone doesn't have any special skill?", "a": "Everyone has something they do well. Maybe you're good at keeping things clean, or carrying heavy things, or being kind to people. Those are all skills a community needs.", "depth": "quick" },
+          { "q": "Why can't one person just learn all the skills?", "a": "They could learn a few, but there's not enough time in one day to fix benches AND plant trees AND repair lights AND cook food. The work needs to happen at the same time.", "depth": "quick" },
+          { "q": "Sir, my father is a farmer. Is farming a skill?", "a": "Absolutely. Farming needs knowledge of soil, weather, seeds, and timing. It's one of the most important skills in any village community.", "depth": "quick" },
+          { "q": "What's the difference between a job and a skill?", "a": "A skill is what you know how to do — like woodworking. A job is when you use that skill regularly to help others — like being a carpenter.", "depth": "deeper" },
+          { "q": "Sir, can a child have a job in the community?", "a": "Not a paid job, but you already contribute — by studying, keeping your space clean, and helping at home. Those are your roles right now.", "depth": "deeper" }
+        ],
+        "ifStuckSay": [
+          "Good question. Let's find that out together.",
+          "I'm not fully sure. Let me check properly and bring you the answer next class.",
+          "What do you think the answer might be?",
+          "Let's look at what the book says here."
+        ],
+        "doNotSay": [
+          "Don't rank occupations — never say 'doctor is the best job' or 'sweeping is a small job'. The chapter's whole point is that every job matters equally.",
+          "Don't connect occupations to caste or family background. The textbook treats all jobs as learnable skills, and so should you.",
+          "Don't say 'only men do physical work' — Babita repairs the light and Noor runs the nursery in this chapter."
+        ],
+        "boardPlan": "COMMUNITY JOBS\n\n| Person  | Skill         | Tool         |\n|---------|---------------|--------------|\n| Sameer  | Woodwork      | Hammer, nails|\n| Babita  | Electrical     | Pliers       |\n| Noor    | Gardening     | Watering can |\n\nEvery job matters. No job is too small."
+      }
     },
 
     {
@@ -376,7 +466,38 @@
         { "id": "t4-r1", "prompt": "Where and when was the community bridge built?", "answer": "In Kanker, Chhattisgarh, during the rainy season of 2024.", "type": "recall" },
         { "id": "t4-r2", "prompt": "What materials were used to build the bridge?", "answer": "Bamboo, stones, and other local material.", "type": "recall" },
         { "id": "t4-r3", "prompt": "How long did it take to build the bridge?", "answer": "Two days.", "type": "recall" }
-      ]
+      ],
+      "teacherBrief": {
+        "inOneLine": "When many people work on different parts of a big problem at the same time, even a bamboo bridge across a flooded river gets built in two days.",
+        "whyItMatters": "This is the payoff topic — it shows that community cooperation isn't just nice, it solves real urgent problems that no individual could handle.",
+        "backgroundForMe": [
+          "Kanker is a district in Bastar division, Chhattisgarh — one of India's most forested and tribal regions. Community self-help is deeply rooted there.",
+          "The Chinar river bridge is a real event. Villagers in remote tribal areas often build such bridges because government infrastructure takes years to reach them.",
+          "Bamboo bridges are surprisingly strong — bamboo has a tensile strength comparable to steel. Traditional bridge-building knowledge has been passed down for generations.",
+          "The Van Mahotsav celebration scene shows Mallika coordinating with a microphone — this is the chapter's example of a coordinator role, even though she doesn't do physical labour.",
+          "Parallel work (everyone works on different parts simultaneously) versus serial work (one task after another) is the key concept here — it's why 2 days is possible."
+        ],
+        "likelyQuestions": [
+          { "q": "Sir, is a bamboo bridge safe? Won't it break?", "a": "Bamboo is actually very strong — almost as strong as steel for its weight. And the villagers used stones to hold the base firm. It's a tested design they've used for generations.", "depth": "quick" },
+          { "q": "Why didn't they just wait for the government to build a real bridge?", "a": "Because children needed to get to school and sick people needed to reach the hospital right now. In emergencies, communities act first — they can't wait months or years.", "depth": "quick" },
+          { "q": "Sir, what if some people didn't want to help?", "a": "That can happen. But when the problem is urgent — like a flooded river blocking your own children's school — most people want to help because it affects them too.", "depth": "quick" },
+          { "q": "Could robots or machines do this faster?", "a": "Maybe in a city, but Kanker is a remote area. No machines were available. The community used what they had — bamboo, stones, and their own hands.", "depth": "deeper" },
+          { "q": "Sir, who told everyone what to do? Was there a leader?", "a": "The chapter shows Mallika making announcements at Van Mahotsav. For the bridge, village elders likely coordinated. But the work itself was shared — no one person did it all.", "depth": "deeper" },
+          { "q": "What happens if the river floods again next year?", "a": "They might need to repair or rebuild the bridge. That's part of living with nature — communities maintain what they build together.", "depth": "deeper" }
+        ],
+        "ifStuckSay": [
+          "Good question. Let's find that out together.",
+          "I'm not fully sure. Let me check properly and bring you the answer next class.",
+          "What do you think the answer might be?",
+          "Let's look at what the book says here."
+        ],
+        "doNotSay": [
+          "Don't say 'the government should have built the bridge' — it undermines the chapter's message that communities can act without waiting for outside help.",
+          "Don't say 'only strong men built the bridge' — the chapter says 'the entire community' worked together, including women and young people.",
+          "Don't dismiss bamboo as 'just sticks' — it's an engineered material used across South and Southeast Asia for serious construction."
+        ],
+        "boardPlan": "THE KANKER BRIDGE\nProblem: Flooded river → children can't reach school\nSolution: Whole community built a bamboo + stone bridge\nTime: Just 2 days!\n\nWHY SO FAST?\n→ Many people\n→ Different jobs at the SAME TIME\n→ Used local materials (bamboo, stones)"
+      }
     },
 
     {
@@ -458,7 +579,38 @@
         { "id": "t5-r1", "prompt": "What happens to banana leaves buried in a pit?", "answer": "They turn into manure, which improves soil quality.", "type": "recall" },
         { "id": "t5-r2", "prompt": "What is Bhela Ghar, and where is it built?", "answer": "A hut made of bamboo and hay, built in Assam during Uruka.", "type": "recall" },
         { "id": "t5-r3", "prompt": "Who are Khetala?", "answer": "Farming specialists in Sikkim who help the community harvest crops together.", "type": "recall" }
-      ]
+      ],
+      "teacherBrief": {
+        "inOneLine": "Sharing a meal together — where every family brings something — turns food into a bond, and even the leftovers become useful as manure.",
+        "whyItMatters": "This topic introduces two new ideas at once: cultural traditions as community glue, and basic waste-to-resource thinking (composting). Both are easy to miss if you rush.",
+        "backgroundForMe": [
+          "Uruka (14 January) is the eve of Magh Bihu in Assam. Bhela Ghar is a temporary hut of bamboo and thatch that is set on fire the next morning — but the textbook only mentions the feast, not the burning.",
+          "Khetala is a Sikkimese practice of reciprocal farm labour — neighbours help you harvest, and you help them when their turn comes. It's similar to 'gotong royong' in Indonesia.",
+          "Composting (leaves → manure) is aerobic decomposition. Microorganisms break down organic matter into humus over 2-6 months. The textbook calls it 'manure' loosely.",
+          "Langar (Sikh community kitchen) serves 50,000+ meals daily at the Golden Temple — the world's largest free community kitchen. It's a strong example if the child asks for more.",
+          "Banana leaves are traditionally used in South India and parts of Bihar because they are biodegradable, free, and mildly antiseptic."
+        ],
+        "likelyQuestions": [
+          { "q": "Sir, why do they eat on leaves and not plates?", "a": "Banana leaves are free, clean, biodegradable, and don't need washing. When you're feeding a whole village, that's much easier than hundreds of plates.", "depth": "quick" },
+          { "q": "What does 'manure' mean? Is it like compost?", "a": "Yes, it's very similar. When you bury leaves or food scraps in a pit, tiny organisms break them down into a dark, rich material that makes soil better for plants.", "depth": "quick" },
+          { "q": "Sir, what is Bhela Ghar made of?", "a": "Bamboo poles and dry hay or thatch. It's a small hut built near the feast site in Assam during Uruka.", "depth": "quick" },
+          { "q": "Why don't we have community feasts in our city?", "a": "Actually, many do — langars at Gurdwaras, wedding feasts, building society get-togethers. You might just call them something different.", "depth": "quick" },
+          { "q": "Sir, is burning the Bhela Ghar bad for the environment?", "a": "The textbook doesn't mention the burning part. But it's a small, controlled fire using natural materials — very different from burning plastic or tyres.", "depth": "deeper" },
+          { "q": "Can we make manure at school?", "a": "Yes! A compost pit with fallen leaves, fruit peels, and some soil, watered occasionally, produces manure in a few months. Some schools already do this.", "depth": "deeper" }
+        ],
+        "ifStuckSay": [
+          "Good question. Let's find that out together.",
+          "I'm not fully sure. Let me check properly and bring you the answer next class.",
+          "What do you think the answer might be?",
+          "Let's look at what the book says here."
+        ],
+        "doNotSay": [
+          "Don't say 'eating on leaves is unhygienic' — banana leaves are naturally clean and have mild antibacterial properties.",
+          "Don't say 'only poor people eat on leaves' — it's a cultural tradition across South India, from the poorest to the richest.",
+          "Don't confuse manure with chemical fertiliser — manure is natural decomposed material, fertiliser is factory-made."
+        ],
+        "boardPlan": "COMMUNITY FEAST\nEvery family brings → vegetables, grain, banana leaves\nEveryone eats together → sharing = belonging\n\nAFTER THE MEAL:\nLeaves buried in pit → microorganisms break them down → MANURE → better soil\n\nOTHER TRADITIONS: Uruka (Assam), Khetala (Sikkim), Langar (Gurdwara)"
+      }
     },
 
     {
@@ -540,7 +692,37 @@
         { "id": "t6-r1", "prompt": "Name three different roles found in a school community.", "answer": "Answers vary - e.g., teacher, bus driver, caretaker, principal, librarian.", "type": "recall" },
         { "id": "t6-r2", "prompt": "Why does a school need more roles than just teachers and students?", "answer": "Because different roles handle different needs - transport, cleanliness, management, and so on.", "type": "recall" },
         { "id": "t6-r3", "prompt": "What is your own role in your school community?", "answer": "Answers vary - e.g., following rules and helping classmates.", "type": "recall" }
-      ]
+      ],
+      "teacherBrief": {
+        "inOneLine": "A school is a community too — teachers, students, drivers, caretakers, and the principal each play a role that keeps it running.",
+        "whyItMatters": "This topic bridges the abstract (village community) to the child's own daily life. If they see their school as a community, the whole chapter becomes personal.",
+        "backgroundForMe": [
+          "The school-as-community frame comes from John Dewey's progressive education philosophy — schools are miniature societies where children practise democracy and cooperation.",
+          "India's mid-day meal programme (MDMS) feeds ~120 million children daily — the cooks are a real and visible school community role often overlooked.",
+          "In many rural schools, one person handles multiple roles — the teacher might also be the librarian. This doesn't weaken the lesson; it shows how important each role is.",
+          "The textbook asks students to identify their OWN role — this is the key moment. Don't skip it. A child who sees themselves as an active contributor behaves differently."
+        ],
+        "likelyQuestions": [
+          { "q": "Sir, what's my role? I'm just a student.", "a": "Your role is huge — coming to class, studying, keeping your desk clean, helping classmates, following rules. Without students, there's no school at all!", "depth": "quick" },
+          { "q": "Is the principal the boss of the school?", "a": "The principal manages the school, but they depend on teachers, students, and staff to make everything work. It's more like a team captain than a boss.", "depth": "quick" },
+          { "q": "Sir, what about the mid-day meal cook? Is she part of the school community?", "a": "Absolutely. She makes sure hundreds of students are fed and can focus on studying. That's one of the most important roles.", "depth": "quick" },
+          { "q": "Why do we have to follow rules if it's a community?", "a": "Because in any community, rules help everyone get along — like traffic rules on a road. Without them, everything becomes chaotic.", "depth": "quick" },
+          { "q": "Sir, is our hostel also a community?", "a": "Yes! You share the same space, you eat together, you help each other. That's exactly what a community is.", "depth": "deeper" },
+          { "q": "What happens if one person doesn't do their job?", "a": "Things get harder for everyone else. If the bus driver doesn't come, students can't reach school. If students don't keep their classroom clean, the caretaker is overloaded.", "depth": "deeper" }
+        ],
+        "ifStuckSay": [
+          "Good question. Let's find that out together.",
+          "I'm not fully sure. Let me check properly and bring you the answer next class.",
+          "What do you think the answer might be?",
+          "Let's look at what the book says here."
+        ],
+        "doNotSay": [
+          "Don't say 'students don't really have a role' — the whole point is that they do, and recognising it changes their behaviour.",
+          "Don't say 'the principal is the most important person' — the chapter frames all roles as equally necessary.",
+          "Don't skip the caretaker and driver when listing roles — children need to see that invisible labour counts."
+        ],
+        "boardPlan": "SCHOOL = A COMMUNITY\n\n| Role       | What they do                    |\n|------------|----------------------------------|\n| Teacher    | Helps students learn             |\n| Driver     | Brings students safely to school |\n| Caretaker  | Keeps school clean and secure    |\n| Principal  | Manages the whole school         |\n| YOU        | Learn, follow rules, help others |"
+      }
     },
 
     {
@@ -622,7 +804,37 @@
         { "id": "t7-r1", "prompt": "What makes a riddle about a place effective?", "answer": "Giving clues about what happens there, without naming the place directly.", "type": "recall" },
         { "id": "t7-r2", "prompt": "Name one community place used in the chapter's riddles.", "answer": "Answers vary - e.g., post office, bus stand, market, or park.", "type": "recall" },
         { "id": "t7-r3", "prompt": "What was the last group task of the chapter about?", "answer": "Identifying a problem in the locality and planning an activity, like cleaning or organising an event, to improve it.", "type": "recall" }
-      ]
+      ],
+      "teacherBrief": {
+        "inOneLine": "Riddles test whether children actually know their community places, and the local-problem task turns knowledge into action.",
+        "whyItMatters": "This is the chapter's capstone — it moves from 'I learned about communities' to 'I can do something for mine'. The group activity is where the learning becomes real.",
+        "backgroundForMe": [
+          "Riddles (paheli) are a traditional Indian teaching tool — they test comprehension without the pressure of a formal question. The textbook uses them deliberately.",
+          "The group activity (identify a local problem → plan a fix) is a simplified version of community action projects used in civic education worldwide.",
+          "A post office delivers letters, parcels, and money orders. India Post has ~155,000 post offices — the world's largest postal network. Most children today haven't used one.",
+          "The riddle about the market uses sensory clues (colours, lights, sounds) — this is a reading comprehension technique called 'imagery', where the reader creates a mental picture from words."
+        ],
+        "likelyQuestions": [
+          { "q": "Sir, what's a post office? I've never been to one.", "a": "It's a place where you can send letters and parcels to people in other cities. Your parents might use courier services instead, but post offices still exist everywhere.", "depth": "quick" },
+          { "q": "Can I write a riddle about my house?", "a": "Sure! But the chapter's riddles are about community places that everyone uses — so try a place like the park, market, or bus stand first.", "depth": "quick" },
+          { "q": "Sir, what if our group can't actually fix the problem we chose?", "a": "That's fine. The exercise is about identifying the problem and making a plan. Even professional projects start with a plan before any work happens.", "depth": "quick" },
+          { "q": "Can kids really fix community problems?", "a": "You already saw Chandan and his friends do it! Cleaning a park, planting trees, picking up litter — these are things even a Class 4 student can do.", "depth": "quick" },
+          { "q": "Sir, why are riddles in our textbook? Aren't they just games?", "a": "Riddles make you think carefully about a place — what happens there, what you see, what you hear. That's actually a deep way of understanding your community.", "depth": "deeper" },
+          { "q": "What if there's no problem in our locality?", "a": "Look more carefully — is the park clean? Are the roads smooth? Is there enough lighting at night? Every locality has something that could be better.", "depth": "deeper" }
+        ],
+        "ifStuckSay": [
+          "Good question. Let's find that out together.",
+          "I'm not fully sure. Let me check properly and bring you the answer next class.",
+          "What do you think the answer might be?",
+          "Let's look at what the book says here."
+        ],
+        "doNotSay": [
+          "Don't say 'riddles are just for fun' — they're a comprehension tool. The textbook uses them to check if the child really understands community places.",
+          "Don't say 'fixing problems is the government's job' — the whole chapter builds toward children seeing themselves as agents of change.",
+          "Don't let the group activity become just a writing exercise — push them to name a REAL local problem, even if they can't fix it today."
+        ],
+        "boardPlan": "RIDDLE RULES:\n1. Pick a community place\n2. Write clues about what you see/hear/do there\n3. Do NOT name the place!\n4. Let a friend guess\n\nGROUP TASK:\nProblem in our area → Plan to fix it → Who does what?"
+      }
     }
   ],
 
