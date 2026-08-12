@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>TeachPocket — Tuition Companion</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/manrope@latest/latin-400.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/manrope@latest/latin-500.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/manrope@latest/latin-600.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/manrope@latest/latin-700.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/manrope@latest/latin-800.css">
+    <style>
+        :root {
+            --bg: #F7F7F4;
+            --card: #FFFFFF;
+            --ink: #1C2321;
+            --sub: #68716C;
+            --faint: #9AA39E;
+            --line: #E7E8E1;
+            --accent: #0E7A66;
+            --accent-ink: #0A5C4D;
+            --soft: #E8F1EE;
+            --soft2: #F1F6F4;
+            --amber: #8A5A00;
+            --amber-soft: #FBF2DD;
+            --radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+            background: #E9EAE4;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100dvh;
+        }
+
+        button {
+            font-family: inherit;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: inherit
+        }
+
+        input {
+            font-family: inherit
+        }
+
+        /* ---------- Device frame ---------- */
+        .device {
+            background: #12151A;
+            border-radius: 54px;
+            padding: 11px;
+            box-shadow: 0 30px 70px rgba(20, 25, 22, .28), 0 2px 8px rgba(20, 25, 22, .18)
+        }
+
+        .phone {
+            position: relative;
+            width: 390px;
+            height: 824px;
+            background: var(--bg);
+            border-radius: 44px;
+            overflow: hidden
+        }
+
+        @media (max-width:430px) {
+            body {
+                background: var(--bg)
+            }
+
+            .device {
+                background: none;
+                padding: 0;
+                border-radius: 0;
+                box-shadow: none;
+                width: 100vw
+            }
+
+            .phone {
+                width: 100vw;
+                height: 100dvh;
+                border-radius: 0
+            }
+        }
+
+        /* ---------- Screens ---------- */
+        .screen {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transform: translateX(18px);
+            pointer-events: none;
+            transition: opacity .26s ease, transform .26s ease
+        }
+
+        .screen.active {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto
+        }
+
+        .scroll {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            overflow-y: auto;
+            overscroll-behavior: contain;
+            padding: 20px 18px 28px;
+            scrollbar-width: none
+        }
+
+        .scroll::-webkit-scrollbar {
+            display: none
+        }
+
+        .has-bar .scroll {
+            bottom: 84px
+        }
+
+        .has-tab .scroll {
+            bottom: 74px
+        }
+
+        /* ---------- Shared bits ---------- */
+        .lbl {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .13em;
+            text-transform: uppercase;
+            color: var(--sub)
+        }
+
+        .lbl.acc {
+            color: var(--accent)
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 18px
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .gap {
+            height: 14px
+        }
+
+        .gap-s {
+            height: 9px
+        }
+
+        .icon-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+            transition: transform .12s
+        }
+
+        .icon-btn:active {
+            transform: scale(.94)
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            height: 52px;
+            border-radius: 15px;
+            font-size: 16px;
+            font-weight: 700;
+            transition: transform .12s, background .15s;
+            width: 100%
+        }
+
+        .btn:active {
+            transform: scale(.97)
+        }
+
+        .btn.primary {
+            background: var(--accent);
+            color: #fff
+        }
+
+        .btn.primary:active {
+            background: var(--accent-ink)
+        }
+
+        .btn.ghost {
+            background: var(--card);
+            border: 1px solid var(--line);
+            color: var(--ink)
+        }
+
+        .btn.soft {
+            background: var(--soft);
+            color: var(--accent-ink)
+        }
+
+        .btn.small {
+            height: 44px;
+            font-size: 14px;
+            border-radius: 12px
+        }
+
+        .bar-wrap {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 14px 18px calc(16px);
+            background: rgba(247, 247, 244, .94);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid var(--line);
+            display: flex;
+            gap: 10px
+        }
+
+        .toast {
+            position: absolute;
+            left: 50%;
+            bottom: 104px;
+            transform: translateX(-50%) translateY(10px);
+            background: #1C2321;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 99px;
+            opacity: 0;
+            transition: .25s;
+            z-index: 80;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0)
+        }
+
+        /* ---------- Header inside screens ---------- */
+        .topbar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0 12px
+        }
+
+        .topbar .lbl {
+            flex: 1
+        }
+
+        .prog-txt {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--sub);
+            font-variant-numeric: tabular-nums
+        }
+
+        .thin-bar {
+            height: 3px;
+            background: var(--line);
+            border-radius: 99px;
+            overflow: hidden;
+            margin-bottom: 16px
+        }
+
+        .thin-bar i {
+            display: block;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 99px;
+            transition: width .3s ease
+        }
+
+        /* ---------- Search & chips ---------- */
+        .search {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            height: 50px;
+            padding: 0 15px;
+            margin-bottom: 14px
+        }
+
+        .search input {
+            border: none;
+            outline: none;
+            background: none;
+            flex: 1;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--ink)
+        }
+
+        .search input::placeholder {
+            color: var(--faint)
+        }
+
+        .chips {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+            scrollbar-width: none
+        }
+
+        .chips::-webkit-scrollbar {
+            display: none
+        }
+
+        .chip {
+            flex: none;
+            height: 36px;
+            padding: 0 15px;
+            border-radius: 99px;
+            border: 1px solid var(--line);
+            background: var(--card);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--sub);
+            transition: .15s
+        }
+
+        .chip.on {
+            background: var(--ink);
+            border-color: var(--ink);
+            color: #fff
+        }
+
+        /* ---------- Chapter cards ---------- */
+        .chcard {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 15px 16px;
+            margin-bottom: 10px;
+            text-align: left;
+            width: 100%;
+            transition: transform .12s
+        }
+
+        .chcard:active {
+            transform: scale(.985)
+        }
+
+        .chrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 7px
+        }
+
+        .chip-class {
+            font-size: 11px;
+            font-weight: 800;
+            background: var(--soft);
+            color: var(--accent-ink);
+            border-radius: 7px;
+            padding: 4px 8px;
+            letter-spacing: .04em
+        }
+
+        .chsubj {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--sub)
+        }
+
+        .chlast {
+            margin-left: auto;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--faint)
+        }
+
+        .chtitle {
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: -.01em;
+            margin-bottom: 10px
+        }
+
+        .prow {
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .pbar {
+            flex: 1;
+            height: 4px;
+            background: var(--line);
+            border-radius: 99px;
+            overflow: hidden
+        }
+
+        .pbar i {
+            display: block;
+            height: 100%;
+            background: var(--accent);
+            border-radius: 99px
+        }
+
+        .ppct {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--accent-ink);
+            font-variant-numeric: tabular-nums
+        }
+
+        .continue-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 20px
+        }
+
+        .continue-card .row {
+            justify-content: space-between
+        }
+
+        /* ---------- Tab bar ---------- */
+        .tabbar {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 74px;
+            background: rgba(255, 255, 255, .96);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid var(--line);
+            display: flex
+        }
+
+        .tab {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--faint)
+        }
+
+        .tab.on {
+            color: var(--accent-ink)
+        }
+
+        .tab svg {
+            opacity: .9
+        }
+
+        /* ---------- Overview ---------- */
+        .ov-title {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -.02em;
+            line-height: 1.15;
+            margin: 2px 0 6px
+        }
+
+        .ov-meta {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 14px
+        }
+
+        .meta-pill {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--sub);
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 99px;
+            padding: 5px 11px
+        }
+
+        .grouplbl {
+            margin: 20px 2px 8px
+        }
+
+        .sec {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            padding: 17px 16px;
+            margin-bottom: 8px;
+            transition: transform .12s
+        }
+
+        .sec:active {
+            transform: scale(.985)
+        }
+
+        .sec-num {
+            width: 26px;
+            height: 26px;
+            border-radius: 8px;
+            background: var(--soft);
+            color: var(--accent-ink);
+            font-size: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none
+        }
+
+        .sec-name {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -.01em;
+            flex: 1;
+            text-align: left
+        }
+
+        .sec-meta {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--faint)
+        }
+
+        .sec svg {
+            color: var(--faint);
+            flex: none
+        }
+
+        /* ---------- Teach ---------- */
+        .type-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .13em;
+            color: var(--accent-ink);
+            background: var(--soft);
+            border-radius: 8px;
+            padding: 6px 10px;
+            text-transform: uppercase
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -.02em;
+            margin: 12px 0 12px
+        }
+
+        .expl {
+            font-size: 16.5px;
+            line-height: 1.6;
+            font-weight: 500
+        }
+
+        .block-lbl {
+            margin: 18px 2px 8px
+        }
+
+        .say-card {
+            background: var(--soft2);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 14px 15px;
+            font-size: 15.5px;
+            line-height: 1.55;
+            font-weight: 600
+        }
+
+        .ex-card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 14px 15px;
+            font-size: 15px;
+            line-height: 1.55;
+            color: #3C4642
+        }
+
+        .ask-card {
+            background: var(--soft);
+            border-radius: 12px;
+            padding: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+            font-weight: 700;
+            color: var(--accent-ink)
+        }
+
+        .expect {
+            margin-top: 12px;
+            background: var(--card);
+            border: 1px dashed var(--line);
+            border-radius: 12px;
+            padding: 13px 15px;
+            font-size: 14.5px;
+            line-height: 1.5;
+            display: none
+        }
+
+        .expect.open {
+            display: block
+        }
+
+        .expect .lbl {
+            display: block;
+            margin-bottom: 5px
+        }
+
+        .reveal-link {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--accent-ink);
+            margin-top: 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px
+        }
+
+        .ce-box {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 14px 15px;
+            font-size: 15px;
+            line-height: 1.55
+        }
+
+        .ce-arrow {
+            display: flex;
+            justify-content: center;
+            color: var(--faint);
+            padding: 4px 0
+        }
+
+        .cmp-head {
+            display: grid;
+            grid-template-columns: 76px 1fr 1fr;
+            gap: 8px;
+            margin-bottom: 6px
+        }
+
+        .cmp-row {
+            display: grid;
+            grid-template-columns: 76px 1fr 1fr;
+            gap: 8px;
+            padding: 10px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .cmp-k {
+            font-size: 11.5px;
+            font-weight: 800;
+            color: var(--faint);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            padding-top: 2px
+        }
+
+        .cmp-v {
+            font-size: 13.5px;
+            line-height: 1.45;
+            font-weight: 600
+        }
+
+        .proc-item {
+            display: flex;
+            gap: 12px;
+            padding: 11px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .proc-item:first-child {
+            border-top: none;
+            padding-top: 2px
+        }
+
+        .proc-n {
+            width: 24px;
+            height: 24px;
+            border-radius: 8px;
+            background: var(--soft);
+            color: var(--accent-ink);
+            font-size: 12px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: none;
+            margin-top: 1px
+        }
+
+        .proc-t {
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 600
+        }
+
+        /* math worked */
+        .problem {
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -.01em;
+            font-variant-numeric: tabular-nums;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center
+        }
+
+        .wstep {
+            display: flex;
+            gap: 12px;
+            padding: 12px 0;
+            border-top: 1px solid var(--line);
+            animation: fadeUp .3s ease
+        }
+
+        .ans-card {
+            background: var(--soft);
+            border-radius: 12px;
+            padding: 14px 15px;
+            margin-top: 12px
+        }
+
+        .ans-card .lbl {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--accent-ink)
+        }
+
+        .ans-card .v {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent-ink);
+            font-variant-numeric: tabular-nums
+        }
+
+        .mistake {
+            background: var(--amber-soft);
+            border-radius: 12px;
+            padding: 13px 15px;
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--amber);
+            font-weight: 600
+        }
+
+        .mistake .lbl {
+            color: var(--amber);
+            display: block;
+            margin-bottom: 4px
+        }
+
+        .try-box {
+            border: 1.5px dashed var(--accent);
+            border-radius: 12px;
+            padding: 14px 15px;
+            margin-top: 12px
+        }
+
+        .try-box .q {
+            font-size: 17px;
+            font-weight: 800;
+            margin-top: 4px
+        }
+
+        .try-a {
+            margin-top: 10px;
+            font-size: 14.5px;
+            line-height: 1.5;
+            font-weight: 600;
+            color: var(--accent-ink);
+            display: none
+        }
+
+        .try-a.open {
+            display: block
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        /* ---------- Curiosity ---------- */
+        .cur-q {
+            font-size: 25px;
+            font-weight: 800;
+            line-height: 1.3;
+            letter-spacing: -.02em;
+            margin: 18px 0 24px
+        }
+
+        .cur-a {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 18px;
+            animation: fadeUp .3s ease
+        }
+
+        .cur-a p {
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: 500;
+            margin-top: 8px
+        }
+
+        .connect {
+            margin-top: 12px;
+            background: var(--soft);
+            border-radius: 12px;
+            padding: 14px 15px;
+            animation: fadeUp .35s ease
+        }
+
+        .connect p {
+            font-size: 15.5px;
+            font-weight: 700;
+            color: var(--accent-ink);
+            margin-top: 6px
+        }
+
+        /* ---------- Questions / exam ---------- */
+        .q-card {
+            font-size: 21px;
+            font-weight: 800;
+            line-height: 1.35;
+            letter-spacing: -.015em
+        }
+
+        .marks {
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: .1em;
+            background: var(--soft);
+            color: var(--accent-ink);
+            border-radius: 7px;
+            padding: 4px 9px
+        }
+
+        .btn-trio {
+            display: flex;
+            gap: 8px;
+            margin-top: 14px
+        }
+
+        .btn-trio .btn {
+            height: 50px;
+            font-size: 14.5px
+        }
+
+        .kw-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px
+        }
+
+        .kw {
+            font-size: 13.5px;
+            font-weight: 700;
+            background: var(--soft);
+            color: var(--accent-ink);
+            border-radius: 99px;
+            padding: 7px 13px
+        }
+
+        .kw.tog {
+            background: var(--card);
+            border: 1.5px solid var(--line);
+            color: var(--sub);
+            cursor: pointer;
+            transition: .15s
+        }
+
+        .kw.tog.said {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff
+        }
+
+        .hint-card {
+            background: var(--soft2);
+            border-radius: 12px;
+            padding: 13px 15px;
+            margin-top: 12px;
+            font-size: 14px;
+            line-height: 1.55;
+            color: #3C4642;
+            display: none;
+            animation: fadeUp .25s ease
+        }
+
+        .hint-card.open {
+            display: block
+        }
+
+        .qual {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 13px;
+            font-weight: 800;
+            border-radius: 99px;
+            padding: 7px 13px;
+            margin-top: 12px
+        }
+
+        .qual .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%
+        }
+
+        .qual.miss {
+            background: var(--amber-soft);
+            color: var(--amber)
+        }
+
+        .qual.miss .dot {
+            background: var(--amber)
+        }
+
+        .qual.part {
+            background: var(--amber-soft);
+            color: var(--amber)
+        }
+
+        .qual.part .dot {
+            background: var(--amber)
+        }
+
+        .qual.full {
+            background: var(--soft);
+            color: var(--accent-ink)
+        }
+
+        .qual.full .dot {
+            background: var(--accent)
+        }
+
+        /* ---------- Notes ---------- */
+        .note-title {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: .02em;
+            margin-bottom: 14px
+        }
+
+        .note-block {
+            margin-bottom: 16px
+        }
+
+        .note-block h4 {
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .12em;
+            color: var(--accent-ink);
+            margin-bottom: 10px
+        }
+
+        .note-line {
+            display: flex;
+            gap: 11px;
+            padding: 7px 0;
+            font-size: 16.5px;
+            line-height: 1.45;
+            font-weight: 600
+        }
+
+        .note-line .b {
+            color: var(--accent);
+            font-weight: 800;
+            flex: none
+        }
+
+        /* ---------- Revision ---------- */
+        .rev-item {
+            display: flex;
+            gap: 13px;
+            padding: 11px 0;
+            border-top: 1px solid var(--line)
+        }
+
+        .rev-item:first-child {
+            border-top: none;
+            padding-top: 2px
+        }
+
+        .rev-n {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--accent);
+            width: 20px;
+            flex: none;
+            font-variant-numeric: tabular-nums
+        }
+
+        .rev-t {
+            font-size: 15.5px;
+            line-height: 1.5;
+            font-weight: 600
+        }
+
+        .qcards {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 4px 2px 10px;
+            scrollbar-width: none
+        }
+
+        .qcards::-webkit-scrollbar {
+            display: none
+        }
+
+        .qcard {
+            min-width: 86%;
+            scroll-snap-align: center;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 18px;
+            flex: none
+        }
+
+        .qcard .q {
+            font-size: 17px;
+            font-weight: 800;
+            line-height: 1.4;
+            margin: 8px 0 12px
+        }
+
+        .qcard .a {
+            display: none;
+            background: var(--soft);
+            border-radius: 10px;
+            padding: 12px 13px;
+            font-size: 14.5px;
+            line-height: 1.5;
+            font-weight: 600;
+            color: var(--accent-ink);
+            margin-top: 10px
+        }
+
+        .qcard.open .a {
+            display: block;
+            animation: fadeUp .25s ease
+        }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 4px
+        }
+
+        .dots i {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--line);
+            transition: .2s
+        }
+
+        .dots i.on {
+            background: var(--accent);
+            width: 16px;
+            border-radius: 99px
+        }
+
+        /* ---------- Terms / examples / map ---------- */
+        .term {
+            width: 100%;
+            text-align: left;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 15px 16px;
+            margin-bottom: 8px
+        }
+
+        .term .trow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .term .tw {
+            font-size: 16px;
+            font-weight: 800
+        }
+
+        .term .td {
+            display: none;
+            font-size: 14px;
+            line-height: 1.55;
+            color: var(--sub);
+            margin-top: 8px;
+            font-weight: 500
+        }
+
+        .term.open .td {
+            display: block;
+            animation: fadeUp .2s ease
+        }
+
+        .term .chev {
+            transition: transform .2s;
+            color: var(--faint)
+        }
+
+        .term.open .chev {
+            transform: rotate(180deg)
+        }
+
+        .map-node {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 13px;
+            padding: 15px 18px;
+            font-size: 16px;
+            font-weight: 800;
+            text-align: center
+        }
+
+        .map-arrow {
+            display: flex;
+            justify-content: center;
+            color: var(--faint);
+            padding: 6px 0
+        }
+
+        .big-statement {
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.45;
+            letter-spacing: -.015em
+        }
+
+        .empty {
+            color: var(--faint);
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            padding: 30px 0
+        }
+    </style>
+</head>
+
+<body>
+    <div class="device">
+        <div class="phone" id="phone">
+
+            <!-- ================= HOME ================= -->
+            <section class="screen has-tab" id="s-home">
+                <div class="scroll">
+                    <div style="padding-top:8px">
+                        <div class="lbl acc">Tue · Tuition time</div>
+                        <h1 style="font-size:27px;font-weight:800;letter-spacing:-.02em;margin:6px 0 16px">My Chapters
+                        </h1>
+                    </div>
+                    <div class="search">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9AA39E" stroke-width="2.2"
+                            stroke-linecap="round">
+                            <circle cx="11" cy="11" r="7" />
+                            <path d="M20 20l-3.5-3.5" />
+                        </svg>
+                        <input id="homeSearch" placeholder="Search chapter, subject, class…"
+                            oninput="onSearch(this.value)">
+                    </div>
+                    <div class="lbl" style="margin:2px 2px 8px">Class</div>
+                    <div class="chips" id="homeClassChips"></div>
+                    <div class="gap-s"></div>
+                    <div class="lbl" style="margin:8px 2px 8px">Subject</div>
+                    <div class="chips" id="homeSubjChips"></div>
+                    <div class="gap"></div>
+                    <div id="continueWrap"></div>
+                    <div class="lbl" style="margin:2px 2px 10px">Recent</div>
+                    <div id="homeList"></div>
+                </div>
+                <nav class="tabbar" id="tab-home"></nav>
+            </section>
+
+            <!-- ================= CHAPTER LIST ================= -->
+            <section class="screen has-tab" id="s-chapters">
+                <div class="scroll">
+                    <div style="padding-top:8px">
+                        <h1 style="font-size:27px;font-weight:800;letter-spacing:-.02em;margin:6px 0 4px">Browse</h1>
+                        <p style="font-size:14px;font-weight:600;color:var(--sub);margin-bottom:16px">NCERT · ICSE ·
+                            Class 4 – 7</p>
+                    </div>
+                    <div class="lbl" style="margin:2px 2px 8px">Class</div>
+                    <div class="chips" id="brClassChips"></div>
+                    <div class="gap-s"></div>
+                    <div class="lbl" style="margin:8px 2px 8px">Subject</div>
+                    <div class="chips" id="brSubjChips"></div>
+                    <div class="gap"></div>
+                    <div id="brList"></div>
+                </div>
+                <nav class="tabbar" id="tab-chapters"></nav>
+            </section>
+
+            <!-- ================= OVERVIEW ================= -->
+            <section class="screen" id="s-overview">
+                <div class="scroll">
+                    <div class="topbar">
+                        <button class="icon-btn" onclick="back()"><svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button>
+                        <div style="flex:1"></div>
+                        <button class="icon-btn" onclick="openTeachFlow()"><svg width="19" height="19"
+                                viewBox="0 0 24 24" fill="var(--accent)">
+                                <path d="M7 5.5v13l11-6.5z" />
+                            </svg></button>
+                    </div>
+                    <div id="ovBody"></div>
+                </div>
+            </section>
+
+            <!-- ================= MAIN IDEA ================= -->
+            <section class="screen" id="s-mainidea">
+                <div class="scroll">
+                    <div class="topbar"><button class="icon-btn" onclick="back()"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button><span class="lbl">Main Idea</span></div>
+                    <div id="miBody"></div>
+                </div>
+            </section>
+
+            <!-- ================= CHAPTER MAP ================= -->
+            <section class="screen" id="s-map">
+                <div class="scroll">
+                    <div class="topbar"><button class="icon-btn" onclick="back()"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button><span class="lbl">Chapter Map</span></div>
+                    <div id="mapBody"></div>
+                </div>
+            </section>
+
+            <!-- ================= CURIOSITY ================= -->
+            <section class="screen" id="s-curiosity">
+                <div class="scroll">
+                    <div class="topbar"><button class="icon-btn" onclick="back()"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button><span class="lbl">Before you teach</span></div>
+                    <div id="curBody"></div>
+                </div>
+            </section>
+
+            <!-- ================= TEACH ================= -->
+            <section class="screen has-bar" id="s-teach">
+                <div class="scroll" id="teachScroll">
+                    <div class="topbar">
+                        <button class="icon-btn" onclick="back()"><svg width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button>
+                        <span class="lbl">Teach</span>
+                        <span class="prog-txt" id="teachProg"></span>
+                    </div>
+                    <div class="thin-bar"><i id="teachBar"></i></div>
+                    <div id="teachBody"></div>
+                </div>
+                <div class="bar-wrap">
+                    <button class="btn ghost" id="btnPrev" onclick="stepPrev()">Previous</button>
+                    <button class="btn primary" id="btnNext" onclick="stepNext()" style="flex:1.35">Next</button>
+                </div>
+            </section>
+
+            <!-- ================= EXAMPLES ================= -->
+            <section class="screen" id="s-examples">
+                <div class="scroll">
+                    <div class="topbar"><button class="icon-btn" onclick="back()"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button><span class="lbl">Examples</span></div>
+                    <div id="exBody"></div>
+                </div>
+            </section>
+
+            <!-- ================= QUESTIONS ================= -->
+            <section class="screen" id="s-questions">
+                <div class="scroll">
+                    <div class="topbar"><button class="icon-btn" onclick="back()"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button><span class="lbl">Questions</span><span class="prog-txt" id="qProg"></span>
+                    </div>
+                    <div class="thin-bar"><i id="qBar"></i></div>
+                    <div id="qBody"></div>
+                </div>
+            </section>
+
+            <!-- ================= TERMS ================= -->
+            <section class="screen" id="s-terms">
+                <div class="scroll">
+                    <div class="topbar"><button class="icon-btn" onclick="back()"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button><span class="lbl">Important Terms</span></div>
+                    <div id="tmBody"></div>
+                </div>
+            </section>
+
+            <!-- ================= NOTES ================= -->
+            <section class="screen has-bar" id="s-notes">
+                <div class="scroll">
+                    <div class="topbar"><button class="icon-btn" onclick="back()"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button><span class="lbl">Student Notes</span></div>
+                    <div id="ntBody"></div>
+                </div>
+                <div class="bar-wrap"><button class="btn primary" onclick="copyNotes()">
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="9" y="9" width="12" height="12" rx="2.5" />
+                            <path d="M5 15V5a2 2 0 012-2h10" />
+                        </svg>
+                        Copy notes for the student</button></div>
+            </section>
+
+            <!-- ================= EXAM ================= -->
+            <section class="screen" id="s-exam">
+                <div class="scroll">
+                    <div class="topbar"><button class="icon-btn" onclick="back()"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button><span class="lbl">Exam Practice</span></div>
+                    <div id="exmBody"></div>
+                </div>
+            </section>
+
+            <!-- ================= REVISION ================= -->
+            <section class="screen has-bar" id="s-revision">
+                <div class="scroll">
+                    <div class="topbar"><button class="icon-btn" onclick="back()"><svg width="20" height="20"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 18l-6-6 6-6" />
+                            </svg></button><span class="lbl">Quick Revision</span></div>
+                    <div id="rvBody"></div>
+                </div>
+                <div class="bar-wrap"><button class="btn soft" onclick="finishRevision()">✓&nbsp;&nbsp;Done — chapter
+                        revised</button></div>
+            </section>
+
+            <div class="toast" id="toast"></div>
+        </div>
+    </div>
+
+    <script>
+        /* ============================================================
+           DATA
+        ============================================================ */
+        const CH = [
+            {
+                id: 'lt', cls: 'Class 5', subject: 'EVS', title: 'Living Together', progress: 70, last: 'Today', minutes: 12,
+                mainIdea: 'People live and work in groups where everyone has a role and helps one another.',
+                why: 'Students begin to see how families, neighbourhoods and communities depend on cooperation — the heart of this chapter.',
+                map: ['Family', 'Community', 'Cooperation', 'Public places'],
+                curiosity: { q: 'Can one person run a whole school alone?', a: 'Probably not. A school needs teachers, students, helpers, drivers and many others.', connect: 'This is why we need communities.' },
+                steps: [
+                    {
+                        type: 'CONCEPT', title: 'Community',
+                        expl: 'A community is a group of people who live or work together and help one another.',
+                        say: 'A community is like a team. Everyone has a different role, but everyone helps each other.',
+                        example: 'Think about your school. Teachers, students, drivers and helpers all have different roles.',
+                        ask: 'Can you give me one example of a community?',
+                        expect: 'School, hospital, market, a neighbourhood, a family.'
+                    },
+                    {
+                        type: 'CONCEPT', title: 'Cooperation',
+                        expl: 'Cooperation means working together and helping each other to finish a task.',
+                        say: 'Many hands make light work.',
+                        example: 'During the school function, some decorated, some sang, some arranged chairs.',
+                        ask: 'When did you help someone this week?'
+                    },
+                    {
+                        type: 'CAUSE', title: 'Why we live together',
+                        cause: 'Everyone has many needs — food, safety, learning and company.',
+                        effect: 'No one can meet all needs alone, so people live and work together.',
+                        say: 'Ask: “Who helped you today?”'
+                    },
+                    {
+                        type: 'COMPARE', title: 'Family vs Community', a: 'Family', b: 'Community',
+                        rows: [['Size', 'Small', 'Large'], ['Bond', 'Related, care for each other', 'Live or work in the same area'], ['Example', 'Parents, siblings', 'Neighbours, shopkeepers, teachers']]
+                    },
+                    {
+                        type: 'CONCEPT', title: 'Public places',
+                        expl: 'A public place is one that everyone can use — parks, libraries, bus stops, hospitals.',
+                        say: 'Public places belong to all of us, so we keep them clean.',
+                        example: 'The park near your house is used by everyone in the area.',
+                        ask: 'Name two public places near your home.'
+                    },
+                    {
+                        type: 'EXAMPLE', title: 'Your neighbourhood',
+                        example: 'The vegetable seller sells food, the doctor treats patients, the cleaner keeps streets clean. Each one depends on the others.',
+                        say: 'Every role matters. No role is small.',
+                        ask: 'What would happen if the cleaner stopped coming for a week?'
+                    }
+                ],
+                examples: [
+                    { title: 'School as a community', text: 'Teachers teach, students learn, drivers run buses, helpers keep it clean — all working together.', ask: 'Who else works in your school?' },
+                    { title: 'A market', text: 'Shopkeepers, customers, loaders and sweepers together make a market work.', ask: 'What roles do you see in a market?' }
+                ],
+                questions: [
+                    { q: 'What is a community?', a: 'A community is a group of people who live or work together and help one another.', kw: ['group', 'together', 'help one another'], mistake: 'Do not stop at “people living together”. Mention cooperation or helping one another.' },
+                    { q: 'What is cooperation?', a: 'Cooperation means people working together and helping each other to do a task.', kw: ['working together', 'helping'], mistake: 'Don\u2019t stop at “doing work”. Add “together” and “helping”.' },
+                    { q: 'Name any two public places.', a: 'Any places everyone can use — e.g. park, library, hospital, bus stop, market.', kw: ['park', 'library', 'hospital'], mistake: 'A private house is not a public place.' }
+                ],
+                terms: [['Community', 'A group of people who live or work together and help one another.'], ['Cooperation', 'Working together and helping each other.'], ['Public place', 'A place everyone can use, like a park or library.'], ['Role', 'The work a person does in a group.'], ['Neighbourhood', 'The area around where we live, and the people in it.']],
+                notes: { title: 'COMMUNITY', blocks: [['', ['Group of people', 'Live / work together', 'Help one another', 'Different people have different roles']], ['COOPERATION', ['Working together', 'Helps finish tasks faster']], ['PUBLIC PLACE', ['Used by everyone', 'Park, library, hospital', 'Keep them clean']]] },
+                exam: { q: 'What is a community?', marks: 2, kw: ['group', 'together', 'help'], model: 'A community is a group of people who live or work together and help one another.' },
+                revision: {
+                    points: ['A community is people living or working together.', 'Members help one another.', 'Everyone has a different role.', 'Cooperation means working together.', 'Public places belong to everyone — keep them clean.'],
+                    terms: ['Community', 'Cooperation', 'Public place'],
+                    quick: [['What is a community?', 'A group of people who live or work together and help one another.'], ['What is cooperation?', 'Working together and helping each other.'], ['Give one public place.', 'Park / library / hospital.'], ['Who works in a hospital?', 'Doctors, nurses and helpers.'], ['Why can\u2019t we live alone?', 'We need help for food, safety and company.']]
+                }
+            },
+            {
+                id: 'fr', cls: 'Class 6', subject: 'Mathematics', title: 'Fractions', progress: 45, last: 'Yesterday', minutes: 15,
+                mainIdea: 'A fraction names a part of a whole — numerator over denominator.',
+                why: 'Part-of-a-whole thinking is the base for equivalent fractions, comparison and adding fractions.',
+                map: ['Whole & parts', 'Numerator / Denominator', 'Equivalent fractions', 'Adding fractions'],
+                curiosity: { q: 'If 1 roti is shared equally between 2 friends, how much does each get?', a: 'Each gets half of the roti — 1/2.', connect: 'That “half” is our first fraction.' },
+                steps: [
+                    {
+                        type: 'CONCEPT', title: 'Fractions',
+                        expl: 'A fraction shows a part of a whole. The denominator (below) counts the equal parts; the numerator (above) counts the parts we take.',
+                        say: 'Cut a chapati into 4 equal parts — each part is 1/4.',
+                        example: '3 slices out of 8 slices of pizza = 3/8.',
+                        ask: 'Cut an apple into 2 equal parts. What is each part called?',
+                        expect: 'Half, or 1/2.'
+                    },
+                    {
+                        type: 'WORKED', title: 'Adding fractions', problem: '1/2 + 1/4 = ?',
+                        steps: ['Find a common denominator: 4.', 'Convert 1/2 \u2192 2/4.', 'Add: 2/4 + 1/4 = 3/4.'],
+                        answer: '3/4', mistake: 'Never add denominators. 1/2 + 1/4 is not 2/6.',
+                        tryThis: { q: '1/3 + 1/6 = ?', a: '1/3 = 2/6, so 2/6 + 1/6 = 3/6 = 1/2.' }
+                    },
+                    {
+                        type: 'WORKED', title: 'Complete this example', problem: '2/5 + 1/5 = ?', partial: true,
+                        steps: ['Denominators are the same — add only the numerators.', '2 + 1 = ?'],
+                        answer: '3/5', mistake: 'Keep the denominator the same. 2/5 + 1/5 is not 3/10.',
+                        tryThis: { q: '4/9 + 2/9 = ?', a: '6/9 (or 2/3).' }
+                    }
+                ],
+                examples: [{ title: 'From a chapati', text: '1 chapati cut into 4 equal parts: each part is 1/4, two parts make 2/4 = 1/2.', ask: 'Draw a circle and shade 3/4 of it.' }],
+                questions: [
+                    { q: 'What does the denominator tell us?', a: 'The number of equal parts the whole is divided into.', kw: ['equal parts'], mistake: 'The denominator is the bottom number. The top one is the numerator.' },
+                    { q: 'Which is bigger: 1/3 or 1/4?', a: '1/3 is bigger — same numerator, fewer parts means each part is larger.', kw: ['1/3', 'larger'], mistake: 'A bigger denominator means smaller parts, not a bigger fraction.' }
+                ],
+                terms: [['Fraction', 'A part of a whole, written like 3/4.'], ['Numerator', 'The top number — parts taken.'], ['Denominator', 'The bottom number — total equal parts.'], ['Equivalent fractions', 'Different fractions with the same value, like 1/2 = 2/4.']],
+                notes: { title: 'FRACTIONS', blocks: [['', ['A fraction = part of a whole', 'Top: numerator, bottom: denominator', 'Denominator = equal parts of the whole', 'Numerator = parts taken', 'Same denominator \u2192 add only numerators']], ['TO ADD FRACTIONS', ['Make denominators the same', 'Add the numerators', 'Keep the denominator']]] },
+                exam: { q: 'Add:  1/2 + 1/4', marks: 2, kw: ['common denominator', '2/4', '3/4'], model: '1/2 = 2/4. Then 2/4 + 1/4 = 3/4.' },
+                revision: {
+                    points: ['A fraction is a part of a whole.', 'Top = numerator, bottom = denominator.', 'To add, make denominators the same.', 'Add numerators, keep the denominator.', '1/2 = 2/4 = 3/6 — equivalent fractions.'],
+                    terms: ['Fraction', 'Numerator', 'Denominator'],
+                    quick: [['Numerator of 3/7?', '3'], ['Write 1/2 in quarters.', '2/4'], ['2/5 + 1/5 = ?', '3/5'], ['Bigger: 1/3 or 1/4?', '1/3'], ['Half of 8?', '4']]
+                }
+            },
+            {
+                id: 'food', cls: 'Class 6', subject: 'Science', title: 'Food: Where Does It Come From?', progress: 20, last: 'Mon', minutes: 10,
+                mainIdea: 'All food comes from plants or animals; living things are grouped by what they eat.',
+                why: 'It builds the habit of tracing food to its source and classifying animals by their food.',
+                map: ['Ingredients', 'Sources of food', 'Herbivore · Carnivore · Omnivore', 'Food chains'],
+                curiosity: { q: 'Does everyone around you eat the same kind of food?', a: 'No. People eat different foods, and animals do too — some eat only plants, some only other animals.', connect: 'That is why we sort living things by what they eat.' },
+                steps: [
+                    {
+                        type: 'CONCEPT', title: 'Ingredients',
+                        expl: 'The things we need to prepare a dish are called ingredients.',
+                        say: 'Build a dish out loud: khichdi needs rice, dal, water and salt.',
+                        example: 'Chai needs water, milk, tea leaves and sugar.',
+                        ask: 'Name the ingredients of a roti.'
+                    },
+                    {
+                        type: 'CONCEPT', title: 'Sources of food',
+                        expl: 'We get food from two main sources — plants and animals.',
+                        say: 'Plants give grains, fruits and vegetables. Animals give milk, eggs and meat.',
+                        example: 'Rice comes from a plant; milk comes from a cow.',
+                        ask: 'Give one food from a plant and one from an animal.'
+                    },
+                    {
+                        type: 'COMPARE', title: 'Herbivore vs Carnivore', a: 'Herbivore', b: 'Carnivore',
+                        rows: [['Eats', 'Only plants', 'Only other animals'], ['Examples', 'Cow, deer, butterfly', 'Lion, tiger, eagle']]
+                    }
+                ],
+                examples: [{ title: 'Where your lunch came from', text: 'Rice — paddy plant. Dal — pulses. Curd — milk from an animal.', ask: 'Trace one food on your plate back to its source.' }],
+                questions: [{ q: 'Name two foods we get from plants.', a: 'Examples: rice, wheat, fruits, vegetables, pulses.', kw: ['rice', 'wheat', 'fruits'], mistake: 'Milk and eggs come from animals, not plants.' }],
+                terms: [['Ingredient', 'A thing used to prepare a dish.'], ['Herbivore', 'An animal that eats only plants.'], ['Carnivore', 'An animal that eats only other animals.'], ['Omnivore', 'An animal that eats both plants and animals.']],
+                notes: { title: 'FOOD SOURCES', blocks: [['', ['Food comes from plants or animals', 'Ingredients = things needed for a dish', 'Herbivore: eats only plants', 'Carnivore: eats only animals', 'Omnivore: eats both']]] },
+                exam: { q: 'Name two ingredients of khichdi and say where each comes from.', marks: 2, kw: ['rice', 'dal', 'plant'], model: 'Rice and dal — both come from plants (paddy and pulse plants).' },
+                revision: {
+                    points: ['Food comes from plants and animals.', 'Ingredients make up a dish.', 'Herbivores eat only plants.', 'Carnivores eat only animals.', 'Omnivores eat both — like humans.'],
+                    terms: ['Ingredient', 'Herbivore', 'Omnivore'],
+                    quick: [['One plant source of food?', 'Rice / fruits / vegetables'], ['One animal source?', 'Milk / eggs'], ['What does a herbivore eat?', 'Only plants'], ['A lion is a…?', 'Carnivore'], ['Humans are…?', 'Omnivores']]
+                }
+            },
+            {
+                id: 'acid', cls: 'Class 7', subject: 'Science', title: 'Acids, Bases and Salts', progress: 0, last: '—', minutes: 12,
+                mainIdea: 'Acids are sour, bases are bitter; indicators like litmus let us test them safely.',
+                why: 'Students learn safe testing with indicators instead of tasting — a key exam idea.',
+                map: ['Acids', 'Bases', 'Indicators', 'Neutralisation'],
+                curiosity: { q: 'Lemon tastes sour, but soap tastes bitter. Why are they different?', a: 'Lemon contains an acid; soap contains a base. Acids taste sour, bases taste bitter.', connect: 'We test acids and bases safely with indicators.' },
+                steps: [
+                    {
+                        type: 'CONCEPT', title: 'Acids and bases',
+                        expl: 'Acids taste sour (lemon, curd). Bases taste bitter and feel soapy (soap, baking soda).',
+                        say: 'Sour \u2192 acid. Bitter \u2192 base. We never taste lab chemicals.',
+                        example: 'Orange juice and vinegar are acids; soap water and lime water are bases.',
+                        ask: 'Is orange juice an acid or a base?'
+                    },
+                    {
+                        type: 'PROCESS', title: 'Testing with litmus',
+                        items: ['Take a drop of the liquid on a clean plate.', 'Touch it with blue litmus, then with red litmus.', 'Acid: blue turns red. Base: red turns blue.']
+                    }
+                ],
+                examples: [{ title: 'Kitchen acids', text: 'Curd, lemon juice and vinegar — all sour, all acids.', ask: 'Why should we never taste an unknown liquid in the lab?' }],
+                questions: [{ q: 'What does an acid do to blue litmus?', a: 'An acid turns blue litmus red.', kw: ['red'], mistake: 'Acid \u2192 blue to red. Base \u2192 red to blue. Don\u2019t mix them up.' }],
+                terms: [['Acid', 'A sour substance that turns blue litmus red.'], ['Base', 'A bitter substance that turns red litmus blue.'], ['Indicator', 'A substance that changes colour in acids or bases.']],
+                notes: { title: 'ACIDS & BASES', blocks: [['', ['Acids: sour (lemon, curd)', 'Bases: bitter (soap, baking soda)', 'Acid \u2192 blue litmus turns red', 'Base \u2192 red litmus turns blue', 'Never taste lab chemicals']]] },
+                exam: { q: 'How will you test if a liquid is an acid, using litmus?', marks: 2, kw: ['blue litmus', 'red'], model: 'Dip blue litmus paper in the liquid. If it turns red, the liquid is an acid.' },
+                revision: {
+                    points: ['Acids taste sour.', 'Bases taste bitter and feel soapy.', 'Acid turns blue litmus red.', 'Base turns red litmus blue.', 'Indicators help us test safely.'],
+                    terms: ['Acid', 'Base', 'Indicator'],
+                    quick: [['Taste of an acid?', 'Sour'], ['Blue litmus in lemon juice?', 'Turns red'], ['Soap — acid or base?', 'Base'], ['Why never taste lab chemicals?', 'They can be harmful'], ['What is an indicator?', 'A substance that changes colour in acids and bases.']]
+                }
+            }
+        ];
+
+        /* ============================================================
+           STATE + ROUTER
+        ============================================================ */
+        const state = {
+            ch: null, step: 0, workedShown: 1,
+            q: 0, qShown: false, qAsked: false,
+            exKw: false, exSaid: new Set(), exModel: false,
+            f: { cls: 'All', subj: 'All', q: '' },
+            curRevealed: false
+        };
+        let cur = 's-home'; const stack = [];
+
+        function show(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            const el = document.getElementById(id);
+            el.classList.add('active');
+            el.querySelector('.scroll').scrollTop = 0;
+            cur = id;
+            updateTabs();
+        }
+        function go(id) { stack.push(cur); show(id); }
+        function back() { const p = stack.pop() || 's-home'; show(p); }
+
+        function updateTabs() {
+            ['tab-home', 'tab-chapters'].forEach(tid => {
+                const t = document.getElementById(tid);
+                if (!t) return;
+                const isHome = cur === 's-home';
+                t.innerHTML = tabHTML(isHome);
+            });
+        }
+        function tabHTML(onHome) {
+            return `
+   <button class="tab ${onHome ? 'on' : ''}" onclick="go('s-home');stack.length=0;">
+     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.5V21h5v-6h4v6h5V9.5"/></svg>Home
+   </button>
+   <button class="tab ${!onHome ? 'on' : ''}" onclick="go('s-chapters');stack.length=0;">
+     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20V4H6.5A2.5 2.5 0 004 6.5z"/><path d="M4 19.5A2.5 2.5 0 006.5 22H20v-5"/></svg>Chapters
+   </button>`;
+        }
+
+        let toastTimer;
+        function toast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.classList.add('show');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => t.classList.remove('show'), 1900);
+        }
+
+        /* ============================================================
+           HOME + CHAPTER LIST
+        ============================================================ */
+        const CLASSES = ['All', '4', '5', '6', '7'];
+        const SUBJS = ['All', 'EVS', 'Science', 'Mathematics'];
+
+        function chipRow(arr, key) {
+            return arr.map(v => `<button class="chip ${state.f[key] === v ? 'on' : ''}" onclick="setFilter('${key}','${v}')">${v === 'All' ? 'All' : (key === 'cls' ? 'Class ' + v : v)}</button>`).join('');
+        }
+        function setFilter(k, v) { state.f[k] = v; renderAllLists(); }
+        function onSearch(v) { state.f.q = v.toLowerCase(); renderAllLists(); }
+
+        function filtered() {
+            return CH.filter(c => {
+                if (state.f.cls !== 'All' && !c.cls.includes(state.f.cls)) return false;
+                if (state.f.subj !== 'All' && c.subject !== state.f.subj) return false;
+                if (state.f.q) {
+                    const hay = (c.title + ' ' + c.subject + ' ' + c.cls).toLowerCase();
+                    if (!hay.includes(state.f.q)) return false;
+                }
+                return true;
+            });
+        }
+        function chCard(c) {
+            return `<button class="chcard" onclick="openChapter('${c.id}')">
+    <div class="chrow"><span class="chip-class">${c.cls}</span><span class="chsubj">${c.subject}</span><span class="chlast">${c.last}</span></div>
+    <div class="chtitle">${c.title}</div>
+    <div class="prow"><div class="pbar"><i style="width:${c.progress}%"></i></div><span class="ppct">${c.progress}%</span></div>
+  </button>`;
+        }
+        function renderAllLists() {
+            document.getElementById('homeClassChips').innerHTML = chipRow(CLASSES, 'cls');
+            document.getElementById('homeSubjChips').innerHTML = chipRow(SUBJS, 'subj');
+            document.getElementById('brClassChips').innerHTML = chipRow(CLASSES, 'cls');
+            document.getElementById('brSubjChips').innerHTML = chipRow(SUBJS, 'subj');
+
+            const list = filtered();
+            const html = list.length ? list.map(chCard).join('') : '<div class="empty">No chapters match. Try another filter.</div>';
+            document.getElementById('homeList').innerHTML = html;
+            document.getElementById('brList').innerHTML = html;
+
+            const cont = CH.find(c => c.id === 'lt');
+            document.getElementById('continueWrap').innerHTML = `
+   <div class="lbl acc" style="margin:0 2px 9px">Continue teaching</div>
+   <div class="continue-card">
+     <div class="row" style="margin-bottom:10px">
+       <div>
+         <div class="row" style="gap:8px;margin-bottom:6px"><span class="chip-class">${cont.cls}</span><span class="chsubj">${cont.subject}</span></div>
+         <div style="font-size:19px;font-weight:800;letter-spacing:-.01em">${cont.title}</div>
+       </div>
+       <div style="font-size:22px;font-weight:800;color:var(--accent-ink)">${cont.progress}%</div>
+     </div>
+     <div class="pbar" style="margin-bottom:14px"><i style="width:${cont.progress}%"></i></div>
+     <button class="btn primary" onclick="openChapter('lt')">Resume session</button>
+   </div>`;
+        }
+
+        /* ============================================================
+           OVERVIEW
+        ============================================================ */
+        function openChapter(id) {
+            state.ch = CH.find(c => c.id === id);
+            renderOverview();
+            go('s-overview');
+        }
+        function secRow(n, label, meta, action) {
+            return `<button class="sec" onclick="${action}">
+    <span class="sec-num">${n}</span>
+    <span class="sec-name">${label}</span>
+    <span class="sec-meta">${meta}</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+  </button>`;
+        }
+        function renderOverview() {
+            const c = state.ch;
+            document.getElementById('ovBody').innerHTML = `
+    <div class="row" style="gap:8px;margin-bottom:10px"><span class="chip-class">${c.cls}</span><span class="chsubj">${c.subject}</span></div>
+    <h1 class="ov-title">${c.title}</h1>
+    <div class="ov-meta">
+      <span class="meta-pill">${c.progress}% prepared</span>
+      <span class="meta-pill">~${c.minutes} min session</span>
+      <span class="meta-pill">${c.steps.length} teaching steps</span>
+    </div>
+    <div class="thin-bar"><i style="width:${c.progress}%"></i></div>
+
+    <div class="grouplbl lbl">Understand</div>
+    ${secRow(1, 'Main idea', '1 line', 'openMainIdea()')}
+    ${secRow(2, 'Chapter map', c.map.length + ' stops', 'openMap()')}
+
+    <div class="grouplbl lbl">Teach</div>
+    ${secRow(3, 'Teach', c.steps.length + ' steps', 'openTeachFlow()')}
+    ${secRow(4, 'Questions', c.questions.length + ' Qs', 'openQuestions()')}
+    ${secRow(5, 'Important terms', c.terms.length, 'openTerms()')}
+    ${secRow(6, 'Examples', c.examples.length, 'openExamples()')}
+
+    <div class="grouplbl lbl">Student</div>
+    ${secRow(7, 'Student notes', 'copy-ready', 'openNotes()')}
+    ${secRow(8, 'Exam practice', c.exam.marks + ' marks', 'openExam()')}
+
+    <div class="grouplbl lbl">Revise</div>
+    ${secRow(9, 'Quick revision', '5 min', 'openRevision()')}
+    <div class="gap"></div>`;
+        }
+
+        /* ---------- Main idea / map ---------- */
+        function openMainIdea() {
+            const c = state.ch;
+            document.getElementById('miBody').innerHTML = `
+    <div class="card" style="margin-top:8px">
+      <div class="lbl acc">The one idea</div>
+      <div class="gap-s"></div>
+      <p class="big-statement">${c.mainIdea}</p>
+    </div>
+    <div class="gap"></div>
+    <div class="card">
+      <div class="lbl">Why it matters</div>
+      <div class="gap-s"></div>
+      <p class="expl" style="font-size:15px;color:#3C4642">${c.why}</p>
+    </div>`;
+            go('s-mainidea');
+        }
+        function openMap() {
+            const c = state.ch;
+            document.getElementById('mapBody').innerHTML = `
+    <p style="font-size:14px;font-weight:600;color:var(--sub);margin:6px 2px 16px">Teach in this order — each stop builds on the last.</p>
+    ${c.map.map((m, i) => `
+      <div class="map-node">${i + 1}. &nbsp;${m}</div>
+      ${i < c.map.length - 1 ? '<div class="map-arrow"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>' : ''}`).join('')}
+    <div class="gap"></div>`;
+            go('s-map');
+        }
+
+        /* ============================================================
+           CURIOSITY
+        ============================================================ */
+        function openTeachFlow() { state.curRevealed = false; renderCuriosity(); go('s-curiosity'); }
+        function renderCuriosity() {
+            const c = state.ch, cu = c.curiosity;
+            document.getElementById('curBody').innerHTML = `
+    <div class="type-badge">Think about this</div>
+    <div class="cur-q">“${cu.q}”</div>
+    <div id="curRevealArea">
+      <button class="btn primary" onclick="revealCuriosity()">Reveal answer</button>
+      <div class="gap-s"></div>
+      <button class="btn ghost small" style="height:46px" onclick="startTeach()">Skip — go straight to teaching</button>
+    </div>
+    <div class="gap"></div>
+    <p style="font-size:13px;font-weight:600;color:var(--faint);text-align:center">Start the class with this. Let the student guess first.</p>`;
+        }
+        function revealCuriosity() {
+            const cu = state.ch.curiosity;
+            document.getElementById('curRevealArea').innerHTML = `
+    <div class="cur-a">
+      <div class="lbl acc">Answer</div>
+      <p>${cu.a}</p>
+    </div>
+    <div class="connect">
+      <div class="lbl" style="color:var(--accent-ink)">Connect to chapter</div>
+      <p>${cu.connect}</p>
+    </div>
+    <div class="gap"></div>
+    <button class="btn primary" onclick="startTeach()">Start teaching
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>`;
+        }
+        function startTeach() { state.step = 0; state.workedShown = 1; renderTeach(); go('s-teach'); }
+
+        /* ============================================================
+           TEACH MODE
+        ============================================================ */
+        function block(lbl, body) { return `<div class="block-lbl lbl acc">${lbl}</div>${body}`; }
+        function stepHTML(s) {
+            let out = `<div class="type-badge">${s.type === 'CAUSE' ? 'Cause → Effect' : s.type === 'WORKED' ? 'Worked Example' : s.type}</div><h2 class="step-title">${s.title}</h2>`;
+            if (s.expl) out += `<div class="card"><p class="expl">${s.expl}</p></div>`;
+            if (s.cause !== undefined) {
+                out += `<div class="lbl block-lbl" style="margin-top:4px">Cause</div><div class="ce-box">${s.cause}</div>
+    <div class="ce-arrow"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+    <div class="lbl block-lbl">Effect</div><div class="ce-box">${s.effect}</div>`;
+                if (s.say) out += block('Say this', `<div class="say-card">${s.say}</div>`);
+            }
+            if (s.rows) {
+                out += `<div class="card" style="padding:14px 15px">
+      <div class="cmp-head"><span></span><span class="cmp-v" style="font-weight:800;color:var(--accent-ink)">${s.a}</span><span class="cmp-v" style="font-weight:800;color:var(--accent-ink)">${s.b}</span></div>
+      ${s.rows.map(r => `<div class="cmp-row"><span class="cmp-k">${r[0]}</span><span class="cmp-v">${r[1]}</span><span class="cmp-v">${r[2]}</span></div>`).join('')}
+    </div>`;
+            }
+            if (s.items) {
+                out += `<div class="card" style="padding:14px 16px">${s.items.map((it, i) => `<div class="proc-item"><span class="proc-n">${i + 1}</span><span class="proc-t">${it}</span></div>`).join('')}</div>`;
+            }
+            if (s.problem) {
+                out += block('Problem', `<div class="problem">${s.problem}</div>`);
+                out += `<div id="wSteps"><div class="lbl block-lbl">Steps</div><div class="card" style="padding:14px 16px" id="wStepCard"></div></div>`;
+                out += `<div id="wAfter"></div>`;
+            }
+            if (s.say) out += block('Say this', `<div class="say-card">“${s.say}”</div>`);
+            if (s.example) out += block('Example', `<div class="ex-card">${s.example}</div>`);
+            if (s.ask) out += block('Ask the student', `<div class="ask-card">“${s.ask}”</div>
+    ${s.expect ? `<button class="reveal-link" onclick="toggleExpect(this)">Expected answer
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="expect" id="expectBox"><span class="lbl">Expect them to say</span>${s.expect}</div>` : ''}`);
+            return out;
+        }
+        function toggleExpect(btn) {
+            const box = document.getElementById('expectBox');
+            box.classList.toggle('open');
+            btn.firstChild.textContent = box.classList.contains('open') ? 'Hide answer ' : 'Expected answer ';
+        }
+        function renderTeach() {
+            const c = state.ch, s = c.steps[state.step];
+            document.getElementById('teachProg').textContent = `${state.step + 1} / ${c.steps.length}`;
+            document.getElementById('teachBar').style.width = ((state.step + 1) / c.steps.length * 100) + '%';
+            document.getElementById('teachBody').innerHTML = stepHTML(s) + '<div class="gap"></div><div class="gap"></div>';
+            if (s.problem) { state.workedShown = 1; renderWorked(); }
+            document.getElementById('btnPrev').style.opacity = state.step === 0 ? '.4' : '1';
+            document.getElementById('btnPrev').style.pointerEvents = state.step === 0 ? 'none' : 'auto';
+            document.getElementById('btnNext').textContent = state.step === c.steps.length - 1 ? 'Finish' : 'Next';
+        }
+        function renderWorked() {
+            const s = state.ch.steps[state.step];
+            const card = document.getElementById('wStepCard');
+            if (!card) return;
+            card.innerHTML = s.steps.slice(0, state.workedShown).map((st, i) => `
+    <div class="wstep"><span class="proc-n">${i + 1}</span><span class="proc-t">${st}</span></div>`).join('');
+            const after = document.getElementById('wAfter');
+            const done = state.workedShown >= s.steps.length;
+            if (!done) {
+                after.innerHTML = `<div class="gap-s"></div><button class="btn soft small" onclick="state.workedShown++;renderWorked()">Show ${s.partial ? 'next part' : 'next step'}</button>`;
+            } else {
+                after.innerHTML = `
+      <div class="ans-card"><span class="lbl">${s.partial ? 'Check the answer' : 'Answer'}</span><span class="v">${s.answer}</span></div>
+      ${s.mistake ? `<div class="mistake"><span class="lbl">Common mistake</span>${s.mistake}</div>` : ''}
+      ${s.tryThis ? `<div class="try-box"><span class="lbl acc">Try this — student solves</span>
+        <div class="q">${s.tryThis.q}</div>
+        <button class="reveal-link" onclick="this.style.display='none';this.nextElementSibling.classList.add('open')">Show answer
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+        <div class="try-a">${s.tryThis.a}</div></div>` : ''}`;
+            }
+        }
+        function stepNext() {
+            const c = state.ch;
+            if (state.step >= c.steps.length - 1) { toast('Teaching flow complete ✓'); back(); return; }
+            state.step++; renderTeach();
+            document.getElementById('teachScroll').scrollTop = 0;
+        }
+        function stepPrev() { if (state.step > 0) { state.step--; renderTeach(); } }
+
+        /* swipe for teach */
+        (function () {
+            let sx = null;
+            const el = document.getElementById('teachScroll');
+            el.addEventListener('touchstart', e => { sx = e.touches[0].clientX; }, { passive: true });
+            el.addEventListener('touchend', e => {
+                if (sx === null) return;
+                const dx = e.changedTouches[0].clientX - sx;
+                if (Math.abs(dx) > 55) { dx < 0 ? stepNext() : stepPrev(); }
+                sx = null;
+            }, { passive: true });
+        })();
+
+        /* ============================================================
+           EXAMPLES
+        ============================================================ */
+        function openExamples() {
+            const c = state.ch;
+            document.getElementById('exBody').innerHTML = c.examples.map(e => `
+    <div class="card" style="margin-bottom:12px">
+      <div class="lbl acc">${e.title}</div>
+      <div class="gap-s"></div>
+      <p class="expl" style="font-size:15.5px">${e.text}</p>
+      ${e.ask ? `<div class="gap-s"></div><div class="ask-card" style="font-size:14.5px">Ask: “${e.ask}”</div>` : ''}
+    </div>`).join('');
+            go('s-examples');
+        }
+
+        /* ============================================================
+           QUESTIONS
+        ============================================================ */
+        function openQuestions() { state.q = 0; state.qShown = false; state.qAsked = false; renderQuestion(); go('s-questions'); }
+        function renderQuestion() {
+            const c = state.ch, q = c.questions[state.q];
+            document.getElementById('qProg').textContent = `${state.q + 1} / ${c.questions.length}`;
+            document.getElementById('qBar').style.width = ((state.q + 1) / c.questions.length * 100) + '%';
+            document.getElementById('qBody').innerHTML = `
+    <div class="card"><div class="lbl" style="margin-bottom:9px">Question ${state.q + 1}</div><p class="q-card">“${q.q}”</p></div>
+    <div class="btn-trio">
+      <button class="btn primary" style="flex:1.3" onclick="showQAnswer()">Show answer</button>
+      <button class="btn ghost" style="flex:1.1" onclick="askStudent(this)">Ask student</button>
+      <button class="btn ghost" style="flex:.75" onclick="nextQ()">Next</button>
+    </div>
+    <div class="hint-card" id="qHint">Let them think for 10 seconds.<br>If stuck, prompt with: <b>“${q.kw[0]}…”</b></div>
+    <div id="qAnswerArea"></div>
+    <div class="gap"></div>`;
+        }
+        function showQAnswer() {
+            const q = state.ch.questions[state.q];
+            document.getElementById('qAnswerArea').innerHTML = `
+    <div class="gap"></div>
+    <div class="card" style="animation:fadeUp .25s ease">
+      <div class="lbl acc">Answer</div>
+      <div class="gap-s"></div>
+      <p class="expl">${q.a}</p>
+      <div class="lbl" style="margin-top:16px">Keywords</div>
+      <div class="kw-row">${q.kw.map(k => `<span class="kw">${k}</span>`).join('')}</div>
+      <div class="mistake"><span class="lbl">Common mistake</span>${q.mistake}</div>
+    </div>`;
+        }
+        function askStudent(btn) {
+            const h = document.getElementById('qHint');
+            h.classList.toggle('open');
+            btn.style.background = h.classList.contains('open') ? 'var(--soft)' : '';
+            btn.style.color = h.classList.contains('open') ? 'var(--accent-ink)' : '';
+            btn.style.borderColor = h.classList.contains('open') ? 'var(--soft)' : '';
+        }
+        function nextQ() {
+            state.q = (state.q + 1) % state.ch.questions.length;
+            state.qShown = false; state.qAsked = false;
+            renderQuestion();
+        }
+
+        /* ============================================================
+           TERMS
+        ============================================================ */
+        function openTerms() {
+            const c = state.ch;
+            document.getElementById('tmBody').innerHTML = `
+    <p style="font-size:14px;font-weight:600;color:var(--sub);margin:6px 2px 14px">Tap a term for the student-friendly meaning.</p>
+    ${c.terms.map(t => `
+      <button class="term" onclick="this.classList.toggle('open')">
+        <div class="trow"><span class="tw">${t[0]}</span>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
+        <div class="td">${t[1]}</div>
+      </button>`).join('')}
+    <div class="gap"></div>`;
+            go('s-terms');
+        }
+
+        /* ============================================================
+           NOTES
+        ============================================================ */
+        function openNotes() {
+            const n = state.ch.notes;
+            document.getElementById('ntBody').innerHTML = `
+    <div class="card">
+      <div class="note-title">${n.title}</div>
+      ${n.blocks.map(b => `
+        <div class="note-block">
+          ${b[0] ? `<h4>${b[0]}</h4>` : ''}
+          ${b[1].map(l => `<div class="note-line"><span class="b">•</span><span>${l}</span></div>`).join('')}
+        </div>`).join('')}
+    </div>
+    <div class="gap-s"></div>
+    <p style="font-size:13px;font-weight:600;color:var(--faint);text-align:center">Short on purpose — the student copies this into their notebook.</p>
+    <div class="gap"></div>`;
+            go('s-notes');
+        }
+        function copyNotes() {
+            const n = state.ch.notes;
+            let txt = n.title + '\n';
+            n.blocks.forEach(b => { if (b[0]) txt += '\n' + b[0] + '\n'; b[1].forEach(l => txt += '• ' + l + '\n'); });
+            const done = () => toast('Notes copied ✓');
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(txt).then(done).catch(() => fallbackCopy(txt, done));
+            } else fallbackCopy(txt, done);
+        }
+        function fallbackCopy(txt, done) {
+            const ta = document.createElement('textarea'); ta.value = txt; document.body.appendChild(ta);
+            ta.select(); try { document.execCommand('copy'); } catch (e) { } document.body.removeChild(ta); done();
+        }
+
+        /* ============================================================
+           EXAM PRACTICE
+        ============================================================ */
+        function openExam() {
+            state.exKw = false; state.exSaid = new Set(); state.exModel = false;
+            renderExam(); go('s-exam');
+        }
+        function renderExam() {
+            const e = state.ch.exam;
+            document.getElementById('exmBody').innerHTML = `
+    <div class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:10px">
+        <span class="lbl">Question</span><span class="marks">${e.marks} MARKS</span>
+      </div>
+      <p class="q-card">“${e.q}”</p>
+    </div>
+    <div class="gap-s"></div>
+    <div class="card" style="background:var(--soft2);border-color:var(--soft2)">
+      <div class="lbl acc">Think first</div>
+      <div class="gap-s"></div>
+      <p style="font-size:14.5px;line-height:1.55;font-weight:600;color:#3C4642">Give the student 20–30 seconds. Do not show anything yet.</p>
+    </div>
+    <div class="gap"></div>
+    <div id="examFlow"></div>
+    <div class="gap"></div>`;
+            renderExamFlow();
+        }
+        function renderExamFlow() {
+            const e = state.ch.exam;
+            const flow = document.getElementById('examFlow');
+            if (!state.exKw) {
+                flow.innerHTML = `<button class="btn primary" onclick="state.exKw=true;renderExamFlow()">Student answered — show keywords</button>`;
+                return;
+            }
+            const said = state.exSaid.size, total = e.kw.length;
+            const qual = said === 0 ? ['miss', 'Missing keyword'] : said < total ? ['part', 'Partially correct'] : ['full', 'Complete'];
+            flow.innerHTML = `
+    <div class="lbl" style="margin:0 2px 4px">Tick each keyword the student mentioned</div>
+    <div class="kw-row" style="margin:6px 0 2px">
+      ${e.kw.map((k, i) => `<button class="kw tog ${state.exSaid.has(i) ? 'said' : ''}" onclick="toggleExKw(${i})">${state.exSaid.has(i) ? '✓ ' : ''}${k}</button>`).join('')}
+    </div>
+    <div class="qual ${qual[0]}"><span class="dot"></span>${qual[1]}</div>
+    <div class="gap"></div>
+    ${state.exModel ? `
+      <div class="card" style="animation:fadeUp .25s ease">
+        <div class="lbl acc">Model answer</div>
+        <div class="gap-s"></div>
+        <p class="expl">${e.model}</p>
+        ${said < total ? `<div class="mistake"><span class="lbl">Coach gently</span>Ask them to add the missing keyword${total - said > 1 ? 's' : ''} in one more sentence.</div>` : ''}
+      </div>`
+                    : `<button class="btn soft" onclick="state.exModel=true;renderExamFlow()">Show model answer</button>`}`;
+        }
+        function toggleExKw(i) { state.exSaid.has(i) ? state.exSaid.delete(i) : state.exSaid.add(i); renderExamFlow(); }
+
+        /* ============================================================
+           QUICK REVISION
+        ============================================================ */
+        function openRevision() {
+            const c = state.ch, r = c.revision;
+            document.getElementById('rvBody').innerHTML = `
+    <div class="lbl acc" style="margin:2px 2px 8px">5 things to remember</div>
+    <div class="card" style="padding:14px 16px">
+      ${r.points.map((p, i) => `<div class="rev-item"><span class="rev-n">${i + 1}</span><span class="rev-t">${p}</span></div>`).join('')}
+    </div>
+    <div class="gap"></div>
+    <div class="lbl acc" style="margin:0 2px 8px">Important terms</div>
+    <div class="kw-row" style="margin-bottom:4px">${r.terms.map(t => `<span class="kw">${t}</span>`).join('')}</div>
+    <div class="gap"></div>
+    <div class="lbl acc" style="margin:0 2px 8px">${r.quick.length} quick questions · swipe</div>
+    <div class="qcards" id="qcards">
+      ${r.quick.map((qa, i) => `
+        <div class="qcard" id="qc${i}">
+          <span class="lbl">${i + 1} / ${r.quick.length}</span>
+          <p class="q">${qa[0]}</p>
+          <button class="btn soft small" onclick="document.getElementById('qc${i}').classList.toggle('open');qcDots()">Show answer</button>
+          <div class="a">${qa[1]}</div>
+        </div>`).join('')}
+    </div>
+    <div class="dots" id="qcDots">${r.quick.map((_, i) => `<i class="${i === 0 ? 'on' : ''}"></i>`).join('')}</div>
+    <div class="gap"></div>`;
+            const qc = document.getElementById('qcards');
+            qc.addEventListener('scroll', qcDots, { passive: true });
+            go('s-revision');
+        }
+        function qcDots() {
+            const qc = document.getElementById('qcards'); if (!qc) return;
+            const idx = Math.round(qc.scrollLeft / (qc.firstChild.getBoundingClientRect().width + 12));
+            document.querySelectorAll('#qcDots i').forEach((d, i) => d.classList.toggle('on', i === Math.min(idx, d.parentNode.children.length - 1)));
+        }
+        function finishRevision() {
+            if (state.ch.progress < 100) { state.ch.progress = Math.min(100, state.ch.progress + 10); }
+            renderAllLists(); toast('Marked as revised ✓'); back();
+        }
+
+        /* ============================================================
+           INIT
+        ============================================================ */
+        renderAllLists();
+        show('s-home');
+    </script>
+</body>
+
+</html>

@@ -63,6 +63,7 @@ export interface TopicJSON {
     problem: string;
     steps: string[];
     answer: string;
+    context?: string;
   };
   fadedExample?: {
     problem: string;
@@ -123,3 +124,117 @@ export interface ChapterJSON {
   summary?: string[];
   teacherNotes?: string[];
 }
+
+
+// ─── View Model types for TeachPocket UI ───
+
+/** A single teach step — one card in the teaching flow */
+export interface TeachStepVM {
+  type: 'CONCEPT' | 'COMPARE' | 'CAUSE' | 'WORKED' | 'PROCESS' | 'EXAMPLE';
+  title: string;
+  expl?: string;
+  say?: string;
+  example?: string;
+  ask?: string;
+  expect?: string;
+  // COMPARE
+  a?: string;
+  b?: string;
+  rows?: [string, string, string][];
+  // CAUSE
+  cause?: string;
+  effect?: string;
+  // WORKED
+  problem?: string;
+  steps?: string[];
+  answer?: string;
+  mistake?: string;
+  partial?: boolean;
+  tryThis?: { q: string; a: string };
+  // PROCESS
+  items?: string[];
+}
+
+/** Curiosity hook — "Before you teach" */
+export interface CuriosityVM {
+  q: string;
+  a: string;
+  connect: string;
+}
+
+/** Q&A card in questions screen */
+export interface QuestionVM {
+  q: string;
+  a: string;
+  kw: string[];
+  mistake?: string;
+}
+
+/** Real-life example */
+export interface ExampleVM {
+  title: string;
+  text: string;
+  ask?: string;
+}
+
+/** Term with definition (tap-to-expand) */
+export type TermVM = [string, string];
+
+/** Copy-ready student notes */
+export interface NotesVM {
+  title: string;
+  blocks: [string, string[]][];
+}
+
+/** Exam practice with keyword tracking */
+export interface ExamVM {
+  q: string;
+  marks: number;
+  kw: string[];
+  model: string;
+}
+
+/** Quick revision data */
+export interface RevisionVM {
+  points: string[];
+  terms: string[];
+  quick: [string, string][];
+}
+
+/** Top-level view model for one chapter — what the UI renders */
+export interface ChapterVM {
+  id: string;
+  cls: string;
+  subject: string;
+  title: string;
+  progress: number;
+  last: string;
+  minutes: number;
+  mainIdea: string;
+  why: string;
+  map: string[];
+  curiosity: CuriosityVM;
+  steps: TeachStepVM[];
+  examples: ExampleVM[];
+  questions: QuestionVM[];
+  terms: TermVM[];
+  notes: NotesVM;
+  exam: ExamVM;
+  revision: RevisionVM;
+}
+
+/** Which screen is active */
+export type ScreenId =
+  | 'home'
+  | 'chapters'
+  | 'overview'
+  | 'mainidea'
+  | 'map'
+  | 'curiosity'
+  | 'teach'
+  | 'examples'
+  | 'questions'
+  | 'terms'
+  | 'notes'
+  | 'exam'
+  | 'revision';

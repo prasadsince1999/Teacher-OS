@@ -1,140 +1,207 @@
-import React, { useState, useEffect } from 'react';
-import { ChapterJSON, TopicJSON } from './types';
-import { ALL_CHAPTERS } from './data/chapterLoader';
-import { TeachPane } from './TeachPane';
-import { BriefPane } from './BriefPane';
+import React, { useState, useCallback } from 'react';
+import { ChapterVM, ScreenId } from './types';
+import { ALL_CHAPTER_VIEWS } from './data/chapterLoader';
 
-type NavLevel = 'grade' | 'subject' | 'chapter' | 'topic';
+// Screens
+import { HomeScreen } from './screens/HomeScreen';
+import { ChaptersScreen } from './screens/ChaptersScreen';
+import { OverviewScreen } from './screens/OverviewScreen';
+import { MainIdeaScreen } from './screens/MainIdeaScreen';
+import { ChapterMapScreen } from './screens/ChapterMapScreen';
+import { CuriosityScreen } from './screens/CuriosityScreen';
+import { TeachScreen } from './screens/TeachScreen';
+import { ExamplesScreen } from './screens/ExamplesScreen';
+import { QuestionsScreen } from './screens/QuestionsScreen';
+import { TermsScreen } from './screens/TermsScreen';
+import { NotesScreen } from './screens/NotesScreen';
+import { ExamScreen } from './screens/ExamScreen';
+import { RevisionScreen } from './screens/RevisionScreen';
 
-const GRADES = [4, 5, 6, 7];
-
-function subjectLabel(grade: number, subject: string): string {
-  if (subject === 'world') return grade <= 5 ? 'World' : 'Science';
-  if (subject === 'math') return 'Maths';
-  return subject;
-}
-
-function getStoredPane(): 'teach' | 'brief' {
-  try { return localStorage.getItem('tos-pane') === 'brief' ? 'brief' : 'teach'; }
-  catch { return 'teach'; }
-}
+// Toast
+import { Toast } from './components/Toast';
 
 export default function App() {
-  const [nav, setNav] = useState<NavLevel>('grade');
-  const [grade, setGrade] = useState<number | null>(null);
-  const [subject, setSubject] = useState<string | null>(null);
-  const [chapter, setChapter] = useState<ChapterJSON | null>(null);
-  const [topic, setTopic] = useState<TopicJSON | null>(null);
-  const [pane, setPane] = useState<'teach' | 'brief'>(getStoredPane);
+  // ─── State ───
+  const [screen, setScreen] = useState<ScreenId>('home');
+  const [stack, setStack] = useState<ScreenId[]>([]);
+  const [chapter, setChapter] = useState<ChapterVM | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
 
-  useEffect(() => {
-    try { localStorage.setItem('tos-pane', pane); } catch {}
-  }, [pane]);
+  // Filters (shared between Home and Chapters)
+  const [filterCls, setFilterCls] = useState('All');
+  const [filterSubj, setFilterSubj] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  // Derived data
-  const subjectsForGrade = grade !== null
-    ? [...new Set(ALL_CHAPTERS.filter(c => c.grade === grade).map(c => c.subject))]
-    : [];
+  // Toast key to retrigger
+  const [toastKey, setToastKey] = useState(0);
 
-  const chaptersForSubject = grade !== null && subject !== null
-    ? ALL_CHAPTERS.filter(c => c.grade === grade && c.subject === subject)
-    : [];
+  // ─── Navigation ───
+  const go = useCallback((id: ScreenId) => {
+    setStack(s => [...s, screen]);
+    setScreen(id);
+  }, [screen]);
 
-  // Navigation
-  const goBack = () => {
-    if (topic) { setTopic(null); setNav('topic'); }
-    else if (nav === 'topic') { setChapter(null); setNav('chapter'); }
-    else if (nav === 'chapter') { setSubject(null); setNav('subject'); }
-    else if (nav === 'subject') { setGrade(null); setNav('grade'); }
-  };
+  const back = useCallback(() => {
+    setStack(s => {
+      const prev = s[s.length - 1] || 'home';
+      setScreen(prev);
+      return s.slice(0, -1);
+    });
+  }, []);
 
-  const pickGrade = (g: number) => { setGrade(g); setNav('subject'); };
-  const pickSubject = (s: string) => { setSubject(s); setNav('chapter'); };
-  const pickChapter = (c: ChapterJSON) => { setChapter(c); setNav('topic'); };
-  const pickTopic = (t: TopicJSON) => { setTopic(t); };
+  const showToast = useCallback((msg: string) => {
+    setToast(msg);
+    setToastKey(k => k + 1);
+  }, []);
 
-  // ─── TOPIC SCREEN ───
-  if (topic && chapter) {
-    return (
-      <div className="app-shell">
-        <header className="pick-header">
-          <button className="back-btn" onClick={() => setTopic(null)}>← Back</button>
-          <span className="header-title">{topic.title}</span>
-        </header>
+  // ─── Actions ───
+  const openChapter = useCallback((ch: ChapterVM) => {
+    setChapter(ch);
+    go('overview');
+  }, [go]);
 
-        {/* Segmented control */}
-        <div className="segment-wrap">
-          <div className="segment">
-            <button
-              className={`seg-btn ${pane === 'teach' ? 'seg-active' : ''}`}
-              onClick={() => setPane('teach')}
-            >TEACH</button>
-            <button
-              className={`seg-btn ${pane === 'brief' ? 'seg-active' : ''}`}
-              onClick={() => setPane('brief')}
-            >BRIEF</button>
-          </div>
-        </div>
+  const goHome = useCallback(() => {
+    setStack([]);
+    setScreen('home');
+  }, []);
 
-        <div className="pane-content">
-          {pane === 'teach'
-            ? <TeachPane topic={topic} />
-            : <BriefPane topic={topic} />
-          }
-        </div>
-      </div>
-    );
-  }
+  const goChapters = useCallback(() => {
+    setStack([]);
+    setScreen('chapters');
+  }, []);
 
-  // ─── PICK SCREEN ───
-  const title =
-    nav === 'grade' ? 'Pick a Grade' :
-    nav === 'subject' ? `Grade ${grade}` :
-    nav === 'chapter' ? `Grade ${grade} · ${subjectLabel(grade!, subject!)}` :
-    `Ch ${chapter!.chapterNumber} · ${chapter!.title}`;
+  const navigateFromOverview = useCallback((id: ScreenId) => {
+    go(id);
+  }, [go]);
+
+  const finishTeach = useCallback(() => {
+    showToast('Teaching flow complete ✓');
+    back();
+  }, [showToast, back]);
+
+  const finishRevision = useCallback(() => {
+    showToast('Marked as revised ✓');
+    back();
+  }, [showToast, back]);
+
+  // ─── Render ───
+  const ch = chapter;
 
   return (
     <div className="app-shell">
-      <header className="pick-header">
-        {nav !== 'grade' && (
-          <button className="back-btn" onClick={goBack}>← Back</button>
+      {/* Home */}
+      <div className={`screen ${screen === 'home' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {screen === 'home' && (
+          <HomeScreen
+            chapters={ALL_CHAPTER_VIEWS}
+            filterCls={filterCls}
+            filterSubj={filterSubj}
+            searchQuery={searchQuery}
+            onSetCls={setFilterCls}
+            onSetSubj={setFilterSubj}
+            onSearch={setSearchQuery}
+            onOpenChapter={openChapter}
+            onTabHome={goHome}
+            onTabChapters={goChapters}
+          />
         )}
-        <span className="header-title">{title}</span>
-      </header>
+      </div>
 
-      <main className="pick-list">
-        {nav === 'grade' && GRADES.map(g => (
-          <button key={g} className="pick-row" onClick={() => pickGrade(g)}>
-            <span className="pick-label">Grade {g}</span>
-            <span className="pick-meta">
-              {ALL_CHAPTERS.filter(c => c.grade === g).length} chapters
-            </span>
-          </button>
-        ))}
+      {/* Chapters */}
+      <div className={`screen ${screen === 'chapters' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {(screen === 'chapters' || stack.includes('chapters')) && (
+          <ChaptersScreen
+            chapters={ALL_CHAPTER_VIEWS}
+            filterCls={filterCls}
+            filterSubj={filterSubj}
+            onSetCls={setFilterCls}
+            onSetSubj={setFilterSubj}
+            onOpenChapter={openChapter}
+            onTabHome={goHome}
+            onTabChapters={goChapters}
+          />
+        )}
+      </div>
 
-        {nav === 'subject' && subjectsForGrade.map(s => (
-          <button key={s} className="pick-row" onClick={() => pickSubject(s)}>
-            <span className="pick-label">{subjectLabel(grade!, s)}</span>
-            <span className="pick-meta">
-              {ALL_CHAPTERS.filter(c => c.grade === grade && c.subject === s).length} chapters
-            </span>
-          </button>
-        ))}
+      {/* Overview */}
+      <div className={`screen ${screen === 'overview' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && (screen === 'overview' || stack.includes('overview')) && (
+          <OverviewScreen chapter={ch} onBack={back} onNavigate={navigateFromOverview} />
+        )}
+      </div>
 
-        {nav === 'chapter' && chaptersForSubject.map(c => (
-          <button key={c.id} className="pick-row" onClick={() => pickChapter(c)}>
-            <span className="pick-label">Ch {c.chapterNumber}: {c.title}</span>
-            <span className="pick-meta">{c.topics.length} topics · {c.estimatedPeriods} periods</span>
-          </button>
-        ))}
+      {/* Main Idea */}
+      <div className={`screen ${screen === 'mainidea' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'mainidea' && (
+          <MainIdeaScreen chapter={ch} onBack={back} />
+        )}
+      </div>
 
-        {nav === 'topic' && chapter && chapter.topics.map(t => (
-          <button key={t.id} className="pick-row" onClick={() => pickTopic(t)}>
-            <span className="pick-label">{t.title}</span>
-            <span className="pick-meta">{t.estimatedMinutes} min</span>
-          </button>
-        ))}
-      </main>
+      {/* Chapter Map */}
+      <div className={`screen ${screen === 'map' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'map' && (
+          <ChapterMapScreen chapter={ch} onBack={back} />
+        )}
+      </div>
+
+      {/* Curiosity (Before you teach) */}
+      <div className={`screen ${screen === 'curiosity' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'curiosity' && (
+          <CuriosityScreen curiosity={ch.curiosity} onBack={back} onStartTeach={() => go('teach')} />
+        )}
+      </div>
+
+      {/* Teach */}
+      <div className={`screen ${screen === 'teach' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'teach' && (
+          <TeachScreen steps={ch.steps} onBack={back} onFinish={finishTeach} />
+        )}
+      </div>
+
+      {/* Examples */}
+      <div className={`screen ${screen === 'examples' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'examples' && (
+          <ExamplesScreen examples={ch.examples} onBack={back} />
+        )}
+      </div>
+
+      {/* Questions */}
+      <div className={`screen ${screen === 'questions' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'questions' && (
+          <QuestionsScreen questions={ch.questions} onBack={back} />
+        )}
+      </div>
+
+      {/* Terms */}
+      <div className={`screen ${screen === 'terms' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'terms' && (
+          <TermsScreen terms={ch.terms} onBack={back} />
+        )}
+      </div>
+
+      {/* Notes */}
+      <div className={`screen ${screen === 'notes' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'notes' && (
+          <NotesScreen notes={ch.notes} onBack={back} onToast={showToast} />
+        )}
+      </div>
+
+      {/* Exam */}
+      <div className={`screen ${screen === 'exam' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'exam' && (
+          <ExamScreen exam={ch.exam} onBack={back} />
+        )}
+      </div>
+
+      {/* Revision */}
+      <div className={`screen ${screen === 'revision' ? 'active' : ''}`} style={{ position: 'absolute', inset: 0 }}>
+        {ch && screen === 'revision' && (
+          <RevisionScreen revision={ch.revision} onBack={back} onFinish={finishRevision} />
+        )}
+      </div>
+
+      {/* Toast */}
+      <Toast key={toastKey} message={toast} />
     </div>
   );
 }
