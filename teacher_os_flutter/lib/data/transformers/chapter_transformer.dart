@@ -3,14 +3,15 @@ import '../models/view_models.dart';
 
 abstract final class ChapterTransformer {
   static ChapterVM transform(ChapterJSON ch) {
-    final isEVS = ch.grade <= 5;
     String subjectName;
-    if (ch.subject == 'world') {
-      subjectName = isEVS ? 'EVS' : 'Science';
-    } else if (ch.subject == 'math') {
+    if (ch.subject == 'world' ||
+        ch.subject == 'science' ||
+        ch.subject == 'evs') {
+      subjectName = 'Science';
+    } else if (ch.subject == 'math' || ch.subject == 'mathematics') {
       subjectName = 'Mathematics';
     } else {
-      subjectName = ch.subject.isNotEmpty ? ch.subject : 'EVS';
+      subjectName = ch.subject.isNotEmpty ? ch.subject : 'Science';
     }
 
     final totalMinutes = ch.topics.fold<int>(

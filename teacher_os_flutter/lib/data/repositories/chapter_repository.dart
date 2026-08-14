@@ -12,8 +12,8 @@ class ChapterRepository {
   static List<ChapterVM> get builtInChapters => [
     ChapterVM(
       id: 'lt',
-      cls: 'Class 5',
-      subject: 'EVS',
+      cls: 'Class 4',
+      subject: 'Science',
       title: 'Living Together',
       progress: 70,
       last: 'Today',

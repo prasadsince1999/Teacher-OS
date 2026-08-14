@@ -50,7 +50,7 @@ void main() {
 
       expect(vm.id, 'test-1');
       expect(vm.cls, 'Class 5');
-      expect(vm.subject, 'EVS');
+      expect(vm.subject, 'Science');
       expect(vm.title, 'Living Together Test');
       expect(vm.curiosity.q, 'Can one person run a whole school alone?');
       expect(vm.steps.isNotEmpty, true);

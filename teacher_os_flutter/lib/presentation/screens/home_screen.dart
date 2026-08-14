@@ -32,12 +32,7 @@ class HomeScreen extends StatelessWidget {
   });
 
   static const List<String> classOptions = ['All', '4', '5', '6', '7'];
-  static const List<String> subjectOptions = [
-    'All',
-    'EVS',
-    'Science',
-    'Mathematics',
-  ];
+  static const List<String> subjectOptions = ['All', 'Science', 'Mathematics'];
 
   @override
   Widget build(BuildContext context) {
