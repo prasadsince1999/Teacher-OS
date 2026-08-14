@@ -7,6 +7,7 @@ import '../../data/models/view_models.dart';
 import '../widgets/app_chip_filter.dart';
 import '../widgets/app_search_bar.dart';
 import '../widgets/chapter_card.dart';
+import '../widgets/ts_logo.dart';
 
 class HomeScreen extends StatelessWidget {
   final List<ChapterVM> chapters;
@@ -56,10 +57,21 @@ class HomeScreen extends StatelessWidget {
     return ListView(
       padding: const EdgeInsets.fromLTRB(18, 20, 18, 100),
       children: [
-        const SizedBox(height: 8),
-        Text('TUITION TIME', style: AppTypography.uppercaseLabelAccent),
-        const SizedBox(height: 6),
-        Text('My Chapters', style: AppTypography.h1Title),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('TUITION TIME', style: AppTypography.uppercaseLabelAccent),
+                const SizedBox(height: 6),
+                Text('My Chapters', style: AppTypography.h1Title),
+              ],
+            ),
+            const TsLogo(size: 40),
+          ],
+        ),
         const SizedBox(height: 16),
         AppSearchBar(value: searchQuery, onChanged: onSearchChanged),
         const SizedBox(height: 14),

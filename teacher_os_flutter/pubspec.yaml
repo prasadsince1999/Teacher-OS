@@ -1,5 +1,5 @@
-name: teacher_os
-description: "TeachPocket — Tuition & Teaching Companion in Flutter."
+name: teacher_os # TEACHER_OS
+description: "TEACHER_OS — Tuition & Teaching Companion in Flutter."
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -21,3 +21,4 @@ flutter:
 
   assets:
     - assets/chapters/
+    - assets/icons/
