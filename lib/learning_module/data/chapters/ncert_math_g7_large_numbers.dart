@@ -1,0 +1,188 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g7_large_numbers_lesson.dart';
+import 'ncert_math_g7_large_numbers_sections.dart';
+import 'ncert_math_g7_large_numbers_study.dart';
+
+final Chapter mathG7LargeNumbersChapter = Chapter(
+  id: 'ncert-g7-math-large-numbers',
+  title: 'Large Numbers Around Us',
+  classLevel: 'Class 7',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Unit 1: Number Systems',
+  mainTheme: 'Number Sense, Place Value Systems (Indian Lakhs/Crores vs International Millions/Billions), Powers of 10, Estimation and Rounding, Mental Multiplication Shortcuts, Product Digit Bounds, Fermi Estimations, and Real-World Scale',
+  mainIdea: 'Large numbers shape our universe, demographics, and technology. The chapter develops intuitive and algorithmic mastery over quantities up to Crores and Billions. Explores One Lakh (1,00,000) through rice biodiversity in Chintamani, Karnataka, relative physical heights, and life spans. Compares Indian (3-2-2-2 grouping: Lakhs, Crores, Arabs) and International (3-3-3 grouping: Millions, Billions) place value architectures. Investigates base-10 machines (Creative Chitti and Systematic Sippy) proving minimal clicks equal digit sums. Teaches purposeful rounding (up, down, exact) and the 5 nearest neighbours. Uncovers mental multiplication shortcuts (x5=x10/2, x25=x100/4, x125=x1000/8) and proves the Product Digit Bounds Rule ((m+n-1) to (m+n) digits). Applies Fermi reasoning to planetary distances (Sun 147M km, Moon 384k km), mega-fauna (150-tonne blue whale), global waste, and bird migration (13,560 km non-stop).',
+  learningOutcomes: const [
+    'Define and visualize 1 Lakh (1,00,000) and 1 Crore (1,00,00,000) through real-world scale and time models.',
+    'Express large numbers in base-10 calculator representations and prove minimal clicks equal digit sums.',
+    'Fluently read, write, compare, and convert numbers between Indian and International place value systems.',
+    'Calculate the 5 nearest neighbours and select correct contextual rounding strategies (up, down, exact).',
+    'Execute rapid mental multiplications using powers-of-10 identities (x5, x25, x125, x250).',
+    'Prove and apply the Product Digit Bounds Rule ((m+n-1) to (m+n) digits).',
+    'Solve Fermi estimation problems spanning astronomy, ecology, urban logistics, and human biology.',
+    'Construct pandigital numbers and calculate stream digit indices.',
+  ],
+  sections: ncertMathG7LargeNumbersSections,
+  concepts: const [
+    Concept(
+      id: 'con-g7-ln-1',
+      title: 'Magnitude of One Lakh & Place Value Machines',
+      simpleMeaning: '1 Lakh (1,00,000) is the smallest 6-digit number (100 thousands; 10^5). In base-10 machines, minimal button clicks equal the sum of the digits.',
+      sourceReference: SourceReference(pageNumber: 1),
+    ),
+    Concept(
+      id: 'con-g7-ln-2',
+      title: 'Indian vs International Place Value Duality',
+      simpleMeaning: 'Indian system uses 3-2-2-2 comma grouping (Thousands, Lakhs, Crores, Arabs); International system uses 3-3-3 grouping (Thousands, Millions, Billions). 10 Lakhs = 1 Million; 1 Crore = 10 Million; 1 Billion = 100 Crores = 1 Arab.',
+      sourceReference: SourceReference(pageNumber: 8),
+    ),
+    Concept(
+      id: 'con-g7-ln-3',
+      title: 'Nearest Neighbours & Contextual Rounding',
+      simpleMeaning: 'Rounding simplifies quantities to nearest thousand, lakh, or crore. Context dictates rounding up (supplies/food), rounding down (time/budget), or exact precision (emergency/banks).',
+      sourceReference: SourceReference(pageNumber: 10),
+    ),
+    Concept(
+      id: 'con-g7-ln-4',
+      title: 'Base-10 Mental Shortcuts & Product Digit Bounds',
+      simpleMeaning: 'Multiplication shortcuts exploit base 10 (x5=x10/2, x25=x100/4, x125=x1000/8). An m-digit by n-digit product strictly contains between (m+n-1) and (m+n) digits.',
+      sourceReference: SourceReference(pageNumber: 13),
+    ),
+    Concept(
+      id: 'con-g7-ln-5',
+      title: 'Fermi Estimation & Astronomical Scales',
+      simpleMeaning: 'Fermi estimation breaks giant problems into reasonable sequential rates to estimate travel to the Moon, Sun, coin counting, and mega-populations.',
+      sourceReference: SourceReference(pageNumber: 18),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-g7-ln-1',
+      term: 'Lakh (Laksha)',
+      definition: 'A unit in the Indian numbering system equal to one hundred thousand (1,00,000 or 10^5), originating from the Sanskrit word laksha.',
+      sourceReference: SourceReference(pageNumber: 1),
+    ),
+    GlossaryTerm(
+      id: 'gt-g7-ln-2',
+      term: 'Crore (Koti)',
+      definition: 'A unit in the Indian numbering system equal to ten million or one hundred lakhs (1,00,00,000 or 10^7), originating from the Sanskrit word koti.',
+      sourceReference: SourceReference(pageNumber: 8),
+    ),
+    GlossaryTerm(
+      id: 'gt-g7-ln-3',
+      term: 'Million & Billion',
+      definition: 'Units in the International place value system. 1 Million = 1,000,000 (10^6 = 10 Lakhs); 1 Billion = 1,000,000,000 (10^9 = 100 Crores = 1 Arab).',
+      sourceReference: SourceReference(pageNumber: 8),
+    ),
+    GlossaryTerm(
+      id: 'gt-g7-ln-4',
+      term: 'Product Digit Bounds Rule',
+      definition: 'A mathematical theorem stating that the product of an m-digit number and an n-digit number must have either (m + n - 1) digits or (m + n) digits.',
+      sourceReference: SourceReference(pageNumber: 15),
+    ),
+    GlossaryTerm(
+      id: 'gt-g7-ln-5',
+      term: 'Fermi Estimation',
+      definition: 'An estimation technique that uses rough approximations and dimensional rates to calculate quantities that are difficult or impossible to measure directly.',
+      sourceReference: SourceReference(pageNumber: 18),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'misc-g7-ln-1',
+      label: 'Equating 1 Million with 1 Lakh or 1 Crore',
+      mistake: 'Assuming 1 Million is 1 Lakh because both are the next step above thousand in their respective charts.',
+      correctIdea: '1 Million is 10 Lakhs (1,000,000 with 6 zeroes), whereas 1 Lakh is 100 Thousands (1,00,000 with 5 zeroes) and 1 Crore is 100 Lakhs (1,00,00,000 with 7 zeroes).',
+      explanation: 'The International system shifts by thousands (10^3) at each period, while the Indian system shifts by hundreds (10^2) after the thousands period.',
+      sourceReference: SourceReference(pageNumber: 8),
+    ),
+    Misconception(
+      id: 'misc-g7-ln-2',
+      label: 'Believing rounding rules are purely mechanical without context',
+      mistake: 'Always rounding down numbers below 5 or rounding off emergency phone numbers.',
+      correctIdea: 'Real-world rounding requires purpose: supplies must be rounded up to avoid deficits, whereas identification numbers and bank transfers require exact precision.',
+      explanation: 'Rounding 732 students to 700 sweets leaves 32 children without sweets; dialing rounded emergency numbers fails to connect.',
+      sourceReference: SourceReference(pageNumber: 10),
+    ),
+    Misconception(
+      id: 'misc-g7-ln-3',
+      label:
+          'Assuming multi-digit multiplication product length is unpredictable',
+      mistake: 'Believing the product of two 4-digit numbers can have any length like 6, 7, 8, or 9 digits.',
+      correctIdea: 'The product of an m-digit and n-digit number is strictly constrained between (m+n-1) and (m+n) digits.',
+      explanation: 'Because 10^(m-1) <= A < 10^m and 10^(n-1) <= B < 10^n, their product strictly satisfies 10^(m+n-2) <= A x B < 10^(m+n).',
+      sourceReference: SourceReference(pageNumber: 15),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-g7-ln-1',
+      type: 'chart',
+      title: 'Indian vs International Place Value Equivalence Chart',
+      description: 'Side-by-side comparison table showing Ones, Thousands, Lakhs/Millions, Crores/Ten-Millions, Arabs/Billions with comma groupings (3-2-2-2 vs 3-3-3).',
+      pageReference: 8,
+    ),
+    Visual(
+      id: 'v-g7-ln-2',
+      type: 'diagram',
+      title: 'Relative Height Scale: Somu Building, Statue of Unity, Kunchikal Falls',
+      description: 'Comparative vertical height meter bar illustrating Somu building (40m), Statue of Unity (180m, 4.5x), and Kunchikal waterfall (450m, 11.25x).',
+      pageReference: 3,
+    ),
+    Visual(
+      id: 'v-g7-ln-3',
+      type: 'table',
+      title: 'Product Digit Bounds Matrix',
+      description: 'Grid demonstrating minimum (m+n-1) and maximum (m+n) product digits across 1-digit to 13-digit multiplications.',
+      pageReference: 15,
+    ),
+  ],
+  teacherStudy: ncertMathG7LargeNumbersTeacherStudy,
+  studentLesson: ncertMathG7LargeNumbersStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-g7-ln-1',
+      questionText: '(a) Express 9,87,65,01,234 in the International place value system with words.\n(b) Compare 640 crore and 60 billion using <, >, or =.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '(a) International notation: 9,876,501,234 -> Nine billion eight hundred seventy-six million five hundred one thousand two hundred thirty-four.\n(b) 640 crore = 6.4 billion. Since 6.4 billion < 60 billion, 640 crore < 60 billion.',
+      explanation: 'Conversion between Indian and International systems.',
+      keywords: [
+        '9,876,501,234',
+        'Nine billion eight hundred seventy-six million',
+        '640 crore < 60 billion',
+        '640 crore = 6.4 billion',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-g7-ln-2',
+      questionText: '(a) Calculate 72 x 125 using base-10 mental shortcuts.\n(b) State the minimum and maximum possible digits in the product of a 5-digit number and an 8-digit number, and prove why.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: '(a) Since 125 = 1000 / 8:\n    72 x 125 = (72 / 8) x 1000 = 9 x 1000 = 9,000.\n\n(b) For an m-digit number (m=5) and an n-digit number (n=8):\n    Minimum digits = m + n - 1 = 5 + 8 - 1 = 12 digits.\n    Maximum digits = m + n = 5 + 8 = 13 digits.\n    Proof: The smallest 5-digit number is 10^4 and smallest 8-digit number is 10^7; product is at least 10^11 (12 digits). The largest are strictly less than 10^5 and 10^8; product is strictly less than 10^13 (at most 13 digits).',
+      explanation: 'Base-10 shortcuts and Product Digit Bounds theorem.',
+      keywords: [
+        '72 x 125 = 9000',
+        '125 = 1000/8',
+        'Min digits = 5+8-1 = 12 digits',
+        'Max digits = 5+8 = 13 digits',
+        'Product Digit Bounds Rule',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-g7-ln-3',
+      questionText: 'A bar-tailed godwit flew non-stop 13,560 km from Alaska to Australia in 11 days.\n(a) What was its approximate distance covered per day?\n(b) What was its approximate speed in km per hour?\n(c) If a student writes digits 1, 2, 3, 4... continuously, which number contains the 1000th digit?',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.evaluate,
+      answer: '(a) Distance per day = 13,560 km / 11 days = 1,232.73 km/day (approx 1,233 km/day).\n\n(b) Speed per hour = 1,232.73 km / 24 hours = 51.36 km/h (approx 51 km/h).\n\n(c) Digit counting:\n- 1-digit numbers (1 to 9): 9 digits (total = 9)\n- 2-digit numbers (10 to 99): 90 x 2 = 180 digits (total = 189)\n- Digits remaining to 1000: 1000 - 189 = 811 digits.\n- 3-digit numbers needed: 811 / 3 = 270 full numbers with remainder 1 digit.\n- The 270th 3-digit number is 100 + 270 - 1 = 369.\n- The next number is 370. The 1st digit of 370 is "3", which is the 1000th digit.',
+      explanation: 'Rate estimation and continuous digit stream tracking.',
+      keywords: [
+        '1,233 km/day',
+        '51.36 km/h (or 51 km/h)',
+        '1000 - 189 = 811 digits',
+        '811 / 3 = 270 with remainder 1',
+        'Number is 370, digit is 3',
+      ],
+    ),
+  ],
+);

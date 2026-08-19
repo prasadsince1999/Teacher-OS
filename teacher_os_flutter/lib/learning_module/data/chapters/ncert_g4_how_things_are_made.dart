@@ -1,0 +1,275 @@
+import '../../models/content_models.dart';
+import 'ncert_g4_how_things_are_made_lesson.dart';
+import 'ncert_g4_how_things_are_made_sections.dart';
+import 'ncert_g4_how_things_are_made_study.dart';
+
+final Chapter howThingsAreMadeChapter = Chapter(
+  id: 'ncert-g4-things-ch8',
+  title: 'How Things are Made',
+  classLevel: 'Class 4',
+  board: 'NCERT',
+  subject: 'Science',
+  unit: 'Unit 4: Things Around Us',
+  mainTheme: 'How paper is made, how recycled paper is prepared, how natural colours can be used, the different kinds and uses of paper, and responsible use of materials.',
+  mainIdea: 'The things we use every day come from materials and processes that require effort and natural resources. Paper is connected with trees, and recycling old paper can help us use it again. Different kinds of paper have different properties and uses. Because making paper uses resources, we should use paper carefully and avoid unnecessary waste.',
+  learningOutcomes: const [
+    'Explain the relationship between trees, wood pulp, ordinary paper, and recycled paper.',
+    'Sequence the complete process of making handmade recycled paper.',
+    'Describe the role of fenugreek (methi) seeds as a binding material in paper recycling.',
+    'Observe and compare natural colours obtained from different plant parts (roots, leaves, flowers, seeds).',
+    'Identify different types of paper and explain how their physical properties dictate their practical uses.',
+    'Explain why paper should be used responsibly to conserve trees, water, and electrical energy.',
+    'Describe the first three of the 5Rs (Refuse, Reduce, Reuse) and apply them to daily school and home situations.',
+    'Create a useful craft object (e.g. greeting card or bookmark) from handmade recycled paper.',
+  ],
+  sections: howThingsAreMadeSections,
+  concepts: const [
+    Concept(
+      id: 'c-8-1',
+      title: 'Paper and Natural Resources',
+      simpleMeaning: 'Ordinary paper is made from trees and wood pulp, which requires cutting trees and using large amounts of water and energy.',
+      sourceReference: SourceReference(pageNumber: 128),
+    ),
+    Concept(
+      id: 'c-8-2',
+      title: 'Recycling and Binding Material',
+      simpleMeaning: 'Recycling turns old discarded paper into new sheets; fenugreek (methi) seeds release natural stickiness to bind fibres together.',
+      sourceReference: SourceReference(pageNumber: 129),
+    ),
+    Concept(
+      id: 'c-8-3',
+      title: 'Properties Dictate Function',
+      simpleMeaning: 'Physical properties determine uses: tissue is thin, soft, and absorbent for cleaning, while cardboard is thick and rigid for boxes.',
+      sourceReference: SourceReference(pageNumber: 134),
+    ),
+    Concept(
+      id: 'c-8-4',
+      title: 'The 5Rs of Waste Management',
+      simpleMeaning: 'Refuse means saying no to unnecessary waste; Reduce means using less; Reuse means using items multiple times before discarding.',
+      sourceReference: SourceReference(pageNumber: 135),
+    ),
+    Concept(
+      id: 'c-8-5',
+      title: 'Natural Dyes from Plant Organs',
+      simpleMeaning: 'Safe non-toxic dyes come from various plant parts: roots (turmeric/beetroot), leaves (spinach/henna), flowers, and seeds.',
+      sourceReference: SourceReference(pageNumber: 131),
+    ),
+    Concept(
+      id: 'c-8-6',
+      title: 'Controlled Testing in Science',
+      simpleMeaning: 'In scientific comparisons, keeping paper size and dye quantities identical ensures fair and accurate observations.',
+      sourceReference: SourceReference(pageNumber: 130),
+    ),
+    Concept(
+      id: 'c-8-7',
+      title: 'Historical Writing Surfaces',
+      simpleMeaning: 'Before modern paper, people wrote on cloth, wooden boards, and dried palm leaves (Talapatra); banana fibre is a modern tree-saving alternative.',
+      sourceReference: SourceReference(pageNumber: 133),
+    ),
+    Concept(
+      id: 'c-8-8',
+      title: 'Tactile Communication on Paper',
+      simpleMeaning: 'The Braille system uses embossed patterns of raised dots on thick paper to allow visually challenged people to read by touch.',
+      sourceReference: SourceReference(pageNumber: 135),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'g-8-1',
+      term: 'Paper pulp',
+      definition: 'A soft, wet mixture made by soaking and mashing shredded paper in water.',
+      sourceReference: SourceReference(pageNumber: 129),
+    ),
+    GlossaryTerm(
+      id: 'g-8-2',
+      term: 'Recycled paper',
+      definition: 'New usable paper crafted by re-processing used and discarded paper products.',
+      sourceReference: SourceReference(pageNumber: 129),
+    ),
+    GlossaryTerm(
+      id: 'g-8-3',
+      term: 'Binding material',
+      definition: 'A sticky substance (such as soaked fenugreek seeds) that helps paper fibres hold firmly together.',
+      sourceReference: SourceReference(pageNumber: 129),
+    ),
+    GlossaryTerm(
+      id: 'g-8-4',
+      term: 'Natural dye',
+      definition: 'Safe colour extracted from plant parts like roots, leaves, flowers, seeds, and stems.',
+      sourceReference: SourceReference(pageNumber: 131),
+    ),
+    GlossaryTerm(
+      id: 'g-8-5',
+      term: 'Wood pulp',
+      definition: 'The primary raw fibrous material extracted from felled trees used to manufacture ordinary white paper.',
+      sourceReference: SourceReference(pageNumber: 132),
+    ),
+    GlossaryTerm(
+      id: 'g-8-6',
+      term: 'Refuse',
+      definition: 'Saying "NO" to using items that generate unnecessary environmental waste (e.g. single-use paper cups).',
+      sourceReference: SourceReference(pageNumber: 135),
+    ),
+    GlossaryTerm(
+      id: 'g-8-7',
+      term: 'Reduce',
+      definition: 'Using materials carefully to produce less waste (e.g. writing on both sides of every page).',
+      sourceReference: SourceReference(pageNumber: 135),
+    ),
+    GlossaryTerm(
+      id: 'g-8-8',
+      term: 'Reuse',
+      definition: 'Using an object multiple times before discarding it (e.g. reusing paper gift bags and boxes).',
+      sourceReference: SourceReference(pageNumber: 135),
+    ),
+    GlossaryTerm(
+      id: 'g-8-9',
+      term: 'Talapatra',
+      definition: 'Traditional dried palm leaves used as durable writing surfaces in ancient India.',
+      sourceReference: SourceReference(pageNumber: 133),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'm-8-1',
+      label: 'Recycled paper is just picking up old paper to write on',
+      mistake: 'Students confuse reuse with recycling, thinking recycled paper is simply written on twice.',
+      correctIdea: 'Recycling is a complete transformation process: old paper is shredded, soaked, bonded with fenugreek, mashed into pulp, rolled, and dried into new sheets.',
+      explanation: 'Walk through the physical transformation from shredded newspaper into fresh handmade paper.',
+      sourceReference: SourceReference(
+        pageNumber: 129,
+        sourceStatus: SourceStatus.teacherInference,
+      ),
+    ),
+    Misconception(
+      id: 'm-8-2',
+      label: 'All papers are made the same way and have the same properties',
+      mistake: 'Children believe all paper behaves identically regardless of thickness or texture.',
+      correctIdea: 'Different manufacturing processes create distinct properties: tissue is soft and absorbent for cleaning; cardboard is thick and rigid for boxes.',
+      explanation: 'Contrast pouring water on tissue paper versus on a thick cardboard box.',
+      sourceReference: SourceReference(
+        pageNumber: 134,
+        sourceStatus: SourceStatus.teacherInference,
+      ),
+    ),
+    Misconception(
+      id: 'm-8-3',
+      label: 'Refuse means throwing things in the trash bin',
+      mistake:
+          'Students mistake the English word "refuse" for garbage disposal.',
+      correctIdea: 'In the 5Rs sustainability context, "Refuse" means saying NO before taking single-use items to prevent waste generation.',
+      explanation: 'Give the example of refusing a single-use paper cup or plastic straw at a juice shop.',
+      sourceReference: SourceReference(
+        pageNumber: 135,
+        sourceStatus: SourceStatus.teacherInference,
+      ),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-8-1',
+      type: 'illustration',
+      title: 'The Paper Life Cycle & Forest Connection',
+      description: 'Illustration showing trees in the forest, wood pulp processing in paper mills, notebooks and newspapers, and recycling into new paper.',
+      pageReference: 128,
+    ),
+    Visual(
+      id: 'v-8-2',
+      type: 'processDiagram',
+      title: 'Handmade Recycled Paper Step-by-Step',
+      description: 'Six sequential stages: 1. Tear newspaper -> 2. Soak in water -> 3. Add fenugreek seeds -> 4. Mash into pulp -> 5. Roll flat on board -> 6. Sun dry.',
+      pageReference: 129,
+    ),
+    Visual(
+      id: 'v-8-3',
+      type: 'diagram',
+      title: 'Natural Dye Testing Grid',
+      description: 'Four equal squares of recycled paper coloured with equal amounts of turmeric (yellow), spinach (green), beetroot (red), and henna (brown).',
+      pageReference: 130,
+    ),
+    Visual(
+      id: 'v-8-4',
+      type: 'illustration',
+      title: 'The 5Rs Action Triangle: Refuse, Reduce, Reuse',
+      description: 'Action graphic: Refusing single-use cups, reducing by writing on both sides of pages, and reusing gift bags and cardboard boxes.',
+      pageReference: 135,
+    ),
+  ],
+  teacherStudy: howThingsAreMadeTeacherStudy,
+  studentLesson: howThingsAreMadeStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-8-1',
+      questionText: 'Explain the sequential steps required to make handmade recycled paper from old newspapers.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.remember,
+      answer: '1. Tear old newspapers into small shreds and soak them in water.\n2. Add fenugreek (methi) seeds as a binding material and leave overnight.\n3. Blend or mash the mixture into a wet, smooth paper pulp.\n4. Spread the pulp evenly on a flat surface and roll it into thin sheets.\n5. Leave the sheets in the sun to dry completely into recycled paper.',
+      explanation: 'Recycling transforms paper fibres into fresh sheets through systematic physical processing.',
+      keywords: [
+        'tear into shreds',
+        'soak in water',
+        'fenugreek seeds as binder',
+        'mash into pulp',
+        'roll and dry',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-8-2',
+      questionText: 'What is the role of fenugreek (methi) seeds in the recycled-paper activity?',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.remember,
+      answer: 'Fenugreek seeds act as a binding material. When soaked overnight, they release natural stickiness that holds the shredded paper fibres firmly together into a solid sheet.',
+      explanation:
+          'Without a binding agent, paper pulp crumbles apart when dried.',
+      keywords: [
+        'binding material',
+        'holds fibres together',
+        'natural stickiness',
+        'methi seeds',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-8-3',
+      questionText: 'Why is tissue paper suitable for cleaning spills while cardboard is used for packing boxes?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: 'Tissue paper is very thin, soft, and highly water-absorbent, making it ideal for quickly wiping and cleaning spills. In contrast, cardboard is thick, hard, and rigid, making it strong enough to protect items inside packing boxes.',
+      explanation: 'Material properties govern practical applications.',
+      keywords: [
+        'tissue is thin, soft, absorbent',
+        'cleaning spills',
+        'cardboard is thick and hard',
+        'packing boxes',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-8-4',
+      questionText: 'Explain the first three of the 5Rs (Refuse, Reduce, Reuse) with one practical daily example for each.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '1. Refuse: Say "NO" to single-use waste before taking it (e.g. refusing disposable paper cups).\n2. Reduce: Use things carefully to produce less waste (e.g. writing on both sides of every page).\n3. Reuse: Use an item multiple times before discarding it (e.g. using a paper gift bag again for another celebration).',
+      explanation:
+          'The 5Rs guide responsible, sustainable resource consumption.',
+      keywords: [
+        'refuse say no',
+        'reduce use less both sides',
+        'reuse use gift bags again',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-8-5',
+      questionText:
+          'Why is it important to use paper responsibly and avoid wasting it?',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: 'Ordinary paper is made from wood pulp extracted from trees. Making paper requires cutting down many trees and uses huge quantities of fresh water and energy. Using paper responsibly protects forests, saves water, and conserves energy.',
+      explanation: 'Paper conservation directly protects forest ecosystems and natural resources.',
+      keywords: [
+        'made from wood pulp',
+        'cutting trees',
+        'uses water and energy',
+        'protects forests',
+      ],
+    ),
+  ],
+);

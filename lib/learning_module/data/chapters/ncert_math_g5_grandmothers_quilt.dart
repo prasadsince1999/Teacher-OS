@@ -1,0 +1,193 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g5_grandmothers_quilt_lesson.dart';
+import 'ncert_math_g5_grandmothers_quilt_sections.dart';
+import 'ncert_math_g5_grandmothers_quilt_study.dart';
+
+final Chapter mathG5GrandmothersQuiltChapter = Chapter(
+  id: 'ncert-g5-math-grandmothers-quilt',
+  title: 'Grandmother\'s Quilt',
+  classLevel: 'Class 5',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Measurement & Geometry',
+  mainTheme: 'Perimeter, Area, Grid Tiling, Geometric Formulas, Inverse Relationships, and Real-World Applications',
+  mainIdea: 'Explores perimeter (boundary length) and area (enclosed surface region) through grandmother\'s patchwork quilt and rug. Covers tiling without gaps (squares/triangles vs circles), grid counting (unit squares 1 cm² and half-triangles), comparing rectangle areas, tracing irregular shapes, refuting the area-perimeter lockstep myth, formal formulas (A = L * B, P = 2(L + B), Square = s² and 4s), finding missing dimensions (B = A / L), word problems, and the polyomino perimeter dice game.',
+  learningOutcomes: const [
+    'Define and distinguish between perimeter (boundary length, cm/m) and area (enclosed surface region, cm²/m²).',
+    'Explain why squares, rectangles, and triangles tile a surface without gaps, while circles leave empty gaps.',
+    'Calculate area and perimeter using square grids by counting unit squares and half-triangles.',
+    'Apply formulas for rectangles (Area = L * B, Perimeter = 2(L + B)) and squares (Area = s², Perimeter = 4s).',
+    'Solve missing dimension problems (e.g. Breadth = Area ÷ Length).',
+    'Evaluate and prove that shapes with identical area can have different perimeters and vice versa.',
+    'Calculate dimensions of composite rectangular figures and apply to real-world costs.',
+  ],
+  sections: ncertMathG5GrandmothersQuiltSections,
+  concepts: const [
+    Concept(
+      id: 'c-gq-1',
+      title: 'Perimeter vs Area: Boundary vs Surface',
+      simpleMeaning: 'Perimeter is the length around the outside edge (fence); Area is the flat space inside (grass).',
+      sourceReference: SourceReference(pageNumber: 142),
+    ),
+    Concept(
+      id: 'c-gq-2',
+      title: 'Tiling & The Standard Unit Square (1 cm²)',
+      simpleMeaning: 'Squares and triangles tile flat surfaces without gaps; 1 cm² is the standard unit of area.',
+      sourceReference: SourceReference(pageNumber: 143),
+    ),
+    Concept(
+      id: 'c-gq-3',
+      title: 'Rectangle & Square Formulas',
+      simpleMeaning: 'Rectangle: Area = L * B, Perimeter = 2(L + B); Square: Area = s * s, Perimeter = 4s.',
+      sourceReference: SourceReference(pageNumber: 150),
+    ),
+    Concept(
+      id: 'c-gq-4',
+      title: 'Missing Dimensions & Real-World Fencing',
+      simpleMeaning: 'Find missing breadth using Breadth = Area ÷ Length; calculate fencing cost via Perimeter * Rate.',
+      sourceReference: SourceReference(pageNumber: 153),
+    ),
+    Concept(
+      id: 'c-gq-5',
+      title: 'Same Area, Different Perimeters (Disproving Lockstep)',
+      simpleMeaning: 'Shapes with the same area (12 cm²) can have different perimeters (14, 16, 26 cm); squares minimize perimeter.',
+      sourceReference: SourceReference(pageNumber: 147),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-gq-1',
+      term: 'Perimeter',
+      definition: 'The total continuous length around the outer boundary of a closed 2-D figure.',
+      sourceReference: SourceReference(pageNumber: 142),
+    ),
+    GlossaryTerm(
+      id: 'gt-gq-2',
+      term: 'Area',
+      definition: 'The amount of 2-dimensional flat surface region enclosed within the boundary of a shape.',
+      sourceReference: SourceReference(pageNumber: 143),
+    ),
+    GlossaryTerm(
+      id: 'gt-gq-3',
+      term: 'Unit Square (1 cm²)',
+      definition: 'The standard unit of area defined by a square whose sides measure exactly 1 unit (1 cm).',
+      sourceReference: SourceReference(pageNumber: 145),
+    ),
+    GlossaryTerm(
+      id: 'gt-gq-4',
+      term: 'Tiling (Tessellation)',
+      definition: 'Covering a flat surface with geometric shapes without any empty gaps or overlapping edges.',
+      sourceReference: SourceReference(pageNumber: 143),
+    ),
+    GlossaryTerm(
+      id: 'gt-gq-5',
+      term: 'Length & Breadth',
+      definition: 'The longer and shorter perpendicular linear dimensions of a rectangular figure.',
+      sourceReference: SourceReference(pageNumber: 150),
+    ),
+    GlossaryTerm(
+      id: 'gt-gq-6',
+      term: 'Composite Figure',
+      definition: 'A geometric shape constructed by combining two or more basic rectangles or squares.',
+      sourceReference: SourceReference(pageNumber: 153),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'm-gq-1',
+      label: 'Writing area in linear units and perimeter in square units',
+      mistake: 'Writing Area = 24 cm and Perimeter = 22 cm².',
+      correctIdea: 'Perimeter is a 1-D length (cm, m); Area is a 2-D surface region (cm², m²).',
+      explanation: 'Linear boundaries measure in cm; flat regional squares measure in cm².',
+      sourceReference: SourceReference(pageNumber: 145),
+    ),
+    Misconception(
+      id: 'm-gq-2',
+      label: 'Believing larger area always means larger perimeter',
+      mistake: 'Assuming that increasing area forces perimeter to increase.',
+      correctIdea: 'A 1*12 rectangle (Area 12 cm²) has Perimeter 26 cm, while a 4*4 square (Area 16 cm²) has Perimeter 16 cm.',
+      explanation: 'Long narrow shapes have large perimeters; squares minimize perimeter.',
+      sourceReference: SourceReference(pageNumber: 147),
+    ),
+    Misconception(
+      id: 'm-gq-3',
+      label: 'Calculating perimeter as just Length + Breadth',
+      mistake: 'Adding only two sides of a rectangle (L + B = 8 + 3 = 11 cm).',
+      correctIdea: 'A rectangle has four sides: Perimeter = 2 * (Length + Breadth) = 2 * 11 = 22 cm.',
+      explanation: 'All four boundary sides must be summed.',
+      sourceReference: SourceReference(pageNumber: 150),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-gq-1',
+      type: 'diagram',
+      title: 'Grandmother\'s Quilt Lace & Patchwork Grid',
+      description: 'Visual diagram showing outer lace representing Perimeter and interior square patches representing Area.',
+      pageReference: 142,
+    ),
+    Visual(
+      id: 'v-gq-2',
+      type: 'diagram',
+      title: 'Tiling Comparison: Squares vs Circles',
+      description: 'Illustration demonstrating square and rectangular tiles fitting with zero gaps vs circles leaving gaps.',
+      pageReference: 143,
+    ),
+    Visual(
+      id: 'v-gq-3',
+      type: 'diagram',
+      title: 'Same Area (12 cm²) with Different Perimeters',
+      description: 'Visual grid comparing 3*4 (P=14 cm), 2*6 (P=16 cm), and 1*12 (P=26 cm) rectangles of identical 12 cm² area.',
+      pageReference: 148,
+    ),
+  ],
+  teacherStudy: ncertMathG5GrandmothersQuiltTeacherStudy,
+  studentLesson: ncertMathG5GrandmothersQuiltStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-gq-1',
+      questionText: 'Explain the difference between perimeter and area, including their physical meanings and standard units.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: 'Perimeter is the total length around the outer boundary (measured in cm or m). Area is the 2-D flat surface region enclosed inside (measured in cm² or m²).',
+      explanation: 'Boundary fence vs interior surface coverage.',
+      keywords: [
+        'Perimeter: boundary length (cm, m)',
+        'Area: surface region enclosed (cm², m²)',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-gq-2',
+      questionText: 'A rectangular rug has length 8 cm and breadth 3 cm. Find its area and perimeter.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'Area = Length * Breadth = 8 * 3 = 24 cm².\nPerimeter = 2 * (Length + Breadth) = 2 * (8 + 3) = 22 cm.',
+      explanation: 'Apply rectangle formulas directly.',
+      keywords: ['Area = 24 cm²', 'Perimeter = 22 cm', '8 * 3', '2 * (8 + 3)'],
+    ),
+    PracticeQuestion(
+      id: 'pq-gq-3',
+      questionText: 'A rectangular garden has an area of 64 m² and a length of 16 m. Find its breadth and its perimeter.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'Breadth = Area ÷ Length = 64 ÷ 16 = 4 m.\nPerimeter = 2 * (Length + Breadth) = 2 * (16 + 4) = 40 m.',
+      explanation:
+          'Divide area by length to get breadth, then compute perimeter.',
+      keywords: [
+        'Breadth = 4 m',
+        'Perimeter = 40 m',
+        '64 / 16',
+        '2 * (16 + 4)',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-gq-4',
+      questionText: 'A farmer has a rectangular field of length 42 m and breadth 34 m. (a) Find its area. (b) Find the cost of fencing at Rs.15 per meter.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '(a) Area = 42 * 34 = 1,428 m².\n(b) Perimeter = 2 * (42 + 34) = 152 m. Cost = 152 * Rs.15 = Rs.2,280.',
+      explanation: 'Area for surface, Perimeter for fencing cost.',
+      keywords: ['Area = 1,428 m²', 'Perimeter = 152 m', 'Cost = Rs.2,280'],
+    ),
+  ],
+);

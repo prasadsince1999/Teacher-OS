@@ -1,0 +1,186 @@
+import '../../models/content_models.dart';
+import 'ncert_math_the_transport_museum_lesson.dart';
+import 'ncert_math_the_transport_museum_sections.dart';
+import 'ncert_math_the_transport_museum_study.dart';
+
+final Chapter mathTheTransportMuseumChapter = Chapter(
+  id: 'ncert-math-the-transport-museum',
+  title: 'The Transport Museum',
+  classLevel: 'Class 4',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Multiplication and Division',
+  mainTheme: 'Using multiplication and division through arrays, equal groups, multiples of 10 and 100, multiplication strategies, division with remainders, and real-life transport situations.',
+  mainIdea: 'This chapter develops multiplication and division by making students see numbers as groups and arrangements rather than only as written algorithms. It builds multiplication by 10, 15, 20, 100, 200 and other multiples using visual arrays, splitting and doubling. It then applies these ideas to transport, seating, tickets, boats, trains and buses. Division is connected to equal grouping, and the chapter introduces the idea of a remainder when everything cannot be divided equally.',
+  learningOutcomes: const [
+    'Use arrays and equal groups to represent multiplication.',
+    'Construct and use multiplication tables such as the 15-times and related tables.',
+    'Multiply by 10, 20, 30, etc. using the idea of tens.',
+    'Multiply by 100, 200, 300 and other multiples of 100 using the idea of hundreds.',
+    'Split factors into convenient parts to calculate products.',
+    'Solve multiplication word problems involving transport and capacity.',
+    'Divide quantities into equal groups and identify the quotient and remainder.',
+    'Decide how a remainder affects a real-life answer, such as the number of buses or coaches required.',
+    'Divide by 10 and 100 in meaningful contexts.',
+    'Recognise relationships between multiplication and division.',
+  ],
+  sections: mathTheTransportMuseumSections,
+  concepts: const [
+    Concept(
+      id: 'c-ttm-1',
+      title: 'Arrays & Place-Value Multiplication',
+      simpleMeaning: 'Multiplication represents equal groups and rectangular arrays. Multiplying by 10 means counting tens (16 * 10 = 160); multiplying by 100 means counting hundreds (16 * 100 = 1600).',
+      sourceReference: SourceReference(pageNumber: 184),
+    ),
+    Concept(
+      id: 'c-ttm-2',
+      title: 'Distributive Factor Splitting',
+      simpleMeaning: 'Breaking one or both factors into tens and ones simplifies multiplication into easy partial products: 15 * 14 = (10 + 5) * (10 + 4) = 100 + 40 + 50 + 20 = 210.',
+      sourceReference: SourceReference(pageNumber: 190),
+    ),
+    Concept(
+      id: 'c-ttm-3',
+      title: 'Doubling Even-Number Tables',
+      simpleMeaning: 'Even-number factors split into two equal halves (e.g. 14 = 7 + 7). Finding 6 * 14 is done by doubling 6 * 7: 42 + 42 = 84.',
+      sourceReference: SourceReference(pageNumber: 187),
+    ),
+    Concept(
+      id: 'c-ttm-4',
+      title: 'Division with Real-World Remainder',
+      simpleMeaning: 'Division groups quantities into equal sets. When items remain (324 ÷ 14 = 23 R 2), real-world transport requires 24 coaches so that the 2 remaining children can travel.',
+      sourceReference: SourceReference(pageNumber: 191),
+    ),
+    Concept(
+      id: 'c-ttm-5',
+      title: 'Hundreds Multiples & Scaling Relationships',
+      simpleMeaning: 'Multiplication by 200, 300, 500 treats values as hundreds (11 * 200 = 11 * 2 hundreds = 2200). Compensating factor changes keeps products invariant (44 * 10 = 22 * 20 = 440).',
+      sourceReference: SourceReference(pageNumber: 194),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'g-ttm-1',
+      term: 'Factor',
+      definition: 'A number being multiplied with another number (e.g. in 6 * 14 = 84, 6 and 14 are factors).',
+      sourceReference: SourceReference(pageNumber: 184),
+    ),
+    GlossaryTerm(
+      id: 'g-ttm-2',
+      term: 'Product',
+      definition: 'The result obtained by multiplying two or more numbers.',
+      sourceReference: SourceReference(pageNumber: 184),
+    ),
+    GlossaryTerm(
+      id: 'g-ttm-3',
+      term: 'Array',
+      definition: 'An arrangement of objects in equal rows and columns representing multiplication.',
+      sourceReference: SourceReference(pageNumber: 184),
+    ),
+    GlossaryTerm(
+      id: 'g-ttm-4',
+      term: 'Remainder',
+      definition: 'The leftover amount when items cannot be divided into complete equal groups.',
+      sourceReference: SourceReference(pageNumber: 191),
+    ),
+    GlossaryTerm(
+      id: 'g-ttm-5',
+      term: 'Multiple',
+      definition: 'The product of a number and any whole number (e.g. 15, 30, 45 are multiples of 15).',
+      sourceReference: SourceReference(pageNumber: 186),
+    ),
+    GlossaryTerm(
+      id: 'g-ttm-6',
+      term: 'Quotient',
+      definition: 'The number of complete equal groups formed in a division.',
+      sourceReference: SourceReference(pageNumber: 191),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'm-ttm-1',
+      label: 'Thinking *10 is only "adding a zero"',
+      mistake: 'Believing multiplication by 10 is a rote trick rather than counting groups of ten.',
+      correctIdea: 'Multiplying by 10 shifts place values into tens (16 * 10 = 16 tens = 160).',
+      explanation:
+          'Place-value reasoning extends seamlessly to hundreds and thousands.',
+      sourceReference: SourceReference(pageNumber: 184),
+    ),
+    Misconception(
+      id: 'm-ttm-2',
+      label: 'Discarding remainder in real vehicle capacity',
+      mistake: 'Concluding 23 coaches are enough for 324 children because the quotient is 23.',
+      correctIdea: '23 coaches only seat 322 children; the remaining 2 children need a 24th coach.',
+      explanation: 'Real-world logistics require whole vehicles to carry all people safely.',
+      sourceReference: SourceReference(pageNumber: 191),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-ttm-1',
+      type: 'diagram',
+      title: '4-Box Partial Product Grid for 15 * 14',
+      description: 'Visual array dividing 15 * 14 into 4 sub-rectangles: 10*10 (100), 10*4 (40), 5*10 (50), and 5*4 (20) summing to 210.',
+      pageReference: 190,
+    ),
+    Visual(
+      id: 'v-ttm-2',
+      type: 'diagram',
+      title: 'Coach Seating & Remainder Allocation',
+      description: 'Illustration showing 23 full coaches carrying 322 children, with 2 remaining children boarding the 24th coach.',
+      pageReference: 191,
+    ),
+  ],
+  teacherStudy: mathTheTransportMuseumTeacherStudy,
+  studentLesson: mathTheTransportMuseumStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-ttm-1',
+      questionText: 'A toy train has 15 coaches and each coach carries 14 children. Show how to calculate the total number of children by splitting both numbers into tens and ones.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: 'Split 15 into 10 + 5 and 14 into 10 + 4.\nCalculate the 4 partial products:\n- 10 * 10 = 100\n- 10 * 4 = 40\n- 5 * 10 = 50\n- 5 * 4 = 20\nTotal = 100 + 40 + 50 + 20 = 210 children.',
+      explanation: 'Splitting both factors generates 4 easily calculated partial products.',
+      keywords: [
+        'split 15 into 10+5',
+        'split 14 into 10+4',
+        '100 + 40 + 50 + 20',
+        '210 children',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-ttm-2',
+      questionText: '324 children are going on a field trip. Each bus coach can carry 14 children. (a) What is 324 ÷ 14 in terms of quotient and remainder? (b) How many coaches are actually needed, and why?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '(a) 324 ÷ 14 = 23 remainder 2 (14 * 23 = 322, with 2 left over).\n(b) In real life, 24 coaches are required because 23 coaches only hold 322 children, leaving 2 children behind without seats.',
+      explanation: 'The remainder of 2 requires rounding up the vehicle count to ensure complete transport.',
+      keywords: [
+        '23 remainder 2',
+        '24 coaches required',
+        '2 children left behind',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-ttm-3',
+      questionText: 'Explain how 6 * 14 can be calculated quickly using the doubling method.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: '14 is an even number that splits into two equal halves: 7 + 7.\n6 * 14 = (6 * 7) + (6 * 7) = 42 + 42 = 84.\nSo 6 * 14 is simply the double of 42, which is 84.',
+      explanation: 'Halving an even factor and doubling the resulting product simplifies mental multiplication.',
+      keywords: ['14 = 7 + 7', '6 * 7 = 42', '42 + 42 = 84', 'doubling'],
+    ),
+    PracticeQuestion(
+      id: 'pq-ttm-4',
+      questionText: '42 passengers (36 students and 6 teachers) travel on a bus where each seat accommodates 2 people. (a) How many seats are needed? (b) If the bus has 15 lower-deck seats and 10 upper-deck seats, are there enough seats?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.evaluate,
+      answer: '(a) Seats needed = 42 people ÷ 2 per seat = 21 seats.\n(b) Total seats available on the bus = 15 lower + 10 upper = 25 seats.\nSince 25 seats > 21 seats needed, yes, there are plenty of seats for everyone.',
+      explanation: 'Dividing total passengers by seat capacity gives the required seat count.',
+      keywords: [
+        '42 ÷ 2 = 21 seats',
+        '25 seats available',
+        'yes, enough seats',
+      ],
+    ),
+  ],
+);

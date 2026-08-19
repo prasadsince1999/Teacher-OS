@@ -1,0 +1,180 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g6_number_play_lesson.dart';
+import 'ncert_math_g6_number_play_sections.dart';
+import 'ncert_math_g6_number_play_study.dart';
+
+final Chapter mathG6NumberPlayChapter = Chapter(
+  id: 'ncert-g6-math-number-play',
+  title: 'Number Play',
+  classLevel: 'Class 6',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Unit 1: Number Sense & Computational Thinking',
+  mainTheme: 'Computational Thinking, Supercell Extrema, Digit Counting & Sums, Palindromes, Kaprekar Constant (6174 & 495), Collatz Conjecture (3n+1), Fermi Estimation, and Game-Theoretic Strategies',
+  mainIdea: 'Develops computational thinking, algorithmic reasoning, and mathematical recreational puzzles in Ganita Prakash Chapter 3. Covers contextual numbers (height neighbor counting where ends say 0 or 1, and middle say 0, 1, or 2), 1D and 2D Supercells (local peaks where a cell exceeds all adjacent neighbors; max supercells in N cells is ceil(N/2); global maximum is always a supercell), digit counts (9 1-digit, 90 2-digit, 900 3-digit, 9000 4-digit, 90000 5-digit), digit sums (smallest with sum 14 is 59, largest 5-digit is 95000), digit frequency (any digit occurs 20 times in 1..100, 300 times in 1..1000), palindromic numbers and reverse-and-add algorithms (solving the 5-digit odd palindrome puzzle: 12421), Kaprekar\'s Constant (6174 for 4-digit numbers and 495 for 3-digit numbers discovered by D.R. Kaprekar in 1949), clock/calendar patterns, Collatz 3n+1 conjecture (Lothar Collatz 1937), simple Fermi estimation, and mathematical game-winning strategies (the Game of 21 using modulo 4 backward induction targets: 1, 5, 9, 13, 17, 21).',
+  learningOutcomes: const [
+    'Analyze contextual numbers and explain boundary restrictions in height neighbor arrangements.',
+    'Identify supercells in 1D rows and 2D grids and compute the maximum supercells ceil(N/2).',
+    'Calculate the total count of k-digit numbers using 9 x 10^(k-1) and solve digit sum puzzles.',
+    'Determine the frequency of any digit in number ranges (20 in 1..100, 300 in 1..1000).',
+    'Construct palindromes using the reverse-and-add algorithm and solve palindromic logic puzzles.',
+    'Execute D.R. Kaprekar\'s routine to generate Kaprekar\'s Constant (6174 for 4-digits, 495 for 3-digits).',
+    'Evaluate clock/calendar number symmetries and explain calendar cycle repetition.',
+    'Trace Collatz (3n+1) sequences and explain why powers of 2 collapse directly to 1.',
+    'Apply Fermi estimation to calculate large real-world quantities using proportional scaling.',
+    'Formulate backward induction strategies to win modular addition games like the Game of 21.',
+  ],
+  sections: ncertMathG6NumberPlaySections,
+  concepts: const [
+    Concept(
+      id: 'con-np-1',
+      title: 'Contextual Numbers & Supercells (Local Peaks)',
+      simpleMeaning: 'Numbers convey neighbor relations; a supercell is greater than all its adjacent neighbors; max in N cells is ceil(N/2).',
+      sourceReference: SourceReference(pageNumber: 56),
+    ),
+    Concept(
+      id: 'con-np-2',
+      title: 'Digit Counting, Digit Sums & Frequency Detectives',
+      simpleMeaning: 'Count of k-digit numbers is 9 x 10^(k-1); any non-zero digit appears 20 times in 1..100 and 300 times in 1..1000.',
+      sourceReference: SourceReference(pageNumber: 60),
+    ),
+    Concept(
+      id: 'con-np-3',
+      title: 'Palindromes & Kaprekar\'s Magic Constant (6174 & 495)',
+      simpleMeaning: 'Palindromes read identically backwards; Kaprekar\'s routine on 4-digit numbers reaches 6174 in at most 7 steps (3-digit reaches 495).',
+      sourceReference: SourceReference(pageNumber: 62),
+    ),
+    Concept(
+      id: 'con-np-4',
+      title: 'The Collatz Conjecture (3n+1)',
+      simpleMeaning: 'Unsolved 1937 puzzle: halve if even, 3n+1 if odd; every positive integer tested collapses to the loop 4 -> 2 -> 1.',
+      sourceReference: SourceReference(pageNumber: 68),
+    ),
+    Concept(
+      id: 'con-np-5',
+      title: 'Game Theory & Winning Strategies (Game of 21)',
+      simpleMeaning: 'Working backwards by subtracting 4 gives target numbers (1, 5, 9, 13, 17, 21), allowing Player 1 to win every game.',
+      sourceReference: SourceReference(pageNumber: 71),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-np-1',
+      term: 'Supercell',
+      definition: 'A cell in a number array or grid whose value is strictly greater than all of its immediately adjacent neighbors.',
+      sourceReference: SourceReference(pageNumber: 57),
+    ),
+    GlossaryTerm(
+      id: 'gt-np-2',
+      term: 'Kaprekar Constant',
+      definition: 'The number 6174 (or 495 for 3 digits), discovered by D.R. Kaprekar in 1949, reached by subtracting ascending from descending digits.',
+      sourceReference: SourceReference(pageNumber: 63),
+    ),
+    GlossaryTerm(
+      id: 'gt-np-3',
+      term: 'Collatz Conjecture',
+      definition: 'An unsolved 1937 mathematical problem stating that applying n/2 (if even) or 3n+1 (if odd) always reaches 1.',
+      sourceReference: SourceReference(pageNumber: 69),
+    ),
+    GlossaryTerm(
+      id: 'gt-np-4',
+      term: 'Palindrome Number',
+      definition: 'A number that reads exactly the same forwards and backwards, showing bilateral symmetry.',
+      sourceReference: SourceReference(pageNumber: 61),
+    ),
+    GlossaryTerm(
+      id: 'gt-np-5',
+      term: 'Computational Thinking',
+      definition: 'The process of formulating problem-solving procedures, algorithmic routines, and winning strategies using structured logical rules.',
+      sourceReference: SourceReference(pageNumber: 73),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'misc-np-1',
+      label: 'Under-counting digit frequency in 1 to 100',
+      mistake:
+          'Thinking that the digit 7 appears only 10 times between 1 and 100.',
+      correctIdea: 'Any digit appears 20 times between 1 and 100: 10 times in the units place (7, 17... 97) and 10 times in the tens place (70..79, where 77 counts twice).',
+      explanation: 'Counting systematically by place value prevents missing the tens block 70 to 79.',
+      sourceReference: SourceReference(pageNumber: 61),
+    ),
+    Misconception(
+      id: 'misc-np-2',
+      label: 'Assuming Kaprekar\'s routine works on repdigits',
+      mistake: 'Thinking that 1111 or 7777 will also reach 6174 in Kaprekar\'s routine.',
+      correctIdea: 'Numbers with all identical digits yield 0000 on the first subtraction (1111 - 1111 = 0); the routine requires at least two distinct digits.',
+      explanation: 'Kaprekar\'s routine relies on digit permutation differences, which vanish when all digits are identical.',
+      sourceReference: SourceReference(pageNumber: 63),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-np-1',
+      type: 'diagram',
+      title: '1D & 2D Supercell Topologies',
+      description: 'Grid diagrams illustrating local maxima conditions where supercells exceed all orthogonal neighbors.',
+      pageReference: 57,
+    ),
+    Visual(
+      id: 'v-np-2',
+      type: 'diagram',
+      title: 'Kaprekar Routine Flowchart (6174 & 495)',
+      description: 'Step-by-step subtraction loop organizing digits into descending (A) and ascending (B) numbers to converge to 6174.',
+      pageReference: 63,
+    ),
+    Visual(
+      id: 'v-np-3',
+      type: 'diagram',
+      title: 'Game of 21 Target Ladder',
+      description: 'Backward induction ladder showing the modulo 4 winning sequence: 1 -> 5 -> 9 -> 13 -> 17 -> 21.',
+      pageReference: 71,
+    ),
+  ],
+  teacherStudy: ncertMathG6NumberPlayTeacherStudy,
+  studentLesson: ncertMathG6NumberPlayStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-np-1',
+      questionText: 'Explain Kaprekar\'s routine for 4-digit numbers and state what Kaprekar\'s constant is and who discovered it.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.remember,
+      answer: 'D.R. Kaprekar, an Indian mathematics teacher from Devlali, Maharashtra, discovered Kaprekar\'s Constant (6174) in 1949.\nRoutine:\n1. Choose any 4-digit number with at least two distinct digits.\n2. Arrange the digits in descending order to make the largest number A.\n3. Arrange the digits in ascending order to make the smallest number B.\n4. Subtract C = A - B.\n5. Repeat the process with the digits of C.\nIn at most 7 rounds, the routine will always reach 6174 (where 7641 - 1467 = 6174).',
+      explanation: 'Kaprekar routine definition and properties.',
+      keywords: [
+        'D.R. Kaprekar (1949, Devlali)',
+        'Constant = 6174 (3-digit is 495)',
+        'Largest minus smallest permutation',
+        'Reaches 6174 in at most 7 steps',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-np-2',
+      questionText: 'State the Collatz Conjecture (3n+1) rule, demonstrate the sequence starting from 12, and explain why all powers of 2 satisfy it.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'The Collatz Conjecture was proposed in 1937 by Lothar Collatz:\n- If n is even, divide by 2 (n/2).\n- If n is odd, multiply by 3 and add 1 (3n + 1).\nSequence starting from 12: 12 -> 6 -> 3 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1.\nPowers of 2 (2^k) satisfy the conjecture immediately because every number in the sequence is even, halving directly at every step until reaching 1 without triggering any odd multiplier.',
+      explanation: 'Collatz 3n+1 algorithm demonstration.',
+      keywords: [
+        'Lothar Collatz (1937)',
+        'Even: n/2 | Odd: 3n + 1',
+        '12 -> 6 -> 3 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1',
+        'Powers of 2 halve directly to 1',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-np-3',
+      questionText: 'In the Game of 21, two players alternate adding 1, 2, or 3. The first player to reach 21 wins. Explain how Player 1 can guarantee a win every single time using backward induction.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: 'By working backwards from 21 subtracting 4 each step, the winning target numbers are 21, 17, 13, 9, 5, 1.\n- Player 1 starts by saying 1 on the first turn.\n- Whenever Player 2 adds x (where x is 1, 2, or 3), Player 1 adds (4 - x) on the subsequent turn.\n- This ensures that Player 1 always lands on the next target number (5, 9, 13, 17, and finally 21), guaranteeing victory.',
+      explanation: 'Game of 21 backward induction proof.',
+      keywords: [
+        'Backward induction targets: 1, 5, 9, 13, 17, 21',
+        'Player 1 starts with 1',
+        'Add (4 - x) to pair up to 4',
+        'Guaranteed win for Player 1',
+      ],
+    ),
+  ],
+);

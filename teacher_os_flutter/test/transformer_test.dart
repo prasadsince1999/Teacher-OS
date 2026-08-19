@@ -8,7 +8,7 @@ void main() {
     test('Transforms raw ChapterJSON into ChapterVM accurately', () {
       const raw = ChapterJSON(
         id: 'test-1',
-        grade: 5,
+        grade: 4,
         subject: 'world',
         book: 'Our Wondrous World',
         chapterNumber: 1,
@@ -42,6 +42,21 @@ void main() {
                 type: 'definition',
               ),
             ],
+            teacherBrief: TeacherBriefJSON(
+              inOneLine: 'People depend on each other.',
+              whyItMatters: 'Foundation of social living.',
+              backgroundForMe: ['Van Mahotsav started in 1950.'],
+              likelyQuestions: [
+                LikelyQuestionJSON(
+                  q: 'Is family a community?',
+                  a: 'Yes, the smallest community.',
+                  depth: 'quick',
+                ),
+              ],
+              ifStuckSay: ['Think of who helps you.'],
+              doNotSay: ['Do not say community means only village.'],
+              boardPlan: 'COMMUNITY = People + Cooperation',
+            ),
           ),
         ],
       );
@@ -49,8 +64,10 @@ void main() {
       final vm = ChapterTransformer.transform(raw);
 
       expect(vm.id, 'test-1');
-      expect(vm.cls, 'Class 5');
+      expect(vm.cls, 'Class 4');
       expect(vm.subject, 'Science');
+      expect(vm.book, 'Our Wondrous World');
+      expect(vm.chapterNumber, 1);
       expect(vm.title, 'Living Together Test');
       expect(vm.curiosity.q, 'Can one person run a whole school alone?');
       expect(vm.steps.isNotEmpty, true);
@@ -59,6 +76,15 @@ void main() {
       expect(vm.terms.length, 1);
       expect(vm.terms.first.term, 'Community');
       expect(vm.notes.blocks.isNotEmpty, true);
+
+      // Verify synthesized whole-chapter TeacherBrief
+      expect(vm.teacherBrief != null, true);
+      expect(vm.teacherBrief!.backgroundForMe.length, 1);
+      expect(vm.teacherBrief!.likelyQuestions.length, 1);
+      expect(
+        vm.teacherBrief!.likelyQuestions.first.q,
+        'Is family a community?',
+      );
     });
   });
 }

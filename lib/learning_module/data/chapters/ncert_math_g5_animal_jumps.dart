@@ -1,0 +1,190 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g5_animal_jumps_lesson.dart';
+import 'ncert_math_g5_animal_jumps_sections.dart';
+import 'ncert_math_g5_animal_jumps_study.dart';
+
+final Chapter mathG5AnimalJumpsChapter = Chapter(
+  id: 'ncert-g5-math-animal-jumps',
+  title: 'Animal Jumps',
+  classLevel: 'Class 5',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Number Sense & Arithmetic',
+  mainTheme: 'Factors, Multiples, Rectangular Arrays, Prime Numbers, Common Multiples, Common Factors, and Venn Diagrams',
+  mainIdea: 'Explores factors (exact divisors) and multiples (products) through magic multiplier boxes, rectangular arrays, animal jumping paths on number lines, and Mowgli\'s forest trail. Covers prime numbers (13, 37), common multiples and LCM (3 and 4 → 12), common factors (24 and 36 → 1, 2, 3, 4, 6, 12), co-prime consecutive numbers, hunting synchronization, and 3-circle Venn diagram sorting for divisibility by 2, 5, and 10.',
+  learningOutcomes: const [
+    'Define and distinguish between factors (exact divisors) and multiples (products of numbers).',
+    'Construct rectangular arrays to find all factor pairs of composite and prime numbers.',
+    'Identify Prime Numbers as numbers having exactly two factors (1 and the number itself).',
+    'Find Common Multiples and the Least Common Multiple (LCM) using number line jump intersections.',
+    'Find Common Factors of pairs of numbers and recognize that consecutive numbers are co-prime.',
+    'Apply divisibility rules for 2, 5, and 10 and classify numbers in 3-circle Venn diagrams.',
+    'Solve real-world synchronization and navigation problems using LCM and common factors.',
+  ],
+  sections: ncertMathG5AnimalJumpsSections,
+  concepts: const [
+    Concept(
+      id: 'c-aj-1',
+      title: 'Factors & Multiples (Two-Way Rule)',
+      simpleMeaning: 'Factor * Factor = Multiple; Factors divide evenly into a number, Multiples are products.',
+      sourceReference: SourceReference(pageNumber: 164),
+    ),
+    Concept(
+      id: 'c-aj-2',
+      title: 'Rectangular Arrays & Prime Numbers',
+      simpleMeaning: 'Composite numbers form multiple arrays; Prime numbers (13, 37) form only a 1*N line.',
+      sourceReference: SourceReference(pageNumber: 165),
+    ),
+    Concept(
+      id: 'c-aj-3',
+      title: 'Common Multiples & LCM on Number Line',
+      simpleMeaning: 'Intersection of animal jump paths gives common multiples; first shared spot is LCM (12 for 3 & 4).',
+      sourceReference: SourceReference(pageNumber: 165),
+    ),
+    Concept(
+      id: 'c-aj-4',
+      title: 'Common Factors & Consecutive Co-Primes',
+      simpleMeaning: 'Shared divisors of numbers (24 and 36 share 1, 2, 3, 4, 6, 12); consecutive numbers share only 1.',
+      sourceReference: SourceReference(pageNumber: 168),
+    ),
+    Concept(
+      id: 'c-aj-5',
+      title: 'Divisibility Rules & 3-Circle Venn Diagrams',
+      simpleMeaning: 'Divisible by 2 (even), by 5 (ends in 0 or 5), by 10 (ends in 0); all multiples of 10 go in the center.',
+      sourceReference: SourceReference(pageNumber: 170),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-aj-1',
+      term: 'Factor',
+      definition: 'A whole number that divides into another number completely without leaving a remainder.',
+      sourceReference: SourceReference(pageNumber: 164),
+    ),
+    GlossaryTerm(
+      id: 'gt-aj-2',
+      term: 'Multiple',
+      definition: 'The product of a given number and any integer (the numbers reached by jumping in steps of that size).',
+      sourceReference: SourceReference(pageNumber: 164),
+    ),
+    GlossaryTerm(
+      id: 'gt-aj-3',
+      term: 'Prime Number',
+      definition: 'A whole number greater than 1 that has exactly two factors: 1 and itself (e.g. 13, 37).',
+      sourceReference: SourceReference(pageNumber: 165),
+    ),
+    GlossaryTerm(
+      id: 'gt-aj-4',
+      term: 'Common Multiple',
+      definition: 'A number that is a multiple of two or more given numbers (a shared landing stone on a number line).',
+      sourceReference: SourceReference(pageNumber: 165),
+    ),
+    GlossaryTerm(
+      id: 'gt-aj-5',
+      term: 'Common Factor',
+      definition: 'A number that exactly divides two or more given numbers without a remainder.',
+      sourceReference: SourceReference(pageNumber: 168),
+    ),
+    GlossaryTerm(
+      id: 'gt-aj-6',
+      term: 'Co-Prime Numbers',
+      definition: 'Two numbers whose only shared common factor is 1 (such as any two consecutive numbers).',
+      sourceReference: SourceReference(pageNumber: 168),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'm-aj-1',
+      label: 'Confusing factors with multiples',
+      mistake: 'Saying 12 is a factor of 4.',
+      correctIdea: '4 is a factor of 12; 12 is a multiple of 4.',
+      explanation: 'Factors are smaller/equal divisors; multiples are larger/equal products.',
+      sourceReference: SourceReference(pageNumber: 164),
+    ),
+    Misconception(
+      id: 'm-aj-2',
+      label: 'Searching for numbers divisible by 10 only',
+      mistake: 'Placing numbers in the standalone "10 only" circle.',
+      correctIdea: 'Every number divisible by 10 ends in 0, which is always divisible by 2 and 5.',
+      explanation: '10 = 2 * 5, so multiples of 10 always belong in the central triple intersection.',
+      sourceReference: SourceReference(pageNumber: 170),
+    ),
+    Misconception(
+      id: 'm-aj-3',
+      label: 'Assuming factors of even numbers must be even',
+      mistake: 'Thinking even numbers cannot have odd factors.',
+      correctIdea: '1, 3, and 5 are odd factors of 30.',
+      explanation: 'Even numbers frequently have both even and odd factors.',
+      sourceReference: SourceReference(pageNumber: 169),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-aj-1',
+      type: 'diagram',
+      title: 'Rectangular Dot Arrays for 12 and 15',
+      description: 'Visual array diagram showing 3*4, 2*6, 1*12 arrangements illustrating factor pairs.',
+      pageReference: 164,
+    ),
+    Visual(
+      id: 'v-aj-2',
+      type: 'diagram',
+      title: 'Rabbit and Frog Number Line Jumps',
+      description: 'Number line illustrating Rabbit jumps of 4 and Frog jumps of 3 intersecting at 12, 24, and 36.',
+      pageReference: 165,
+    ),
+    Visual(
+      id: 'v-aj-3',
+      type: 'diagram',
+      title: '3-Circle Venn Diagram for Divisibility (2, 5, 10)',
+      description: 'Venn diagram sorting numbers into circles for 2, 5, and central intersection 2, 5, 10.',
+      pageReference: 170,
+    ),
+  ],
+  teacherStudy: ncertMathG5AnimalJumpsTeacherStudy,
+  studentLesson: ncertMathG5AnimalJumpsStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-aj-1',
+      questionText: 'Explain the difference between factors and multiples, using 3 * 5 = 15 as an example.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: 'In 3 * 5 = 15, 3 and 5 are factors (divisors) of 15, while 15 is a multiple of both 3 and 5.',
+      explanation:
+          'Factors multiply to make multiples; factors divide multiples.',
+      keywords: [
+        '3 and 5 are factors',
+        '15 is multiple',
+        'Factor * Factor = Multiple',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-aj-2',
+      questionText: 'List all the factors of 24 and 36, and identify their common factors.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'Factors of 24: 1, 2, 3, 4, 6, 8, 12, 24.\nFactors of 36: 1, 2, 3, 4, 6, 9, 12, 18, 36.\nCommon factors: 1, 2, 3, 4, 6, 12.',
+      explanation: 'List divisors and identify intersection.',
+      keywords: ['1, 2, 3, 4, 6, 12', 'Factors of 24', 'Factors of 36'],
+    ),
+    PracticeQuestion(
+      id: 'pq-aj-3',
+      questionText: 'Sher Khan hunts every 3rd day and Bagheera hunts every 5th day. On which days in the first 50 days will they hunt together?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'They hunt together on common multiples of 3 and 5: 15th day, 30th day, and 45th day.',
+      explanation: 'Common multiples of 3 and 5 are multiples of 15.',
+      keywords: ['15th day', '30th day', '45th day', 'multiples of 15'],
+    ),
+    PracticeQuestion(
+      id: 'pq-aj-4',
+      questionText: 'Sort the numbers [22, 75, 90, 40, 66, 45] by divisibility: (a) divisible by 2 only, (b) divisible by 5 only, (c) divisible by 2, 5, and 10.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: '(a) Divisible by 2 only: 22, 66.\n(b) Divisible by 5 only: 75, 45.\n(c) Divisible by 2, 5, and 10: 90, 40.',
+      explanation:
+          'Last digits: even not 0 → 2 only; 5 → 5 only; 0 → 2, 5, 10.',
+      keywords: ['2 only: 22, 66', '5 only: 75, 45', '2, 5, 10: 90, 40'],
+    ),
+  ],
+);

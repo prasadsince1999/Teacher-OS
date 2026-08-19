@@ -6,3 +6,19 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Temporary and local scratch files
+*.py
+*.b64
+*.txt
+scratch/
+scratch_cbse.html
+Books - JPG/
+teacher_os_flutter/scratch/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+teacher_os_flutter/build/
+teacher_os_flutter/.dart_tool/
+teacher_os_flutter/.flutter-plugins
+teacher_os_flutter/.flutter-plugins-dependencies

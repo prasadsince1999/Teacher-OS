@@ -1,0 +1,157 @@
+import '../../models/content_models.dart';
+
+const StudentLessonData ncertMathG5AnimalJumpsStudentLesson = StudentLessonData(
+  curiosityStart: 'A Rabbit jumps 4 steps at a time, and a Frog jumps 3 steps at a time. They both start jumping from stone 0. What is the very first stone where both land on the exact same spot? Stone 12! Because 12 is in both the 4-times table and the 3-times table (the Least Common Multiple). Today we explore Animal Jumps to master factors, multiples, primes, and Venn diagrams!',
+  teachingChunks: [
+    TeachingChunk(
+      id: 'tc-aj-1',
+      sectionId: 'sec-aj-1',
+      conceptId: 'c-aj-1',
+      teacherSays: 'Think of building blocks. In 3 * 4 = 12, 3 and 4 are the Factors (the small bricks). 12 is the Multiple (the tall tower)! Factors divide into a number completely.',
+      ask: 'Is 5 a factor or a multiple of 20?',
+      expectedResponse:
+          '5 is a factor of 20 (because 5 divides 20 completely).',
+      feedback:
+          'Spot on! 5 and 4 are factors of 20, while 20 is a multiple of 5.',
+      tinyPractice: 'Name all the factors of 10: 1, 2, 5, 10.',
+    ),
+    TeachingChunk(
+      id: 'tc-aj-2',
+      sectionId: 'sec-aj-2',
+      conceptId: 'c-aj-2',
+      teacherSays: 'We can arrange 12 dots into arrays of 1*12, 2*6, or 3*4. But for 13 or 37, we can ONLY make a single line of 1*13 because they have exactly two factors! These are called Prime Numbers.',
+      ask: 'Why is 37 called a prime number?',
+      expectedResponse: 'Because it has only two factors: 1 and 37.',
+      feedback: 'Excellent! Numbers with more than 2 factors are called composite numbers.',
+      tinyPractice: 'Is 15 a prime number? No, because it has factors 1, 3, 5, 15 (composite).',
+    ),
+    TeachingChunk(
+      id: 'tc-aj-3',
+      sectionId: 'sec-aj-3',
+      conceptId: 'c-aj-3',
+      teacherSays: 'When Rabbit jumps by 4s and Frog jumps by 3s, they land together at 12, 24, 36. These are Common Multiples! 12 is the first one (LCM).',
+      ask: 'What are the first three common multiples of 2 and 3?',
+      expectedResponse: '6, 12, 18.',
+      feedback: 'Brilliant! The common multiples of 2 and 3 are simply the multiples of 6.',
+      tinyPractice: 'What is the least common multiple of 4 and 6? 12.',
+    ),
+    TeachingChunk(
+      id: 'tc-aj-4',
+      sectionId: 'sec-aj-7',
+      conceptId: 'c-aj-4',
+      teacherSays: 'A Common Factor divides both numbers evenly. Factors of 24 are [1,2,3,4,6,8,12,24] and factors of 36 are [1,2,3,4,6,9,12,18,36].',
+      ask: 'Which factors appear in both lists?',
+      expectedResponse: '1, 2, 3, 4, 6, 12.',
+      feedback: 'Outstanding! The highest common factor (HCF) is 12.',
+      tinyPractice: 'What is the common factor of any two consecutive numbers like 12 and 13? 1 (co-prime).',
+    ),
+    TeachingChunk(
+      id: 'tc-aj-5',
+      sectionId: 'sec-aj-9',
+      conceptId: 'c-aj-3',
+      teacherSays: 'Sher Khan hunts every 3rd day. Bagheera hunts every 5th day. When do they hunt together?',
+      ask: 'On which days will they hunt together in the first 50 days?',
+      expectedResponse: '15th day, 30th day, and 45th day (multiples of 15).',
+      feedback:
+          'Perfect! Finding shared schedules is finding common multiples.',
+      tinyPractice: 'What jump size can Mowgli take to visit both 21 and 35? 7 steps (or 1 step).',
+    ),
+    TeachingChunk(
+      id: 'tc-aj-6',
+      sectionId: 'sec-aj-10',
+      conceptId: 'c-aj-5',
+      teacherSays: 'In our 3-circle Venn diagram: numbers ending in even digits go in circle 2; numbers ending in 5 go in circle 5; numbers ending in 0 go in the center (2, 5, and 10)!',
+      ask: 'Why is the "divisible by 10 only" region empty?',
+      expectedResponse: 'Because any number divisible by 10 ends in 0, which is always divisible by 2 and 5.',
+      feedback: 'Exceptional reasoning! 10 = 2 * 5, so multiples of 10 are always in the triple intersection.',
+      tinyPractice: 'Where does 90 go in the Venn diagram? In the center (divisible by 2, 5, and 10).',
+    ),
+  ],
+  guidedNotes: [
+    GuidedNote(
+      id: 'gn-aj-1',
+      prompt: 'The numbers that multiply together to give a product are called __________.',
+      answer: 'factors',
+      keywordBank: ['factors', 'multiple', 'prime number', '12', '1', 'center'],
+    ),
+    GuidedNote(
+      id: 'gn-aj-2',
+      prompt: 'The product obtained by multiplying a number by 1, 2, 3... is called a __________.',
+      answer: 'multiple',
+      keywordBank: ['factors', 'multiple', 'prime number', '12', '1', 'center'],
+    ),
+    GuidedNote(
+      id: 'gn-aj-3',
+      prompt: 'A number that has exactly two factors (1 and itself) is called a __________.',
+      answer: 'prime number',
+      keywordBank: ['factors', 'multiple', 'prime number', '12', '1', 'center'],
+    ),
+    GuidedNote(
+      id: 'gn-aj-4',
+      prompt: 'The least common multiple of 3 and 4 is __________.',
+      answer: '12',
+      keywordBank: ['factors', 'multiple', 'prime number', '12', '1', 'center'],
+    ),
+    GuidedNote(
+      id: 'gn-aj-5',
+      prompt: 'The only common factor of any two consecutive numbers is __________.',
+      answer: '1',
+      keywordBank: ['factors', 'multiple', 'prime number', '12', '1', 'center'],
+    ),
+  ],
+  miniTest: [
+    MiniTestItem(
+      id: 'mt-aj-1',
+      question: 'In the equation 3 * 4 = 12, what are 3 and 4 called?',
+      options: [
+        'Multiples of 12',
+        'Factors of 12',
+        'Primes of 12',
+        'Fractions of 12',
+      ],
+      correctIndex: 1,
+      explanation:
+          '3 and 4 multiply to give 12, so they are factors (divisors) of 12.',
+    ),
+    MiniTestItem(
+      id: 'mt-aj-2',
+      question: 'Which of the following numbers is a PRIME number?',
+      options: ['15', '21', '37', '49'],
+      correctIndex: 2,
+      explanation: '37 has only two factors (1 and 37). 15, 21, and 49 have more than two factors.',
+    ),
+    MiniTestItem(
+      id: 'mt-aj-3',
+      question: 'What is the least common multiple (LCM) of 4 and 6?',
+      options: ['2', '12', '24', '48'],
+      correctIndex: 1,
+      explanation: 'Multiples of 4: 4, 8, 12, 16... Multiples of 6: 6, 12, 18... The smallest shared multiple is 12.',
+    ),
+    MiniTestItem(
+      id: 'mt-aj-4',
+      question: 'Which of the following is a common factor of both 24 and 36?',
+      options: ['8', '9', '12', '18'],
+      correctIndex: 2,
+      explanation: '12 divides both 24 (24÷12=2) and 36 (36÷12=3). 8 does not divide 36, and 9 does not divide 24.',
+    ),
+    MiniTestItem(
+      id: 'mt-aj-5',
+      question: 'Where do numbers ending in 0 (like 90, 30, 40) belong in a 3-circle Venn diagram for 2, 5, and 10?',
+      options: [
+        'Circle 10 only',
+        'Circle 2 only',
+        'Central intersection of 2, 5, and 10',
+        'Outside all circles',
+      ],
+      correctIndex: 2,
+      explanation: 'Numbers ending in 0 are divisible by 2 (even), by 5 (ends in 0), and by 10 (ends in 0), so they belong in the central intersection.',
+    ),
+  ],
+  revision: [
+    '1. Factor * Factor = Multiple (3 * 4 = 12 → 3, 4 are factors; 12 is multiple).',
+    '2. Prime numbers have exactly two factors: 1 and the number itself (e.g. 13, 37).',
+    '3. Common Multiples are shared landing spots: Rabbit (4) & Frog (3) meet at 12, 24, 36 (LCM = 12).',
+    '4. Consecutive numbers (like 12 and 13) always have only 1 as their common factor (co-prime).',
+    '5. All multiples of 10 end in 0 and are divisible by 2, 5, and 10 simultaneously.',
+  ],
+);

@@ -1,0 +1,162 @@
+import '../../models/content_models.dart';
+
+const StudentLessonData
+ncertSciG5OurVibrantCountryStudentLesson = StudentLessonData(
+  curiosityStart: 'Did you know that a simple Rs.10 note in your pocket carries 17 different languages, a 750-year-old stone temple wheel from Odisha, and secret raised marks for visually impaired people? Let us explore the colors, rhythms, and wonders of our vibrant country!',
+  teachingChunks: [
+    TeachingChunk(
+      id: 'tc-vc-1',
+      sectionId: 'sec-vc-1',
+      conceptId: 'c-vc-1',
+      teacherSays: 'Every 26 January, we unfurl the Tiranga! Saffron stands for strength and courage, white for peace and truth, green for growth and prosperity, and the navy blue Ashoka Chakra in the center has 24 spokes representing duty and continuous progress!',
+      ask: 'How many spokes are there in the Ashoka Chakra on our National Flag?',
+      expectedResponse: '24 spokes.',
+      feedback: 'Exactly right! 24 spokes remind us to keep moving forward righteously 24 hours a day.',
+      tinyPractice: 'What do the three colors of the flag stand for? Courage, Truth, and Prosperity.',
+    ),
+    TeachingChunk(
+      id: 'tc-vc-2',
+      sectionId: 'sec-vc-2',
+      conceptId: 'c-vc-1',
+      teacherSays: 'Why do we celebrate Republic Day on 26 January? On 15 August 1947, India became independent, and on 26 January 1950, our special book of democratic rules-the Constitution of India-came into effect!',
+      ask: 'What is the special book of rules for our country called?',
+      expectedResponse: 'The Constitution of India.',
+      feedback: 'Spot on! The Constitution ensures justice, liberty, and equality for all citizens.',
+      tinyPractice: 'Which is the longest written constitution in the world? The Constitution of India.',
+    ),
+    TeachingChunk(
+      id: 'tc-vc-3',
+      sectionId: 'sec-vc-3',
+      conceptId: 'c-vc-2',
+      teacherSays: 'Look at an Indian currency note! It has 17 languages in total: 15 on the back language panel, plus Hindi and English on the front! Each note also showcases famous Indian heritage: Rs.10 has the Konark Sun Temple Wheel, Rs.50 has Hampi Chariot, and Rs.100 has Rani ki Vav!',
+      ask: 'Which historical monument is printed on the Rs.10 note?',
+      expectedResponse: 'The Sun Temple of Konark in Odisha.',
+      feedback: 'Outstanding! The 24-wheel stone chariot of Konark is a world heritage marvel.',
+      tinyPractice: 'What app helps visually impaired people identify currency notes? The RBI MANI app.',
+    ),
+    TeachingChunk(
+      id: 'tc-vc-4',
+      sectionId: 'sec-vc-5',
+      conceptId: 'c-vc-3',
+      teacherSays: 'Think of a garden and a forest! A garden has few plants and needs constant watering. A forest has thousands of plants and animals that look after each other, making the forest strong and self-sustaining. India is like a magnificent forest-our diversity makes us strong and united!',
+      ask: 'Why is a biodiverse forest stronger than a single-flower garden?',
+      expectedResponse: 'Because diverse plants and animals support each other and make the ecosystem self-sustaining.',
+      feedback: 'Brilliant thinking! Diversity is our greatest strength and resilience.',
+      tinyPractice: 'Name two different Indian languages for the word "Mango": Aam (Hindi) and Maampalam (Tamil).',
+    ),
+    TeachingChunk(
+      id: 'tc-vc-5',
+      sectionId: 'sec-vc-6',
+      conceptId: 'c-vc-4',
+      teacherSays: 'Headgear tells us where people live and protects them: Rajasthani Saafa keeps off hot desert sun, and Himachali Topi protects against mountain cold. On the road, safety helmets protect our head and brain from serious injury!',
+      ask: 'Why must two-wheeler riders and cyclists always wear a helmet?',
+      expectedResponse:
+          'To protect the head and brain from injury in case of an accident.',
+      feedback:
+          'Essential safety rule! Helmets save lives by absorbing impact.',
+      tinyPractice: 'Name two traditional headgears: Rajasthani Saafa and Himachali Topi.',
+    ),
+    TeachingChunk(
+      id: 'tc-vc-6',
+      sectionId: 'sec-vc-7',
+      conceptId: 'c-vc-5',
+      teacherSays: 'India is filled with rhythm! We play 11 different drums like the Mridangam in Carnatic music, the Tabla in Hindustani music, the Bhangra Dhol, and the Kerala Idakka! Along with ancient arts, our scientists launch rockets to space and build the world\'s largest digital payment system, UPI!',
+      ask: 'Name two classical percussion instruments of India.',
+      expectedResponse: 'Mridangam and Tabla.',
+      feedback: 'Superb! Mridangam and Tabla are the pillars of Indian classical percussion.',
+      tinyPractice: 'What is India\'s world-famous instant digital payment system called? UPI (Unified Payments Interface).',
+    ),
+  ],
+  guidedNotes: [
+    GuidedNote(
+      id: 'gn-vc-1',
+      prompt: 'On 26 January 1950, the __________ of India came into effect.',
+      answer: 'Constitution',
+      keywordBank: ['Constitution', '24', 'Konark', 'forest', 'helmet'],
+    ),
+    GuidedNote(
+      id: 'gn-vc-2',
+      prompt: 'The navy blue Ashoka Chakra on our National Flag has __________ spokes.',
+      answer: '24',
+      keywordBank: ['Constitution', '24', 'Konark', 'forest', 'helmet'],
+    ),
+    GuidedNote(
+      id: 'gn-vc-3',
+      prompt: 'The reverse of the Rs.10 note features the Sun Temple of __________ in Odisha.',
+      answer: 'Konark',
+      keywordBank: ['Constitution', '24', 'Konark', 'forest', 'helmet'],
+    ),
+    GuidedNote(
+      id: 'gn-vc-4',
+      prompt: 'Just like a biodiverse __________, India\'s cultural variety makes the nation strong.',
+      answer: 'forest',
+      keywordBank: ['Constitution', '24', 'Konark', 'forest', 'helmet'],
+    ),
+    GuidedNote(
+      id: 'gn-vc-5',
+      prompt: 'Two-wheeler riders must always wear a __________ to protect against head injury.',
+      answer: 'helmet',
+      keywordBank: ['Constitution', '24', 'Konark', 'forest', 'helmet'],
+    ),
+  ],
+  miniTest: [
+    MiniTestItem(
+      id: 'mt-vc-1',
+      question: 'What historical event is commemorated on 26 January as Republic Day?',
+      options: [
+        'India gained independence from British rule',
+        'The Constitution of India came into effect',
+        'The national flag was first designed',
+        'The first train was launched in India',
+      ],
+      correctIndex: 1,
+      explanation: 'Republic Day marks 26 January 1950, when the Constitution of India came into force as our supreme democratic law.',
+    ),
+    MiniTestItem(
+      id: 'mt-vc-2',
+      question:
+          'How many languages appear in total on an Indian currency banknote?',
+      options: ['2 languages', '10 languages', '15 languages', '17 languages'],
+      correctIndex: 3,
+      explanation: '15 regional languages appear in the reverse language panel, plus Hindi and English on the front, totaling 17 languages.',
+    ),
+    MiniTestItem(
+      id: 'mt-vc-3',
+      question: 'Which UNESCO World Heritage monument is featured on the Rs.100 banknote?',
+      options: [
+        'Red Fort in Delhi',
+        'Rani ki Vav stepwell in Gujarat',
+        'Sun Temple in Konark',
+        'Sanchi Stupa in Madhya Pradesh',
+      ],
+      correctIndex: 1,
+      explanation: 'The Rs.100 banknote features the intricately carved 11th-century stepwell Rani ki Vav in Patan, Gujarat.',
+    ),
+    MiniTestItem(
+      id: 'mt-vc-4',
+      question: 'Why does the textbook compare India\'s diversity to a natural forest rather than a garden?',
+      options: [
+        'Because India has many wild animals',
+        'Because diverse species in a forest support each other and make the ecosystem resilient and self-sustaining',
+        'Because forests do not have trees',
+        'Because gardens are always larger than forests',
+      ],
+      correctIndex: 1,
+      explanation: 'Biodiversity creates mutual support and resilience in a forest, illustrating how cultural diversity strengthens India.',
+    ),
+    MiniTestItem(
+      id: 'mt-vc-5',
+      question: 'Which percussion drum is the primary rhythm instrument in South Indian Carnatic classical music?',
+      options: ['Dholak', 'Mridangam', 'Nagara', 'Dhama'],
+      correctIndex: 1,
+      explanation: 'The Mridangam is the primary two-headed classical percussion instrument of Carnatic music.',
+    ),
+  ],
+  revision: [
+    '1. National Milestones: 15 August 1947 (Independence) | 26 January 1950 (Republic Day - Constitution).',
+    '2. Tiranga: Saffron (courage), White (peace/truth), Green (prosperity), 24-spoke Ashoka Chakra (duty).',
+    '3. Banknotes: 17 languages, heritage monuments (Konark, Rani ki Vav, Red Fort), and MANI accessibility.',
+    '4. Forest Analogy: Biodiversity creates resilience; cultural diversity creates national strength.',
+    '5. Arts & Innovation: 11 Indian drums, classical dances, ISRO space rockets, and UPI digital payments.',
+  ],
+);

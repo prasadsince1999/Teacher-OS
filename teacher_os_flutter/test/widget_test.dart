@@ -7,67 +7,232 @@ import 'package:teacher_os/presentation/screens/exam_screen.dart';
 import 'package:teacher_os/presentation/screens/notes_screen.dart';
 import 'package:teacher_os/presentation/screens/questions_screen.dart';
 import 'package:teacher_os/presentation/screens/revision_screen.dart';
+import 'package:teacher_os/presentation/screens/study_screen.dart';
 import 'package:teacher_os/presentation/screens/teach_screen.dart';
 import 'package:teacher_os/presentation/screens/terms_screen.dart';
+import 'package:teacher_os/presentation/widgets/app_drawer.dart';
+import 'package:teacher_os/presentation/widgets/chapter_bottom_nav.dart';
+import 'package:teacher_os/presentation/widgets/chapter_context_header.dart';
 
 void main() {
   final sampleChapter = ChapterRepository.builtInChapters.first;
 
-  testWidgets('Teacher-OS boots and renders My Chapters', (
-    WidgetTester tester,
-  ) async {
-    await tester.pumpWidget(const TeacherOsApp());
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 200));
+  testWidgets(
+    'Teacher-OS boots into Chapter Context Shell with 5-tab navigation',
+    (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 2.0;
+      addTearDown(tester.view.resetPhysicalSize);
 
-    expect(find.text('My Chapters'), findsOneWidget);
-    expect(find.text('TUITION TIME'), findsOneWidget);
-    expect(find.text('Living Together'), findsWidgets);
+      await tester.pumpWidget(const TeacherOsApp());
+      await tester.pumpAndSettle();
 
-    // Switch to Chapters tab
-    await tester.tap(find.text('Chapters'));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 200));
+      // Contextual Header
+      final headerFinder = find.byType(ChapterContextHeader);
+      expect(
+        find.descendant(
+          of: headerFinder,
+          matching: find.textContaining('CLASS 4'),
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(
+          of: headerFinder,
+          matching: find.text('Living Together'),
+        ),
+        findsOneWidget,
+      );
 
-    expect(find.text('Browse'), findsOneWidget);
-    expect(find.text('NCERT · ICSE · Class 4 – 7'), findsOneWidget);
-  });
+      // 5-tab Bottom Navigation
+      final navFinder = find.byType(ChapterBottomNav);
+      expect(
+        find.descendant(of: navFinder, matching: find.text('Overview')),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(of: navFinder, matching: find.text('Teach')),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(of: navFinder, matching: find.text('Questions')),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(of: navFinder, matching: find.text('Notes')),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(of: navFinder, matching: find.text('Revise')),
+        findsOneWidget,
+      );
 
-  testWidgets('Opens Chapter Overview and navigates to Main Idea', (
-    WidgetTester tester,
-  ) async {
-    await tester.pumpWidget(const TeacherOsApp());
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 200));
+      // Switch to Teach tab
+      await tester.tap(
+        find.descendant(of: navFinder, matching: find.text('Teach')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('What is a community?'), findsOneWidget);
 
-    // Tap on Resume session button
-    await tester.tap(find.text('Resume session'));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 500));
+      // Switch to Questions tab
+      await tester.tap(
+        find.descendant(of: navFinder, matching: find.text('Questions')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('QUESTION 1 OF 5'), findsOneWidget);
 
-    expect(find.text('UNDERSTAND'), findsOneWidget);
-    expect(find.text('TEACH'), findsOneWidget);
-    expect(find.text('Main idea'), findsOneWidget);
+      // Switch to Notes tab
+      await tester.tap(
+        find.descendant(of: navFinder, matching: find.text('Notes')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Copy notes'), findsOneWidget);
 
-    // Tap Main idea
-    await tester.tap(find.text('Main idea'));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 500));
+      // Switch to Revise tab
+      await tester.tap(
+        find.descendant(of: navFinder, matching: find.text('Revise')),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('5 THINGS TO REMEMBER'), findsOneWidget);
+    },
+  );
 
-    expect(find.text('THE ONE IDEA'), findsOneWidget);
-    expect(find.text('WHY IT MATTERS'), findsOneWidget);
+  testWidgets(
+    'Mode toggle switches between TEACH and STUDY with grounded brief',
+    (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 2.0;
+      addTearDown(tester.view.resetPhysicalSize);
 
-    // Back to overview
-    await tester.tap(find.byIcon(Icons.chevron_left_rounded));
-    await tester.pump();
-    await tester.pump(const Duration(milliseconds: 500));
+      await tester.pumpWidget(const TeacherOsApp());
+      await tester.pumpAndSettle();
 
-    expect(find.text('UNDERSTAND'), findsOneWidget);
-  });
+      final headerFinder = find.byType(ChapterContextHeader);
+      final navFinder = find.byType(ChapterBottomNav);
+
+      // Tap TEACH mode pill in top header to toggle to STUDY
+      await tester.tap(
+        find.descendant(of: headerFinder, matching: find.text('TEACH')),
+      );
+      await tester.pumpAndSettle();
+
+      // Header now says STUDY, bottom tab becomes Study
+      expect(
+        find.descendant(of: headerFinder, matching: find.text('STUDY')),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(of: navFinder, matching: find.text('Study')),
+        findsOneWidget,
+      );
+
+      // Switch to Study tab
+      await tester.tap(
+        find.descendant(of: navFinder, matching: find.text('Study')),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('TEACHER PREPARATION BRIEF'), findsOneWidget);
+      expect(find.text('THE ONE CORE IDEA'), findsOneWidget);
+      expect(find.text('LEARNING GOALS FOR CLASS'), findsOneWidget);
+    },
+  );
+
+  testWidgets(
+    'Attached floating sidebar button slides drawer open and closed',
+    (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 2.0;
+      addTearDown(tester.view.resetPhysicalSize);
+
+      await tester.pumpWidget(const TeacherOsApp());
+      await tester.pumpAndSettle();
+
+      final floatingTab = find.byKey(const ValueKey('sidebar_floating_tab'));
+      expect(floatingTab, findsOneWidget);
+
+      // Tap floating tab to open sidebar
+      await tester.tap(floatingTab);
+      await tester.pumpAndSettle();
+
+      // Floating tab moves right and contains chevron_left
+      expect(
+        find.descendant(
+          of: floatingTab,
+          matching: find.byIcon(Icons.chevron_left_rounded),
+        ),
+        findsOneWidget,
+      );
+
+      final drawerFinder = find.byType(AppDrawer);
+
+      // Drawer shows branding, side-by-side dropdowns, and chapters
+      expect(
+        find.descendant(of: drawerFinder, matching: find.text('TEACHER-OS')),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(
+          of: drawerFinder,
+          matching: find.text('CURRICULUM CONTEXT'),
+        ),
+        findsOneWidget,
+      );
+      expect(
+        find.descendant(of: drawerFinder, matching: find.text('Class 4')),
+        findsWidgets,
+      );
+      expect(
+        find.descendant(of: drawerFinder, matching: find.text('Science')),
+        findsWidgets,
+      );
+
+      // Tap floating button again to close sidebar
+      await tester.tap(floatingTab);
+      await tester.pumpAndSettle();
+
+      // Drawer is closed and button resets to chevron_right
+      expect(
+        find.descendant(
+          of: floatingTab,
+          matching: find.byIcon(Icons.chevron_right_rounded),
+        ),
+        findsOneWidget,
+      );
+    },
+  );
+
+  testWidgets(
+    'StudyScreen displays deep background, questions and misconceptions',
+    (WidgetTester tester) async {
+      tester.view.physicalSize = const Size(1080, 2400);
+      tester.view.devicePixelRatio = 2.0;
+      addTearDown(tester.view.resetPhysicalSize);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: StudyScreen(chapter: sampleChapter, onBackToOverview: () {}),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('TEACHER PREPARATION BRIEF'), findsOneWidget);
+      expect(find.text('THE ONE CORE IDEA'), findsOneWidget);
+      expect(find.text('LEARNING GOALS FOR CLASS'), findsOneWidget);
+      expect(find.text('DEEP BACKGROUND & FACTS'), findsOneWidget);
+      expect(find.text('LIKELY STUDENT QUESTIONS & ANSWERS'), findsOneWidget);
+    },
+  );
 
   testWidgets('CuriosityScreen reveals answer and starts teaching', (
     WidgetTester tester,
   ) async {
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 2.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
     var started = false;
     await tester.pumpWidget(
       MaterialApp(
@@ -82,15 +247,14 @@ void main() {
     expect(find.text('THINK ABOUT THIS'), findsOneWidget);
     expect(find.text('Reveal answer'), findsOneWidget);
 
-    // Tap reveal
     await tester.tap(find.text('Reveal answer'));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
     expect(find.text('ANSWER'), findsOneWidget);
     expect(find.text('CONNECT TO CHAPTER'), findsOneWidget);
     expect(find.text('Start teaching'), findsOneWidget);
 
-    // Tap start teaching
+    await tester.ensureVisible(find.text('Start teaching'));
     await tester.tap(find.text('Start teaching'));
     expect(started, true);
   });
@@ -98,6 +262,10 @@ void main() {
   testWidgets('TeachScreen progresses through steps and finishes', (
     WidgetTester tester,
   ) async {
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 2.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
     var finished = false;
     await tester.pumpWidget(
       MaterialApp(
@@ -109,14 +277,12 @@ void main() {
       ),
     );
 
-    expect(find.text('Community'), findsOneWidget);
+    expect(find.text('What is a community?'), findsOneWidget);
     expect(find.text('Next'), findsOneWidget);
 
-    // Tap Next through steps
     for (var i = 0; i < sampleChapter.steps.length - 1; i++) {
       await tester.tap(find.text('Next'));
-      await tester.pump();
-      await tester.pump(const Duration(milliseconds: 250));
+      await tester.pumpAndSettle();
     }
 
     expect(find.text('Finish'), findsOneWidget);
@@ -127,40 +293,52 @@ void main() {
   testWidgets('QuestionsScreen toggles hint, shows answer and cycles Qs', (
     WidgetTester tester,
   ) async {
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 2.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
     await tester.pumpWidget(
       MaterialApp(
         home: QuestionsScreen(
           questions: sampleChapter.questions,
+          isEmbedded: true,
           onBack: () {},
         ),
       ),
     );
 
-    expect(find.text('QUESTION 1'), findsOneWidget);
+    expect(
+      find.text('QUESTION 1 OF ${sampleChapter.questions.length}'),
+      findsOneWidget,
+    );
 
-    // Ask student hint toggle
     await tester.tap(find.text('Ask student'));
-    await tester.pump();
+    await tester.pumpAndSettle();
     expect(
       find.textContaining('Let them think for 10 seconds'),
       findsOneWidget,
     );
 
-    // Show answer
     await tester.tap(find.text('Show answer'));
-    await tester.pump();
+    await tester.pumpAndSettle();
     expect(find.text('ANSWER'), findsOneWidget);
     expect(find.text('KEYWORDS'), findsOneWidget);
 
-    // Next question
     await tester.tap(find.text('Next'));
-    await tester.pump();
-    expect(find.text('QUESTION 2'), findsOneWidget);
+    await tester.pumpAndSettle();
+    expect(
+      find.text('QUESTION 2 OF ${sampleChapter.questions.length}'),
+      findsOneWidget,
+    );
   });
 
   testWidgets('TermsScreen expands and collapses definitions', (
     WidgetTester tester,
   ) async {
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 2.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
     await tester.pumpWidget(
       MaterialApp(
         home: TermsScreen(terms: sampleChapter.terms, onBack: () {}),
@@ -168,11 +346,10 @@ void main() {
     );
 
     expect(find.text('Community'), findsOneWidget);
-    expect(find.text('Cooperation'), findsOneWidget);
+    expect(find.text('Van Mahotsav'), findsOneWidget);
 
-    // Tap on Community
     await tester.tap(find.text('Community'));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
     expect(
       find.textContaining('A group of people who live or work together'),
@@ -183,22 +360,30 @@ void main() {
   testWidgets('NotesScreen renders notes and triggers copy action', (
     WidgetTester tester,
   ) async {
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 2.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
     await tester.pumpWidget(
       MaterialApp(
         home: NotesScreen(notes: sampleChapter.notes, onBack: () {}),
       ),
     );
 
-    expect(find.text('COMMUNITY'), findsWidgets);
+    expect(find.text('LIVING TOGETHER — NOTES'), findsOneWidget);
     expect(find.text('Copy notes'), findsOneWidget);
 
     await tester.tap(find.text('Copy notes'));
-    await tester.pump();
+    await tester.pumpAndSettle();
   });
 
   testWidgets('ExamScreen toggles keyword grading and reveals model answer', (
     WidgetTester tester,
   ) async {
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 2.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
     await tester.pumpWidget(
       MaterialApp(
         home: ExamScreen(exam: sampleChapter.exam, onBack: () {}),
@@ -208,22 +393,19 @@ void main() {
     expect(find.text('2 MARKS'), findsOneWidget);
     expect(find.text('Student answered — show keywords'), findsOneWidget);
 
-    // Reveal keywords
     await tester.tap(find.text('Student answered — show keywords'));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
     expect(find.text('Missing keyword'), findsOneWidget);
     expect(find.text('Show model answer'), findsOneWidget);
 
-    // Tick first keyword
-    await tester.tap(find.text('group'));
-    await tester.pump();
+    await tester.tap(find.text('different roles'));
+    await tester.pumpAndSettle();
 
     expect(find.text('Partially correct'), findsOneWidget);
 
-    // Show model answer
     await tester.tap(find.text('Show model answer'));
-    await tester.pump();
+    await tester.pumpAndSettle();
 
     expect(find.text('MODEL ANSWER'), findsOneWidget);
   });
@@ -231,6 +413,10 @@ void main() {
   testWidgets('RevisionScreen renders points and finishes revision', (
     WidgetTester tester,
   ) async {
+    tester.view.physicalSize = const Size(1080, 2400);
+    tester.view.devicePixelRatio = 2.0;
+    addTearDown(tester.view.resetPhysicalSize);
+
     var finished = false;
     await tester.pumpWidget(
       MaterialApp(

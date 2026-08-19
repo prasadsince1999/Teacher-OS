@@ -1,0 +1,191 @@
+import '../../models/content_models.dart';
+
+const StudentLessonData
+ncertMathG7LetterNumbersStudentLesson = StudentLessonData(
+  curiosityStart: 'Did you know that by using single letters like a, b, or n to stand for numbers, you can write one secret formula that predicts calendar diagonal sums forever, counts matchsticks in huge shapes instantly, and simplifies tricky math puzzles in seconds?',
+  teachingChunks: [
+    TeachingChunk(
+      id: 'tc-ln-1',
+      sectionId: 'sec-g7-ln-1',
+      conceptId: 'con-ln-1',
+      teacherSays: 'Welcome to Class 7 Algebra! In arithmetic we worked with fixed numbers. In algebra, we use "letter-numbers" or variables-letters like a, x, or n that can represent any number! If Shabnam is 3 years older than Aftab, when Aftab is 10, Shabnam is 13; when Aftab is a years old, Shabnam is a + 3.',
+      ask: 'If Aftab is 23 years old, what is Shabnam\'s age using the expression a + 3?',
+      expectedResponse: '26 years old (23 + 3 = 26).',
+      feedback: 'Spot on! That is the power of letter-numbers: one formula works for every possible age.',
+      tinyPractice: 'Write an algebraic expression for "Munirathna joins a pipe of length k meters to a 20 meter pipe". (Answer: 20 + k)',
+    ),
+    TeachingChunk(
+      id: 'tc-ln-2',
+      sectionId: 'sec-g7-ln-3',
+      conceptId: 'con-ln-2',
+      teacherSays: 'In algebra, we save time by omitting the multiplication sign! So 4 x n is written simply as 4n, and a x b is written as ab. The number is always written in front of the letter. When evaluating an expression, replace the letter with its given value.',
+      ask: 'What is the value of 5m + 3 when m = 2, and what common mistake must we avoid?',
+      expectedResponse: '13 (5 x 2 + 3 = 10 + 3 = 13). We must avoid writing 52 instead of 5 x 2.',
+      feedback: 'Brilliant! 5m means 5 MULTIPLIED by m, not the digits written side-by-side.',
+      tinyPractice: 'Evaluate 10 - a when a = -4. Remember that minus of a minus becomes plus! (10 - (-4) = 14).',
+    ),
+    TeachingChunk(
+      id: 'tc-ln-3',
+      sectionId: 'sec-g7-ln-4',
+      conceptId: 'con-ln-3',
+      teacherSays: 'Terms that have the EXACT same letter-numbers are called LIKE TERMS (like 5c, 3c, 10c). We combine them by adding their numbers: 5c + 3c + 10c = 18c. But terms with different letters, like 18c and 11d, are UNLIKE TERMS and CANNOT be merged!',
+      ask: 'Can the expression 18c + 11d be simplified into a single term like 29cd?',
+      expectedResponse: 'No, because they are unlike terms representing different quantities (coconuts and jaggery).',
+      feedback: 'Exactly right! You cannot add apples and oranges into "apple-oranges"!',
+      tinyPractice: 'Simplify: 7p - p + 5q - 2q. (Answer: 6p + 3q).',
+    ),
+    TeachingChunk(
+      id: 'tc-ln-4',
+      sectionId: 'sec-g7-ln-4',
+      conceptId: 'con-ln-4',
+      teacherSays: 'When removing brackets with a negative sign outside, EVERY term inside changes its sign! For example, -(6x + 10y) becomes -6x - 10y. So (40x + 75y) - (6x + 10y) = 40x + 75y - 6x - 10y = 34x + 65y.',
+      ask: 'Simplify 5 - (2 - 6z). What happens to the sign of -6z?',
+      expectedResponse:
+          '3 + 6z (the -6z becomes +6z because of the negative sign outside).',
+      feedback: 'Perfect! The minus sign flips -6z to +6z, giving 5 - 2 + 6z = 3 + 6z.',
+      tinyPractice:
+          'Subtract 9a - 6b + 14 from 6a + 9b - 18. (Answer: -3a + 15b - 32).',
+    ),
+    TeachingChunk(
+      id: 'tc-ln-5',
+      sectionId: 'sec-g7-ln-5',
+      conceptId: 'con-ln-5',
+      teacherSays: 'Look at a 2x2 square on any calendar! If the top-left date is a, the others are a+1, a+7, and a+8. The top-left to bottom-right diagonal sum is a + (a+8) = 2a + 8. The top-right to bottom-left sum is (a+1) + (a+7) = 2a + 8. Both are always equal!',
+      ask: 'If the top-left date is 12, what is the diagonal sum using our formula 2a + 8?',
+      expectedResponse: '32 (since 2 x 12 + 8 = 24 + 8 = 32).',
+      feedback: 'Outstanding! 12 + 20 = 32 and 13 + 19 = 32. Algebra proved the pattern universally!',
+      tinyPractice: 'In a 3x3 calendar cross shape with center a, prove the sum of all 5 numbers is 5a.',
+    ),
+    TeachingChunk(
+      id: 'tc-ln-6',
+      sectionId: 'sec-g7-ln-5',
+      conceptId: 'con-ln-6',
+      teacherSays: 'When making connected matchstick triangles in a row, step 1 has 3 sticks, step 2 has 5, step 3 has 7. The general rule for y triangles is 2y + 1 matchsticks! For connected squares, each new square adds 3 sticks, giving 3w + 1 matchsticks.',
+      ask: 'How many matchsticks are needed to build a row of 50 connected triangles?',
+      expectedResponse: '101 matchsticks (from 2 x 50 + 1 = 100 + 1 = 101).',
+      feedback: 'Incredible! You just calculated 50 triangles without drawing a single line!',
+      tinyPractice: 'Find the number of matchsticks needed for 10 connected squares using 3w + 1. (Answer: 31).',
+    ),
+  ],
+  guidedNotes: [
+    GuidedNote(
+      id: 'gn-ln-1',
+      prompt: 'A letter used to represent a number that can vary is called a ________. In standard algebraic notation, 4 x n is written as ________.',
+      answer: 'letter-number (or variable), 4n',
+      keywordBank: ['letter-number', 'variable', '4n', 'coefficient'],
+    ),
+    GuidedNote(
+      id: 'gn-ln-2',
+      prompt: 'Terms with identical letter-numbers are called ________ terms and can be added/subtracted. Terms with different letter-numbers are called ________ terms and cannot be merged.',
+      answer: 'like, unlike',
+      keywordBank: ['like', 'unlike', 'distributive property'],
+    ),
+    GuidedNote(
+      id: 'gn-ln-3',
+      prompt: 'When removing brackets with a negative sign outside, -(3x + 4y) becomes ________.',
+      answer: '-3x - 4y',
+      keywordBank: ['-3x - 4y', 'sign change', 'distributive'],
+    ),
+    GuidedNote(
+      id: 'gn-ln-4',
+      prompt: 'The formula for the diagonal sum of any 2x2 calendar square with top-left date a is ________.',
+      answer: '2a + 8',
+      keywordBank: ['2a + 8', 'invariant', 'algebraic proof'],
+    ),
+  ],
+  answerWriting: [
+    'Problem: Subtract 9a - 6b + 14 from 6a + 9b - 18.\nStep 1: Write as subtraction: (6a + 9b - 18) - (9a - 6b + 14).\nStep 2: Open brackets with sign changes: 6a + 9b - 18 - 9a + 6b - 14.\nStep 3: Group like terms: (6a - 9a) + (9b + 6b) + (-18 - 14).\nStep 4: Simplify: -3a + 15b - 32.',
+    'Problem: Find the formula for the number of matchsticks in a chain of w connected squares.\nStep 1: The first square requires 4 matchsticks.\nStep 2: Each subsequent square adds 3 matchsticks, so (w - 1) squares add 3(w - 1) sticks.\nStep 3: Total sticks = 4 + 3(w - 1) = 4 + 3w - 3 = 3w + 1.\nStep 4: For w = 10 squares: 3(10) + 1 = 31 matchsticks.',
+  ],
+  practiceQuestions: [
+    PracticeQuestion(
+      id: 'pq-ln-1',
+      questionText: 'Write an algebraic expression for: "13 less than 2 times a number d".',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.remember,
+      answer: '2d - 13',
+      explanation:
+          '2 times the number d is 2d. 13 less than this quantity is 2d - 13.',
+      keywords: ['2d - 13', 'word translation', 'variable'],
+    ),
+    PracticeQuestion(
+      id: 'pq-ln-2',
+      questionText:
+          'Simplify the algebraic expression: 3(3a - 3b) - 8a - 4b - 16.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'a - 13b - 16',
+      explanation: 'Expand: 9a - 9b - 8a - 4b - 16. Group like terms: (9a - 8a) + (-9b - 4b) - 16 = a - 13b - 16.',
+      keywords: ['a - 13b - 16', 'distributive expansion', 'like terms'],
+    ),
+    PracticeQuestion(
+      id: 'pq-ln-3',
+      questionText: 'In an endless 4-column number grid, find the row and column of the number 147 using the formula N = 4(r - 1) + c.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: 'Row 37, Column 3',
+      explanation: 'Divide 147 by 4: 147 = 4 x 36 + 3. Here quotient is 36, remainder c = 3. Since r - 1 = 36, row r = 37.',
+      keywords: ['Row 37', 'Column 3', '4-column grid', 'division model'],
+    ),
+  ],
+  practiceAnswerKey: {
+    'pq-ln-1': '2d - 13',
+    'pq-ln-2': 'a - 13b - 16',
+    'pq-ln-3': 'Row 37, Column 3',
+  },
+  miniTest: [
+    MiniTestItem(
+      id: 'mt-ln-1',
+      question: 'If d = 6, what is the value of 3d?',
+      options: ['36', '18', '9', '2'],
+      correctIndex: 1,
+      explanation:
+          '3d means 3 multiplied by d. Substituting d = 6 gives 3 x 6 = 18.',
+    ),
+    MiniTestItem(
+      id: 'mt-ln-2',
+      question: 'Which of the following pairs contains LIKE terms?',
+      options: ['4x and 3y', '5c and 10c', '18c and 11d', '2a and 2b'],
+      correctIndex: 1,
+      explanation: '5c and 10c both contain the exact same variable c, so they are like terms.',
+    ),
+    MiniTestItem(
+      id: 'mt-ln-3',
+      question: 'What is the simplified form of -(3x + 4y) after removing the bracket?',
+      options: ['-3x + 4y', '3x - 4y', '-3x - 4y', '-7xy'],
+      correctIndex: 2,
+      explanation: 'A minus sign outside distributes to both terms: -(3x + 4y) = -3x - 4y.',
+    ),
+    MiniTestItem(
+      id: 'mt-ln-4',
+      question: 'In a 2x2 calendar square with top-left date a, the sum of each diagonal is always:',
+      options: ['2a + 7', '2a + 8', '4a + 16', 'a + 8'],
+      correctIndex: 1,
+      explanation:
+          'Diagonal 1: a + (a+8) = 2a + 8. Diagonal 2: (a+1) + (a+7) = 2a + 8.',
+    ),
+    MiniTestItem(
+      id: 'mt-ln-5',
+      question: 'How many matchsticks are needed to build a chain of y connected triangles?',
+      options: ['3y', '2y + 1', '3y - 1', '2y + 2'],
+      correctIndex: 1,
+      explanation: 'The first triangle needs 3 sticks, and each subsequent triangle adds 2 sticks: 3 + 2(y-1) = 2y + 1.',
+    ),
+  ],
+  revision: [
+    'Letter-numbers (variables) represent quantities that vary or are unknown.',
+    'Omit multiplication signs: 4 x n = 4n; numbers precede letters.',
+    'Combine only like terms using distributive property: 5c + 3c = 8c.',
+    'Unlike terms (18c + 11d) cannot be combined into a single term.',
+    'Bracket removal with minus outside flips all internal signs: -(a + b) = -a - b.',
+    'Calendar 2x2 diagonal sum = 2a + 8; 3x3 cross sum = 5a.',
+    'Matchstick chains: Triangles = 2y + 1, Squares = 3w + 1.',
+    'Endless 4-column grid coordinate formula: N = 4(r - 1) + c.',
+  ],
+  homework: [
+    '1. Translate into expressions: (a) 7 more than 5 times x, (b) 15 less than 4 times y.',
+    '2. Simplify: (a) 2(2x - 3) + 8x + 12, (b) (10x + 2 + 10y) - (-3y + 8 - 3x).',
+    '3. A calendar cross shape has center date 20. Find all 5 numbers and verify their sum using 5a.',
+  ],
+  teacherDeliveryGuide: '1. Hook: Start with the Calendar Magic trick-ask students to pick any 2x2 date box and predict diagonal equality.\n2. Guided Practice: Highlight the distinction between like and unlike terms using physical props (pens vs erasers).\n3. Error Alert: Address 3d when d = 6 -> 18 vs 36 on the board.\n4. Visual Model: Show how matchstick chains share common walls, leading to 2y + 1 and 3w + 1 formulas.',
+);

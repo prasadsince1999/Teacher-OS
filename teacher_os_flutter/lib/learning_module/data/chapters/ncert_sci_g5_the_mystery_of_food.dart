@@ -1,0 +1,186 @@
+import '../../models/content_models.dart';
+import 'ncert_sci_g5_the_mystery_of_food_lesson.dart';
+import 'ncert_sci_g5_the_mystery_of_food_sections.dart';
+import 'ncert_sci_g5_the_mystery_of_food_study.dart';
+
+final Chapter sciG5TheMysteryOfFoodChapter = Chapter(
+  id: 'ncert-g5-sci-the-mystery-of-food',
+  title: 'The Mystery of Food',
+  classLevel: 'Class 5',
+  board: 'NCERT',
+  subject: 'Science',
+  unit: 'Unit 2: Health and Well-being',
+  mainTheme: 'Food Microbiology, Traditional Preservation Science, Nutrition, Mastication Mechanics, Oral Hygiene, and Eating Safety',
+  mainIdea: 'Investigating why food spoils, the science behind traditional and modern preservation methods, the role of beneficial microbes in nutrition and gut health, teeth mechanics during mastication, oral hygiene against tooth decay, and safety protocols to prevent accidental windpipe choking. Follows Detective Disha through the forgotten uttapam mystery, analyzing how removing moisture (sun drying / dehydration), blocking oxygen (oil barrier in pickles), boiling off water (butter to ghee), and cold temperatures (refrigeration) prevent microbial spoilage. Discovers beneficial Lactobacillus in curd and fermentation in idli/dosa, and learns the 4 types of teeth (incisors, canines, premolars, molars) for complete chewing and oral health.',
+  learningOutcomes: const [
+    'Identify the conditions required for microbial growth and explain the root causes of food spoilage.',
+    'Classify traditional and modern food preservation methods based on physical and chemical principles.',
+    'Explain why anhydrous substances like ghee have a vastly longer shelf life than moisture-rich butter.',
+    'Distinguish beneficial microbes (probiotics in curd and fermentation) from spoilage pathogens.',
+    'Describe the structural and mechanical roles of the 4 types of human teeth during mastication.',
+    'Formulate daily oral hygiene habits to prevent dental cavities and acid damage.',
+    'Apply eating safety rules (thorough chewing and calm eating) to prevent accidental choking.',
+  ],
+  sections: ncertSciG5TheMysteryOfFoodSections,
+  concepts: const [
+    Concept(
+      id: 'c-mf-1',
+      title: 'Food Spoilage & Microbes',
+      simpleMeaning: 'Microscopic organisms (bacteria/mould) grow on moist food and form visible fuzzy colonies.',
+      sourceReference: SourceReference(pageNumber: 41),
+    ),
+    Concept(
+      id: 'c-mf-2',
+      title: 'The Microbial Growth Triangle',
+      simpleMeaning: 'Microbes require moisture, air, and warmth; removing any one halts microbial growth.',
+      sourceReference: SourceReference(pageNumber: 43),
+    ),
+    Concept(
+      id: 'c-mf-3',
+      title: 'Preservation: Sun Drying, Oil & Ghee',
+      simpleMeaning: 'Sun drying removes water; oil blocks air; boiling butter into ghee removes 100% water.',
+      sourceReference: SourceReference(pageNumber: 45),
+    ),
+    Concept(
+      id: 'c-mf-4',
+      title: 'Beneficial Microbes & Fermentation',
+      simpleMeaning: 'Lactobacillus makes curd; microbes ferment idli batter with CO2 gas; probiotics aid gut digestion.',
+      sourceReference: SourceReference(pageNumber: 47),
+    ),
+    Concept(
+      id: 'c-mf-5',
+      title: 'Teeth Anatomy, Saliva & Choking Prevention',
+      simpleMeaning: 'Incisors cut, Canines tear, Premolars crush, Molars grind; saliva digests starches; chew slowly to avoid choking.',
+      sourceReference: SourceReference(pageNumber: 51),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-mf-1',
+      term: 'Microorganism',
+      definition: 'A microscopic living organism (such as a bacterium or fungus) invisible to the naked human eye.',
+      sourceReference: SourceReference(pageNumber: 41),
+    ),
+    GlossaryTerm(
+      id: 'gt-mf-2',
+      term: 'Mould',
+      definition: 'A visible fungal colony with fuzzy texture that develops on moist, decaying organic food.',
+      sourceReference: SourceReference(pageNumber: 41),
+    ),
+    GlossaryTerm(
+      id: 'gt-mf-3',
+      term: 'Dehydration',
+      definition: 'The process of removing water or moisture from food, depriving microbes of water required for growth.',
+      sourceReference: SourceReference(pageNumber: 43),
+    ),
+    GlossaryTerm(
+      id: 'gt-mf-4',
+      term: 'Fermentation',
+      definition: 'A biological process in which beneficial microbes break down sugars, producing gases that make dough/batter rise.',
+      sourceReference: SourceReference(pageNumber: 47),
+    ),
+    GlossaryTerm(
+      id: 'gt-mf-5',
+      term: 'Mastication',
+      definition: 'The mechanical breakdown and grinding of food by teeth into a soft bolus mixed with saliva.',
+      sourceReference: SourceReference(pageNumber: 51),
+    ),
+    GlossaryTerm(
+      id: 'gt-mf-6',
+      term: 'Cavity',
+      definition: 'A permanent hole formed in a tooth when mouth bacteria feed on sugars and produce corrosive acid.',
+      sourceReference: SourceReference(pageNumber: 52),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'm-mf-1',
+      label: 'Believing all microbes are harmful germs',
+      mistake: 'Assuming every microscopic organism causes sickness.',
+      correctIdea: 'Many microbes are beneficial probiotics essential for making curd, bread, idlis, and aiding gut digestion.',
+      explanation: 'Lactobacillus and wild yeasts are harmless and beneficial.',
+      sourceReference: SourceReference(pageNumber: 48),
+    ),
+    Misconception(
+      id: 'm-mf-2',
+      label: 'Thinking refrigerated food lasts forever',
+      mistake: 'Assuming cold temperatures permanently sterilize food.',
+      correctIdea: 'Refrigeration only slows down microbial metabolism; it does not kill all microbes or spores.',
+      explanation:
+          'Food in a fridge eventually spoils after prolonged periods.',
+      sourceReference: SourceReference(pageNumber: 45),
+    ),
+    Misconception(
+      id: 'm-mf-3',
+      label: 'Assuming butter and ghee have the same shelf life',
+      mistake: 'Thinking both dairy fats spoil at the same rate.',
+      correctIdea: 'Butter has 16-18% water where microbes thrive; ghee is 100% pure anhydrous fat with zero moisture.',
+      explanation: 'Without moisture, microbes cannot grow in pure ghee.',
+      sourceReference: SourceReference(pageNumber: 46),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-mf-1',
+      type: 'chart',
+      title: 'The Microbial Growth Triangle Chart',
+      description: 'Diagram illustrating the 3 essential requirements for microbial life: Moisture, Oxygen (Air), and Warmth.',
+      pageReference: 43,
+    ),
+    Visual(
+      id: 'v-mf-2',
+      type: 'diagram',
+      title: 'Butter to Ghee Transformation Process',
+      description: 'Step-by-step visual showing butter heating, water separating and evaporating off, and pure ghee preparation.',
+      pageReference: 46,
+    ),
+    Visual(
+      id: 'v-mf-3',
+      type: 'diagram',
+      title: 'Human Dentition & 4 Types of Teeth',
+      description: 'Anatomical diagram of open mouth showing Incisors, Canines, Premolars, and Molars with functional roles.',
+      pageReference: 51,
+    ),
+  ],
+  teacherStudy: ncertSciG5TheMysteryOfFoodTeacherStudy,
+  studentLesson: ncertSciG5TheMysteryOfFoodStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-mf-1',
+      questionText: 'Why do some food items last for weeks and others spoil in just a few days?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: 'Food items that lack moisture (like dry snacks) or have preservatives last for weeks because microbes cannot grow in them. Items with high moisture (like cooked vegetables) spoil in a few days because moisture and warmth allow microbes to grow quickly.',
+      explanation: 'Microbes need moisture to grow. Dry foods do not support microbial growth.',
+      keywords: ['moisture', 'microbes', 'spoil', 'dry'],
+    ),
+    PracticeQuestion(
+      id: 'pq-mf-2',
+      questionText: 'You are going on a field trip for two days. List five food items you will carry. How will you keep them from getting spoiled?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'Five food items: biscuits, khakhra, roasted chana, dry fruits, and aam papad. These can be kept from getting spoiled by storing them in clean, airtight containers to keep out moisture and air.',
+      explanation:
+          'Carrying dry items prevents spoilage since they lack moisture.',
+      keywords: ['dry items', 'airtight containers', 'moisture'],
+    ),
+    PracticeQuestion(
+      id: 'pq-mf-3',
+      questionText: 'What if food cannot be preserved? Imagine a world without food preservation and discuss the consequences.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: 'If food cannot be preserved, food would spoil quickly, leading to massive wastage. People would have to consume fresh food immediately. There would be severe food shortages during winters or droughts, and food could not be transported to distant places.',
+      explanation: 'Food preservation allows food to be stored and transported without spoiling.',
+      keywords: ['spoil quickly', 'wastage', 'food shortages', 'transported'],
+    ),
+    PracticeQuestion(
+      id: 'pq-mf-4',
+      questionText: 'Match the following to show which method is used to preserve the item (A) to make the final product (B): Roti -> Khakhra, Papad -> Dried papads, Mango -> Aam papad, Lemon -> Lemon pickle, Butter -> Ghee, Juice -> Canned juice, Chillies -> Chilli powder, Fish -> Dried fish.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'Roti -> Dehydration -> Khakhra\nPapad -> Dried in sun -> Dried papads\nMango -> Dried in sun -> Aam papad\nLemon -> Adding salt/oil -> Lemon pickle\nButter -> Heating (removing water) -> Ghee\nJuice -> Canning/Pasteurization -> Canned juice\nChillies -> Dried in sun/Dehydration -> Chilli powder\nFish -> Dried in sun/Salting -> Dried fish',
+      explanation: 'Matching food items to their preservation methods and final products.',
+      keywords: ['dehydration', 'dried in sun', 'heating', 'salt'],
+    ),
+  ],
+);

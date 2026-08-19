@@ -1,0 +1,172 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g6_data_handling_lesson.dart';
+import 'ncert_math_g6_data_handling_sections.dart';
+import 'ncert_math_g6_data_handling_study.dart';
+
+final Chapter mathG6DataHandlingChapter = Chapter(
+  id: 'ncert-g6-math-data-handling',
+  title: 'Data Handling and Presentation',
+  classLevel: 'Class 6',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Unit 2: Statistics & Data Literacy',
+  mainTheme: 'Data Collection, Tally Mark Organization, Frequency Tables, Scaled Pictographs, Horizontal and Vertical Bar Graphs, and Visual Integrity in Infographics',
+  mainIdea: 'Develops foundational data literacy, statistical organization, and graphical presentation in Ganita Prakash Chapter 4. Covers raw data vs structured frequency tables, tally marks in bundles of five (four vertical strokes and one diagonal cross-slash), sorted ascending arrays, scaled pictographs with key symbols and fractional units, horizontal and vertical bar graphs (column graphs) with uniform widths and equal spacing, step-by-step zero-based scale construction, and critical evaluation of infographics to prevent misleading area distortions.',
+  learningOutcomes: const [
+    'Define data and differentiate between raw observations and organized frequency tables.',
+    'Record and tally observations using standard bundles of five with diagonal cross-slashes.',
+    'Compute frequency and sort numerical data in ascending order to find extrema.',
+    'Construct and interpret pictographs using scaled keys and fractional symbols.',
+    'Identify limitations of pictographs when data points are not multiples of the scale.',
+    'Read, interpret, and compare horizontal and vertical bar graphs across diverse datasets.',
+    'Construct accurate bar graphs following step-by-step rules: uniform width, equal gaps, scale starting at zero.',
+    'Select appropriate orientation (vertical for heights/growth, horizontal for lengths/distances).',
+    'Evaluate infographics critically to detect visual bias caused by non-linear area scaling.',
+  ],
+  sections: ncertMathG6DataHandlingSections,
+  concepts: const [
+    Concept(
+      id: 'con-dh-1',
+      title: 'Raw Data, Tally Marks & Frequency Tables',
+      simpleMeaning: 'Data is organized into frequency tables using tally marks in bundles of 5 (4 vertical + 1 diagonal) for quick, reliable counts.',
+      sourceReference: SourceReference(pageNumber: 76),
+    ),
+    Concept(
+      id: 'con-dh-2',
+      title: 'Pictographs & Scaled Keys',
+      simpleMeaning: 'Pictographs use symbols with a defined key (e.g. 1 symbol = 10 units) and partial symbols to provide rapid visual summaries.',
+      sourceReference: SourceReference(pageNumber: 80),
+    ),
+    Concept(
+      id: 'con-dh-3',
+      title: 'Bar Graphs (Column Graphs) & Scale Calibration',
+      simpleMeaning: 'Bar graphs use rectangular bars of uniform width and equal spacing, with lengths proportional to frequencies, calibrated from zero.',
+      sourceReference: SourceReference(pageNumber: 86),
+    ),
+    Concept(
+      id: 'con-dh-4',
+      title: 'Visual Integrity & Infographic Evaluation',
+      simpleMeaning: 'Orientation should align with reality (vertical for heights, horizontal for lengths); uniform widths prevent misleading area distortion.',
+      sourceReference: SourceReference(pageNumber: 104),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-dh-1',
+      term: 'Data',
+      definition: 'A collection of facts, numbers, measures, observations, or descriptions that convey information.',
+      sourceReference: SourceReference(pageNumber: 74),
+    ),
+    GlossaryTerm(
+      id: 'gt-dh-2',
+      term: 'Tally Marks',
+      definition: 'A counting system using vertical strokes bundled in groups of five with a diagonal cross-slash.',
+      sourceReference: SourceReference(pageNumber: 76),
+    ),
+    GlossaryTerm(
+      id: 'gt-dh-3',
+      term: 'Frequency',
+      definition: 'The total count of times a particular observation, item, or score occurs in a collected dataset.',
+      sourceReference: SourceReference(pageNumber: 77),
+    ),
+    GlossaryTerm(
+      id: 'gt-dh-4',
+      term: 'Pictograph',
+      definition: 'A visual representation of data using pictures, icons, or symbols of objects with a stated scale key.',
+      sourceReference: SourceReference(pageNumber: 79),
+    ),
+    GlossaryTerm(
+      id: 'gt-dh-5',
+      term: 'Bar Graph',
+      definition: 'A diagram where data categories are represented by rectangular bars of uniform width and equal spacing, whose heights/lengths are proportional to values.',
+      sourceReference: SourceReference(pageNumber: 85),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'misc-dh-1',
+      label: 'Drawing unequal bar widths or unequal gaps',
+      mistake: 'Thinking that bar width can vary across categories to indicate size or fit paper space.',
+      correctIdea: 'All bars in a standard bar graph must have the exact same width and equal spacing so that only bar length/height represents frequency.',
+      explanation: 'Varying bar widths introduces area bias, confusing the reader as wider bars visually dominate even with lower values.',
+      sourceReference: SourceReference(pageNumber: 86),
+    ),
+    Misconception(
+      id: 'misc-dh-2',
+      label: 'Truncating the numerical axis or skipping zero without notation',
+      mistake: 'Starting the vertical scale at a high value instead of zero to exaggerate small differences.',
+      correctIdea: 'The numerical scale on a bar graph must always start at 0 (or explicitly indicate a broken axis) to preserve proportional visual comparison.',
+      explanation: 'A non-zero baseline distorts proportions, making a 5% difference appear like a 500% difference.',
+      sourceReference: SourceReference(pageNumber: 89),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-dh-1',
+      type: 'diagram',
+      title: 'Tally Mark Bundling Scheme',
+      description: 'Standard five-count tally bundle showing 4 vertical strokes crossed diagonally by the 5th stroke.',
+      pageReference: 76,
+    ),
+    Visual(
+      id: 'v-dh-2',
+      type: 'diagram',
+      title: 'Vertical vs Horizontal Bar Graph Layouts',
+      description: 'Side-by-side comparison of vertical column graphs and horizontal bar graphs showing axes, uniform widths, and zero baselines.',
+      pageReference: 87,
+    ),
+    Visual(
+      id: 'v-dh-3',
+      type: 'diagram',
+      title: 'Seven Continental Peaks Infographic Comparison',
+      description: 'Comparative diagrams contrasting uniform rectangular columns against scaling mountain triangles to demonstrate visual area distortion.',
+      pageReference: 104,
+    ),
+  ],
+  teacherStudy: ncertMathG6DataHandlingTeacherStudy,
+  studentLesson: ncertMathG6DataHandlingStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-dh-1',
+      questionText: 'Explain what tally marks are, describe how a bundle of 5 is drawn, and state why tally marks are useful when collecting raw data in real time.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.remember,
+      answer: 'Tally marks are a recording system used to count observations as they occur.\n- Each observation is recorded as a single vertical stroke (|).\n- The fifth observation is recorded as a diagonal slash crossing the four preceding vertical strokes, completing a bundle of 5.\n- Tally marks are especially useful because they prevent double-counting or losing track during live observations, and allow the total frequency to be calculated instantly by counting in fives.',
+      explanation: 'Tally mark definition and procedure.',
+      keywords: [
+        'Vertical strokes (|)',
+        'Fifth stroke is diagonal slash',
+        'Bundle of 5',
+        'Fast counting in fives without recount',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-dh-2',
+      questionText: 'Describe the four essential rules that must be followed when constructing a standard bar graph.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'The four essential rules for constructing a standard bar graph are:\n1. Uniform Bar Width: All rectangular bars must have the exact same width.\n2. Uniform Spacing: The gap or space between consecutive bars must be equal throughout.\n3. Proportional Heights/Lengths: The height (or length) of each bar must be strictly proportional to its frequency.\n4. Calibrated Zero Scale: The numerical scale along the frequency axis must begin at zero and increase by uniform interval steps.',
+      explanation: 'Core bar graph construction rules.',
+      keywords: [
+        'Uniform bar width',
+        'Equal spacing/gaps between bars',
+        'Height proportional to frequency',
+        'Scale starting from zero with equal intervals',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-dh-3',
+      questionText: 'Explain why using triangular mountain shapes with widening bases in infographics can mislead viewers about the true comparison of mountain heights compared to standard rectangular bars.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: 'In a standard bar graph, all bars have a constant width w, so the visual area is proportional to the height h (Area = w * h, linear).\nIn an infographic using similar triangles where both the base and height grow proportionally, the area is proportional to the square of the height (Area = 0.5 * b * h = k * h^2, quadratic).\nTherefore, if Mountain A is twice as tall as Mountain B (e.g., Everest 8848m vs Kosciuszko 2228m, roughly 4x), its triangular area is 16 times larger, creating an exaggerated visual impression that misleads the human eye about the true linear relationship.',
+      explanation: 'Infographic visual integrity and area distortion proof.',
+      keywords: [
+        'Linear area in rectangles (constant width)',
+        'Quadratic area growth in scaling triangles (Area proportional to h^2)',
+        'Exaggerates differences visually',
+        'Misleads human perception of linear heights',
+      ],
+    ),
+  ],
+);

@@ -1,0 +1,70 @@
+import '../../models/content_models.dart';
+
+const TeacherStudyData ncertMathG6PrimeTimeTeacherStudy = TeacherStudyData(
+  chapterSnapshot: 'NCERT Class 6 Mathematics (Ganita Prakash) Chapter 5: Prime Time (QR: 0674CH05). Explores the multiplicative structure of numbers through interactive games, visual models, and formal theorems. Covers common multiples (Idli-Vada circle game, Venn diagrams), common factors (Jump Jackpot, number lines), perfect numbers (sum of factors = 2n, e.g. 6 and 28), prime vs composite numbers via 2D rectangular tile packing, 1 as neither prime nor composite, the Sieve of Eratosthenes (25 primes <= 100), twin primes, co-prime numbers (safe pairs, circular string art with pegs), unique prime factorisation (Fundamental Theorem of Arithmetic, factor trees, 3D cuboid commutativity), and place-value-based divisibility tests for 2, 4, 5, 8, and 10.',
+  learningOutcomes: [
+    'Identify multiples, common multiples, and lowest common multiples using Venn diagrams.',
+    'Determine factors, common factors, and classify numbers as perfect numbers.',
+    'Differentiate prime and composite numbers using 2D rectangular grid arrangements.',
+    'Explain why the number 1 is neither prime nor composite.',
+    'Apply the Sieve of Eratosthenes to list all 25 prime numbers below 100 and identify twin primes.',
+    'Define co-prime numbers and describe their behavior in circular string art.',
+    'Deconstruct composite numbers into unique prime factorisations using factor trees.',
+    'State and apply the Fundamental Theorem of Arithmetic.',
+    'Perform divisibility tests for 2, 4, 5, 8, and 10 using place-value logic.',
+    'Solve cross-product prime grid puzzles using row and column factor constraints.',
+  ],
+  chapterMap: [
+    '1. Common Multiples & Idli-Vada Game: Venn Diagrams, Intersection Sets & Finding LCM',
+    '2. Common Factors & Jump Jackpot: Divisors, Number Line Jumps & Perfect Numbers (6, 28)',
+    '3. Prime & Composite Numbers: 2D Rectangular Arrays, Role of 1 & Sieve of Eratosthenes',
+    '4. Co-Prime Numbers & String Art: Safe Pairs, GCD = 1 & Circular Peg Topology',
+    '5. Prime Factorisation & Factor Trees: Fundamental Theorem of Arithmetic & 3D Cuboids',
+    '6. Divisibility Tests & Prime Puzzles: Place Value Rules for 2, 4, 5, 8, 10 & 3x3 Grids',
+  ],
+  completeExplanation: 'Chapter 5 of Ganita Prakash investigates the multiplicative building blocks of natural numbers.\n\nThe chapter opens with the interactive "Idli-Vada" circle game, where multiples of 3 are "Idli", multiples of 5 are "Vada", and common multiples (15, 30, 45, 60...) are "Idli-Vada". Overlapping sets in Venn diagrams visually clarify the concept of common multiples.\n\nNext, the "Jump Jackpot" number line game shifts the focus from multiples to factors and divisors. A number is a factor if a player jumping by that step lands exactly on the target number. This leads to the definition of a Perfect Number: a number for which the sum of all its factors equals twice the number (2n), with 6 (factors 1, 2, 3, 6; sum = 12) and 28 (factors 1, 2, 4, 7, 14, 28; sum = 56) serving as primary examples.\n\nStudents then explore 2D rectangular arrangements of counters (packing figs/anjeer). Composite numbers like 12 form multiple rectangles (1x12, 2x6, 3x4), while prime numbers like 7 can only form a single 1D row (1x7). The number 1 has only one factor, making it neither prime nor composite. The ancient Sieve of Eratosthenes (~2200 years old) provides an algorithmic method to identify all 25 prime numbers below 100, twin primes (pairs with difference 2), and reversible prime pairs.\n\nSection 5.3 introduces Co-Prime Numbers-pairs having no common factor other than 1. This is connected to circular String Art on N pegs: thread with a jump gap of k visits every single peg before closing if and only if gcd(N, k) = 1.\n\nSection 5.4 covers Prime Factorisation and the Fundamental Theorem of Arithmetic: every natural number greater than 1 has a single, unique prime decomposition. A 3D cuboid model of 30 cubes demonstrates that multiplying prime factors in any order leaves the product invariant (commutativity and associativity).\n\nFinally, Section 5.5 develops place-value-based divisibility tests: 2, 5, 10 examine the last 1 digit; 4 examines the last 2 digits (since 100 = 4 x 25); and 8 examines the last 3 digits (since 1000 = 8 x 125). The chapter concludes with fun 3x3 cross-product prime grid puzzles.',
+  formulasRules: [
+    'Perfect Number Rule: Sum of all factors of n = 2n.',
+    'Co-Prime LCM Rule: If gcd(a, b) = 1, then LCM(a, b) = a x b.',
+    'String Art Condition: Continuous single loop visits all N pegs <=> gcd(N, k) = 1.',
+    'Fundamental Theorem of Arithmetic: Prime factorisation is unique up to order.',
+    'Divisibility by 4: Last 2 digits form a number divisible by 4.',
+    'Divisibility by 8: Last 3 digits form a number divisible by 8.',
+    'Divisibility by 5 and 10: Units digit is 0 or 5 (for 5), or 0 (for 10).',
+  ],
+  storiesExamples: [
+    'Idli-Vada Game: Children sit in a circle counting numbers sequentially, saying "Idli" for 3s, "Vada" for 5s, and "Idli-Vada" for 15, 30, 45.',
+    'Jump Jackpot: Jumpy hops along a number line in fixed step sizes to land exactly on treasure numbers 14 and 36, discovering common factors 1 and 2.',
+    'Packing Anjeer (Figs): Guna arranges 12 figs in multiple boxes (2x6, 3x4), while Anshu can only make a single line of 7 figs.',
+    'Circular String Art: Wrapping colored thread around 13 pegs with gap 3 creates a star touching every peg, while 12 pegs with gap 4 makes a 3-sided triangle.',
+    '3D Cuboid Blocks: A block of 30 unit cubes measuring 2x3x5 remains 30 cubes regardless of which face it rests upon.',
+  ],
+  examRelevant: [
+    'Verifying whether a given number (e.g. 6 or 28) is a perfect number by summing factors.',
+    'Listing all 25 prime numbers and 8 twin prime pairs below 100.',
+    'Testing if two numbers are co-prime using prime factorisation.',
+    'Constructing a complete factor tree for a composite number (e.g. 1728 or 1000).',
+    'Applying divisibility rules for 2, 4, 5, 8, and 10 with place-value explanations.',
+    'Solving 3x3 cross-product prime grid puzzles matching row and column products.',
+  ],
+  quickStudySheet: TeacherQuickSheetData(
+    oneLineIdea: 'Prime numbers are the fundamental multiplicative building blocks of arithmetic; every integer > 1 factors uniquely into primes, and powers of 10 govern divisibility tests.',
+    coreTakeaways: [
+      'Multiples & Factors: Common multiples meet at LCM; perfect numbers have factor sums equal to 2n.',
+      'Primes & Composites: Primes have exactly 2 factors; 1 is neither prime nor composite; 2 is the only even prime.',
+      'Sieve of Eratosthenes: Finds all 25 primes below 100; twin primes have difference 2.',
+      'Co-Primes: gcd(a, b) = 1; string art visits all N pegs if gcd(N, k) = 1.',
+      'Prime Factorisation: Unique for every number > 1 (Fundamental Theorem of Arithmetic).',
+      'Divisibility Rules: 2, 5, 10 (last 1 digit); 4 (last 2 digits); 8 (last 3 digits).',
+    ],
+    ifStuckPrompts: [
+      'If students call 1 a prime: Remind them that a prime must have TWO distinct factors (1 and itself).',
+      'If students confuse divisibility by 4 with ending in 4: Show 14 (ends in 4 but not divisible by 4) vs 16 (ends in 6 but divisible by 4).',
+    ],
+    doNotSay: [
+      'Do NOT say "primes cannot be divided"-they divide evenly by 1 and themselves.',
+      'Do NOT call 1 a prime number.',
+    ],
+    boardSummary: 'PRIME TIME: 1. FACTORS & MULTIPLES: Multiples -> LCM | Factors -> Divisors | Perfect Numbers: Sum = 2n (6, 28) | 2. PRIMES & COMPOSITES: Primes (2 factors) | Composites (>2) | 1 is neither | 25 primes <= 100 | 3. CO-PRIMES: gcd=1 | String Art: gcd(N,k)=1 touches all pegs | 4. FACTORISATION: Fundamental Theorem of Arithmetic | 5. DIVISIBILITY: 2,5,10 (1 digit) | 4 (2 digits) | 8 (3 digits).',
+  ),
+);

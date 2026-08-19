@@ -1,0 +1,73 @@
+import '../../models/content_models.dart';
+
+const TeacherStudyData ncertMathG6SymmetryTeacherStudy = TeacherStudyData(
+  chapterSnapshot: 'NCERT Class 6 Mathematics (Ganita Prakash) Chapter 9: Symmetry (QR: 0674CH09). A comprehensive study of transformation geometry in 2D planes. Covers defining line of symmetry (axis of symmetry, folding crease, mirror halves); lines of symmetry across polygons (squares with 4, rectangles with 2, equilateral triangles with 3, regular n-gons with n, circles with infinite); the crucial proof that rectangle diagonals are not reflection axes; generating symmetric shapes via ink blots, paper folding, hole punching, and grid completion; rotational symmetry (centre of rotation, full turn invariance, angle of symmetry, smallest angle formula theta = 360 / n, order of symmetry); classifying 2D figures into 4 distinct symmetry categories (Line only, Rotation only, Both, Neither); real-world and architectural symmetries (Ashoka Chakra with 24 lines and 24 angles of 15 deg multiples, Parliament Building, Kolam patterns); and symmetry strategy games on 6x6 grids.',
+  learningOutcomes: [
+    'Define a line of symmetry and verify it using paper folding and mirror reflections.',
+    'Determine the number of lines of symmetry for various geometric shapes and regular polygons.',
+    'Explain why the diagonal of a rectangle is NOT a line of symmetry despite dividing it into congruent triangles.',
+    'Generate symmetric designs using ink blots, paper cuts, hole punches, and grid coordinates.',
+    'Define rotational symmetry, centre of rotation, and order of symmetry.',
+    'Calculate the smallest angle of rotational symmetry using theta = 360 / n.',
+    'List all angles of symmetry for any given figure with rotational symmetry.',
+    'Classify 2D figures into the 4 symmetry categories (Line only, Rotation only, Both, Neither).',
+    'Analyze the 24-fold reflection and rotational symmetries of the Ashoka Chakra.',
+    'Explain the central symmetry strategy for winning grid placement games.',
+  ],
+  chapterMap: [
+    '1. Visual Symmetry in Nature, Architecture & Art: Repeating Patterns & Mirror Halves',
+    '2. Line of Symmetry (Reflection): Axis of Symmetry, Paper Folding & Hole Punching',
+    '3. Symmetry in Polygons: Regular n-Gons (n Lines), Rectangles (2 Lines) & Circles (Infinite)',
+    '4. Crucial Non-Symmetries: Why Rectangle Diagonals & Scalene Triangles Lack Line Symmetry',
+    '5. Rotational Symmetry: Centre of Rotation, Smallest Angle of Symmetry (360 / n) & Order',
+    '6. 4-Fold Symmetry Categories: Line Only, Rotation Only, Both, or Neither',
+    '7. Ashoka Chakra, Parliament & Cultural Motifs: 24-Fold Symmetries & Kolam Patterns',
+    '8. Symmetry Games & Tiling: Grid Symmetry Strategies & Triangular Color Tiles',
+  ],
+  completeExplanation: 'Chapter 9 of Ganita Prakash formalizes the geometric concept of symmetry, moving from intuitive visual beauty to precise algebraic and transformation definitions.\n\nSection 9.1 introduces Line of Symmetry (Reflection Symmetry). A figure has line symmetry if a straight line (axis of symmetry) divides it into two halves that coincide completely when folded across the crease. The reflection property maps every point P on one side to a point P\' on the other side such that the axis of symmetry is the perpendicular bisector of segment PP\'. The chapter systematically surveys lines of symmetry across polygons: an equilateral triangle has 3, an isosceles triangle has 1, a scalene triangle has 0, a square has 4 (2 through side midpoints and 2 along diagonals), an ordinary rectangle has 2 (through side midpoints only), a regular n-gon has n lines of symmetry, and a circle has infinitely many lines of symmetry (every diameter). A critical conceptual checkpoint is established: the diagonal of a rectangle divides it into two congruent triangles with equal area, but folding along the diagonal results in protruding corners that do not overlap-thus, rectangle diagonals are NOT lines of symmetry.\n\nSection 9.2 introduces Rotational Symmetry. A figure possesses rotational symmetry if rotating it about a fixed center of rotation by an angle strictly between 0 and 360 degrees reproduces its original visual orientation. Since a 360-degree full turn always restores any figure, an object only has rotational symmetry if it coincides at an angle < 360 degrees. The smallest angle of rotational symmetry is given by theta = 360 / n, where n is the number of coincidences in a full turn (the order of rotational symmetry). All angles of symmetry are integer multiples of theta (e.g. for a 4-blade windmill or square, theta = 90 deg and the angles are 90, 180, 270, 360 deg; for a 3-arm figure, theta = 120 deg and angles are 120, 240, 360 deg; for a parallelogram, theta = 180 deg and angles are 180, 360 deg). If the smallest angle is a whole number of degrees, it must be an exact factor of 360.\n\nSection 9.3 integrates reflection and rotational symmetries by categorizing shapes into 4 distinct classes: 1) Line symmetry only (isosceles triangle, kite, arrow, letter A), 2) Rotational symmetry only (general parallelogram, curved pinwheel, letters S and Z), 3) Both line and rotational symmetry (square, rectangle, equilateral triangle, regular polygons, circle), and 4) Neither (scalene triangle, irregular quadrilateral). The chapter applies these principles to the Ashoka Chakra (24 spokes generating 24 lines of symmetry and 24 angles of symmetry at 15-degree increments), architectural designs (new Parliament Building with 3-fold symmetry), and game theory on a 6x6 grid where Player 2 uses a central symmetry strategy to guarantee victory.',
+  formulasRules: [
+    'Line of Symmetry: Perpendicular bisector connecting all pairs of reflected points.',
+    'Regular n-Gon Rule: A regular polygon with n sides has exactly n lines of symmetry.',
+    'Circle Symmetries: Infinitely many lines of symmetry (all diameters) and infinite rotational symmetries.',
+    'Rectangle Line Symmetries: Exactly 2 lines (side midpoints); diagonals are NOT lines of symmetry.',
+    'Smallest Angle of Rotational Symmetry: theta = 360 / n (where n is the order of rotational symmetry).',
+    'Angles of Symmetry: Set of angles {k * theta | k = 1, 2, ..., n} up to 360 degrees.',
+    'Divisibility Condition: Smallest integer angle of symmetry must divide 360 evenly.',
+    'Ashoka Chakra: 24 spokes -> 24 lines of symmetry and 24 rotational angles (theta = 360 / 24 = 15 deg).',
+  ],
+  storiesExamples: [
+    'The Butterfly and the Fold: Folding a freshly painted butterfly wing creates a perfect bilateral duplicate.',
+    'The Rectangle Paper Test: Students fold a rectangular sheet along the diagonal and physically observe the corners failing to match.',
+    'The Ceiling Fan Spin: Watching a 3-blade fan rotate by 120 degrees to see it look identical to its starting position.',
+    'The 6x6 Grid Domino Duel: Player 2 mirrors Player 1\'s moves through the center point to win every match.',
+  ],
+  examRelevant: [
+    'Defining line of symmetry and rotational symmetry with clear mathematical terminology.',
+    'Stating the number of lines of symmetry and rotational order for standard polygons (square, rectangle, equilateral triangle, regular hexagon, circle).',
+    'Explaining why a rectangle diagonal is not an axis of symmetry.',
+    'Calculating smallest angle of rotational symmetry and listing all symmetry angles.',
+    'Determining whether a given angle (e.g. 45 deg, 17 deg) can be the smallest angle of rotational symmetry.',
+    'Classifying shapes into the 4 symmetry categories (Line only, Rotation only, Both, Neither).',
+    'Analyzing the 24-fold reflection and rotational symmetries of the Ashoka Chakra.',
+  ],
+  quickStudySheet: TeacherQuickSheetData(
+    oneLineIdea: 'Symmetry unifies reflection (mirror halves across fold lines) and rotation (coinciding at angles theta < 360 deg around a center) into 4 clear geometric categories.',
+    coreTakeaways: [
+      'Line Symmetry: Crease where two halves overlap identically.',
+      'Square has 4 lines of symmetry; Rectangle has only 2 (diagonals are NOT lines of symmetry!).',
+      'Regular n-gon has n lines of symmetry and n-fold rotational symmetry.',
+      'Rotational Symmetry: Coincides at angle < 360 deg; Smallest angle = 360 / n.',
+      'Parallelogram, S, Z: Rotational symmetry (180 deg) but ZERO lines of symmetry.',
+      'Ashoka Chakra: 24 lines of symmetry and 24 rotational angles (15 deg multiples).',
+    ],
+    ifStuckPrompts: [
+      'If students think a rectangle diagonal is a line of symmetry: Hand them a rectangular sheet of paper and ask them to fold along the diagonal.',
+      'If students think a parallelogram has line symmetry: Have them fold a paper parallelogram along its diagonal or midline.',
+    ],
+    doNotSay: [
+      'Do NOT say a diagonal is a line of symmetry in a rectangle.',
+      'Do NOT say a figure has rotational symmetry if 360 degrees is its only match.',
+    ],
+    boardSummary: 'SYMMETRY: 1. LINE (REFLECTION): Folding crease -> overlapping mirror halves (Square=4, Rect=2, Reg n-gon=n, Circle=Inf) | 2. ROTATION: Coincides at theta < 360 deg (Smallest angle = 360 / n) | 3. 4 CATEGORIES: Line only, Rotation only, Both, Neither | 4. ASHOKA CHAKRA: 24 lines & 24 angles (15 deg multiples).',
+  ),
+);

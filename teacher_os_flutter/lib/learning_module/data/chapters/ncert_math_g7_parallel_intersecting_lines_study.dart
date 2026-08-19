@@ -1,0 +1,77 @@
+import '../../models/content_models.dart';
+
+const TeacherStudyData
+ncertMathG7ParallelIntersectingLinesTeacherStudy = TeacherStudyData(
+  chapterSnapshot: 'NCERT Class 7 Mathematics (Ganita Prakash) Chapter 5: Parallel and Intersecting Lines (QR: 0774CH05). Investigates the foundational principles of lines on a two-dimensional plane surface. When two lines intersect at a point, they form four angles characterized by linear pairs (adjacent supplementary angles adding to 180 deg) and vertically opposite angles (non-adjacent opposite angles, proven mathematically to be equal). Perpendicular lines intersect at 90 deg right angles. Parallel lines lie in the same plane and never intersect however far extended in either direction (marked with > or >>). When a transversal line intersects two lines, it generates 8 angles with at most 4 distinct measures. Establishes the core parallel line postulates and theorems: (1) Corresponding angles are equal if and only if lines are parallel; (2) Alternate interior angles are equal if and only if lines are parallel (proven via corresponding and vertically opposite angle relations); (3) Interior angles on the same side of the transversal (co-interior angles) are supplementary (sum to 180 deg). Teaches precision construction of parallel lines using a ruler and set square sliding technique, paper-folding perpendiculars through external points, optical illusions (Hering/Zöllner), and solving multi-transversal polygon and zig-zag angle problems using auxiliary parallel lines.',
+  learningOutcomes: [
+    'Define intersecting, perpendicular, and parallel lines on a plane surface with standard notations.',
+    'State and prove mathematically that vertically opposite angles are equal using linear pair relationships.',
+    'Explain why parallel lines must lie on the same plane and distinguish parallel lines from skew lines.',
+    'Identify a transversal and locate all 8 angles formed when a transversal intersects two lines.',
+    'Identify and name pairs of corresponding angles, alternate interior angles, and co-interior angles.',
+    'State and apply the test of parallelism: lines are parallel if corresponding angles are equal, alternate interior angles are equal, or co-interior angles sum to 180 deg.',
+    'Construct parallel lines accurately using the ruler and set square sliding method.',
+    'Execute paper-folding techniques to construct perpendiculars and parallel lines passing through an external point.',
+    'Calculate unknown angles in single-transversal and multi-transversal figures using algebraic and geometric reasoning.',
+    'Solve complex multi-transversal and zig-zag angle problems by constructing auxiliary parallel lines.',
+  ],
+  chapterMap: [
+    '1. Intersecting Lines on a Plane: Single intersection point, 4 angles, linear pairs (180 deg), and vertically opposite angles equality proof',
+    '2. Perpendicular & Parallel Lines: 90 deg intersections, same-plane condition, and arrow/square notations',
+    '3. Paper Folding Geometry: Horizontal creases (2^n + 1 lines), perpendicular folds, and parallel fold lines',
+    '4. Transversals: 8 angles formed, 4-angle measure limit, and corresponding angle pairs',
+    '5. Parallel Line Tests & Axioms: Corresponding angle equality axiom and bidirectional parallelism test',
+    '6. Drafting Parallel Lines: Ruler and set square sliding method, and parallel construction through external point A',
+    '7. Alternate & Co-Interior Angles: Alternate interior angle equality proof (Z-angles) and co-interior supplementary angle theorem (180 deg)',
+    '8. Applied Geometry & Illusions: Optical illusions (Hering/Zöllner), multi-step polygon problems, and auxiliary line techniques for zig-zag systems',
+  ],
+  completeExplanation: 'Chapter 5 of Ganita Prakash Grade 7 builds a comprehensive, rigorous framework for Euclidean line and angle geometry, transitioning students from empirical observation to formal deductive proof.\n\nThe chapter begins on a flat plane surface (e.g., tabletop, blackboard). When two distinct straight lines meet, they intersect at exactly one point, generating four angles. Adjacent angles share a common arm and form a straight line, known as a linear pair (∠a + ∠b = 180 deg). Non-adjacent opposite angles are vertically opposite angles. The textbook introduces formal mathematical proof: since ∠a + ∠b = 180 deg and ∠b + ∠c = 180 deg, subtracting ∠b proves ∠a = ∠c. The text highlights that while physical measurements suffer from pencil thickness and protractor limits, deductive geometric reasoning guarantees exact equality.\n\nPerpendicular lines intersect at right angles (90 deg), forming four congruent angles. Parallel lines are defined as lines in the same plane that never meet however far extended. The same-plane condition is critical: non-intersecting lines on different planes (skew lines) are not parallel. Parallelism is marked with single or double arrowheads (> or >>).\n\nWhen a third line (a transversal t) intersects two lines l and m at distinct points, 8 angles are created. Due to linear pairs and vertically opposite angles, these 8 angles take on at most 4 distinct numerical values. Angle pairs are classified by relative position: Corresponding Angles (matching positions across intersections), Alternate Interior Angles (opposite sides of the transversal between the lines, forming a Z-shape), and Co-Interior Angles (interior angles on the same side of the transversal).\n\nThe chapter proves the fundamental parallel line properties: (1) Corresponding Angles Postulate: l || m ⟺ corresponding angles are equal; (2) Alternate Interior Angles Theorem: l || m ⟺ alternate interior angles are equal (proven because alternate angle equals vertically opposite of corresponding angle); (3) Co-Interior Angles Theorem: l || m ⟺ interior angles on the same side sum to 180 deg (proven using linear pairs and corresponding angle equality).\n\nPractical draftsmanship is emphasized via the ruler-and-set-square sliding method and two-step paper folding perpendiculars. Finally, students analyze geometric optical illusions (Zöllner/Hering) and master auxiliary parallel line techniques to solve advanced zig-zag and polygon problems.',
+  formulasRules: [
+    'Linear Pair Property: If two angles form a linear pair, ∠a + ∠b = 180 deg.',
+    'Vertically Opposite Angles Theorem: If two lines intersect, vertically opposite angles are equal (∠a = ∠c, ∠b = ∠d).',
+    'Transversal 8-Angle Rule: A transversal cutting two lines forms 8 angles with at most 4 distinct measures.',
+    'Corresponding Angles Postulate: Lines are parallel ⟺ Corresponding angles are equal (∠1 = ∠5, ∠2 = ∠6, ∠3 = ∠7, ∠4 = ∠8).',
+    'Alternate Interior Angles Theorem: Lines are parallel ⟺ Alternate interior angles are equal (∠d = ∠f, ∠c = ∠e).',
+    'Co-Interior Angles Theorem: Lines are parallel ⟺ Interior angles on the same side sum to 180 deg (∠c + ∠f = 180 deg, ∠d + ∠e = 180 deg).',
+    'Perpendicular Parallel Rule: Two distinct lines in a plane that are both perpendicular to the same line are parallel to each other (l ⊥ t and m ⊥ t ⟹ l || m).',
+    'Paper Folding Crease Rule: Successive halving of a paper sheet produces 2^n + 1 parallel lines after n folds.',
+    'Transitivity of Parallelism: If line a || line b and line b || line c, then line a || line c.',
+    'Auxiliary Line Principle: For composite angles in non-straight zig-zags, draw parallel lines through vertices to split angles into alternate interior parts.',
+  ],
+  storiesExamples: [
+    'Railway Tracks and Ladder Rungs: Railway tracks and ladder rungs are classic physical models of parallel lines with transversals (sleepers and rungs), maintaining constant perpendicular spacing so trains run safely without derailment.',
+    'The Set-Square Drafting Slide: Carpenters and architects slide a set square along a straight t-square or ruler to draft perfectly parallel rafters and wall studs, maintaining identical corresponding angles mechanically.',
+    'The Zöllner and Hering Illusions: Johann Zöllner (1860) and Ewald Hering showed that short intersecting diagonal cross-hatching tricks the human visual cortex into seeing parallel lines as tilted or bowed, proving why mathematical proofs are more reliable than raw visual intuition.',
+  ],
+  examRelevant: [
+    'Writing the formal 3-step proof that vertically opposite angles are equal.',
+    'Proving the Alternate Interior Angles Theorem using corresponding angles and vertically opposite angles.',
+    'Proving that co-interior angles on the same side of a transversal sum to 180 deg.',
+    'Calculating all 7 remaining angles given 1 angle measure in parallel line figures.',
+    'Testing whether two lines are parallel given numerical angle values (e.g., Example 2: 120 deg vs 70 deg).',
+    'Solving parallelogram and multi-line angle systems (e.g., Example 4 and Fig 5.34).',
+    'Using auxiliary parallel lines to calculate zig-zag vertex angles (e.g., finding ∠NOP = 108 deg in Fig 5.35).',
+    'Describing the ruler and set square procedure to construct a line parallel to line l through an external point A.',
+  ],
+  quickStudySheet: TeacherQuickSheetData(
+    oneLineIdea: 'When a transversal cuts two parallel lines in a plane, corresponding angles are equal, alternate interior angles are equal, and co-interior angles sum to 180 deg.',
+    coreTakeaways: [
+      'Intersecting lines form linear pairs (sum = 180 deg) and equal vertically opposite angles.',
+      'Parallel lines lie in the SAME plane and never intersect (marked with >).',
+      'Transversal cuts 2 lines into 8 angles with max 4 distinct values.',
+      'Parallel Test: Corresponding angles equal ⟺ Alternate interior angles equal ⟺ Co-interior sum is 180 deg.',
+      'Two lines perpendicular to the same transversal are strictly parallel.',
+      'For zig-zag angles between parallel lines, draw auxiliary parallel lines through intermediate vertices.',
+    ],
+    ifStuckPrompts: [
+      'If a student struggles to identify alternate angles: Have them trace the letter "Z" or "N" with their finger-the angles tucked inside the corners of the Z are alternate interior angles!',
+      'If a student is unsure if lines are parallel: Find the corresponding angle or linear pair first. If the corresponding angles match, the lines are parallel; if they differ, the lines will intersect!',
+      'If a student gets lost in multi-angle zig-zags: Draw an extra parallel ray through the kink/vertex point to split the corner into two simple Z-angles.',
+    ],
+    doNotSay: [
+      'Do NOT say lines are parallel just because they do not meet-they MUST lie in the SAME plane (otherwise they may be skew lines).',
+      'Do NOT claim that all alternate angles are equal in any figure-they are ONLY equal when the lines being intersected are PARALLEL.',
+    ],
+    boardSummary: 'PARALLEL & INTERSECTING LINES: 1. Intersecting: Linear Pair (a+b=180 deg) | Vertically Opposite (a=c, b=d, PROVEN) | 2. Perpendicular: 90 deg (square symbol) | 3. Parallel (||, >): Same plane, never meet | 4. Transversal (t): 8 angles, 4 distinct values | 5. Parallel Theorems: Corresponding (∠1=∠5) | Alternate Interior (∠d=∠f, Z-shape) | Co-Interior (∠c+∠f=180 deg) | 6. Construction: Sliding Set-Square | 7. Zig-Zag Strategy: Auxiliary Parallel Lines.',
+  ),
+);

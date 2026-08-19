@@ -1,0 +1,235 @@
+import '../../models/content_models.dart';
+import 'ncert_math_weigh_it_pour_it_lesson.dart';
+import 'ncert_math_weigh_it_pour_it_sections.dart';
+import 'ncert_math_weigh_it_pour_it_study.dart';
+
+final Chapter weighItPourItChapter = Chapter(
+  id: 'ncert-math-weigh-it-pour-it',
+  title: 'Weigh It, Pour It',
+  classLevel: 'Class 4',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Measurement',
+  mainTheme: 'Measuring and estimating weight and capacity using kilograms, grams, litres, and millilitres.',
+  mainIdea: 'The chapter explores weight and liquid capacity through grocery market items, beam balances, household containers, and water conservation. Students connect 1 kg with 1000 g and 1 l with 1000 ml, understanding that larger quantities can be made by combining equal smaller amounts (such as two 500 g packets or four 250 ml bottles). It emphasizes choosing appropriate metric units, estimating before measuring, and recognizing that even slow leaks waste large amounts of water over time.',
+  learningOutcomes: const [
+    'Compare objects as heavier or lighter and estimate their weights.',
+    'Choose whether an object should be measured in grams (g) or kilograms (kg).',
+    'Use 1 kg = 1000 g to relate 500 g, 250 g, 100 g, and 50 g to 1 kg.',
+    'Read and interpret simple beam pan-balance tilts.',
+    'Compare capacities as less than, equal to, or greater than 1 litre.',
+    'Use 1 l = 1000 ml to determine how many smaller containers fill a larger container.',
+    'Estimate, measure, record, and discuss water use and water conservation.',
+  ],
+  sections: mathWeighItPourItSections,
+  concepts: const [
+    Concept(
+      id: 'c-wip-1',
+      title: 'Weight and Metric Units (g and kg)',
+      simpleMeaning: 'Weight tells us how heavy or light something is. Use grams (g) for light objects and kilograms (kg) for heavy objects.',
+      sourceReference: SourceReference(pageNumber: 115),
+    ),
+    Concept(
+      id: 'c-wip-2',
+      title: 'Kilogram Equivalences and Fractions',
+      simpleMeaning: '1 kg = 1000 g. 500 g is half a kilogram (1/2 kg), 250 g is one-quarter kilogram (1/4 kg), and 100 g is one-tenth kilogram (1/10 kg).',
+      sourceReference: SourceReference(pageNumber: 117),
+    ),
+    Concept(
+      id: 'c-wip-3',
+      title: 'Beam Pan Balance Mechanics',
+      simpleMeaning: 'On a two-pan balance, the pan with more weight tilts downwards; equal weights keep the balance perfectly level.',
+      sourceReference: SourceReference(pageNumber: 116),
+    ),
+    Concept(
+      id: 'c-wip-4',
+      title: 'Capacity and Litre Equivalences (ml and l)',
+      simpleMeaning: 'Capacity is the amount of liquid a container holds. 1 litre = 1000 millilitres (1 l = 1000 ml); 500 ml is 1/2 l and 250 ml is 1/4 l.',
+      sourceReference: SourceReference(pageNumber: 122),
+    ),
+    Concept(
+      id: 'c-wip-5',
+      title: 'Equal Group Division and Water Conservation',
+      simpleMeaning: 'Divide total volume/weight by unit container size to find container counts; prevent water wastage from leaking taps.',
+      sourceReference: SourceReference(pageNumber: 125),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'g-wip-1',
+      term: 'Weight',
+      definition: 'The measurement of how heavy or light an object is.',
+      sourceReference: SourceReference(pageNumber: 115),
+    ),
+    GlossaryTerm(
+      id: 'g-wip-2',
+      term: 'Gram (g)',
+      definition: 'The metric unit for measuring lighter weights (e.g. pen, leaf, pushpin, small packet).',
+      sourceReference: SourceReference(pageNumber: 118),
+    ),
+    GlossaryTerm(
+      id: 'g-wip-3',
+      term: 'Kilogram (kg)',
+      definition: 'The metric unit for measuring heavier weights (1 kg = 1000 g; e.g. child, chair, gas cylinder).',
+      sourceReference: SourceReference(pageNumber: 117),
+    ),
+    GlossaryTerm(
+      id: 'g-wip-4',
+      term: 'Capacity',
+      definition: 'The maximum quantity of liquid that a container can hold.',
+      sourceReference: SourceReference(pageNumber: 122),
+    ),
+    GlossaryTerm(
+      id: 'g-wip-5',
+      term: 'Litre (l)',
+      definition: 'The standard metric unit for measuring larger liquid capacities (1 l = 1000 ml; e.g. water bottle, bucket).',
+      sourceReference: SourceReference(pageNumber: 122),
+    ),
+    GlossaryTerm(
+      id: 'g-wip-6',
+      term: 'Millilitre (ml)',
+      definition: 'The metric unit for measuring smaller liquid volumes (1/1000 of a litre; e.g. medicine dose, dropper).',
+      sourceReference: SourceReference(pageNumber: 122),
+    ),
+    GlossaryTerm(
+      id: 'g-wip-7',
+      term: 'Pan Balance',
+      definition: 'A weighing tool with two suspended pans; the heavier side tilts downward.',
+      sourceReference: SourceReference(pageNumber: 116),
+    ),
+    GlossaryTerm(
+      id: 'g-wip-8',
+      term: 'Estimate',
+      definition: 'A sensible, informed approximation of weight or capacity made prior to exact measurement.',
+      sourceReference: SourceReference(pageNumber: 116),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'm-wip-1',
+      label: 'Believing larger objects are always heavier',
+      mistake: 'Students assume a large empty cardboard box weighs more than a small solid stone.',
+      correctIdea: 'Size and weight are different: material density determines heaviness.',
+      explanation: 'A small heavy material like iron or stone outweighs a large hollow container.',
+      sourceReference: SourceReference(
+        pageNumber: 115,
+        sourceStatus: SourceStatus.teacherInference,
+      ),
+    ),
+    Misconception(
+      id: 'm-wip-2',
+      label: 'Confusing 1 kg with 100 g instead of 1000 g',
+      mistake: 'Students write 1 kg = 100 g or 1 l = 100 ml.',
+      correctIdea: '1 kilogram equals exactly 1,000 grams, and 1 litre equals 1,000 millilitres.',
+      explanation:
+          'The prefix "kilo" means thousand, and "milli" means thousandth.',
+      sourceReference: SourceReference(
+        pageNumber: 117,
+        sourceStatus: SourceStatus.teacherInference,
+      ),
+    ),
+    Misconception(
+      id: 'm-wip-3',
+      label: 'Assuming all small food packets weigh 500 g',
+      mistake: 'Students state that any two grocery packets make 1 kg.',
+      correctIdea:
+          'Only two 500 g packets make 1 kg; two 250 g packets make 500 g.',
+      explanation: 'Packet weights must be checked before combining amounts.',
+      sourceReference: SourceReference(
+        pageNumber: 117,
+        sourceStatus: SourceStatus.teacherInference,
+      ),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-wip-1',
+      type: 'illustration',
+      title: 'Vegetable Market Pan Balance Scene',
+      description: 'Market stall with vegetable vendor weighing pumpkins and vegetables on two-pan beam balances.',
+      pageReference: 115,
+    ),
+    Visual(
+      id: 'v-wip-2',
+      type: 'diagram',
+      title: '1 kg Weight Fractions Breakdown',
+      description: 'Diagram showing 1 kg balancing two 500 g packets, four 250 g packets, or ten 100 g packets.',
+      pageReference: 117,
+    ),
+    Visual(
+      id: 'v-wip-3',
+      type: 'diagram',
+      title: '1 Litre Pouring and Dosing Activity',
+      description: 'Illustration of pouring four 250 ml glasses, ten 100 ml cups, or twenty 50 ml bottles into 1 l bottle.',
+      pageReference: 123,
+    ),
+    Visual(
+      id: 'v-wip-4',
+      type: 'chart',
+      title: 'Leaking Tap Wastage Accumulation',
+      description: 'Graph showing how 500 ml/hour leak accumulates into 12 litres per day and 84 litres per week.',
+      pageReference: 127,
+    ),
+  ],
+  teacherStudy: mathWeighItPourItTeacherStudy,
+  studentLesson: mathWeighItPourItStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-wip-1',
+      questionText: 'How many 250 g packets of dal are needed to balance a 1 kg weight on a pan balance? Show your calculation.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '1 kg = 1,000 g.\nNumber of packets = 1000 g ÷ 250 g = 4 packets.\nTherefore, 4 packets of 250 g dal are needed to balance 1 kg.',
+      explanation: 'Divide the total required weight (1000 g) by the weight of a single packet (250 g).',
+      keywords: ['1 kg = 1000 g', '1000 ÷ 250 = 4', '4 packets'],
+    ),
+    PracticeQuestion(
+      id: 'pq-wip-2',
+      questionText: 'A sweet maker needs to pack 1 kg of kaju-katli into boxes. How many boxes will be needed if she uses: (a) 500 g boxes, (b) 250 g boxes, (c) 100 g boxes, and (d) 50 g boxes?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '1 kg = 1,000 g:\n(a) 500 g boxes: 1000 ÷ 500 = 2 boxes.\n(b) 250 g boxes: 1000 ÷ 250 = 4 boxes.\n(c) 100 g boxes: 1000 ÷ 100 = 10 boxes.\n(d) 50 g boxes: 1000 ÷ 50 = 20 boxes.',
+      explanation:
+          'Divide 1000 g by each box capacity to find the number of boxes.',
+      keywords: ['2 boxes', '4 boxes', '10 boxes', '20 boxes', '1000 g'],
+    ),
+    PracticeQuestion(
+      id: 'pq-wip-3',
+      questionText: 'A shopkeeper has 1 litre of perfumed oil and wants to pack it into small 200 ml bottles. How many bottles can he fill?',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '1 litre = 1,000 millilitres (1 l = 1000 ml).\nNumber of bottles = 1000 ml ÷ 200 ml = 5 bottles.\nThe shopkeeper can fill 5 bottles.',
+      explanation: 'Convert 1 litre into 1000 ml, then divide by 200 ml.',
+      keywords: ['1 l = 1000 ml', '1000 ÷ 200 = 5', '5 bottles'],
+    ),
+    PracticeQuestion(
+      id: 'pq-wip-4',
+      questionText: 'Explain the difference between weight and capacity. Give one everyday example of an object measured by weight and one container measured by capacity.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: 'Weight measures how heavy or light an object is (using grams and kilograms), such as a bag of wheat weighing 5 kg.\nCapacity measures the maximum amount of liquid a container can hold (using millilitres and litres), such as a water bottle holding 1 litre.',
+      explanation: 'Weight is for solid mass/heaviness; capacity is for internal liquid volume.',
+      keywords: [
+        'heaviness vs liquid volume',
+        'grams/kilograms',
+        'millilitres/litres',
+        'wheat (weight)',
+        'bottle (capacity)',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-wip-5',
+      questionText: 'A tap leaks 500 ml of water every hour. (a) How many litres of water are wasted in one day (24 hours)? (b) How many litres are wasted in one week (7 days)?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '(a) Water wasted in 1 day (24 hours):\n24 * 500 ml = 12,000 ml = 12 litres.\n\n(b) Water wasted in 1 week (7 days):\n7 * 12 litres = 84 litres.',
+      explanation: 'Multiply hourly leakage by 24 for daily waste, and daily waste by 7 for weekly waste.',
+      keywords: [
+        '24 * 500 = 12,000 ml = 12 l',
+        '7 * 12 = 84 l',
+        '12 litres',
+        '84 litres',
+      ],
+    ),
+  ],
+);

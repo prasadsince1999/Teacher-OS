@@ -1,0 +1,176 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g5_far_and_near_lesson.dart';
+import 'ncert_math_g5_far_and_near_sections.dart';
+import 'ncert_math_g5_far_and_near_study.dart';
+
+final Chapter mathG5FarAndNearChapter = Chapter(
+  id: 'ncert-g5-math-far-and-near',
+  title: 'Far and Near',
+  classLevel: 'Class 5',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Measurement of Length, Unit Relationships and Operations',
+  mainTheme: 'Measurement of length, relationships between units, long-distance measurement, and operations on lengths.',
+  mainIdea: 'The chapter teaches students how to choose suitable units for measuring different lengths and how different units are related. It moves from metres and centimetres to kilometres and millimetres, then teaches conversion between units. Students compare, add, subtract, multiply and divide lengths, including lengths written in mixed units such as metres and centimetres. The chapter also connects measurement with real-life situations such as races, train journeys, cables, cloth, roads and height.',
+  learningOutcomes: const [
+    'Identify an appropriate unit for measuring a given length (mm, cm, m, km).',
+    'Explain and use the relationships: 10 mm = 1 cm, 100 cm = 1 m, 1,000 m = 1 km.',
+    'Convert lengths between mm, cm, m, and km using multiplication and division.',
+    'Compare lengths written in the same or different units by converting to common units.',
+    'Add and subtract lengths, including mixed-unit lengths with place-value regrouping.',
+    'Multiply and divide lengths in practical situations.',
+    'Measure or estimate distances using suitable tools and reference points.',
+    'Solve real-life problems involving length, distance, cost, construction, travel, and measurement.',
+  ],
+  sections: mathG5FarAndNearSections,
+  concepts: const [
+    Concept(
+      id: 'c-fan-1',
+      title: 'Unit Scale & Suitability',
+      simpleMeaning: 'Choosing mm, cm, m, or km based on the physical magnitude and practicality of the measurement.',
+      sourceReference: SourceReference(pageNumber: 58),
+    ),
+    Concept(
+      id: 'c-fan-2',
+      title: 'Same Measure in Different Units & Comparison',
+      simpleMeaning: 'Expressing equivalent lengths across units and converting to a common unit before comparing with <, =, >.',
+      sourceReference: SourceReference(pageNumber: 58),
+    ),
+    Concept(
+      id: 'c-fan-3',
+      title: 'The Kilometre & Route Arithmetic',
+      simpleMeaning: 'Using 1 km = 1,000 m for long distances, calculating race waypoints, and finding intermediate station distances.',
+      sourceReference: SourceReference(pageNumber: 59),
+    ),
+    Concept(
+      id: 'c-fan-4',
+      title: 'Millimetre Precision & The Metric Ladder',
+      simpleMeaning: 'Measuring fine lengths with 1 cm = 10 mm and navigating the conversion ladder (*1k, *100, *10 / ÷10, ÷100, ÷1k).',
+      sourceReference: SourceReference(pageNumber: 61),
+    ),
+    Concept(
+      id: 'c-fan-5',
+      title: 'Mixed-Unit Arithmetic & Practical Operations',
+      simpleMeaning: 'Adding, subtracting, multiplying, and dividing lengths with regrouping at 100 cm and 1,000 m across real applications.',
+      sourceReference: SourceReference(pageNumber: 64),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'g-fan-1',
+      term: 'Millimetre (mm)',
+      definition: 'A small metric unit of length; 10 mm equal 1 centimetre.',
+      sourceReference: SourceReference(pageNumber: 61),
+    ),
+    GlossaryTerm(
+      id: 'g-fan-2',
+      term: 'Centimetre (cm)',
+      definition: 'A metric unit of length; 100 cm equal 1 metre.',
+      sourceReference: SourceReference(pageNumber: 58),
+    ),
+    GlossaryTerm(
+      id: 'g-fan-3',
+      term: 'Metre (m)',
+      definition: 'The base metric unit of length; 1,000 m equal 1 kilometre.',
+      sourceReference: SourceReference(pageNumber: 58),
+    ),
+    GlossaryTerm(
+      id: 'g-fan-4',
+      term: 'Kilometre (km)',
+      definition: 'A metric unit for measuring long distances; 1 km equals 1,000 metres.',
+      sourceReference: SourceReference(pageNumber: 59),
+    ),
+    GlossaryTerm(
+      id: 'g-fan-5',
+      term: 'Kilo',
+      definition: 'A metric prefix meaning one thousand (1,000).',
+      sourceReference: SourceReference(pageNumber: 59),
+    ),
+    GlossaryTerm(
+      id: 'g-fan-6',
+      term: 'Unit Conversion',
+      definition: 'Changing the expression of a measurement from one unit into another without altering the physical quantity.',
+      sourceReference: SourceReference(pageNumber: 62),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'm-fan-1',
+      label: 'Comparing raw numbers without matching units',
+      mistake:
+          'Thinking 456 cm is greater than 5 m because 456 is larger than 5.',
+      correctIdea: 'Always convert unlike units to a common unit before comparing (5 m = 500 cm, so 456 cm < 5 m).',
+      explanation: 'A smaller unit requires a larger number to represent the exact same physical length.',
+      sourceReference: SourceReference(pageNumber: 58),
+    ),
+    Misconception(
+      id: 'm-fan-2',
+      label: 'Confusing regrouping thresholds across metric units',
+      mistake: 'Believing that 100 metres make 1 kilometre or 10 centimetres make 1 metre.',
+      correctIdea: '10 mm = 1 cm, 100 cm = 1 m, and 1,000 m = 1 km.',
+      explanation: 'Each step on the metric ladder uses a distinct power of 10 (10, 100, 1,000).',
+      sourceReference: SourceReference(pageNumber: 62),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-fan-1',
+      type: 'diagram',
+      title: 'The Metric Conversion Ladder',
+      description: 'Visual ladder showing km ──(*1,000)──> m ──(*100)──> cm ──(*10)──> mm with reverse division steps.',
+      pageReference: 62,
+    ),
+    Visual(
+      id: 'v-fan-2',
+      type: 'chart',
+      title: 'Vivek Express Route & Distance Chart',
+      description: 'Route chart illustrating cumulative distances from Dibrugarh (4,187 km) with waypoint subtractions.',
+      pageReference: 60,
+    ),
+  ],
+  teacherStudy: mathG5FarAndNearTeacherStudy,
+  studentLesson: mathG5FarAndNearStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-fan-1',
+      questionText: 'Convert 5,792 cm into metres and centimetres, and compare 6 m 25 cm with 625 cm.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: '- 5,792 cm = 5,700 cm + 92 cm = 57 m 92 cm.\n- 6 m 25 cm = 600 cm + 25 cm = 625 cm → 6 m 25 cm = 625 cm.',
+      explanation: 'Use 100 cm = 1 m for conversion and comparison.',
+      keywords: ['57 m 92 cm', '6 m 25 cm = 625 cm', '100 cm = 1 m'],
+    ),
+    PracticeQuestion(
+      id: 'pq-fan-2',
+      questionText: 'Add 3 km 450 m + 4 km 650 m, showing the step where regrouping occurs.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '- Add metres: 450 m + 650 m = 1,100 m.\n- Regroup 1,100 m = 1 km 100 m.\n- Add kilometres: 3 km + 4 km + 1 km = 8 km.\n- Total = 8 km 100 m.',
+      explanation: 'Metres exceeding 1,000 m regroup into kilometres.',
+      keywords: ['1100 m = 1 km 100 m', '8 km 100 m', 'regrouping'],
+    ),
+    PracticeQuestion(
+      id: 'pq-fan-3',
+      questionText: 'A cable is 63 m long. An electrician cuts and uses 16 m 75 cm. Calculate the length of cable remaining.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '1. Convert to centimetres: 63 m = 6,300 cm; 16 m 75 cm = 1,675 cm.\n2. Subtract: 6,300 cm - 1,675 cm = 4,625 cm.\n3. Convert back: 4,625 cm = 46 m 25 cm.\nTherefore, 46 m 25 cm of cable remains.',
+      explanation: 'Borrowing 1 m as 100 cm allows subtraction of mixed units.',
+      keywords: ['6300 - 1675 = 4625 cm', '46 m 25 cm', 'remaining cable'],
+    ),
+    PracticeQuestion(
+      id: 'pq-fan-4',
+      questionText: 'In a 3 km race, water stations are set up every 500 m and children are stationed every 300 m before the finish line. How many water stations and children are there?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: '- Total distance = 3 km = 3,000 m.\n- Water stations (every 500 m): 500, 1000, 1500, 2000, 2500 m → 5 water stations.\n- Children (every 300 m): 300, 600, 900, 1200, 1500, 1800, 2100, 2400, 2700 m → 9 children.',
+      explanation: 'Course intervals calculated by dividing total distance before the endpoint.',
+      keywords: [
+        '3000 m',
+        '5 water stations',
+        '9 children',
+        'interval division',
+      ],
+    ),
+  ],
+);

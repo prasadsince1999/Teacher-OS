@@ -1,0 +1,73 @@
+import '../../models/content_models.dart';
+
+const TeacherStudyData ncertMathG7LargeNumbersTeacherStudy = TeacherStudyData(
+  chapterSnapshot: 'NCERT Class 7 Mathematics (Ganita Prakash) Chapter 1: Large Numbers Around Us (QR: 0774CH01). Introduces students to the magnitude, structure, and applications of large numbers up to Crores and Billions. Key themes include: 1 Lakh (1,00,000) and sense of scale through rice varieties in Chintamani, Karnataka; Place value machinery (Land of Tens, Thoughtful Thousands, Creative Chitti, Systematic Sippy); Full comparative mastery between the Indian system (Ones, Thousands, Lakhs, Crores, Arabs with 3-2-2-2 comma grouping) and the International/American system (Ones, Thousands, Millions, Billions with 3-3-3 grouping); Exact vs approximate reasoning and Nearest Neighbours rounding; Census 2001-2011 city growth analysis; Multiplication shortcuts leveraging powers of 10 (x5, x25, x125, x250); Rigorous algebraic bounds for product digits ((m+n-1) to (m+n) digits); and Fermi estimation problems spanning astronomy (Earth-Sun 147M km, Moon 384k km), biology (blue whale 150 tonnes, bird migration 13,560 km non-stop), and real-world population logistics.',
+  learningOutcomes: [
+    'Define and visualize 1 Lakh (1,00,000) as the smallest 6-digit number and 1 Crore (1,00,00,000) as the smallest 8-digit number.',
+    'Express large numbers using base-10 button-click machines and prove that minimal clicks equal digit sums.',
+    'Fluently read, write, compare, and convert numbers between the Indian (Lakhs/Crores) and International (Millions/Billions) place value systems.',
+    'Determine the 5 nearest neighbours (thousand, ten-thousand, lakh, ten-lakh, crore) and apply contextual rounding (up, down, exact).',
+    'Execute mental multiplication shortcuts using base-10 factors (x5, x25, x125, x250, factor regrouping).',
+    'Prove and apply the Product Digit Bounds rule: an m-digit by n-digit product contains between (m+n-1) and (m+n) digits.',
+    'Solve Fermi estimation and thought-experiment problems involving travel times, weights, and mega-populations.',
+    'Solve positional number puzzles including 10-digit pandigital extremes and digit-stream index tracking.',
+  ],
+  chapterMap: [
+    '1. A Lakh Varieties: 1,00,000 definition, historical rice diversity, and physical scale comparisons',
+    '2. Land of Tens: Powers-of-10 calculators (Chitti & Sippy) and minimal-click place value decomposition',
+    '3. Indian vs International Systems: Comma conventions (3-2-2-2 vs 3-3-3), terminology, and conversion ratios',
+    '4. Rounding & Nearest Neighbours: Purposeful estimation (up, down, exact) and Census 2001-2011 analysis',
+    '5. Patterns in Products: Mental shortcuts (x5, x25, x125), regrouping, and product digit bounds theorem',
+    '6. Fermi Problems & Planetary Scale: Astronomy, whale biomass, bird migration, and coin counting duration',
+    '7. Advanced Puzzles: Pandigital number construction, matchstick digits, and stream digit counting',
+  ],
+  completeExplanation: 'Chapter 1 of Ganita Prakash Grade 7 deepens number sense from elementary arithmetic to high-level numerical modeling. The chapter opens in Chintamani, Karnataka, where farmer Eshwarappa, Roxie, and Estu discover that India historically cultivated 1 lakh indigenous varieties of rice. This anchors the intuitive understanding of 1,00,000-not merely as the successor of 99,999, but as a monumental quantity that would require 274 years of daily tasting to sample completely.\n\nPedagogically, the chapter explores base-10 structure through the fictional "Land of Tens" calculators. While "Creative Chitti" illustrates flexible place-value partitioning (e.g. 5072 = 50x100 + 7x10 + 2x1), "Systematic Sippy" demonstrates that the unique configuration requiring the fewest button clicks corresponds exactly to the canonical base-10 expanded form, where total button clicks equal the sum of the digits.\n\nA central pillar is the comprehensive mastery of place value dualism: the Indian System (lakhs, crores, arabs with 3-2-2-2 grouping) versus the International/American System (millions, billions with 3-3-3 grouping). Students learn crucial identities: 10 lakhs = 1 million (10^6), 1 crore = 10 million (10^7), and 100 crores = 1 arab = 1 billion (10^9 = 10,000 lakhs).\n\nIn practical estimation, students explore when to round up (buffering food for 732 students -> 750 sweets), round down (conserving budget/time), or demand absolute exactness (emergency services like 100, bank transfers). This is reinforced by calculating the 5 nearest neighbours (thousand, ten-thousand, lakh, ten-lakh, crore) and evaluating Census 2001-2011 city growth trends.\n\nIn algebraic computation, students master base-10 multiplication shortcuts: multiplying by 5 as x10/2, by 25 as x100/4, by 125 as x1000/8, and by 250 as x1000/4. Crucially, they discover the Product Digit Bounds Rule: multiplying an m-digit number by an n-digit number yields between (m + n - 1) and (m + n) digits. This is proven using powers of 10 inequalities: 10^(m-1) <= A < 10^m and 10^(n-1) <= B < 10^n implies 10^(m+n-2) <= A x B < 10^(m+n).\n\nFinally, the chapter champions Fermi estimation and real-world science: comparing Earth-Sun distance (14.7 crore km = 147 million km), blue whale mass (150 tonnes), global plastic waste (4 million tonnes), and the astonishing 13,560 km non-stop flight of the bar-tailed godwit in 11 days. This equips students with estimation intuition essential for science, engineering, and everyday life.',
+  formulasRules: [
+    'One Lakh: 1,00,000 = 10^5 = 100 thousands (5 zeroes; smallest 6-digit number).',
+    'One Crore: 1,00,00,000 = 10^7 = 100 lakhs = 10 million (7 zeroes; smallest 8-digit number).',
+    'One Arab / One Billion: 1,00,00,00,000 = 1,000,000,000 = 10^9 = 100 crores = 10,000 lakhs (9 zeroes).',
+    'Systematic Sippy Rule: Minimal clicks in base-10 machine = Sum of digits of the number.',
+    'Multiplying by 5: n x 5 = (n x 10) / 2.',
+    'Multiplying by 25: n x 25 = (n x 100) / 4.',
+    'Multiplying by 125: n x 125 = (n x 1000) / 8.',
+    'Multiplying by 250: n x 250 = (n x 1000) / 4.',
+    'Product Digit Bounds: Digits in (m-digit x n-digit) in [(m+n-1), (m+n)].',
+    'Daily Coin Counting Rate: 1 coin/sec -> 86,400 coins/day (1 million coins = ~11.57 days).',
+  ],
+  storiesExamples: [
+    'The 1 Lakh Rice Varieties of India: Farmer Eshwarappa from Chintamani learns from seed bank elders that India historically cultivated 1,00,000 unique indigenous rice strains. Tasting one new variety daily would take over 274 years!',
+    'Bappi and the Rounded Emergency Call: When asked to call railway enquiry (139) or police (100/112), Bappi humorously called a rounded-off number, teaching that safety and financial identities require exact numbers!',
+    'The Titan Scale of Blue Whales: An adult blue whale weighs 150 tonnes (1,50,000 kg), its heart weighs 700 kg, and its tongue equals an entire elephant. Yet a single gram of healthy forest soil contains up to 1 billion bacteria!',
+    'The Miracle of the Bar-Tailed Godwit: In October 2022, a bar-tailed godwit flew 13,560 km across the open Pacific Ocean from Alaska to Australia without a single stop in 11 days, averaging 1,233 km per day (51 km/h)!',
+  ],
+  examRelevant: [
+    'Converting between Indian (Lakhs/Crores) and International (Millions/Billions) notations (e.g. 640 crore vs 60 billion, 500 lakhs vs 5 million).',
+    'Writing the 5 nearest neighbours for 7-digit and 8-digit numbers.',
+    'Executing mental multiplication shortcuts using 10/2, 100/4, 1000/8.',
+    'Finding maximum and minimum possible digits in multi-digit products (e.g. 5-digit x 5-digit = 9 or 10 digits; 12-digit x 13-digit = 24 or 25 digits).',
+    'Solving Fermi estimation problems (weight of 1 lakh paper sheets = 500 kg, time to count 1 million coins).',
+    'Position-index counting in continuous digit streams (1000th digit = 3 in 370; millionth digit in 1,85,185).',
+    'Pandigital number generation (largest multiple of 5 using 0-9 without repetition = 9876543210).',
+  ],
+  quickStudySheet: TeacherQuickSheetData(
+    oneLineIdea: 'Master the architecture of large numbers through Indian (Lakhs/Crores) vs International (Millions/Billions) place value, base-10 multiplication shortcuts, product digit bounds, and real-world Fermi estimations.',
+    coreTakeaways: [
+      '1 Lakh = 10^5 (5 zeroes); 1 Million = 10 Lakhs = 10^6; 1 Crore = 100 Lakhs = 10 Million = 10^7; 1 Billion = 1 Arab = 100 Crores = 10^9.',
+      'Indian grouping is 3-2-2-2 (thousands, lakhs, crores); International grouping is 3-3-3 (thousands, millions, billions).',
+      'Minimal base-10 calculator clicks always equals the sum of the digits.',
+      'Multiplication shortcuts: x5 = x10/2; x25 = x100/4; x125 = x1000/8.',
+      'Product of m-digit and n-digit numbers has either (m+n-1) or (m+n) digits.',
+      'Context determines rounding: Round up for safety/food supplies; Round down for budget/time conservation; Exact for emergency codes and bank transactions.',
+      'Fermi estimations bridge mathematics to astronomy, ecology, and logistics.',
+    ],
+    ifStuckPrompts: [
+      'If a student is confused between Lakhs and Millions: Draw the two place-value charts side-by-side and highlight that 1 Million has 6 zeroes (10 Lakhs) while 1 Lakh has 5 zeroes.',
+      'If a student struggles with product digit counts: Have them test the extremes: smallest (10 x 10 = 100 -> 3 digits) and largest (99 x 99 = 9801 -> 4 digits).',
+    ],
+    doNotSay: [
+      'Do NOT say rounding is always just picking the nearest multiple without considering context (e.g. sweet distribution requires rounding up).',
+      'Do NOT allow students to write commas in Indian system after 3 digits repeatedly; enforce 3-2-2-2 grouping.',
+    ],
+    boardSummary: 'LARGE NUMBERS: Indian (3-2-2-2: Lakh 10^5, Crore 10^7, Arab 10^9) vs International (3-3-3: Million 10^6, Billion 10^9) | 1 Billion = 1 Arab = 100 Crore = 10,000 Lakh | SHORTCUTS: x5=x10/2, x25=x100/4, x125=x1000/8 | PRODUCT DIGITS: (m+n-1) to (m+n) | NEAREST NEIGHBOURS: Contextual rounding',
+  ),
+);

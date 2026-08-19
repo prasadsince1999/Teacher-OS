@@ -1,0 +1,77 @@
+import '../../models/content_models.dart';
+
+const TeacherStudyData
+ncertMathG6OtherSideOfZeroTeacherStudy = TeacherStudyData(
+  chapterSnapshot: 'NCERT Class 6 Mathematics (Ganita Prakash) Chapter 10: The Other Side of Zero (QR: 0674CH10). A foundational exploration of negative numbers and the set of Integers (..., -3, -2, -1, 0, 1, 2, 3, ...). Introduces conceptual models including Bela\'s Building of Fun (floors above and below ground level 0), vertical mineshafts, the horizontal Number Line (left < right ordering), and the Token Model with green positive (+1) and red negative (-1) tokens forming Zero Pairs ((+1) + (-1) = 0). Develops formal algebraic operations for integer addition and subtraction, proving that subtracting a negative number is identical to adding a positive (a - (-b) = a + b) and that subtraction calculates required movement (Target - Start = Movement). Covers real-world applications in banking (credits and debits), geography (altitudes and sea level depths), temperature (Celsius above/below freezing point), hollow integer grids with border sums, cross-out magic grids, and the seminal historical contribution of Brahmagupta in Brahmasphutasiddhanta (628 CE).',
+  learningOutcomes: [
+    'Define positive numbers, negative numbers, zero, and the set of Integers.',
+    'Model integer movements using floor levels in a building and calculate movements using Start + Move = Target and Target - Start = Movement.',
+    'Define additive inverse and explain why a + (-a) = 0.',
+    'Represent integers on a horizontal number line and order them correctly (-5 < -3 < 0 < +4).',
+    'Explain why subtracting a negative number is equivalent to adding a positive number (a - (-b) = a + b).',
+    'Add integers using the Token Model by canceling out zero pairs.',
+    'Subtract integers using the Token Model by introducing zero pairs to remove opposite-signed tokens.',
+    'Apply signed integers to real-world contexts including bank balances (credits/debits), sea levels, and temperature.',
+    'Solve hollow integer grids with constant border sums and explain the invariant sum of cross-out magic grids.',
+    'State and apply Brahmagupta\'s rules for addition and subtraction of integers from Brahmasphutasiddhanta (628 CE).',
+  ],
+  chapterMap: [
+    '1. The Need for Numbers Below Zero: From Number Ray to Complete Number Line',
+    '2. Bela\'s Building of Fun: Ground Floor 0, Upper (+) Floors, Basement (-) Floors & Lift Arithmetic',
+    '3. Movement Formulas & Additive Inverses: Target - Start = Movement & Canceling Back to Zero',
+    '4. Number Line Geometry: Left < Right Ordering & Mental Arithmetic on Unmarked Number Lines',
+    '5. The Token Model & Zero Pairs: Charge Cancellation & Adding Zero Pairs for Subtraction',
+    '6. Real-World Applications: Banking Credits/Debits, Mountain/Sea-Floor Elevations & Celsius Temperatures',
+    '7. Mathematical Explorations: Hollow Grids (Border Sums) & Cross-Out Magic Grids',
+    '8. History of Integers & Games: Brahmagupta\'s Rules (628 CE) & Integers Snakes-and-Ladders',
+  ],
+  completeExplanation: 'Chapter 10 of Ganita Prakash formally introduces negative numbers and completes the elementary number system into the set of Integers Z.\n\nSection 10.1 establishes intuitive concrete grounding through Bela\'s Building of Fun. The ground level (Welcome Hall) represents 0. Floors above ground are positive integers (+1 Food Court, +2 Art Centre, +3 Books, +4 Ice Cream, +5 Sports, +6 Space), while subterranean basement floors are negative integers (-1 Toys, -2 Video Games, -3 Cinema, -4 Ghost House, -5 Dinosaur). Elevator button presses represent signed additions: pressing + moves up, pressing - moves down. Two fundamental algebraic relations emerge: 1) Starting Floor + Movement = Target Floor (e.g. (+1) + (+2) = +3; (+2) + (-3) = -1), and 2) Target Floor - Starting Floor = Movement Needed (e.g. (+5) - (+2) = +3; (-1) - (+3) = -4; (+2) - (-2) = +4). The additive inverse is defined as the unique number -a that restores a back to zero: a + (-a) = 0. Comparing floors establishes that lower floors are strictly less than higher floors (-4 < -3, -10 < -7).\n\nSection 10.1B extends this framework to vertical mineshafts and horizontal Number Lines. By rotating the vertical shaft 90 degrees, 0 becomes the central origin, positive integers extend indefinitely to the right, and negative integers extend indefinitely to the left. The rule for subtraction across negative numbers is derived: going from -200 m to +2000 m requires climbing +200 to reach 0 and then +2000 to reach the top, giving (+2000) - (-200) = 2000 + 200 = +2200. Thus, subtracting a negative number is algebraically identical to adding its positive opposite: a - (-b) = a + b.\n\nSection 10.2 formalizes arithmetic using the Token Model. Green tokens represent +1 and red tokens represent -1. One green and one red token form a Zero Pair ((+1) + (-1) = 0) with zero net value. In addition, tokens of opposite signs cancel in zero pairs (e.g. (+5) + (-8) leaves 3 negative tokens = -3). In subtraction, if insufficient tokens exist to take away directly, zero pairs are added without changing the total value: to evaluate (+4) - (-6), 6 zero pairs (6 positive and 6 negative) are introduced, and taking away the 6 negatives leaves 4 + 6 = 10 positive tokens.\n\nSection 10.3 and 10.4 connect integers to real-world contexts and advanced problem solving. In banking, credits are positive (+), debits are negative (-), and net balance is their sum. In geography, sea level is 0 m, heights are positive, and submarine depths are negative. In temperature, 0 deg C is water\'s freezing point. In mathematical puzzles, 3x3 hollow grids require equal border sums along all four outer edges, while 4x4 cross-out grids demonstrate invariant magic sums. The chapter culminates in the history of integers, highlighting China\'s rod calculus and India\'s pioneering mathematicians-specifically Brahmagupta in Brahmasphutasiddhanta (628 CE), who first gave systematic, rigorous arithmetic rules for positive numbers (property), negative numbers (debt), and zero, laying the foundation for modern algebra.',
+  formulasRules: [
+    'Definition of Integers: Z = {..., -3, -2, -1, 0, 1, 2, 3, ...}.',
+    'Starting Position + Movement = Target Position.',
+    'Target Position - Starting Position = Movement Needed.',
+    'Additive Inverse Rule: a + (-a) = 0; Additive inverse of 0 is 0.',
+    'Double Negative Subtraction: a - (-b) = a + b.',
+    'Subtraction as Inverse Addition: a - b = a + (-b).',
+    'Zero Pair: (+1) + (-1) = 0.',
+    'Brahmagupta\'s Addition: (+a) + (+b) = +(a+b); (-a) + (-b) = -(a+b); (+a) + (-b) = sign(max)(|a| - |b|).',
+    'Brahmagupta\'s Zero Laws: a + 0 = a; a - 0 = a; 0 - a = -a; 0 - (-a) = a; a - a = 0.',
+  ],
+  storiesExamples: [
+    'Bela\'s Building of Fun: Kids pressing elevator buttons to travel between upper entertainment floors and basement attractions.',
+    'The Lift Attendant\'s Pocket: Collecting green (+) and red (-) tokens in a pocket and pairing them into zero pairs.',
+    'The Overdraft Notice: A merchant whose debits exceed credits finding their bank balance dipped below zero.',
+    'Brahmagupta in 628 CE: Writing foundational rules for fortune and debt in ancient Ujjain.',
+  ],
+  examRelevant: [
+    'Defining integers, negative numbers, zero, and additive inverses.',
+    'Evaluating integer addition and subtraction expressions using algebraic rules and number line jumps.',
+    'Explaining why a - (-b) = a + b using the token model with zero pairs.',
+    'Comparing and ordering integers on the number line (e.g. arranging -15, 0, +4, -8, -20 in increasing order).',
+    'Calculating net bank account balances from credit and debit transaction lists.',
+    'Calculating altitude and temperature differences using subtraction of signed integers.',
+    'Solving 3x3 hollow integer grids to find missing entries for a given border sum.',
+    'Stating Brahmagupta\'s historical rules for arithmetic with positive, negative, and zero numbers.',
+  ],
+  quickStudySheet: TeacherQuickSheetData(
+    oneLineIdea: 'Integers complete the number line bidirectionally around zero, governed by zero-pair cancellation and Brahmagupta\'s rule that subtracting a negative is adding a positive (a - (-b) = a + b).',
+    coreTakeaways: [
+      'Integers: All positive whole numbers, negative whole numbers, and zero (neither + nor -).',
+      'Number Line: Numbers to the right are always greater (-10 < -2 < 0 < +5).',
+      'Start + Movement = Target & Target - Start = Movement Needed.',
+      'Additive Inverse: a + (-a) = 0 (cancels back to zero).',
+      'Subtracting Negatives: a - (-b) = a + b; a - b = a + (-b).',
+      'Token Model: Green (+1) + Red (-1) = Zero Pair; add zero pairs to subtract opposite signs.',
+      'Brahmagupta (628 CE): First defined arithmetic ring of positive, negative, and zero.',
+    ],
+    ifStuckPrompts: [
+      'If students confuse -5 and -3: Ask them: "Which floor is deeper in the basement, Floor -5 or Floor -3?" Lower means smaller.',
+      'If students struggle with 4 - (-6): Hand them 4 green tokens and 6 zero pairs, then tell them to physically take away 6 red tokens.',
+    ],
+    doNotSay: [
+      'Do NOT say two minuses always make a plus without context (e.g. -3 + -5 is NOT +8).',
+      'Do NOT say zero is a positive number.',
+    ],
+    boardSummary: 'INTEGERS: 1. SET: {..., -3, -2, -1, 0, 1, 2, 3, ...} | 2. ORDER: Left < Right (-5 < -2 < 0 < 3) | 3. MOVEMENT: Start + Move = Target; Target - Start = Move | 4. RULES: a - (-b) = a + b; a + (-a) = 0 | 5. TOKEN MODEL: (+1) + (-1) = Zero Pair | 6. BRAHMAGUPTA (628 CE): Founded rules for +, -, and 0.',
+  ),
+);

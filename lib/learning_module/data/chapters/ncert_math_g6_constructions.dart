@@ -1,0 +1,185 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g6_constructions_lesson.dart';
+import 'ncert_math_g6_constructions_sections.dart';
+import 'ncert_math_g6_constructions_study.dart';
+
+final Chapter mathG6ConstructionsChapter = Chapter(
+  id: 'ncert-g6-math-constructions',
+  title: 'Playing with Constructions',
+  classLevel: 'Class 6',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Unit 4: Geometry & Spatial Sense',
+  mainTheme: 'Geometric Constructions, Circle as Equidistant Loci, Compass Length Transfer, Squares & Rectangles, Orientation Invariance, Cyclic Polygon Naming, Rectangle Diagonals & Angle Splits, Points Equidistant from Two Points & Rhombus Constructions',
+  mainIdea: 'Master geometric constructions and spatial reasoning in Ganita Prakash Chapter 8. Covers circle definitions as loci of equidistant points (center, radius); compass usage for length transfer and circular arcs; defining squares (equal sides, four 90-degree angles) and rectangles (opposite sides equal, four 90-degree angles); naming conventions (cyclic vertex ordering); orientation invariance (rotated squares remain squares); step-by-step constructions with ruler, compass, and protractor; exploring variable line segments XY between opposite sides of rectangles; diagonal properties of rectangles (equal lengths, unequal angle splits) and squares (equal lengths, 45-degree angle bisection, perpendicular intersection); locating points equidistant from two fixed points via intersecting arcs; constructing complex composite figures (house, falling squares, eyes, wavy waves); and constructing equilateral quadrilaterals that are not squares (rhombuses).',
+  learningOutcomes: const [
+    'Define a circle as the locus of all points in a plane equidistant from a fixed center.',
+    'Use a compass proficiently to draw circles, circular arcs, and transfer line segment lengths.',
+    'Distinguish squares and rectangles by their defining side and angle properties.',
+    'Apply cyclic naming conventions to polygons and recognize orientation invariance.',
+    'Execute step-by-step constructions of squares and rectangles given sides and angles.',
+    'Analyze segment XY between opposite sides of a rectangle to find parallel and extreme conditions.',
+    'Compare the geometric properties of diagonals in rectangles versus squares.',
+    'Construct rectangles when given one side and the diagonal length.',
+    'Locate points equidistant from two fixed points using intersecting compass arcs.',
+    'Construct equilateral quadrilaterals with non-90-degree angles (rhombuses) and composite figures.',
+  ],
+  sections: ncertMathG6ConstructionsSections,
+  concepts: const [
+    Concept(
+      id: 'con-cn-1',
+      title: 'Circle as Equidistant Loci & Compass Tools',
+      simpleMeaning: 'A circle is all points at distance r from center P; compass draws arcs and transfers exact segment lengths.',
+      sourceReference: SourceReference(pageNumber: 189),
+    ),
+    Concept(
+      id: 'con-cn-2',
+      title: 'Squares, Rectangles & Orientation Invariance',
+      simpleMeaning: 'Squares have 4 equal sides and 4 right angles; rectangles have opposite sides equal and 4 right angles; rotation does not change shape.',
+      sourceReference: SourceReference(pageNumber: 193),
+    ),
+    Concept(
+      id: 'con-cn-3',
+      title: 'Constructing Polygons & Length Transfer',
+      simpleMeaning: 'Use rough sketches, perpendicular rays, and compass length transfers to construct precise single and composite figures.',
+      sourceReference: SourceReference(pageNumber: 195),
+    ),
+    Concept(
+      id: 'con-cn-4',
+      title: 'Segments XY & Diagonal Properties',
+      simpleMeaning: 'Diagonals of rectangles are equal and bisect each other; square diagonals are perpendicular bisectors and bisect corner right angles into 45 degrees.',
+      sourceReference: SourceReference(pageNumber: 204),
+    ),
+    Concept(
+      id: 'con-cn-5',
+      title: 'Equidistant Points & Rhombus Constructions',
+      simpleMeaning: 'Intersecting arcs from two centers find equidistant points; an equilateral 4-sided figure with non-90-degree angles is a rhombus.',
+      sourceReference: SourceReference(pageNumber: 213),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-cn-1',
+      term: 'Circle',
+      definition: 'A closed curve in a plane consisting of all points at a fixed distance (radius) from a fixed center point.',
+      sourceReference: SourceReference(pageNumber: 189),
+    ),
+    GlossaryTerm(
+      id: 'gt-cn-2',
+      term: 'Radius',
+      definition: 'The constant straight-line distance from the center of a circle to any point on its circumference.',
+      sourceReference: SourceReference(pageNumber: 189),
+    ),
+    GlossaryTerm(
+      id: 'gt-cn-3',
+      term: 'Diagonal',
+      definition: 'A straight line segment connecting two opposite (non-consecutive) vertices of a polygon.',
+      sourceReference: SourceReference(pageNumber: 203),
+    ),
+    GlossaryTerm(
+      id: 'gt-cn-4',
+      term: 'Cyclic Naming',
+      definition: 'Naming a polygon by reading its vertices consecutively around its perimeter without crossing interior diagonals.',
+      sourceReference: SourceReference(pageNumber: 193),
+    ),
+    GlossaryTerm(
+      id: 'gt-cn-5',
+      term: 'Equidistant',
+      definition: 'Being located at the exact same distance from two or more reference points or lines.',
+      sourceReference: SourceReference(pageNumber: 211),
+    ),
+    GlossaryTerm(
+      id: 'gt-cn-6',
+      term: 'Rhombus',
+      definition: 'A four-sided polygon with all four sides of equal length, whose interior angles are not necessarily right angles.',
+      sourceReference: SourceReference(pageNumber: 216),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'misc-cn-1',
+      label: 'Believing a rotated square is no longer a square but a diamond',
+      mistake: 'Thinking that tilting a square by 45 degrees turns it into a diamond and strips it of its square identity.',
+      correctIdea: 'A square is defined strictly by equal sides and four 90-degree angles. Rotation does not change lengths or angles.',
+      explanation: 'Geometric definitions are intrinsic and independent of the shape\'s orientation relative to page margins.',
+      sourceReference: SourceReference(pageNumber: 194),
+    ),
+    Misconception(
+      id: 'misc-cn-2',
+      label: 'Naming polygon corners non-cyclically across diagonals',
+      mistake: 'Naming a rectangle ABDC by reading top vertices then bottom vertices.',
+      correctIdea: 'Polygons must be named in continuous cyclic order around their perimeter (e.g. ABCD or BCDA).',
+      explanation: 'Naming ABDC implies an edge exists between B and D, which is actually an interior diagonal.',
+      sourceReference: SourceReference(pageNumber: 193),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-cn-1',
+      type: 'diagram',
+      title: 'Compass Circle Construction & Radius Geometry',
+      description: 'Diagram of compass with needle anchored at center point P and pencil opened to radius 4 cm tracing full circular curve.',
+      pageReference: 189,
+    ),
+    Visual(
+      id: 'v-cn-2',
+      type: 'diagram',
+      title: 'Rotated Squares and Rectangles on Dot Grid',
+      description: 'Dot grid illustrating standard and 45-degree tilted squares and rhombuses, demonstrating orientation invariance.',
+      pageReference: 194,
+    ),
+    Visual(
+      id: 'v-cn-3',
+      type: 'diagram',
+      title: 'The Geometric House Construction with Intersecting Arcs',
+      description: 'Step-by-step construction of house figure with 5 cm square base, 5 cm roof peak via intersecting arcs, and curved roofline.',
+      pageReference: 214,
+    ),
+  ],
+  teacherStudy: ncertMathG6ConstructionsTeacherStudy,
+  studentLesson: ncertMathG6ConstructionsStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-cn-1',
+      questionText: 'State the defining properties of a square and a rectangle, and explain why a rotated square on a dot grid is still a true square.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.remember,
+      answer: '1. Rectangle: Opposite sides are equal in length and all four angles are 90 degrees.\n2. Square: All four sides are equal in length and all four angles are 90 degrees.\n3. Rotation Invariance: Rotating a shape on a page changes only its visual orientation, not its side lengths or corner angles. Since all 4 sides remain equal and all 4 angles remain 90 degrees, a tilted square is mathematically still a square.',
+      explanation: 'Invariant properties under planar Euclidean rotation transformations.',
+      keywords: [
+        'Rectangle: opposite sides equal, all angles 90 deg',
+        'Square: all 4 sides equal, all angles 90 deg',
+        'Rotation preserves lengths and angles',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-cn-2',
+      questionText: 'In rectangle ABCD, the diagonal AC divides corner angle A into two angles of 60 degrees and 30 degrees. What are the angles formed by the diagonal AC at the opposite corner C? Explain why.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '1. Total angle at corner C is 90 degrees.\n2. Since opposite sides AB and CD are parallel and AC is a transversal, alternate interior angles are equal: angle BAC (60 deg) = angle ACD (60 deg).\n3. Similarly, angle DAC (30 deg) = angle ACB (30 deg).\n4. Therefore, the diagonal AC divides corner C into angles of 60 degrees and 30 degrees (specifically, angle ACD = 60 deg and angle ACB = 30 deg).',
+      explanation: 'Application of alternate interior angles on parallel sides of a rectangle cut by a transversal diagonal.',
+      keywords: [
+        'Alternate interior angles are equal',
+        'Angle BAC = Angle ACD = 60 degrees',
+        'Angle DAC = Angle ACB = 30 degrees',
+        'Corner sum = 90 degrees',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-cn-3',
+      questionText: 'Explain how to locate a point that is equidistant from two given points B and C using only a compass, and explain why this geometric procedure works.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: '1. Procedure:\n   - Choose a fixed radius r that is greater than half the distance between B and C (r > BC / 2).\n   - Place the compass needle at point B and swing a circular arc.\n   - Without altering the compass width, place the needle at point C and swing a second arc intersecting the first.\n   - The intersection point(s) A is equidistant from B and C.\n\n2. Geometric Justification:\n   - A circle of radius r centered at B is the set of all points at distance r from B (distance AB = r).\n   - A circle of radius r centered at C is the set of all points at distance r from C (distance AC = r).\n   - The intersection point A belongs to both circles, meaning distance AB = r and distance AC = r.\n   - Therefore, distance AB = distance AC, making point A strictly equidistant from B and C.',
+      explanation:
+          'Definition of circular locus and intersection of equidistant loci.',
+      keywords: [
+        'Equal radius r from both centers B and C',
+        'Arc from B has distance r; Arc from C has distance r',
+        'Intersection point A satisfies AB = AC = r',
+        'Locus of equidistant points',
+      ],
+    ),
+  ],
+);

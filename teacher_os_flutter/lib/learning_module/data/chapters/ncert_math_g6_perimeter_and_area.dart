@@ -1,0 +1,177 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g6_perimeter_and_area_lesson.dart';
+import 'ncert_math_g6_perimeter_and_area_sections.dart';
+import 'ncert_math_g6_perimeter_and_area_study.dart';
+
+final Chapter mathG6PerimeterAndAreaChapter = Chapter(
+  id: 'ncert-g6-math-perimeter-and-area',
+  title: 'Perimeter and Area',
+  classLevel: 'Class 6',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Unit 2: Spatial Understanding & Geometry',
+  mainTheme: 'Perimeter of Polygons & Regular Figures, Area of Rectangles & Squares, Tessellation, Tangram Area Fractions, Triangle Area Derivation, Polyomino Extremes, Architectural Floor Plans & Area Mazes',
+  mainIdea: 'Explores boundary lengths and enclosed planar regions in Ganita Prakash Chapter 6. Covers perimeter of polygons, rectangles (2(l+b)), squares (4s), triangles, and regular n-gons (ns); dot-grid straight and diagonal perimeter tracking; concentric running track geometry; split-and-rejoin perimeter variation; area of rectangles (l x b) and squares (s^2); 7-piece tangram area fractions (16 small-triangle units); grid-paper area estimation conventions; why squares tessellate whereas circles leave gaps; triangle area derivation as half of the surrounding rectangle (1/2 x b x h); polyomino perimeter variation with fixed area (9-square min 12, max 20); architectural house floor plans; area maze puzzles (Menseki Meiro); and square-folding perimeter conservation rules (sum of perimeters of cut halves = 1.5 times square perimeter).',
+  learningOutcomes: const [
+    'Define perimeter and calculate boundary lengths of rectangles, squares, triangles, and regular n-gons.',
+    'Differentiate straight units (s) and diagonal units (d) on dot grids.',
+    'Demonstrate through split-and-rejoin that shapes with identical area can have different perimeters.',
+    'Calculate area of rectangles and squares and decompose compound rectilinear shapes.',
+    'Analyze area relationships among the seven pieces of a tangram.',
+    'Apply NCERT grid-paper estimation rules to measure irregular planar shapes.',
+    'Derive and apply the triangle area formula (1/2 x base x perpendicular height).',
+    'Determine minimum and maximum perimeters for polyominoes with fixed area.',
+    'Calculate missing room dimensions and compare areas and perimeters in architectural house plans.',
+    'Solve area maze logic puzzles (Menseki Meiro) using integer area and side relations.',
+  ],
+  sections: ncertMathG6PerimeterAndAreaSections,
+  concepts: const [
+    Concept(
+      id: 'con-pa-1',
+      title: 'Perimeter of Polygons and Regular Shapes',
+      simpleMeaning: 'Perimeter is the total boundary distance around a closed figure: 2(l+b) for rectangles, 4s for squares, and ns for regular polygons.',
+      sourceReference: SourceReference(pageNumber: 130),
+    ),
+    Concept(
+      id: 'con-pa-2',
+      title: 'Area of Rectangles, Squares & Tangrams',
+      simpleMeaning: 'Area is the enclosed planar surface in square units; squares tessellate perfectly without gaps; 7 tangram pieces equal 16 small triangle units.',
+      sourceReference: SourceReference(pageNumber: 137),
+    ),
+    Concept(
+      id: 'con-pa-3',
+      title: 'Area of a Triangle as Half a Rectangle',
+      simpleMeaning: 'Every triangle is half of its enclosing rectangle: Area = 1/2 x base x perpendicular height.',
+      sourceReference: SourceReference(pageNumber: 143),
+    ),
+    Concept(
+      id: 'con-pa-4',
+      title: 'Polyomino Extremes, Floor Plans & Area Mazes',
+      simpleMeaning: 'Shapes with fixed area have varying perimeters (squares minimize, strips maximize); house plans and area mazes use integer geometric logic.',
+      sourceReference: SourceReference(pageNumber: 145),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-pa-1',
+      term: 'Perimeter',
+      definition: 'The total distance covered along the boundary of a closed plane figure.',
+      sourceReference: SourceReference(pageNumber: 129),
+    ),
+    GlossaryTerm(
+      id: 'gt-pa-2',
+      term: 'Area',
+      definition: 'The measure of the planar region enclosed by a closed figure, expressed in square units.',
+      sourceReference: SourceReference(pageNumber: 137),
+    ),
+    GlossaryTerm(
+      id: 'gt-pa-3',
+      term: 'Regular Polygon',
+      definition: 'A closed polygon with all sides equal in length and all interior angles equal in measure.',
+      sourceReference: SourceReference(pageNumber: 135),
+    ),
+    GlossaryTerm(
+      id: 'gt-pa-4',
+      term: 'Tangram',
+      definition: 'A traditional Chinese puzzle of seven geometric pieces that can be arranged into various shapes without overlapping.',
+      sourceReference: SourceReference(pageNumber: 139),
+    ),
+    GlossaryTerm(
+      id: 'gt-pa-5',
+      term: 'Tessellation',
+      definition: 'The repeated tiling of a plane using shapes that fit together with zero gaps and zero overlaps.',
+      sourceReference: SourceReference(pageNumber: 141),
+    ),
+    GlossaryTerm(
+      id: 'gt-pa-6',
+      term: 'Altitude',
+      definition: 'The perpendicular line segment drawn from a vertex of a triangle to the opposite side (base).',
+      sourceReference: SourceReference(pageNumber: 143),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'misc-pa-1',
+      label: 'Assuming equal area guarantees equal perimeter',
+      mistake: 'Believing that if two figures have the same area, they must have the same perimeter.',
+      correctIdea: 'Two figures can have the exact same area with very different perimeters (e.g. a 3x3 square has perimeter 12, but a 1x9 strip has perimeter 20).',
+      explanation: 'Area measures 2D interior surface, while perimeter measures 1D boundary path.',
+      sourceReference: SourceReference(pageNumber: 136),
+    ),
+    Misconception(
+      id: 'misc-pa-2',
+      label: 'Using slant sides for triangle area',
+      mistake: 'Multiplying base by a slanted side length when calculating triangle area.',
+      correctIdea: 'Triangle area formula requires the perpendicular height (altitude) dropped straight down to the base.',
+      explanation: 'The altitude corresponds directly to the perpendicular width of the surrounding rectangle.',
+      sourceReference: SourceReference(pageNumber: 143),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-pa-1',
+      type: 'diagram',
+      title: 'Split and Rejoin Rectangles Diagram',
+      description: 'Visual sequence showing a 6cm x 4cm rectangle cut into two 6cm x 2cm strips and rejoined end-to-end to show perimeter increase from 20cm to 28cm.',
+      pageReference: 136,
+    ),
+    Visual(
+      id: 'v-pa-2',
+      type: 'diagram',
+      title: '7-Piece Tangram Area Breakdown',
+      description: 'Dissected square showing the 7 tans labeled A through G with their proportional area unit values summing to 16.',
+      pageReference: 139,
+    ),
+    Visual(
+      id: 'v-pa-3',
+      type: 'diagram',
+      title: 'General Triangle Altitude Rectangular Dissection',
+      description: 'Rectangle ABCD split by altitude EF into two sub-rectangles showing triangle ABE is composed of two half-rectangles.',
+      pageReference: 143,
+    ),
+  ],
+  teacherStudy: ncertMathG6PerimeterAndAreaTeacherStudy,
+  studentLesson: ncertMathG6PerimeterAndAreaStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-pa-1',
+      questionText: 'A rectangular park is 150 m long and 120 m wide. Find the cost of fencing it with 3 rounds of wire if wire costs Rs 40 per metre.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.remember,
+      answer: 'Perimeter of park = 2 x (length + breadth) = 2 x (150 + 120) = 2 x 270 = 540 m.\nFor 3 rounds of wire: Total wire needed = 3 x 540 = 1,620 m.\nTotal cost of fencing = 1,620 m x Rs 40/m = Rs 64,800.\n(For 1 round only, cost is 540 x 40 = Rs 21,600).',
+      explanation: 'Perimeter calculation and multi-round cost multiplication.',
+      keywords: [
+        'Perimeter = 2(150 + 120) = 540 m',
+        '3 rounds = 1620 m',
+        'Cost = Rs 64,800',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-pa-2',
+      questionText: 'Prove using rectangle dissection why the area of any triangle is equal to 1/2 x base x perpendicular height.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '1. Consider a rectangle ABCD with length equal to base b and width equal to height h.\n2. A diagonal AC splits ABCD into two congruent right triangles, each with area = 1/2 x b x h.\n3. For any general triangle ABE inside ABCD, dropping an altitude EF perpendicular to base AB splits ABCD into two smaller rectangles: AFED and BFEC.\n4. Triangle ABE is divided by EF into two right triangles AEF and BEF.\n5. Area(AEF) = 1/2 Area(AFED) and Area(BEF) = 1/2 Area(BFEC).\n6. Adding both: Area(ABE) = 1/2 [Area(AFED) + Area(BFEC)] = 1/2 Area(ABCD) = 1/2 x b x h.',
+      explanation: 'Geometric dissection proof of triangle area using altitudes and sub-rectangles.',
+      keywords: [
+        'Altitude splits triangle into two right triangles',
+        'Each right triangle is half of its sub-rectangle',
+        'Sum of halves equals 1/2 x base x perpendicular height',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-pa-3',
+      questionText: 'A square piece of paper with side s is cut in half into two identical rectangles. Prove that the sum of the perimeters of both rectangles is always 1.5 times the perimeter of the original square.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: '1. Let the side length of the square be s. Perimeter of square = 4s.\n2. Cutting the square in half produces two identical rectangles of dimensions s by s/2.\n3. Perimeter of one rectangle = 2(s + s/2) = 2(1.5s) = 3s.\n4. Sum of perimeters of both rectangles = 3s + 3s = 6s.\n5. Comparing to the square: Ratio = 6s / 4s = 6/4 = 1.5 = 1 1/2.\nThus, the sum of perimeters of the two cut rectangles is always exactly 1.5 times the square\'s perimeter.',
+      explanation: 'Algebraic ratio proof of boundary expansion under geometric dissection.',
+      keywords: [
+        'Square perimeter = 4s',
+        'Rectangle perimeter = 2(s + s/2) = 3s',
+        'Sum = 6s',
+        'Ratio = 6s / 4s = 1.5 (1 1/2 times)',
+      ],
+    ),
+  ],
+);

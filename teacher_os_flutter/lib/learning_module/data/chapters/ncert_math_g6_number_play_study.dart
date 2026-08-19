@@ -1,0 +1,73 @@
+import '../../models/content_models.dart';
+
+const TeacherStudyData ncertMathG6NumberPlayTeacherStudy = TeacherStudyData(
+  chapterSnapshot: 'NCERT Class 6 Mathematics (Ganita Prakash) Chapter 3: Number Play (QR: 0674CH03). Develops computational thinking, algorithmic reasoning, and mathematical recreational puzzles. Explores contextual numbers (height neighbor counting where ends say 0 or 1, and middle say 0, 1, or 2), 1D and 2D Supercells (local peaks where a cell exceeds all adjacent neighbors; max supercells in N cells is ceil(N/2); global maximum is always a supercell), digit counts (9 1-digit, 90 2-digit, 900 3-digit, 9000 4-digit, 90000 5-digit), digit sums (smallest with sum 14 is 59, largest 5-digit is 95000), digit frequency (any digit occurs 20 times in 1..100, 300 times in 1..1000), palindromic numbers and reverse-and-add algorithms (solving the 5-digit odd palindrome puzzle: 12421), Kaprekar\'s Constant (6174 for 4-digit numbers and 495 for 3-digit numbers discovered by D.R. Kaprekar in 1949), clock/calendar patterns, Collatz 3n+1 conjecture (Lothar Collatz 1937), simple Fermi estimation, and mathematical game-winning strategies (the Game of 21 using modulo 4 backward induction targets: 1, 5, 9, 13, 17, 21).',
+  learningOutcomes: [
+    'Analyze contextual numbers and explain boundary restrictions in height neighbor arrangements.',
+    'Identify supercells in 1D rows and 2D grids and compute the maximum supercells ceil(N/2).',
+    'Calculate the total count of k-digit numbers using 9 x 10^(k-1) and solve digit sum puzzles.',
+    'Determine the frequency of any digit in number ranges (20 in 1..100, 300 in 1..1000).',
+    'Construct palindromes using the reverse-and-add algorithm and solve palindromic logic puzzles.',
+    'Execute D.R. Kaprekar\'s routine to generate Kaprekar\'s Constant (6174 for 4-digits, 495 for 3-digits).',
+    'Evaluate clock/calendar number symmetries and explain calendar cycle repetition.',
+    'Trace Collatz (3n+1) sequences and explain why powers of 2 collapse directly to 1.',
+    'Apply Fermi estimation to calculate large real-world quantities using proportional scaling.',
+    'Formulate backward induction strategies to win modular addition games like the Game of 21.',
+  ],
+  chapterMap: [
+    '1. Height Neighbors & Boundary Conditions: End limits (0 or 1) vs Middle ranges (0, 1, or 2)',
+    '2. Supercells (1D & 2D): Local Peaks, Maximizing Supercells (ceil(N/2)) & Extremum Invariants',
+    '3. Digit Dynamics: k-digit Counts (9*10^(k-1)), Digit Sums & Digit Detectives (20 in 1..100)',
+    '4. Palindromic Symmetry: Reverse-and-Add Algorithm & 5-Digit Odd Puzzle (12421)',
+    '5. Kaprekar\'s Magic Constant: D.R. Kaprekar (1949), 4-Digit Routine (6174) & 3-Digit Routine (495)',
+    '6. Clock & Calendar Numbers: Repeating Blocks (20/12/2012), Palindromic Times & Reuse Cycles',
+    '7. Collatz Conjecture (3n+1): Lothar Collatz (1937), Halving Evens, Tripling Odds & Power of 2 Collapse',
+    '8. Game Theory & Estimation: Backward Induction in the Game of 21 (Targets: 1, 5, 9, 13, 17, 21)',
+  ],
+  completeExplanation: 'Chapter 3 of Ganita Prakash introduces computational thinking, algorithmic exploration, and number theory through recreational mathematics.\n\nThe chapter begins with contextual information encoded in numbers: children in a line announce the number of taller neighbors adjacent to them. Boundary conditions emerge naturally: children at the ends have only 1 neighbor and can therefore only say 0 or 1, whereas interior children can say 0, 1, or 2. This leads directly to the concept of Supercells-cells whose values strictly exceed all adjacent orthogonal neighbors. In an N-cell row, the maximum number of supercells is ceil(N/2). In any grid with distinct numbers, the global maximum is always a supercell, whereas the global minimum can never be a supercell.\n\nStudents then explore digit combinatorics: the number of k-digit numbers follows the geometric sequence 9 x 10^(k-1) (9, 90, 900, 9000, 90000). Digit sum analysis teaches place value optimization: the smallest number with digit sum 14 is 59, and the largest 5-digit number is 95,000. In "Digit Detectives", students discover that any non-zero digit appears exactly 20 times from 1 to 100 (10 in units place, 10 in tens place).\n\nPalindromic numbers (symmetric from left to right) and the reverse-and-add algorithm lead to the famous work of Indian mathematician D.R. Kaprekar (1949, Devlali). Kaprekar discovered that taking any 4-digit number with at least two distinct digits, forming the largest permutation A and smallest permutation B, and calculating A - B, reaches the fixed point 6174 in at most 7 steps. For 3-digit numbers, the routine reaches 495.\n\nThe chapter concludes with modern mathematical exploration: the unsolved Collatz Conjecture (Lothar Collatz, 1937, where n/2 for evens and 3n+1 for odds always seems to collapse to 1), Fermi estimation techniques for large real-world phenomena, and game-theoretic winning strategies in the Game of 21, where backward induction reveals target numbers 1, 5, 9, 13, 17, and 21.',
+  formulasRules: [
+    'Height Neighbors: End positions say 0 or 1; Middle positions say 0, 1, or 2.',
+    'Total k-Digit Numbers: Count = 9 x 10^(k-1).',
+    'Max Supercells in N-cell row: ceil(N/2).',
+    'Supercell Invariant: Global max is always a supercell; Global min is never a supercell.',
+    'Digit Frequency (1..100): Each non-zero digit appears 20 times (10 units + 10 tens).',
+    'Digit Frequency (1..1000): Each non-zero digit appears 300 times (100 units + 100 tens + 100 hundreds).',
+    'Kaprekar\'s Constant: 6174 (4-digit, max 7 steps; 7641 - 1467 = 6174); 495 (3-digit; 954 - 459 = 495).',
+    'Collatz Sequence: If n is even -> n/2; If n is odd -> 3n + 1.',
+    'Game of 21 Winning Targets: 21 - 4k = {1, 5, 9, 13, 17, 21}. Player 1 wins by saying 1 and adding (4 - x).',
+  ],
+  storiesExamples: [
+    'D.R. Kaprekar at Devlali (1949): Dattatreya Ramchandra Kaprekar was a devoted Indian school teacher who spent his life playing with numbers and discovering mathematical gems like 6174, Kaprekar numbers, and Demlo numbers.',
+    'The Unsolved Collatz Mystery (1937): Lothar Collatz proposed the 3n+1 rule. Paul Erdős once famously said of it, "Mathematics may not be ready for such problems!"',
+    'The Game of 21 Classroom Tournament: Students play the addition race to 21, initially guessing randomly, until someone unlocks the secret targets (1, 5, 9, 13, 17, 21) and becomes unbeatable.',
+  ],
+  examRelevant: [
+    'Explaining why end positions in height neighbor lines can never say 2.',
+    'Finding the maximum number of supercells in a given 1D row or 2D grid.',
+    'Calculating total numbers with k digits and determining digit occurrence frequencies.',
+    'Performing Kaprekar\'s routine step-by-step on given 4-digit or 3-digit numbers.',
+    'Solving the 5-digit odd palindrome puzzle (12421).',
+    'Tracing Collatz 3n+1 sequences from given starting integers (e.g. 10, 12, 17).',
+    'Deriving the winning target sequence for the Game of 21 or its variations.',
+  ],
+  quickStudySheet: TeacherQuickSheetData(
+    oneLineIdea: 'Number play bridges place value, supercells, digit frequency, Kaprekar\'s 6174, the Collatz 3n+1 conjecture, and backward-induction game strategies.',
+    coreTakeaways: [
+      'Height neighbors: Ends say 0 or 1; Middle say 0, 1, or 2.',
+      'Supercells: Local peaks strictly greater than neighbors; max in N is ceil(N/2); global max is always supercell.',
+      'Digit frequency: 20 times in 1..100; 300 times in 1..1000; k-digit count = 9 x 10^(k-1).',
+      'Kaprekar Constant: 6174 (4-digit, <= 7 rounds); 495 (3-digit).',
+      'Collatz: Even -> n/2, Odd -> 3n+1 (unsolved conjecture collapsing to 1).',
+      'Game of 21: Targets 1, 5, 9, 13, 17, 21 (Player 1 always wins by pairing to 4).',
+    ],
+    ifStuckPrompts: [
+      'If students cannot see why Player 1 wins in 21: Ask what number guarantees a win right before 21? 17, because whatever the opponent adds (1..3), you can reach 21!',
+      'If students miss counts in digit detectives: Make a 10x10 grid of 1..100 and highlight the 7s in the units column (10) and tens row 70..79 (10).',
+    ],
+    doNotSay: [
+      'Do NOT say that 6174 works for numbers like 2222 (it requires at least two distinct digits).',
+      'Do NOT say Collatz is a proven theorem; it is an unproven mathematical conjecture.',
+    ],
+    boardSummary: 'NUMBER PLAY: 1. NEIGHBORS: Ends=0/1 | Middle=0/1/2 | 2. SUPERCELLS: Peak > neighbors | Max=ceil(N/2) | 3. DIGITS: 20 sevens in 1..100 | k-digits=9x10^(k-1) | 4. KAPREKAR (1949): Max A - Min B -> 6174 (3-digit=495) | 5. COLLATZ (1937): Even->n/2 | Odd->3n+1 | 6. GAME OF 21: Targets 1, 5, 9, 13, 17, 21',
+  ),
+);

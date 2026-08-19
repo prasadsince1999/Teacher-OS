@@ -1,0 +1,178 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g6_fractions_lesson.dart';
+import 'ncert_math_g6_fractions_sections.dart';
+import 'ncert_math_g6_fractions_study.dart';
+
+final Chapter mathG6FractionsChapter = Chapter(
+  id: 'ncert-g6-math-fractions',
+  title: 'Fractions',
+  classLevel: 'Class 6',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Unit 3: Number Sense & Operations',
+  mainTheme: 'Unit Fractions, Equal Sharing, Number Line, Proper/Improper/Mixed Numbers, Equivalent Fractions, Simplest Form, Brahmagupta\'s Addition and Subtraction (628 CE), History of Fraction Notation & Egyptian Fraction Puzzles',
+  mainIdea: 'Master fractional units and arithmetic operations in Ganita Prakash Chapter 7. Covers unit fractions (1/n) and equal shares; understanding fractions as counts of unit pieces (3/4 = 3 x 1/4); paper folding and strip measurements; number line representations and infinity of fractions between 0 and 1; proper, improper, and mixed fractions (conversion between a b/c and improper forms); fraction wall models and equivalent fractions; reducing to simplest form using HCF; comparing fractions with common denominators or cross-multiplication; Brahmagupta\'s 628 CE method for addition and subtraction using LCM; ancient Indian roots (bhinna in Bakshali manuscript, Aryabhata, Mahaviracharya); Al-Hassar\'s fraction bar; and Egyptian unit fraction puzzles (1/2 + 1/3 + 1/6 = 1).',
+  learningOutcomes: const [
+    'Define unit fractions (1/n) and explain why 1/n decreases as denominator n increases.',
+    'Express any fraction a/b as a count of a copies of the fractional unit 1/b.',
+    'Represent proper and improper fractions on a number line.',
+    'Convert seamlessly between improper fractions and mixed numbers (a b/c).',
+    'Generate equivalent fractions using the fraction wall and multiplicative identity.',
+    'Reduce fractions to lowest terms (simplest form) by dividing by their HCF.',
+    'Compare and order unlike fractions using common denominators (LCM).',
+    'Execute Brahmagupta\'s 628 CE algorithm to add and subtract unlike fractions.',
+    'Apply fraction addition and subtraction to solve real-world measurement and mixture problems.',
+    'Trace the historical journey of fraction notation and solve Egyptian unit fraction puzzles.',
+  ],
+  sections: ncertMathG6FractionsSections,
+  concepts: const [
+    Concept(
+      id: 'con-fr-1',
+      title: 'Fractional Units and Equal Shares',
+      simpleMeaning: 'A unit fraction 1/n is one equal share of a whole; 1/n shrinks as n grows; any fraction a/b is a counts of 1/b.',
+      sourceReference: SourceReference(pageNumber: 152),
+    ),
+    Concept(
+      id: 'con-fr-2',
+      title: 'Number Line and Mixed Numbers',
+      simpleMeaning: 'Fractions map onto the continuous line; improper fractions (>1) decompose into whole numbers plus fractions (e.g. 8/3 = 2 2/3).',
+      sourceReference: SourceReference(pageNumber: 162),
+    ),
+    Concept(
+      id: 'con-fr-3',
+      title: 'Equivalent Fractions and Simplest Form',
+      simpleMeaning: 'Multiplying/dividing numerator and denominator by the same number preserves value; lowest terms has HCF = 1.',
+      sourceReference: SourceReference(pageNumber: 167),
+    ),
+    Concept(
+      id: 'con-fr-4',
+      title: 'Brahmagupta\'s Addition and Subtraction (628 CE)',
+      simpleMeaning: 'Convert unlike fractions to a common denominator via LCM, then add or subtract numerators and simplify.',
+      sourceReference: SourceReference(pageNumber: 178),
+    ),
+    Concept(
+      id: 'con-fr-5',
+      title: 'History of Fractions & Egyptian Unit Puzzles',
+      simpleMeaning: 'Fractions originated in India as bhinna; Al-Hassar added fraction bar; 1/2 + 1/3 + 1/6 = 1 is the unique 3-unit sum to 1.',
+      sourceReference: SourceReference(pageNumber: 184),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-fr-1',
+      term: 'Unit Fraction',
+      definition: 'A fraction with a numerator of 1, representing one equal part of a unit whole (e.g. 1/n).',
+      sourceReference: SourceReference(pageNumber: 152),
+    ),
+    GlossaryTerm(
+      id: 'gt-fr-2',
+      term: 'Numerator',
+      definition: 'The top number of a fraction that counts how many fractional unit parts are present.',
+      sourceReference: SourceReference(pageNumber: 158),
+    ),
+    GlossaryTerm(
+      id: 'gt-fr-3',
+      term: 'Denominator',
+      definition: 'The bottom number of a fraction that names the fractional unit by indicating the total equal parts in the whole.',
+      sourceReference: SourceReference(pageNumber: 158),
+    ),
+    GlossaryTerm(
+      id: 'gt-fr-4',
+      term: 'Mixed Fraction',
+      definition: 'A number written as the sum of a whole number and a proper fraction (e.g. 2 1/3).',
+      sourceReference: SourceReference(pageNumber: 162),
+    ),
+    GlossaryTerm(
+      id: 'gt-fr-5',
+      term: 'Equivalent Fractions',
+      definition: 'Fractions that represent the same value, proportion, or point on the number line.',
+      sourceReference: SourceReference(pageNumber: 164),
+    ),
+    GlossaryTerm(
+      id: 'gt-fr-6',
+      term: 'Simplest Form (Lowest Terms)',
+      definition: 'A fraction in which the numerator and denominator share no common factor other than 1.',
+      sourceReference: SourceReference(pageNumber: 172),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'misc-fr-1',
+      label: 'Judging fraction size by whole-number denominator size',
+      mistake: 'Assuming 1/9 is larger than 1/5 because the whole number 9 is greater than 5.',
+      correctIdea: 'A larger denominator divides the whole into more pieces, making each individual piece smaller: 1/5 > 1/9.',
+      explanation: 'Fractional units represent division shares, so denominator magnitude is inversely related to unit size.',
+      sourceReference: SourceReference(pageNumber: 152),
+    ),
+    Misconception(
+      id: 'misc-fr-2',
+      label: 'Adding numerators and denominators together directly',
+      mistake: 'Computing 1/2 + 1/4 as (1+1)/(2+4) = 2/6 = 1/3.',
+      correctIdea: 'Fractions must be converted to common units (same denominator) before adding numerators: 1/2 + 1/4 = 2/4 + 1/4 = 3/4.',
+      explanation: 'You cannot add quantities with different unit sizes without converting to common units first.',
+      sourceReference: SourceReference(pageNumber: 178),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-fr-1',
+      type: 'diagram',
+      title: 'Fraction Wall Model (1 to 1/10)',
+      description: 'Tiered horizontal bar chart showing unit fractions from 1 down to 1/10, illustrating equivalent alignments like 1/2 = 2/4 = 3/6 = 4/8 = 5/10.',
+      pageReference: 165,
+    ),
+    Visual(
+      id: 'v-fr-2',
+      type: 'diagram',
+      title: 'Number Line Subdivision and Improper Fractions',
+      description: 'Linear number line with segments subdivided into fifths and halves, extending beyond 1 to show 3/2 and 7/5.',
+      pageReference: 160,
+    ),
+    Visual(
+      id: 'v-fr-3',
+      type: 'diagram',
+      title: 'Egyptian Unit Fraction Circle Dissection',
+      description: 'Circular pie chart divided into three distinct sectors: 1/2 (green), 1/3 (orange), and 1/6 (blue), summing to 1.',
+      pageReference: 185,
+    ),
+  ],
+  teacherStudy: ncertMathG6FractionsTeacherStudy,
+  studentLesson: ncertMathG6FractionsStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-fr-1',
+      questionText: 'Convert the improper fraction 47/9 into a mixed fraction, and convert the mixed fraction 7 2/3 into an improper fraction.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.remember,
+      answer: '1. Converting 47/9: Divide 47 by 9 -> Quotient = 5, Remainder = 2.\n   So, 47/9 = 5 2/9.\n2. Converting 7 2/3: Whole x Denominator + Numerator = 7 x 3 + 2 = 21 + 2 = 23.\n   So, 7 2/3 = 23/3.',
+      explanation: 'Standard division for mixed fraction and inverse whole-product algorithm.',
+      keywords: ['47/9 = 5 2/9', '7 2/3 = 23/3', 'Quotient and Remainder'],
+    ),
+    PracticeQuestion(
+      id: 'pq-fr-2',
+      questionText: 'Rahim mixes 2/3 litre of yellow paint with 3/4 litre of blue paint to make green paint. What is the total volume of green paint in mixed fraction form?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '1. Identify the operation: Total volume = 2/3 + 3/4 litres.\n2. Find LCM of denominators 3 and 4: LCM(3, 4) = 12.\n3. Convert to equivalent fractions: 2/3 = (2 x 4)/(3 x 4) = 8/12; 3/4 = (3 x 3)/(4 x 3) = 9/12.\n4. Add numerators: 8/12 + 9/12 = 17/12 litres.\n5. Convert to mixed fraction: 17 / 12 = 1 with remainder 5 -> 1 5/12 litres.',
+      explanation: 'Applying Brahmagupta\'s addition method with LCM and converting to mixed form.',
+      keywords: [
+        'LCM(3, 4) = 12',
+        '2/3 = 8/12 and 3/4 = 9/12',
+        'Sum = 17/12 = 1 5/12 litres',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-fr-3',
+      questionText: 'Prove using mathematical reasoning why 1/2 + 1/3 + 1/6 = 1, and explain why NO two distinct unit fractions can ever add up to 1.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: '1. Proof that 1/2 + 1/3 + 1/6 = 1:\n   Find common denominator: LCM(2, 3, 6) = 6.\n   1/2 = 3/6, 1/3 = 2/6, 1/6 = 1/6.\n   Sum = 3/6 + 2/6 + 1/6 = (3 + 2 + 1) / 6 = 6/6 = 1.\n\n2. Proof that no two distinct unit fractions can sum to 1:\n   Let the two distinct unit fractions be 1/a and 1/b with a != b.\n   The largest possible unit fraction is 1/2 (when a = 2). Two equal unit fractions 1/2 + 1/2 = 1.\n   If the unit fractions are distinct, they cannot both be 1/2. Therefore, at least one of them must have a denominator >= 3 (e.g. 1/3, 1/4), so its value is <= 1/3.\n   Then 1/a + 1/b <= 1/2 + 1/3 = 5/6 < 1.\n   Since 5/6 is strictly less than 1, no two distinct unit fractions can ever sum to 1.',
+      explanation: 'Egyptian fraction arithmetic verification and upper-bound inequality analysis.',
+      keywords: [
+        'LCM(2, 3, 6) = 6 -> 3/6 + 2/6 + 1/6 = 6/6 = 1',
+        'Largest unit fraction is 1/2',
+        'Two distinct unit fractions have sum <= 1/2 + 1/3 = 5/6 < 1',
+      ],
+    ),
+  ],
+);

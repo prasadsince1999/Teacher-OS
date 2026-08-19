@@ -1,0 +1,191 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g5_racing_seconds_lesson.dart';
+import 'ncert_math_g5_racing_seconds_sections.dart';
+import 'ncert_math_g5_racing_seconds_study.dart';
+
+final Chapter mathG5RacingSecondsChapter = Chapter(
+  id: 'ncert-g5-math-racing-seconds',
+  title: 'Racing Seconds',
+  classLevel: 'Class 5',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Measurement & Time',
+  mainTheme: 'Time Measurement, Seconds, 24-Hour Railway Clock, Double Number Line Conversions, and Mental Timeline Jumping',
+  mainIdea: 'Explores time precision down to seconds (1 min = 60 sec) through a 200m school race. Covers reading 3-hand analog clocks, calculating elapsed time, 12-hour vs 24-hour railway time conversions, classifying events as seconds vs minutes, reading and drawing seconds hand positions, double number line proportional conversions, and mental timeline jumping strategies across hour and midnight boundaries.',
+  learningOutcomes: const [
+    'Read, interpret, and represent time on 3-hand analog clocks with hours, minutes, and seconds.',
+    'Convert between 12-hour clock notation (a.m./p.m.) and 24-hour railway notation (hours).',
+    'Define and apply time conversion relationships (1 min = 60 sec, 1 hr = 60 min, 1 hr = 3,600 sec).',
+    'Estimate and classify durations of everyday actions into seconds or minutes.',
+    'Convert mixed units using double number lines (e.g. 150 min = 2 hr 30 min, 320 sec = 5 min 20 sec).',
+    'Calculate elapsed time, start time, and end time using oral mental timeline jumping strategies.',
+    'Solve multi-step real-world word problems involving sports, study schedules, travel, and midnight rollovers.',
+  ],
+  sections: ncertMathG5RacingSecondsSections,
+  concepts: const [
+    Concept(
+      id: 'c-rs-1',
+      title: 'The Second: Unit of Precision',
+      simpleMeaning: '1 minute = 60 seconds; seconds measure fast, short events with precision (sports, heartbeats).',
+      sourceReference: SourceReference(pageNumber: 157),
+    ),
+    Concept(
+      id: 'c-rs-2',
+      title: '12-Hour vs 24-Hour Formats',
+      simpleMeaning: 'In 24-hour format: AM hours stay identical; for PM hours, add 12 (07:30 PM = 19:30 hours).',
+      sourceReference: SourceReference(pageNumber: 156),
+    ),
+    Concept(
+      id: 'c-rs-3',
+      title: 'Reading & Drawing the Seconds Hand',
+      simpleMeaning: 'The seconds hand moves 5 seconds per number dial; 1 full revolution = 60 seconds = 1 minute.',
+      sourceReference: SourceReference(pageNumber: 159),
+    ),
+    Concept(
+      id: 'c-rs-4',
+      title: 'Double Number Line Proportional Conversions',
+      simpleMeaning: 'Base 60 conversions: Multiply hours by 60 for minutes; divide minutes by 60 for hours and remainder.',
+      sourceReference: SourceReference(pageNumber: 161),
+    ),
+    Concept(
+      id: 'c-rs-5',
+      title: 'Mental Timeline Jumping Across Boundaries',
+      simpleMeaning: 'Jump forward to clean hour stations for end times, and jump backward for start times.',
+      sourceReference: SourceReference(pageNumber: 163),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-rs-1',
+      term: 'Second',
+      definition: 'The standard unit of time for measuring very short durations (60 seconds = 1 minute).',
+      sourceReference: SourceReference(pageNumber: 157),
+    ),
+    GlossaryTerm(
+      id: 'gt-rs-2',
+      term: 'Elapsed Time',
+      definition: 'The total time that passes between the start and finish of an event.',
+      sourceReference: SourceReference(pageNumber: 155),
+    ),
+    GlossaryTerm(
+      id: 'gt-rs-3',
+      term: '12-Hour Clock Format',
+      definition: 'A timekeeping convention using a.m. (morning) and p.m. (afternoon/evening).',
+      sourceReference: SourceReference(pageNumber: 156),
+    ),
+    GlossaryTerm(
+      id: 'gt-rs-4',
+      term: '24-Hour Clock Format (Railway Time)',
+      definition: 'A continuous 24-hour timekeeping system counting from 00:00 to 23:59 without AM or PM.',
+      sourceReference: SourceReference(pageNumber: 156),
+    ),
+    GlossaryTerm(
+      id: 'gt-rs-5',
+      term: 'Double Number Line',
+      definition: 'A mathematical diagram showing two parallel scales to model unit conversions.',
+      sourceReference: SourceReference(pageNumber: 161),
+    ),
+    GlossaryTerm(
+      id: 'gt-rs-6',
+      term: 'Timeline Jump Strategy',
+      definition: 'A mental math technique adding or subtracting time in chunks to hit clean o\'clock stations.',
+      sourceReference: SourceReference(pageNumber: 163),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'm-rs-1',
+      label: 'Borrowing 10 or 100 instead of 60 when subtracting time',
+      mistake: 'Borrowing 1 hour as 10 or 100 minutes in vertical subtraction.',
+      correctIdea: 'Time operates on Base 60: 1 hour = 60 minutes. Use mental timeline jumps instead.',
+      explanation:
+          'Time units are sexagesimal (Base 60), not decimal (Base 10).',
+      sourceReference: SourceReference(pageNumber: 161),
+    ),
+    Misconception(
+      id: 'm-rs-2',
+      label: 'Adding 12 to AM hours in 24-hour format',
+      mistake: 'Writing 08:30 AM as 20:30 hours.',
+      correctIdea: 'Only add 12 to PM hours. AM hours stay identical (08:30 AM = 08:30 hours).',
+      explanation: 'AM hours represent morning before midday 12:00.',
+      sourceReference: SourceReference(pageNumber: 156),
+    ),
+    Misconception(
+      id: 'm-rs-3',
+      label: 'Confusing midnight rollover with afternoon',
+      mistake: 'Thinking 08:35 PM + 8 hr 25 min results in 05:00 PM.',
+      correctIdea:
+          'Crossing 12:00 midnight rolls over to 05:00 AM the next morning.',
+      explanation: 'Midday rolls from AM to PM; midnight rolls from PM to AM.',
+      sourceReference: SourceReference(pageNumber: 163),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-rs-1',
+      type: 'diagram',
+      title: '200m Race Podium & Stopwatch Precision',
+      description: 'Illustration of runners on the podium showing 1st (01:55), 2nd (01:56), and 3rd (01:57) place times.',
+      pageReference: 156,
+    ),
+    Visual(
+      id: 'v-rs-2',
+      type: 'diagram',
+      title: '3-Hand Analog Clock with Seconds Hand',
+      description: 'Diagram of analog clock dial showing hour, minute, and thin red seconds hand moving in 5-second intervals.',
+      pageReference: 159,
+    ),
+    Visual(
+      id: 'v-rs-3',
+      type: 'diagram',
+      title: 'Double Number Line: Hours to Minutes',
+      description: 'Visual parallel number line mapping hours (1, 2, 4, 7) directly to minutes (60, 120, 240, 420).',
+      pageReference: 161,
+    ),
+  ],
+  teacherStudy: ncertMathG5RacingSecondsTeacherStudy,
+  studentLesson: ncertMathG5RacingSecondsStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-rs-1',
+      questionText: 'Explain why the unit \'second\' is necessary, and give two everyday examples of activities measured in seconds.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.understand,
+      answer: 'Seconds provide high precision for measuring very short time intervals (1 minute = 60 seconds). Everyday examples: blinking eyes, snapping fingers, running 100m sprint.',
+      explanation: 'Precision for short durations.',
+      keywords: [
+        '1 minute = 60 seconds',
+        'precision for short durations',
+        'blinking',
+        '100m sprint',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-rs-2',
+      questionText: 'Convert the following times into 24-hour format: (a) 05:30 AM, (b) 07:30 PM, (c) 09:35 PM.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '(a) 05:30 AM = 05:30 hours.\n(b) 07:30 PM = 19:30 hours (7 + 12 = 19).\n(c) 09:35 PM = 21:35 hours (9 + 12 = 21).',
+      explanation: 'AM stays same; PM add 12 to hours.',
+      keywords: ['05:30 hours', '19:30 hours', '21:35 hours'],
+    ),
+    PracticeQuestion(
+      id: 'pq-rs-3',
+      questionText: 'Convert 200 minutes into hours and minutes, and convert 320 seconds into minutes and seconds.',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '200 minutes = (3 * 60) + 20 = 3 hours 20 minutes.\n320 seconds = (5 * 60) + 20 = 5 minutes 20 seconds.',
+      explanation: 'Base 60 division with remainder.',
+      keywords: ['3 hours 20 minutes', '5 minutes 20 seconds'],
+    ),
+    PracticeQuestion(
+      id: 'pq-rs-4',
+      questionText: 'Ragini finished her homework at 09:40 PM. She worked for 1 hour 10 minutes. What time did she start?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: 'Start time = End time - Duration = 09:40 PM - 1 hour 10 minutes = 08:30 PM.',
+      explanation: 'Jump backward 1 hour to 08:40 PM, then 10 min to 08:30 PM.',
+      keywords: ['08:30 PM', '09:40 - 1 hr = 08:40', '08:40 - 10 min = 08:30'],
+    ),
+  ],
+);

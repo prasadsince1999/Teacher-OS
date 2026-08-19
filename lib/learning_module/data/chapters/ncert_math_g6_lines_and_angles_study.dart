@@ -1,0 +1,73 @@
+import '../../models/content_models.dart';
+
+const TeacherStudyData ncertMathG6LinesAndAnglesTeacherStudy = TeacherStudyData(
+  chapterSnapshot: 'NCERT Class 6 Mathematics (Ganita Prakash) Chapter 2: Lines and Angles (QR: 0674CH02). Establishes foundational plane geometry primitives: Points (0D exact location), Line Segments (shortest straight path with 2 endpoints), Lines (infinite 1D extension in both directions with no endpoints; 2 points determine a unique line), and Rays (starts at initial point and extends endlessly in one direction). Defines an Angle as the amount of rotation between two rays meeting at a common vertex (∠DBE), demonstrating that angle size is independent of drawn arm length. Explores angle benchmark geometry via paper folding (Straight Angle = 180 deg, Right Angle = 90 deg, Perpendicular Lines, and Angle Bisectors). Details the degree measurement system (1 deg = 1/360 turn), its Rigvedic origins (Verse 1.164.48 wheel of 360 spokes) and composite divisibility (divisible by 1..10 except 7, 12, 24). Classifies angles into Acute (0 deg to 90 deg), Right (90 deg), Obtuse (90 deg to 180 deg), Straight (180 deg), Reflex (180 deg to 360 deg), and Complete (360 deg). Synthesizes dual-scale protractor construction, clock angle dynamics (30 deg/hr), Ashoka Chakra spoke geometry (24 spokes at 15 deg intervals), and triangle angle sum invariance (180 deg).',
+  learningOutcomes: [
+    'Define and distinguish points, line segments, lines, and rays with standard symbolic notation.',
+    'State that infinitely many lines pass through a single point, but exactly one unique line passes through two distinct points.',
+    'Define an angle as rotation about a vertex and explain why arm length does not affect angle size.',
+    'Fold paper to create straight angles (180 deg), right angles (90 deg), perpendiculars, and angle bisectors.',
+    'Explain the historical (Rigveda) and mathematical (divisibility) reasons for dividing a circle into 360 degrees.',
+    'Calculate circle division angles (1/2=180 deg, 1/3=120 deg, 1/4=90 deg, 1/5=72 deg, 1/6=60 deg, 1/8=45 deg, 1/10=36 deg, 1/12=30 deg).',
+    'Master dual-scale protractor alignment, identify common measuring pitfalls, and execute the 4-step angle construction protocol.',
+    'Classify angles accurately as acute, right, obtuse, straight, or reflex.',
+    'Solve real-world angular problems involving clocks (30 deg/hr), the Ashoka Chakra (15 deg/spoke), and triangle angle sums (180 deg).',
+  ],
+  chapterMap: [
+    '1. Building Blocks: Points (0D), Line Segments (2 endpoints), Lines (0 endpoints), and Rays (1 endpoint)',
+    '2. Defining Angles: Vertex, Arms, Notation (∠DBE), and Rotation Concept',
+    '3. Comparing Angles: Superimposition, Slit Testing, and Arm Length Invariance',
+    '4. Paper-Folding Benchmarks: Straight Angle (180 deg), Right Angle (90 deg), Perpendiculars & Bisectors',
+    '5. The 360-Degree System: Rigveda 360-Spoke Wheel, Calendar Origins, and Divisibility Rules',
+    '6. Protractor Draftsmanship: Inner vs Outer Scales, Baseline Alignment & 4-Step Construction',
+    '7. Complete Classification: Acute (0-90 deg), Right (90 deg), Obtuse (90-180 deg), Straight (180 deg), Reflex (180-360 deg)',
+    '8. Real-World Applications: Clocks (30 deg/hr), Ashoka Chakra (15 deg/spoke), and Triangle Angle Sums (180 deg)',
+  ],
+  completeExplanation: 'Chapter 2 of Ganita Prakash builds the rigorous geometric language for middle school mathematics by transitioning students from intuitive visual shapes to precise geometric primitives, dynamic rotational definitions, and standard degree measurements.\n\nThe chapter begins with the four fundamental primitives of plane geometry: (1) Point (a zero-dimensional exact location denoted by a capital letter, possessing no length, width, or height), (2) Line Segment (the shortest straight path between two points, having 2 fixed endpoints and a measurable length, denoted as AB), (3) Line (a line segment extended infinitely in both directions, having 0 endpoints and infinite extent, denoted as line AB or single letters like l or m, where any 2 distinct points fix a unique line), and (4) Ray (a portion of a line starting at an initial endpoint and extending indefinitely in one direction, denoted as ray AP).\n\nAn Angle is rigorously defined as the geometric figure formed by two rays (arms) sharing a common starting point (vertex). Notation requires the vertex to be the middle letter (∠DBE). Crucially, the size of an angle is defined as the amount of rotation needed to turn the initial arm onto the final arm around the vertex. The chapter systematically dismantles the common student misconception that longer drawn arms mean a larger angle: cutting or extending the arms does not alter the rotation measure.\n\nStudents then explore benchmark angles through paper folding (patraganita): folding a straight angle in half creates two equal 90-degree right angles and establishes perpendicularity and angle bisectors. The degree measurement system is introduced with historical and mathematical depth: 1 degree is 1/360 of a full rotation. The textbook cites the Rigveda (Verse 1.164.48 wheel of 360 spokes) and ancient solar calendars, and highlights the mathematical genius of 360 being divisible by 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, and 24.\n\nFinally, students master the protractor (using its dual inner/outer scales correctly to measure and construct angles in 4 clear steps), classify angles (acute, right, obtuse, straight, reflex), and apply angle geometry to clocks (30 deg per hour), the Ashoka Chakra (24 spokes creating 15 deg increments, with 75 deg being the largest acute angle), and prove empirically that any triangle\'s interior angles sum to 180 deg.',
+  formulasRules: [
+    'Lines through 1 Point: Infinitely many lines pass through a single point.',
+    'Lines through 2 Points: Exactly 1 unique line passes through two distinct points.',
+    'Full Turn / Complete Angle = 360 deg.',
+    'Straight Angle = 180 deg (Half turn; 1/2 of 360 deg).',
+    'Right Angle = 90 deg (Quarter turn; 1/4 of 360 deg; 1/2 of straight angle). Two right angles make a straight angle.',
+    'Perpendicular Lines: Lines intersecting at exactly 90 deg.',
+    'Acute Angle: 0 deg < θ < 90 deg | Obtuse Angle: 90 deg < θ < 180 deg | Reflex Angle: 180 deg < θ < 360 deg.',
+    'Clock Angle Rate: 360 deg / 12 = 30 deg per hour.',
+    'Ashoka Chakra Angle: 360 deg / 24 = 15 deg between adjacent spokes.',
+    'Triangle Interior Angle Sum: ∠A + ∠B + ∠C = 180 deg.',
+  ],
+  storiesExamples: [
+    'Rigvedic 360-Spoke Wheel: Verse 1.164.48 of the Rigveda describes the cosmic cycle of time as a single wheel with 360 spokes that never wears down, connecting astronomy, geometry, and ancient Indian calendars.',
+    'The Ashoka Chakra Geometry: The 24 spokes on the national flag represent the 24 hours of the day and virtues of life, each separated by exactly 15 degrees. Five spokes span 75 degrees, the largest acute angle between spokes!',
+    'The Angle Guessing Game: Two teams test their angular intuition by secretly drawing angles and challenging opponents to guess within degrees, scoring the absolute difference in error.',
+  ],
+  examRelevant: [
+    'Distinguishing lines, line segments, and rays (endpoints and symbols).',
+    'Explaining why angle size is invariant under arm lengthening or snipping.',
+    'Classifying angles given numerical values (e.g., 45 deg acute, 135 deg obtuse, 210 deg reflex).',
+    'Calculating clock hand angles at specific times (e.g., 4 o\'clock = 120 deg, 6 o\'clock = 180 deg).',
+    'Ashoka Chakra calculations (angle between adjacent spokes = 15 deg, largest acute angle = 75 deg).',
+    'Solving acute-to-obtuse multiplier puzzles (range: 18 deg < θ < 22.5 deg).',
+    'Writing the 4 steps of angle construction using a protractor and ruler.',
+  ],
+  quickStudySheet: TeacherQuickSheetData(
+    oneLineIdea: 'Plane geometry is built on points, segments, lines, and rays; angles measure rotation (independent of arm length) and are classified into acute, right, obtuse, straight, and reflex degrees.',
+    coreTakeaways: [
+      'Point (0D, A), Segment (2 endpoints, AB), Line (0 endpoints, AB), Ray (1 endpoint, AP).',
+      'Angle measures rotation around a vertex; arm length has zero impact on angle size.',
+      'Full turn = 360 deg (Rigveda 360 spokes; highly divisible); Straight = 180 deg; Right = 90 deg (Perpendicular).',
+      'Acute (0-90 deg), Right (90 deg), Obtuse (90-180 deg), Straight (180 deg), Reflex (180-360 deg).',
+      'Clock hour = 30 deg; Ashoka Chakra spoke = 15 deg (largest acute is 75 deg).',
+      'Triangle interior angle sum is always 180 deg.',
+    ],
+    ifStuckPrompts: [
+      'If a student thinks longer arms make a larger angle: Show rotating scissors or straw arms; cutting the blades does not change the mouth opening!',
+      'If a student reads the protractor backwards: Have them check first whether the angle is smaller than an L (acute) or wider (obtuse).',
+    ],
+    doNotSay: [
+      'Do NOT say a line has endpoints; only line segments have endpoints.',
+      'Do NOT allow students to place the protractor base edge on the vertex instead of the center mark.',
+    ],
+    boardSummary: 'LINES & ANGLES: PRIMITIVES: Point (A) | Segment (AB) | Line (AB) | Ray (AP) | ANGLE: Vertex + Arms | Measure = Rotation (Arm length invariant!) | DEGREES: Full=360 deg | Straight=180 deg | Right=90 deg (Perpendicular) | CLASSIFY: Acute (<90 deg) | Obtuse (90-180 deg) | Reflex (180-360 deg) | APPLICATIONS: Clock=30 deg/hr | Chakra=15 deg/spoke | Triangle Sum=180 deg',
+  ),
+);

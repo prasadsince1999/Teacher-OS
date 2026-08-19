@@ -1,0 +1,176 @@
+import '../../models/content_models.dart';
+import 'ncert_math_g6_lines_and_angles_lesson.dart';
+import 'ncert_math_g6_lines_and_angles_sections.dart';
+import 'ncert_math_g6_lines_and_angles_study.dart';
+
+final Chapter mathG6LinesAndAnglesChapter = Chapter(
+  id: 'ncert-g6-math-lines-and-angles',
+  title: 'Lines and Angles',
+  classLevel: 'Class 6',
+  board: 'NCERT',
+  subject: 'Mathematics',
+  unit: 'Unit 2: Shapes and Space',
+  mainTheme: 'Plane Geometry Building Blocks, Rotation-Based Angle Definition, 360-Degree System & History, Paper-Folding Benchmarks, Angle Classification, and Protractor Construction',
+  mainIdea: 'Establishes the foundational primitives of plane geometry: Points (0D exact location), Line Segments (shortest straight path with 2 endpoints), Lines (infinite extension in both directions with no endpoints; 2 points determine a unique line), and Rays (starts at initial point and extends endlessly in one direction). Defines an Angle as the amount of rotation between two rays meeting at a common vertex (∠DBE), demonstrating that angle size is independent of drawn arm length. Explores angle benchmark geometry via paper folding (Straight Angle = 180 deg, Right Angle = 90 deg, Perpendicular Lines, and Angle Bisectors). Details the degree measurement system (1 deg = 1/360 turn), its Rigvedic origins (Verse 1.164.48 wheel of 360 spokes) and composite divisibility (divisible by 1..10 except 7, 12, 24). Classifies angles into Acute (0 deg to 90 deg), Right (90 deg), Obtuse (90 deg to 180 deg), Straight (180 deg), Reflex (180 deg to 360 deg), and Complete (360 deg). Synthesizes dual-scale protractor construction, clock angle dynamics (30 deg/hr), Ashoka Chakra spoke geometry (24 spokes at 15 deg intervals), and triangle angle sum invariance (180 deg).',
+  learningOutcomes: const [
+    'Define and distinguish points, line segments, lines, and rays with standard symbolic notation.',
+    'State that infinitely many lines pass through a single point, but exactly one unique line passes through two distinct points.',
+    'Define an angle as rotation about a vertex and explain why arm length does not affect angle size.',
+    'Fold paper to create straight angles (180 deg), right angles (90 deg), perpendiculars, and angle bisectors.',
+    'Explain the historical (Rigveda) and mathematical (divisibility) reasons for dividing a circle into 360 degrees.',
+    'Calculate circle division angles (1/2=180 deg, 1/3=120 deg, 1/4=90 deg, 1/5=72 deg, 1/6=60 deg, 1/8=45 deg, 1/10=36 deg, 1/12=30 deg).',
+    'Master dual-scale protractor alignment, identify common measuring pitfalls, and execute the 4-step angle construction protocol.',
+    'Classify angles accurately as acute, right, obtuse, straight, or reflex.',
+    'Solve real-world angular problems involving clocks (30 deg/hr), the Ashoka Chakra (15 deg/spoke), and triangle angle sums (180 deg).',
+  ],
+  sections: ncertMathG6LinesAndAnglesSections,
+  concepts: const [
+    Concept(
+      id: 'con-la-1',
+      title: 'Plane Geometry Primitives (Point, Segment, Line, Ray)',
+      simpleMeaning: 'Points mark exact locations (0D); segments have 2 endpoints; lines extend infinitely (0 endpoints); rays start at 1 point.',
+      sourceReference: SourceReference(pageNumber: 13),
+    ),
+    Concept(
+      id: 'con-la-2',
+      title: 'Angle as Rotation & Arm Invariance',
+      simpleMeaning: 'An angle measures the amount of turn between two rays at a vertex; snipping or lengthening arms does not change angle size.',
+      sourceReference: SourceReference(pageNumber: 17),
+    ),
+    Concept(
+      id: 'con-la-3',
+      title: 'Benchmark Angles & Paper Folding',
+      simpleMeaning: 'Straight angles are 180 deg (half turn); right angles are 90 deg (quarter turn, perpendicular); bisectors divide angles into equal halves.',
+      sourceReference: SourceReference(pageNumber: 27),
+    ),
+    Concept(
+      id: 'con-la-4',
+      title: '360 deg Degree System & Protractor Draftsmanship',
+      simpleMeaning: 'A circle has 360 deg (Rigveda 1.164.48, highly divisible); dual-scale protractors allow 4-step precision angle drawing.',
+      sourceReference: SourceReference(pageNumber: 33),
+    ),
+    Concept(
+      id: 'con-la-5',
+      title: 'Angle Classification & Applied Geometry',
+      simpleMeaning: 'Classifies acute (<90 deg), right (90 deg), obtuse (90-180 deg), reflex (180-360 deg); clocks move 30 deg/hr; Ashoka Chakra has 15 deg intervals.',
+      sourceReference: SourceReference(pageNumber: 50),
+    ),
+  ],
+  glossary: const [
+    GlossaryTerm(
+      id: 'gt-la-1',
+      term: 'Line Segment',
+      definition: 'The shortest straight path between two points with two definite endpoints, denoted AB.',
+      sourceReference: SourceReference(pageNumber: 14),
+    ),
+    GlossaryTerm(
+      id: 'gt-la-2',
+      term: 'Ray',
+      definition: 'A straight line portion starting at an initial endpoint and extending indefinitely in one direction, denoted AP.',
+      sourceReference: SourceReference(pageNumber: 15),
+    ),
+    GlossaryTerm(
+      id: 'gt-la-3',
+      term: 'Perpendicular Lines',
+      definition: 'Two lines, line segments, or rays that intersect at an exact right angle of 90 degrees.',
+      sourceReference: SourceReference(pageNumber: 29),
+    ),
+    GlossaryTerm(
+      id: 'gt-la-4',
+      term: 'Angle Bisector',
+      definition: 'A ray or line that divides an angle into two perfectly equal angles.',
+      sourceReference: SourceReference(pageNumber: 40),
+    ),
+    GlossaryTerm(
+      id: 'gt-la-5',
+      term: 'Reflex Angle',
+      definition: 'An angle whose degree measure is greater than a straight angle (180 degrees) and less than a full turn (360 degrees).',
+      sourceReference: SourceReference(pageNumber: 51),
+    ),
+  ],
+  misconceptions: const [
+    Misconception(
+      id: 'misc-la-1',
+      label: 'Believing longer drawn arms make a larger angle',
+      mistake: 'Assuming that an angle with longer drawn rays is larger than an angle with shorter rays.',
+      correctIdea: 'Angle size depends exclusively on the amount of rotation between the two arms, not on the drawn length of the rays.',
+      explanation: 'Snipping or extending the rays of an angle leaves the rotation between the two directions completely unchanged.',
+      sourceReference: SourceReference(pageNumber: 27),
+    ),
+    Misconception(
+      id: 'misc-la-2',
+      label: 'Reading the incorrect protractor scale',
+      mistake: 'Reading 140 deg instead of 40 deg because of looking at the outer scale instead of the inner scale aligned with the 0 deg base.',
+      correctIdea: 'Always identify whether the angle is acute (<90 deg) or obtuse (>90 deg) first, then start counting from the 0 deg line that touches the base arm.',
+      explanation: 'The protractor has dual scales to accommodate angles opening either clockwise or anticlockwise.',
+      sourceReference: SourceReference(pageNumber: 44),
+    ),
+  ],
+  visuals: const [
+    Visual(
+      id: 'v-la-1',
+      type: 'diagram',
+      title: 'Four Primitives: Point, Line Segment, Line, and Ray',
+      description: 'Comparative diagrams illustrating point A (0D), line segment AB (2 endpoints), line AB (infinite both ways), and ray AP (1 endpoint).',
+      pageReference: 14,
+    ),
+    Visual(
+      id: 'v-la-2',
+      type: 'diagram',
+      title: 'Paper-Folding Angle Hierarchy & Bisectors',
+      description: 'Semicircle folding sequence generating 180 deg, 90 deg (perpendicular), 45 deg, and 22.5 deg creases with angle bisectors.',
+      pageReference: 39,
+    ),
+    Visual(
+      id: 'v-la-3',
+      type: 'diagram',
+      title: 'Dual-Scale Protractor & 4-Step Construction',
+      description: 'Annotated protractor showing inner scale (anticlockwise) and outer scale (clockwise) with 4-step angle drawing guide.',
+      pageReference: 47,
+    ),
+  ],
+  teacherStudy: ncertMathG6LinesAndAnglesTeacherStudy,
+  studentLesson: ncertMathG6LinesAndAnglesStudentLesson,
+  practice: const [
+    PracticeQuestion(
+      id: 'pq-la-1',
+      questionText: 'Differentiate between a line, a line segment, and a ray in terms of endpoints, length, and geometric notation.',
+      difficulty: PracticeDifficulty.easy,
+      cognitiveDemand: CognitiveDemand.remember,
+      answer: '1. Line Segment (AB): Has 2 definite endpoints, a finite measurable length, and represents the shortest path between two points.\n2. Line (AB or l): Has 0 endpoints, extends infinitely in both directions, and has infinite length. Any two points fix a unique line.\n3. Ray (AP): Has 1 initial endpoint (A) and extends infinitely in one direction through point P.',
+      explanation: 'Geometric primitives definitions.',
+      keywords: [
+        'Line segment: 2 endpoints, measurable length',
+        'Line: 0 endpoints, infinite both directions',
+        'Ray: 1 initial endpoint, infinite one direction',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-la-2',
+      questionText: 'The Ashoka Chakra has 24 spokes.\n(a) What is the angle between two adjacent spokes?\n(b) What is the largest acute angle that can be formed between any two spokes?\n(c) What type of angle is formed across 7 spoke intervals?',
+      difficulty: PracticeDifficulty.medium,
+      cognitiveDemand: CognitiveDemand.apply,
+      answer: '(a) A full circle has 360 deg. The angle between two adjacent spokes is 360 deg / 24 = 15 deg.\n(b) Multiples of 15 deg are 15 deg, 30 deg, 45 deg, 60 deg, 75 deg, 90 deg... The largest acute angle (strictly less than 90 deg) is 75 deg (formed across 5 spoke intervals).\n(c) Across 7 spoke intervals: 7 x 15 deg = 105 deg. Since 90 deg < 105 deg < 180 deg, this is an obtuse angle.',
+      explanation: 'Ashoka chakra spoke calculations.',
+      keywords: [
+        '360 deg / 24 = 15 deg',
+        'Largest acute angle = 75 deg (5 intervals)',
+        '7 intervals = 105 deg (obtuse angle)',
+      ],
+    ),
+    PracticeQuestion(
+      id: 'pq-la-3',
+      questionText: 'Solve the angle puzzle: "I am an acute angle θ. When you double, triple, or quadruple my measure, the resulting angles are all still acute. But when you multiply my measure by 5, the resulting angle becomes obtuse." Find the exact possible degree range for θ.',
+      difficulty: PracticeDifficulty.hard,
+      cognitiveDemand: CognitiveDemand.analyze,
+      answer: 'Let the acute angle be θ.\n1. Since 4θ is acute: 4θ < 90 deg => θ < 90 deg / 4 => θ < 22.5 deg.\n2. Since 5θ is obtuse: 5θ > 90 deg => θ > 90 deg / 5 => θ > 18 deg (and 5θ < 180 deg => θ < 36 deg).\nCombining both conditions:\n18 deg < θ < 22.5 deg.\nAny angle strictly between 18 deg and 22.5 deg (such as 19 deg, 20 deg, 21 deg, or 22 deg) satisfies all conditions.',
+      explanation: 'Algebraic inequality on angle classification.',
+      keywords: [
+        '4θ < 90 deg => θ < 22.5 deg',
+        '5θ > 90 deg => θ > 18 deg',
+        '18 deg < θ < 22.5 deg',
+        'possible integer values: 19 deg, 20 deg, 21 deg, 22 deg',
+      ],
+    ),
+  ],
+);
